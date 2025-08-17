@@ -82,8 +82,8 @@ export default function HomePage() {
 
         {/* Masterpiece Projects Showcase */}
         <PerfectSection id="projects" spacing="spacious" container="full" background="subtle">
-          {/* Graduated background overlay */}
-          <div className="absolute inset-0 bg-white/90 -z-10" />
+          {/* Sophisticated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white/20 backdrop-blur-sm -z-10" />
           <div className="container mx-auto px-6 md:px-8 lg:px-12">
             <PerfectSectionHeader
               overline="02 — Selected Works"
@@ -97,8 +97,8 @@ export default function HomePage() {
 
         {/* Experience Section */}
         <PerfectSection id="experience" spacing="spacious" container="content">
-          {/* Graduated background overlay */}
-          <div className="absolute inset-0 bg-gray-50/85 -z-10" />
+          {/* Refined gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/25 to-white/10 -z-10" />
           <PerfectSectionHeader
             overline="03 — Journey"
             title="Professional Experience"
@@ -110,8 +110,8 @@ export default function HomePage() {
 
         {/* Services Section */}
         <PerfectSection id="services" spacing="spacious" container="full" background="subtle">
-          {/* Graduated background overlay */}
-          <div className="absolute inset-0 bg-white/30 -z-10" />
+          {/* Subtle backdrop overlay */}
+          <div className="absolute inset-0 bg-white/15 backdrop-blur-sm -z-10" />
           <div className="container mx-auto px-6 md:px-8 lg:px-12">
             <PerfectSectionHeader
               overline="04 — Services"
@@ -125,8 +125,8 @@ export default function HomePage() {
 
         {/* Contact Section */}
         <PerfectSection id="contact" spacing="spacious" container="content">
-          {/* Graduated background overlay */}
-          <div className="absolute inset-0 bg-white/50 -z-10" />
+          {/* Elegant gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-white/15 to-transparent -z-10" />
           <PerfectSectionHeader
             align="center"
             overline="05 — Contact"
