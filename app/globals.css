@@ -1,0 +1,643 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Perfect Consistent Color System - Enhanced for Luxury Background */
+    --background: 26 27% 98%; /* #F8F6F4 - Slightly more transparent for background overlay */
+    --foreground: 26 4% 15%; /* #262421 - Perfect contrast text */
+
+    --card: 26 27% 99%; /* #FAF8F6 - More transparent for luxury background */
+    --card-foreground: 26 4% 15%;
+
+    --popover: 26 27% 98%;
+    --popover-foreground: 26 4% 15%;
+
+    --primary: 26 4% 12%; /* #1F1D1B - Sophisticated primary */
+    --primary-foreground: 26 27% 99%;
+
+    --secondary: 26 27% 96%; /* #F2EFEC - More transparent secondary */
+    --secondary-foreground: 26 4% 25%; /* #403E3A */
+
+    --muted: 26 20% 95%; /* #F0EDEA - More transparent muted background */
+    --muted-foreground: 26 4% 35%; /* #5A5754 */
+
+    --accent: 26 4% 15%; /* Consistent with foreground */
+    --accent-foreground: 26 27% 97%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 26 15% 88%; /* #E5E1DD - Sophisticated borders */
+    --input: 26 15% 88%;
+    --ring: 26 10% 80%; /* #D1CCC6 - Perfect focus rings */
+
+    --radius: 0.5rem; /* 8px - Perfect border radius */
+
+    /* Perfect Typography Scale */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+
+    /* Perfect Shadows */
+    --shadow-subtle: 0 1px 2px rgba(38, 36, 33, 0.04);
+    --shadow-soft: 0 2px 8px rgba(38, 36, 33, 0.06);
+    --shadow-medium: 0 4px 16px rgba(38, 36, 33, 0.08);
+    --shadow-strong: 0 8px 32px rgba(38, 36, 33, 0.12);
+    --shadow-dramatic: 0 16px 64px rgba(38, 36, 33, 0.16);
+
+    /* iOS Safe Area Support */
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-right: env(safe-area-inset-right);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left: env(safe-area-inset-left);
+  }
+
+  .dark {
+    /* Enhanced dark mode colors for luxury background compatibility */
+    --background: 27 3% 6%; /* #0F0E0D - Deeper dark for background overlay */
+    --foreground: 30 25% 94%; /* #EDEAE5 - Enhanced light text */
+
+    --card: 27 3% 8%; /* #141312 - More transparent dark cards */
+    --card-foreground: 30 25% 94%;
+
+    --primary: 26 30% 85%; /* #DDD0C1 - Warm light primary */
+    --primary-foreground: 27 3% 8%;
+
+    --secondary: 27 3% 14%; /* #242220 - No white */
+    --secondary-foreground: 30 20% 75%; /* #BFB8B1 */
+
+    --muted: 27 3% 12%; /* #1F1E1C - No white */
+    --muted-foreground: 30 15% 65%; /* #A8A19A */
+
+    --accent: 26 30% 85%;
+    --accent-foreground: 27 3% 8%;
+
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 27 3% 18%; /* #2E2C2A */
+    --input: 27 3% 18%;
+    --ring: 26 4% 30%; /* #4D4A47 */
+
+    /* Dark mode shadows */
+    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --shadow-dramatic: 0 16px 64px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variation-settings: "opsz" 32;
+    overflow-x: hidden;
+    width: 100%;
+
+    /* iOS Optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* iOS Safe Area Support */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Allow text selection for content */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  div[role="text"] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  /* Perfect Typography Hierarchy */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+    font-feature-settings: "ss01", "ss02";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  p {
+    @apply text-muted-foreground;
+    line-height: 1.75;
+    font-weight: 300;
+    hanging-punctuation: first last;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Perfect Smooth Scrolling - iOS Optimized */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(5rem + env(safe-area-inset-top));
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* iOS Scroll Fix */
+  body,
+  html {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Perfect Selection */
+  ::selection {
+    @apply bg-primary/15 text-primary;
+  }
+  .dark ::selection {
+    @apply bg-primary/25 text-primary;
+  }
+
+  /* iOS Optimized Focus States */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* iOS Touch Optimization */
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  /* Perfect Link Styling */
+  a,
+  .link-styling {
+    @apply relative transition-all duration-300 ease-out;
+    text-decoration: none;
+    @apply text-primary hover:text-primary/80;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Perfect Interactive States - iOS Optimized */
+  .interactive-element {
+    @apply transition-all duration-300 ease-out;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* iOS Hover States (only on devices that support hover) */
+  @media (hover: hover) {
+    .interactive-element:hover {
+      @apply scale-[1.02] -translate-y-0.5;
+    }
+  }
+
+  .interactive-element:active {
+    @apply scale-[0.98] translate-y-0;
+  }
+
+  /* Enhanced section styling for luxury background compatibility */
+  section {
+    @apply bg-transparent;
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
+  }
+
+  .container {
+    @apply bg-transparent;
+  }
+
+  /* Override any white backgrounds */
+  .bg-white {
+    background-color: hsl(var(--background)) !important;
+  }
+
+  /* iOS Input Styling */
+  input,
+  textarea,
+  select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* iOS Button Styling */
+  button {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+/* Perfect Font Loading */
+.font-serif {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  /* iOS Safe Area Utilities */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-x {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-y {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* iOS Touch Target Optimization */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Perfect Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Perfect Shadow System */
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+  .shadow-dramatic {
+    box-shadow: var(--shadow-dramatic);
+  }
+
+  /* Perfect Dividers */
+  .divider-subtle {
+    @apply w-full h-px bg-border my-12 md:my-16;
+  }
+  .divider-elegant {
+    @apply w-1/3 md:w-1/4 mx-auto h-px bg-gradient-to-r from-transparent via-border to-transparent my-12 md:my-16;
+  }
+
+  /* iOS Optimized Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    -webkit-animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    -webkit-animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    -webkit-animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Perfect Spacing - iOS Optimized */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  /* iOS Mobile Specific Spacing */
+  @media (max-width: 640px) {
+    .section-padding {
+      @apply py-12;
+    }
+    .container-padding {
+      @apply px-4;
+    }
+  }
+
+  /* Perfect Grid System */
+  .grid-perfect {
+    @apply grid gap-6 md:gap-8 lg:gap-10;
+  }
+
+  /* Perfect Aspect Ratios */
+  .aspect-golden {
+    aspect-ratio: 1.618 / 1;
+  }
+  .aspect-photo {
+    aspect-ratio: 4 / 3;
+  }
+  .aspect-hero {
+    aspect-ratio: 16 / 9;
+  }
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Perfect Typography Utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-sophisticated {
+    font-feature-settings: "ss01", "ss02", "cv02", "cv03";
+    letter-spacing: -0.025em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* iOS Optimized Interactive States */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  @media (hover: hover) {
+    .hover-lift:hover {
+      @apply scale-[1.02] -translate-y-1 shadow-medium;
+    }
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (hover: hover) {
+    .hover-glow:hover {
+      @apply shadow-strong;
+    }
+  }
+
+  /* Enhanced backdrop effects to work consistently with coral geometric background */
+  .backdrop-perfect {
+    @apply backdrop-blur-sm;
+    background: rgba(248, 246, 244, 0.85);
+    -webkit-backdrop-filter: blur(4px) saturate(110%);
+    backdrop-filter: blur(4px) saturate(110%);
+  }
+
+  .dark .backdrop-perfect {
+    background: rgba(15, 14, 13, 0.85);
+  }
+
+  /* Override any conflicting background colors to maintain consistency */
+  .bg-white,
+  .bg-background {
+    background-color: transparent !important;
+  }
+
+  /* Ensure section backgrounds work harmoniously with site-wide background */
+  section[data-background="subtle"] {
+    background: rgba(248, 246, 244, 0.3);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  section[data-background="transparent"] {
+    background: transparent;
+  }
+}
+
+/* iOS Optimized Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    -webkit-transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+
+/* iOS Specific Media Queries */
+@media (max-width: 428px) {
+  /* iPhone 14 Pro Max and similar */
+  .section-padding {
+    @apply py-10;
+  }
+  .container-padding {
+    @apply px-4;
+  }
+}
+
+@media (max-width: 390px) {
+  /* iPhone 14 Pro and similar */
+  .section-padding {
+    @apply py-8;
+  }
+  .container-padding {
+    @apply px-3;
+  }
+}
+
+@media (max-width: 375px) {
+  /* iPhone SE and similar */
+  .section-padding {
+    @apply py-6;
+  }
+  .container-padding {
+    @apply px-3;
+  }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .backdrop-perfect {
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+  }
+}
+
+/* iOS Landscape Orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+  .section-padding {
+    @apply py-4;
+  }
+
+  .hero-height {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+/* iOS Portrait Orientation */
+@media (orientation: portrait) {
+  .hero-height {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+/* iOS Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover {
+    transform: none;
+    -webkit-transform: none;
+  }
+
+  .interactive-element {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* iOS High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .text-sophisticated {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* iOS Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* iOS Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    -webkit-animation-duration: 0.01ms !important;
+    -webkit-transition-duration: 0.01ms !important;
+  }
+}

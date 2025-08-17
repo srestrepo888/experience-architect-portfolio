@@ -1,0 +1,189 @@
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { getProjectBySlug } from "@/lib/projects"
+import EnhancedNavigation from "@/components/enhanced-navigation"
+import Footer from "@/components/footer"
+import { PerfectSection, PerfectSectionHeader } from "@/components/ui/perfect-section"
+import { EnhancedButton } from "@/components/ui/enhanced-button"
+import { ArrowLeft, ExternalLink } from "lucide-react"
+import Link from "next/link"
+import { HeadingMedium, BodyLarge } from "@/components/typography"
+import { EnhancedProjectGallery } from "@/components/ui/enhanced-project-gallery"
+
+interface Props {
+  params: {
+    slug: string
+  }
+}
+
+async function getProjectFromParams(slug: string) {
+  const project = getProjectBySlug(slug)
+  if (!project) notFound()
+  return project
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata | undefined> {
+  const project = await getProjectFromParams(params.slug)
+  if (!project) return
+
+  return {
+    title: `${project.title} | Silvana Portfolio`,
+    description: project.subtitle,
+    openGraph: {
+      title: project.title,
+      description: project.subtitle,
+      images: [project.heroImage || "/placeholder.svg"],
+    },
+  }
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const project = await getProjectFromParams(params.slug)
+
+  return (
+    <div className="min-h-screen bg-background">
+      <EnhancedNavigation />
+
+      {/* Hero Section */}
+      <PerfectSection spacing="hero" container="content">
+        <div className="flex items-center gap-4 mb-8">
+          <Link href="/projects">
+            <EnhancedButton variant="ghost" size="sm" icon={<ArrowLeft className="w-4 h-4" />} iconPosition="left">
+              Back to Projects
+            </EnhancedButton>
+          </Link>
+        </div>
+
+        <PerfectSectionHeader
+          overline={`${project.client} • ${project.year}`}
+          title={project.title}
+          subtitle={project.subtitle}
+          align="left"
+        />
+
+        <div className="flex flex-wrap gap-4 mb-8">
+          {project.services.map((service, idx) => (
+            <span
+              key={idx}
+              className="inline-block bg-muted px-4 py-2 text-sm text-muted-foreground rounded-full border border-border"
+            >
+              {service}
+            </span>
+          ))}
+        </div>
+
+        {project.webpage && (
+          <EnhancedButton
+            href={project.webpage}
+            external={true}
+            variant="outline"
+            size="md"
+            icon={<ExternalLink className="w-4 h-4" />}
+            className="mb-12"
+          >
+            Visit Live Site
+          </EnhancedButton>
+        )}
+      </PerfectSection>
+
+      {/* Hero Image */}
+      <PerfectSection spacing="normal" container="wide" background="subtle">
+        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-dramatic">
+          <img
+            src={project.heroImage || "/placeholder.svg?width=1200&height=600"}
+            alt={`${project.title} hero image`}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </PerfectSection>
+
+      {/* Project Context & Scope */}
+      <PerfectSection spacing="spacious" container="content">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div>
+            <HeadingMedium className="mb-8">Context</HeadingMedium>
+            <div className="space-y-6">
+              {project.context.split("\n\n").map((paragraph, idx) => (
+                <BodyLarge key={idx} className="text-muted-foreground leading-relaxed">
+                  {paragraph}
+                </BodyLarge>
+              ))}
+            </div>
+          </div>
+          <div>
+            <HeadingMedium className="mb-8">Scope</HeadingMedium>
+            <div className="space-y-6">
+              {project.scope.split("\n\n").map((paragraph, idx) => (
+                <BodyLarge key={idx} className="text-muted-foreground leading-relaxed">
+                  {paragraph}
+                </BodyLarge>
+              ))}
+            </div>
+          </div>
+        </div>
+      </PerfectSection>
+
+      {/* Mobile-Safe Gallery */}
+      {project.galleryImages && project.galleryImages.length > 0 && (
+        <PerfectSection spacing="spacious" container="full" background="subtle">
+          <div className="w-full px-4 md:px-8 lg:px-12">
+            <HeadingMedium className="mb-12 text-center">Project Gallery</HeadingMedium>
+            <EnhancedProjectGallery images={project.galleryImages} />
+          </div>
+        </PerfectSection>
+      )}
+
+      {/* Project Impact */}
+      <PerfectSection spacing="spacious" container="content">
+        <div className="max-w-4xl">
+          <HeadingMedium className="mb-8">Impact</HeadingMedium>
+          <div className="space-y-6">
+            {project.impact.split("\n\n").map((paragraph, idx) => (
+              <BodyLarge key={idx} className="text-muted-foreground leading-relaxed">
+                {paragraph}
+              </BodyLarge>
+            ))}
+          </div>
+        </div>
+      </PerfectSection>
+
+      {/* Testimonial */}
+      {project.testimonial && (
+        <PerfectSection spacing="spacious" container="content" background="subtle">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-background rounded-2xl p-8 md:p-12 shadow-soft">
+              <blockquote className="text-xl md:text-2xl font-light leading-relaxed text-foreground mb-8">
+                "{project.testimonial.quote}"
+              </blockquote>
+              <div className="flex items-center gap-4">
+                <div>
+                  <div className="font-medium text-foreground">{project.testimonial.author}</div>
+                  <div className="text-sm text-muted-foreground">{project.testimonial.role}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </PerfectSection>
+      )}
+
+      {/* Navigation */}
+      <PerfectSection spacing="spacious" container="content">
+        <div className="flex justify-between items-center">
+          <Link href="/projects">
+            <EnhancedButton variant="outline" size="lg" icon={<ArrowLeft className="w-4 h-4" />} iconPosition="left">
+              All Projects
+            </EnhancedButton>
+          </Link>
+          <Link href="/#contact">
+            <EnhancedButton variant="primary" size="lg">
+              Start Your Project
+            </EnhancedButton>
+          </Link>
+        </div>
+      </PerfectSection>
+
+      <Footer />
+    </div>
+  )
+}
