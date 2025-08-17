@@ -2,9 +2,9 @@
   "/_not-found/page": "/_not-found",
   "/page": "/",
   "/principles/page": "/principles",
-  "/typography/page": "/typography",
   "/luxury-showcase/page": "/luxury-showcase",
   "/typography-luxury/page": "/typography-luxury",
   "/projects/page": "/projects",
+  "/typography/page": "/typography",
   "/project/[slug]/page": "/project/[slug]"
 }
