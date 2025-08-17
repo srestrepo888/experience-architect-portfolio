@@ -5,14 +5,6 @@ import { motion } from "framer-motion"
 export default function SimpleHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/background-texture.png')",
-        }}
-      />
-      
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-white/30" />
       
