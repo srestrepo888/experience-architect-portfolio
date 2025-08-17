@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getProjectBySlug } from "@/lib/projects"
+import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects"
 import EnhancedNavigation from "@/components/enhanced-navigation"
 import Footer from "@/components/footer"
 import { PerfectSection, PerfectSectionHeader } from "@/components/ui/perfect-section"
@@ -11,19 +11,20 @@ import { HeadingMedium, BodyLarge } from "@/components/typography"
 import { EnhancedProjectGallery } from "@/components/ui/enhanced-project-gallery"
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-async function getProjectFromParams(slug: string) {
+function getProjectFromParams(slug: string) {
   const project = getProjectBySlug(slug)
   if (!project) notFound()
   return project
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata | undefined> {
-  const project = await getProjectFromParams(params.slug)
+  const resolvedParams = await params
+  const project = getProjectFromParams(resolvedParams.slug)
   if (!project) return
 
   return {
@@ -37,8 +38,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata | un
   }
 }
 
+export async function generateStaticParams() {
+  const slugs = getAllProjectSlugs()
+  return slugs.map((slug) => ({
+    slug: slug,
+  }))
+}
+
 export default async function ProjectPage({ params }: Props) {
-  const project = await getProjectFromParams(params.slug)
+  const resolvedParams = await params
+  const project = getProjectFromParams(resolvedParams.slug)
 
   return (
     <div className="min-h-screen bg-background">
