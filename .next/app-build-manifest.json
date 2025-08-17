@@ -12,9 +12,18 @@
       "static/chunks/4bd1b696-e1c0daab0514922a.js",
       "static/chunks/684-ab376a329993a08f.js",
       "static/chunks/main-app-39a923cef488e8d7.js",
-      "static/css/fb871ad0c04be7ef.css",
+      "static/css/c1a600fafa7f75ef.css",
       "static/css/05d1414781c14c41.css",
       "static/chunks/app/layout-0db0984358461148.js"
+    ],
+    "/principles/page": [
+      "static/chunks/webpack-211aff0d3ba7f8c1.js",
+      "static/chunks/4bd1b696-e1c0daab0514922a.js",
+      "static/chunks/684-ab376a329993a08f.js",
+      "static/chunks/main-app-39a923cef488e8d7.js",
+      "static/chunks/795-f4b0ca143f17abc9.js",
+      "static/chunks/273-6a47ffcd80f46572.js",
+      "static/chunks/app/principles/page-53a72f649ae06b58.js"
     ],
     "/page": [
       "static/chunks/webpack-211aff0d3ba7f8c1.js",
@@ -28,22 +37,6 @@
       "static/chunks/228-862440ca91aaa1a5.js",
       "static/chunks/515-90a923fcd0a4b07f.js",
       "static/chunks/app/page-5e8d4e20059821c5.js"
-    ],
-    "/principles/page": [
-      "static/chunks/webpack-211aff0d3ba7f8c1.js",
-      "static/chunks/4bd1b696-e1c0daab0514922a.js",
-      "static/chunks/684-ab376a329993a08f.js",
-      "static/chunks/main-app-39a923cef488e8d7.js",
-      "static/chunks/795-f4b0ca143f17abc9.js",
-      "static/chunks/273-6a47ffcd80f46572.js",
-      "static/chunks/app/principles/page-53a72f649ae06b58.js"
-    ],
-    "/luxury-showcase/page": [
-      "static/chunks/webpack-211aff0d3ba7f8c1.js",
-      "static/chunks/4bd1b696-e1c0daab0514922a.js",
-      "static/chunks/684-ab376a329993a08f.js",
-      "static/chunks/main-app-39a923cef488e8d7.js",
-      "static/chunks/app/luxury-showcase/page-06554a791e96cd27.js"
     ],
     "/typography-luxury/page": [
       "static/chunks/webpack-211aff0d3ba7f8c1.js",
@@ -76,6 +69,13 @@
       "static/chunks/459-84f377774058746c.js",
       "static/chunks/273-6a47ffcd80f46572.js",
       "static/chunks/app/typography/page-c0edd1ef12a73cb2.js"
+    ],
+    "/luxury-showcase/page": [
+      "static/chunks/webpack-211aff0d3ba7f8c1.js",
+      "static/chunks/4bd1b696-e1c0daab0514922a.js",
+      "static/chunks/684-ab376a329993a08f.js",
+      "static/chunks/main-app-39a923cef488e8d7.js",
+      "static/chunks/app/luxury-showcase/page-06554a791e96cd27.js"
     ],
     "/project/[slug]/page": [
       "static/chunks/webpack-211aff0d3ba7f8c1.js",

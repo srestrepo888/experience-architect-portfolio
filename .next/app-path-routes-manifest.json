@@ -1,10 +1,10 @@
 {
   "/_not-found/page": "/_not-found",
-  "/page": "/",
   "/principles/page": "/principles",
-  "/luxury-showcase/page": "/luxury-showcase",
+  "/page": "/",
   "/typography-luxury/page": "/typography-luxury",
   "/projects/page": "/projects",
   "/typography/page": "/typography",
+  "/luxury-showcase/page": "/luxury-showcase",
   "/project/[slug]/page": "/project/[slug]"
 }
