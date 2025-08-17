@@ -12,7 +12,7 @@ interface ProjectOverviewCardProps {
 export default function ProjectOverviewCard({ project }: ProjectOverviewCardProps) {
   return (
     <motion.div
-      className="bg-white/95 backdrop-blur-md rounded-xl border border-black/5 shadow-md overflow-hidden"
+      className="bg-gradient-to-br from-white/25 via-white/35 to-white/25 backdrop-blur-lg rounded-xl border border-white/30 shadow-md overflow-hidden"
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

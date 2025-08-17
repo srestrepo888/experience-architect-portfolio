@@ -62,7 +62,7 @@ export function UserGuidance({
           exit={{ opacity: 0, y: position === "top" ? -20 : 20 }}
           className={`fixed ${positionClasses[position]} ${alignmentClasses[alignment]} z-50 ${className}`}
         >
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-black/5 overflow-hidden">
+          <div className="bg-gradient-to-br from-white/25 via-white/35 to-white/25 backdrop-blur-lg rounded-lg shadow-lg border border-white/30 overflow-hidden">
             <div className="flex items-center p-3">
               <Info className="h-4 w-4 text-black/60 mr-2 flex-shrink-0" />
 

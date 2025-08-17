@@ -145,7 +145,7 @@ export default function BentoExperience() {
               }}
             />
             <div className="absolute bottom-4 right-4 z-20">
-              <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-black/70 font-medium">
+              <div className="bg-gradient-to-r from-white/30 via-white/40 to-white/30 backdrop-blur-md px-3 py-1 rounded-full text-xs text-black/80 font-medium border border-white/30">
                 {experience.highlight}
               </div>
             </div>

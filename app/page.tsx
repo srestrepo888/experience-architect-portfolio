@@ -20,8 +20,8 @@ export default function HomePage() {
 
         {/* About Section */}
         <PerfectSection id="about" spacing="spacious" container="content">
-          {/* Graduated background overlay */}
-          <div className="absolute inset-0 bg-gray-50/80 -z-10" />
+          {/* Sophisticated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-white/25 to-white/15 backdrop-blur-sm -z-10" />
           <PerfectSectionHeader
             overline="01 — About"
             title="Strategic Design Philosophy"

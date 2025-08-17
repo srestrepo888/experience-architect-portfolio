@@ -255,7 +255,7 @@ export default function EnhancedNavigation({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: "100%", scale: 0.95 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl shadow-[0_32px_80px_rgba(0,0,0,0.12)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] z-50 lg:hidden overflow-y-auto border-l border-slate-200/60 dark:border-slate-700/60"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-gradient-to-b from-white/25 via-white/30 to-white/25 dark:bg-gradient-to-b dark:from-slate-950/25 dark:via-slate-950/30 dark:to-slate-950/25 backdrop-blur-xl shadow-[0_32px_80px_rgba(0,0,0,0.12)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] z-50 lg:hidden overflow-y-auto border-l border-white/20 dark:border-slate-700/30"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-10">

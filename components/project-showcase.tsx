@@ -45,7 +45,7 @@ export default function ProjectShowcase({ className }: ProjectShowcaseProps) {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/20"
+            className="bg-gradient-to-r from-white/30 via-white/40 to-white/30 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-white/30"
           >
             <span className="text-sm font-medium text-gray-800">Wellness Experience</span>
           </motion.div>
@@ -55,7 +55,7 @@ export default function ProjectShowcase({ className }: ProjectShowcaseProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/20"
+            className="bg-gradient-to-r from-white/30 via-white/40 to-white/30 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-white/30"
           >
             <span className="text-sm font-medium text-gray-800">Hospitality Platform</span>
           </motion.div>
@@ -65,7 +65,7 @@ export default function ProjectShowcase({ className }: ProjectShowcaseProps) {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-white/20"
+            className="bg-gradient-to-r from-white/30 via-white/40 to-white/30 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-white/30"
           >
             <span className="text-sm font-medium text-gray-800">AI Technology</span>
           </motion.div>

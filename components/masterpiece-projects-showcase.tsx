@@ -242,7 +242,7 @@ export default function MasterpieceProjectsShowcase() {
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
                     <motion.div
-                      className="bg-white/95 dark:bg-brand-night_deep_bg/95 backdrop-blur-2xl rounded-2xl p-4 border border-white/30 dark:border-brand-moonstone_light_text/20 shadow-2xl"
+                      className="bg-gradient-to-br from-white/30 via-white/40 to-white/30 dark:bg-gradient-to-br dark:from-brand-night_deep_bg/30 dark:via-brand-night_deep_bg/40 dark:to-brand-night_deep_bg/30 backdrop-blur-xl rounded-2xl p-4 border border-white/40 dark:border-brand-moonstone_light_text/30 shadow-2xl"
                       whileHover={{ scale: 1.02, y: -2 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -406,7 +406,7 @@ export default function MasterpieceProjectsShowcase() {
           {/* Enhanced Previous Button */}
           <motion.button
             onClick={goToPrevious}
-            className="flex items-center space-x-3 px-6 py-3 bg-white/60 dark:bg-brand-night_subtle_bg/60 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-brand-moonstone_light_text/10 hover:bg-white/90 dark:hover:bg-brand-night_subtle_bg/90 transition-all duration-500 shadow-lg hover:shadow-xl group"
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/40 hover:via-white/50 hover:to-white/40 dark:hover:from-brand-night_subtle_bg/40 dark:hover:via-brand-night_subtle_bg/50 dark:hover:to-brand-night_subtle_bg/40 transition-all duration-500 shadow-lg hover:shadow-xl group"
             whileHover={{ scale: 1.05, x: -5 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -500,7 +500,7 @@ export default function MasterpieceProjectsShowcase() {
           {/* Enhanced Next Button */}
           <motion.button
             onClick={goToNext}
-            className="flex items-center space-x-3 px-6 py-3 bg-white/60 dark:bg-brand-night_subtle_bg/60 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-brand-moonstone_light_text/10 hover:bg-white/90 dark:hover:bg-brand-night_subtle_bg/90 transition-all duration-500 shadow-lg hover:shadow-xl group"
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/40 hover:via-white/50 hover:to-white/40 dark:hover:from-brand-night_subtle_bg/40 dark:hover:via-brand-night_subtle_bg/50 dark:hover:to-brand-night_subtle_bg/40 transition-all duration-500 shadow-lg hover:shadow-xl group"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -522,7 +522,7 @@ export default function MasterpieceProjectsShowcase() {
         >
           <motion.button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="flex items-center space-x-3 px-6 py-3 bg-white/60 dark:bg-brand-night_subtle_bg/60 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-brand-moonstone_light_text/10 hover:bg-white/80 dark:hover:bg-brand-night_subtle_bg/80 transition-all duration-300 group"
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/35 hover:via-white/45 hover:to-white/35 dark:hover:from-brand-night_subtle_bg/35 dark:hover:via-brand-night_subtle_bg/45 dark:hover:to-brand-night_subtle_bg/35 transition-all duration-300 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
