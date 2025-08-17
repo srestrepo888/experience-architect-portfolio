@@ -365,17 +365,11 @@ export default function MasterpieceProjectsShowcase() {
                 >
                   <motion.button
                     onClick={() => router.push(`/project/${currentProject.slug}`)}
-                    className="flex-1 bg-brand-charcoal_soft_text dark:bg-brand-moonstone_light_text text-brand-creme_rose_bg dark:text-brand-night_deep_bg px-8 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group"
+                    className="flex-1 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-700 transition-all duration-300"
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span className="relative z-10">Explore Project Details</span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.6 }}
-                    />
+                    <span>Explore Project Details</span>
                   </motion.button>
 
                   {currentProject.webpage && (
@@ -383,7 +377,7 @@ export default function MasterpieceProjectsShowcase() {
                       href={currentProject.webpage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 px-8 py-4 border-2 border-brand-charcoal_soft_text dark:border-brand-moonstone_light_text text-brand-charcoal_soft_text dark:text-brand-moonstone_light_text rounded-2xl font-semibold hover:bg-brand-charcoal_soft_text hover:text-brand-creme_rose_bg dark:hover:bg-brand-moonstone_light_text dark:hover:text-brand-night_deep_bg transition-all duration-300 group"
+                      className="flex items-center justify-center space-x-2 border border-gray-900 text-gray-900 bg-transparent px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-all duration-300"
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                     >

@@ -193,30 +193,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/projects": {
       "experimentalBypassFor": [
         {
@@ -232,6 +208,30 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects",
       "dataRoute": "/projects.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/typography-luxury": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/typography-luxury",
+      "dataRoute": "/typography-luxury.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -289,7 +289,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/typography-luxury": {
+    "/": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -302,8 +302,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/typography-luxury",
-      "dataRoute": "/typography-luxury.rsc",
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -343,8 +343,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "b3281be76e646fe897e4deb9f5d8e7cb",
-    "previewModeSigningKey": "6c6739138def75374555822a53907ea05ff0cd825fbf537106e544ac9734b1be",
-    "previewModeEncryptionKey": "acdccb491fd62ca57c4bab5cb446a2402779a4090361a2824ac1108cac1e2578"
+    "previewModeId": "33addb261bb6da9aae6675e00ab631e5",
+    "previewModeSigningKey": "7a025841976b91fd1fe974f6ec53846ea8995269c0a2adf3ee6c1414467f0ea2",
+    "previewModeEncryptionKey": "68aa7ebb58e591070e14d41175e150366060453f228696af5f96a843973791e0"
   }
 }
