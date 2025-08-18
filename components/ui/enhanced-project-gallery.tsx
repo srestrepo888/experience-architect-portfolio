@@ -120,7 +120,7 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
 
                 {/* Sophisticated Zoom Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 hover:opacity-100 transition-all duration-500 flex items-center justify-center rounded-2xl backdrop-blur-[2px] pointer-events-none">
-                  <div className="bg-white/95 backdrop-blur-md rounded-full p-5 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] border border-white/20 hover:scale-110 transition-transform duration-300">
+                  <div className="bg-stone-50/95 backdrop-blur-md rounded-full p-5 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] border border-stone-200/40 hover:scale-110 transition-transform duration-300">
                     <ZoomIn className="w-8 h-8 text-gray-900" />
                   </div>
                 </div>
@@ -133,14 +133,14 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
             <>
               <button
                 onClick={goToPrevious}
-                className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-black rounded-full p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md border border-white/20 hover:scale-110 hover:-translate-x-1"
+                className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-stone-100/95 text-black rounded-full p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md border border-white/20 hover:scale-110 hover:-translate-x-1"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={goToNext}
-                className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-black rounded-full p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md border border-white/20 hover:scale-110 hover:translate-x-1"
+                className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-stone-100/95 text-black rounded-full p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md border border-white/20 hover:scale-110 hover:translate-x-1"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -153,14 +153,14 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
             {/* Auto-play Toggle */}
             <button
               onClick={toggleAutoPlay}
-              className="bg-black/80 hover:bg-black/90 backdrop-blur-md text-white rounded-full p-3 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-white/10 transition-all duration-300 hover:scale-105"
+              className="bg-black/80 hover:bg-black/90 backdrop-blur-md text-white rounded-full p-3 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-amber-200/40 transition-all duration-300 hover:scale-105"
               title={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
             >
               {isAutoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             </button>
 
             {/* Sophisticated Counter */}
-            <div className="bg-black/80 backdrop-blur-md text-white px-5 py-3 rounded-full text-sm font-medium shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-white/10">
+            <div className="bg-black/80 backdrop-blur-md text-white px-5 py-3 rounded-full text-sm font-medium shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-amber-200/40">
               <span className="font-light text-white/90">{currentIndex + 1}</span>
               <span className="mx-2 text-white/50 text-xs">of</span>
               <span className="font-light text-white/90">{images.length}</span>
@@ -259,7 +259,7 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
             {/* Premium Lightbox Controls */}
             <button
               onClick={closeLightbox}
-              className="absolute top-8 right-8 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-4 transition-all duration-300 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-white/10 hover:scale-110 hover:rotate-90"
+              className="absolute top-8 right-8 bg-amber-50/30 hover:bg-stone-100/95/20 backdrop-blur-md text-white rounded-full p-4 transition-all duration-300 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-amber-200/40 hover:scale-110 hover:rotate-90"
               aria-label="Close lightbox"
             >
               <X className="w-6 h-6" />
@@ -270,14 +270,14 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
               <>
                 <button
                   onClick={goToPreviousLightbox}
-                  className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-5 transition-all duration-300 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-white/10 hover:scale-110 hover:-translate-x-1"
+                  className="absolute left-8 top-1/2 -translate-y-1/2 bg-amber-50/30 hover:bg-stone-100/95/20 backdrop-blur-md text-white rounded-full p-5 transition-all duration-300 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-amber-200/40 hover:scale-110 hover:-translate-x-1"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="w-7 h-7" />
                 </button>
                 <button
                   onClick={goToNextLightbox}
-                  className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full p-5 transition-all duration-300 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-white/10 hover:scale-110 hover:translate-x-1"
+                  className="absolute right-8 top-1/2 -translate-y-1/2 bg-amber-50/30 hover:bg-stone-100/95/20 backdrop-blur-md text-white rounded-full p-5 transition-all duration-300 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-amber-200/40 hover:scale-110 hover:translate-x-1"
                   aria-label="Next image"
                 >
                   <ChevronRight className="w-7 h-7" />
@@ -286,7 +286,7 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
             )}
 
             {/* Sophisticated Lightbox Counter */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md text-white px-8 py-4 rounded-full shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-white/10 animate-in slide-in-from-bottom-4 duration-500 delay-200">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md text-white px-8 py-4 rounded-full shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] border border-amber-200/40 animate-in slide-in-from-bottom-4 duration-500 delay-200">
               <span className="text-lg font-light">{lightboxIndex + 1}</span>
               <span className="mx-3 text-white/50 text-lg">of</span>
               <span className="text-lg font-light">{images.length}</span>

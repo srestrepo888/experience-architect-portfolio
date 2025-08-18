@@ -133,7 +133,7 @@ export default function AnimatedExperience() {
 
       {/* Counter indicator */}
       <div className="mt-12 text-center">
-        <div className="inline-block px-4 py-2 bg-white/50 rounded-full shadow-sm">
+        <div className="inline-block px-4 py-2 bg-stone-50/60 backdrop-blur-sm rounded-full shadow-sm">
           <Caption>
             <span className="text-black/70 font-medium">{activeIndex + 1}</span>{" "}
             <span className="text-black/40">/ {visibleExperiences.length}</span>

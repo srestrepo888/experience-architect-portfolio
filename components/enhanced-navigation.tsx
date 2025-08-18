@@ -164,7 +164,7 @@ export default function EnhancedNavigation({
                 >
                   <Link
                     href={item.href}
-                    className="relative py-3 px-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/50 focus-visible:rounded-lg rounded-lg hover:bg-white/10 dark:hover:bg-black/10"
+                    className="relative py-3 px-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/50 focus-visible:rounded-lg rounded-lg hover:bg-stone-50/60 dark:hover:bg-stone-800/40"
                     onClick={() => handleNavClick(item.href, item.external)}
                     {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
                   >
@@ -246,7 +246,7 @@ export default function EnhancedNavigation({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -255,7 +255,7 @@ export default function EnhancedNavigation({
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: "100%", scale: 0.95 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-gradient-to-b from-white/25 via-white/30 to-white/25 dark:bg-gradient-to-b dark:from-slate-950/25 dark:via-slate-950/30 dark:to-slate-950/25 backdrop-blur-xl shadow-[0_32px_80px_rgba(0,0,0,0.12)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] z-50 lg:hidden overflow-y-auto border-l border-white/20 dark:border-slate-700/30"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-gradient-to-b from-stone-50/90 via-amber-50/95 to-rose-50/90 dark:bg-gradient-to-b dark:from-stone-950/90 dark:via-amber-950/95 dark:to-rose-950/90 backdrop-blur-xl shadow-[0_32px_80px_rgba(0,0,0,0.12)] dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)] z-50 lg:hidden overflow-y-auto border-l border-stone-200/40 dark:border-stone-700/30"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-10">

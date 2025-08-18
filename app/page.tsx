@@ -20,8 +20,8 @@ export default function HomePage() {
 
         {/* About Section */}
         <PerfectSection id="about" spacing="spacious" container="content">
-          {/* Sophisticated gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-white/25 to-white/15 backdrop-blur-sm -z-10" />
+          {/* Sophisticated tonal overlay */}
+          <div className="absolute inset-0 bg-stone-50/60 backdrop-blur-sm -z-10" />
           <PerfectSectionHeader
             overline="01 — About"
             title="Strategic Design Philosophy"
@@ -82,8 +82,8 @@ export default function HomePage() {
 
         {/* Masterpiece Projects Showcase */}
         <PerfectSection id="projects" spacing="spacious" container="full" background="subtle">
-          {/* Sophisticated gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white/20 backdrop-blur-sm -z-10" />
+          {/* Luxury tonal gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-rose-50/75 via-orange-50/70 to-amber-50/75 backdrop-blur-sm -z-10" />
           <div className="container mx-auto px-6 md:px-8 lg:px-12">
             <PerfectSectionHeader
               overline="02 — Selected Works"
@@ -97,8 +97,8 @@ export default function HomePage() {
 
         {/* Experience Section */}
         <PerfectSection id="experience" spacing="spacious" container="content">
-          {/* Refined gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/25 to-white/10 -z-10" />
+          {/* Sophisticated experience overlay */}
+          <div className="absolute inset-0 bg-stone-50/60 backdrop-blur-sm -z-10" />
           <PerfectSectionHeader
             overline="03 — Journey"
             title="Professional Experience"
@@ -110,8 +110,8 @@ export default function HomePage() {
 
         {/* Services Section */}
         <PerfectSection id="services" spacing="spacious" container="full" background="subtle">
-          {/* Subtle backdrop overlay */}
-          <div className="absolute inset-0 bg-white/15 backdrop-blur-sm -z-10" />
+          {/* Refined services overlay */}
+          <div className="absolute inset-0 bg-amber-50/40 backdrop-blur-sm -z-10" />
           <div className="container mx-auto px-6 md:px-8 lg:px-12">
             <PerfectSectionHeader
               overline="04 — Services"
@@ -125,8 +125,8 @@ export default function HomePage() {
 
         {/* Contact Section */}
         <PerfectSection id="contact" spacing="spacious" container="content">
-          {/* Elegant gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white/25 via-white/15 to-transparent -z-10" />
+          {/* Elegant contact overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-rose-50/50 to-transparent backdrop-blur-sm -z-10" />
           <PerfectSectionHeader
             align="center"
             overline="05 — Contact"

@@ -24,7 +24,7 @@ const backgroundVariants = {
   default: "bg-background",
   subtle: "bg-gradient-to-b from-muted/10 via-muted/5 to-transparent",
   transparent: "bg-transparent",
-  glass: "bg-white/5 dark:bg-black/5 backdrop-blur-xl border-y border-white/10 dark:border-white/5",
+  glass: "bg-stone-50/20 dark:bg-stone-950/20 backdrop-blur-xl border-y border-stone-200/30 dark:border-stone-800/20",
 }
 
 export function PerfectSection({

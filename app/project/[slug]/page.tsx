@@ -141,7 +141,7 @@ export default async function ProjectPage({ params }: Props) {
                       {/* Overlay with actions */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-3">
-                          <button className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-colors">
+                          <button className="bg-stone-50/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-stone-100/95 transition-colors">
                             <Maximize2 className="w-5 h-5 text-foreground" />
                           </button>
                           {image.url && (
@@ -149,12 +149,12 @@ export default async function ProjectPage({ params }: Props) {
                               href={image.url} 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-colors"
+                              className="bg-amber-50/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-amber-100/95 transition-colors"
                             >
                               <Play className="w-5 h-5 text-foreground" />
                             </a>
                           )}
-                          <button className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-colors">
+                          <button className="bg-rose-50/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-rose-100/95 transition-colors">
                             <Download className="w-5 h-5 text-foreground" />
                           </button>
                         </div>

@@ -108,7 +108,7 @@ export function ImageContainer({
       {/* Loading State */}
       {!isLoaded && (
         <div className="absolute inset-0 bg-muted animate-pulse pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shimmer" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-stone-50/60 to-transparent -skew-x-12 animate-shimmer" />
         </div>
       )}
 
