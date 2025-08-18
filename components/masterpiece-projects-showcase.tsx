@@ -24,9 +24,12 @@ export default function MasterpieceProjectsShowcase() {
   const [isTransitioning, setIsTransitioning] = useState(false)
 
   // Debug logging
+  console.log('=== COMPONENT MOUNTED ===')
   console.log('Projects loaded:', projects.length)
   console.log('Current index:', currentIndex)
   console.log('Current project:', projects[currentIndex])
+  console.log('Router object:', router)
+  console.log('Component state:', { currentIndex, isAutoPlaying, direction, isTransitioning })
 
   const currentProject = projects[currentIndex]
 
@@ -138,9 +141,32 @@ export default function MasterpieceProjectsShowcase() {
 
             {/* Action Buttons - SIMPLIFIED AND VISIBLE */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              {/* CLICKABLE DIV TEST */}
+              <div
+                onClick={() => {
+                  console.log('=== DIV CLICKED ===')
+                  alert('Div click works!')
+                }}
+                className="w-full bg-green-600 text-white px-6 py-4 rounded-lg font-medium tracking-wide hover:bg-green-700 transition-all duration-300 cursor-pointer shadow-lg text-center"
+                style={{ zIndex: 9999, position: 'relative' }}
+              >
+                🟢 CLICKABLE DIV TEST
+              </div>
+              {/* TEST BUTTON - Simple HTML button */}
               <button
                 onClick={() => {
-                  console.log('Explore button clicked')
+                  console.log('=== TEST BUTTON CLICKED ===')
+                  alert('Test button works!')
+                }}
+                className="flex-1 bg-red-600 text-white px-6 py-4 rounded-lg font-medium tracking-wide hover:bg-red-700 transition-all duration-300 cursor-pointer shadow-lg"
+                style={{ zIndex: 9999, position: 'relative' }}
+              >
+                🧪 TEST BUTTON (Click Me!)
+              </button>
+
+              <button
+                onClick={() => {
+                  console.log('=== EXPLORE BUTTON CLICKED ===')
                   console.log('Current project:', currentProject)
                   console.log('Project slug:', currentProject.slug)
                   console.log('Navigating to:', `/project/${currentProject.slug}`)
