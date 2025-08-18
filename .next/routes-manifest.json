@@ -37,34 +37,10 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
-      "page": "/luxury-showcase",
-      "regex": "^/luxury\\-showcase(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/luxury\\-showcase(?:/)?$"
-    },
-    {
-      "page": "/principles",
-      "regex": "^/principles(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/principles(?:/)?$"
-    },
-    {
       "page": "/projects",
       "regex": "^/projects(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/projects(?:/)?$"
-    },
-    {
-      "page": "/typography",
-      "regex": "^/typography(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/typography(?:/)?$"
-    },
-    {
-      "page": "/typography-luxury",
-      "regex": "^/typography\\-luxury(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/typography\\-luxury(?:/)?$"
     }
   ],
   "dataRoutes": [],
