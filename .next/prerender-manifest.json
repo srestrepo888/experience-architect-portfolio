@@ -25,7 +25,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/typography": {
+    "/typography-luxury": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -38,32 +38,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/typography",
-      "dataRoute": "/typography.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
+      "srcRoute": "/typography-luxury",
+      "dataRoute": "/typography-luxury.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -241,30 +217,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/typography-luxury": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/typography-luxury",
-      "dataRoute": "/typography-luxury.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/principles": {
       "experimentalBypassFor": [
         {
@@ -280,6 +232,54 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/principles",
       "dataRoute": "/principles.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/typography": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/typography",
+      "dataRoute": "/typography.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -343,8 +343,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "57dfff5b8637546ebdd5b58473b1eb99",
-    "previewModeSigningKey": "aaf50f19e7429f355ca8861ff3b48aaa662d8a795eb0a62b61b0d8e8cbda6993",
-    "previewModeEncryptionKey": "be21987b2f4c585dd1b0fb63b7ab90c940494fa28572112f81dd2855a147da2a"
+    "previewModeId": "071166ff2604bab885278a5af0ad939d",
+    "previewModeSigningKey": "32a22037103d644102eb70d145151f38c96582c3b0fce6ac0adf0b98aa0fa5ef",
+    "previewModeEncryptionKey": "0bd51e6b4e1d737f9aef8ee99fad12c1e9e932e77403706a5cec801d34da27d7"
   }
 }

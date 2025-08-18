@@ -204,15 +204,6 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </PerfectSection>
 
-      {/* Mobile-Safe Gallery */}
-      {project.galleryImages && project.galleryImages.length > 0 && (
-        <PerfectSection spacing="spacious" container="full" background="subtle">
-          <div className="w-full px-4 md:px-8 lg:px-12">
-            <HeadingMedium className="mb-12 text-center">Project Gallery</HeadingMedium>
-            <EnhancedProjectGallery images={project.galleryImages} />
-          </div>
-        </PerfectSection>
-      )}
 
       {/* Project Impact */}
       <PerfectSection spacing="spacious" container="content">
