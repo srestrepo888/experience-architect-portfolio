@@ -5,7 +5,7 @@ import EnhancedNavigation from "@/components/enhanced-navigation"
 import Footer from "@/components/footer"
 import { PerfectSection, PerfectSectionHeader } from "@/components/ui/perfect-section"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
-import { ArrowLeft, ExternalLink } from "lucide-react"
+import { ArrowLeft, ExternalLink, Play, Maximize2, Download } from "lucide-react"
 import Link from "next/link"
 import { HeadingMedium, BodyLarge } from "@/components/typography"
 import { EnhancedProjectGallery } from "@/components/ui/enhanced-project-gallery"
@@ -108,6 +108,77 @@ export default async function ProjectPage({ params }: Props) {
       </PerfectSection>
 
       {/* Project Context & Scope */}
+      {/* PROTOTYPE SHOWCASE SECTION - This was missing! */}
+      {project.galleryImages && project.galleryImages.length > 0 && (
+        <PerfectSection spacing="spacious" container="full" background="subtle">
+          <div className="w-full px-4 md:px-8 lg:px-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <HeadingMedium className="mb-4">Design Prototypes & Mockups</HeadingMedium>
+                <BodyLarge className="text-muted-foreground max-w-2xl mx-auto">
+                  Explore the design process through interactive prototypes, detailed mockups, and the evolution of key features
+                </BodyLarge>
+              </div>
+              
+              {/* Interactive Prototype Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                {project.galleryImages.map((image, idx) => (
+                  <div key={idx} className="group relative">
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-soft bg-background border border-border">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      
+                      {/* Overlay with actions */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-3">
+                          <button className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-colors">
+                            <Maximize2 className="w-5 h-5 text-foreground" />
+                          </button>
+                          {image.url && (
+                            <a 
+                              href={image.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-colors"
+                            >
+                              <Play className="w-5 h-5 text-foreground" />
+                            </a>
+                          )}
+                          <button className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-colors">
+                            <Download className="w-5 h-5 text-foreground" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Image description */}
+                    <div className="mt-4 text-center">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {image.alt}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Enhanced Gallery for larger view */}
+              <div className="bg-background rounded-2xl p-8 border border-border shadow-soft">
+                <div className="text-center mb-8">
+                  <HeadingMedium className="mb-2">Detailed Design Exploration</HeadingMedium>
+                  <BodyLarge className="text-muted-foreground">
+                    Click on any image to explore the full design details
+                  </BodyLarge>
+                </div>
+                <EnhancedProjectGallery images={project.galleryImages} />
+              </div>
+            </div>
+          </div>
+        </PerfectSection>
+      )}
       <PerfectSection spacing="spacious" container="content">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
@@ -133,15 +204,6 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </PerfectSection>
 
-      {/* Mobile-Safe Gallery */}
-      {project.galleryImages && project.galleryImages.length > 0 && (
-        <PerfectSection spacing="spacious" container="full" background="subtle">
-          <div className="w-full px-4 md:px-8 lg:px-12">
-            <HeadingMedium className="mb-12 text-center">Project Gallery</HeadingMedium>
-            <EnhancedProjectGallery images={project.galleryImages} />
-          </div>
-        </PerfectSection>
-      )}
 
       {/* Project Impact */}
       <PerfectSection spacing="spacious" container="content">

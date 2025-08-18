@@ -4,7 +4,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google"
 import "./globals.css"
 import ScrollProgress from "@/components/scroll-progress"
 import NavigationAudit from "@/components/navigation-audit"
-import Portfolio from "@/components/refined-animated-background"
+import Portfolio from "@/components/ui/refined-animated-background"
 
 // ULTRA-LUXURIOUS DISPLAY FONT: Cormorant Garamond
 const serif = Cormorant_Garamond({

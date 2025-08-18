@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import SophisticatedServiceCard from "./sophisticated-service-card"
+import SophisticatedServiceCard from "@/components/ui/sophisticated-service-card"
 
 const services = [
   {
