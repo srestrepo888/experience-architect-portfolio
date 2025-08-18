@@ -3,62 +3,92 @@
 import { motion } from "framer-motion"
 
 export default function SimpleHero() {
+  // Ultra-luxury easing curve
+  const luxuryEasing = [0.25, 0.1, 0.25, 1]
+  
+  // Split text into letters for stagger animation
+  const splitText = (text: string) => {
+    return text.split('').map((letter, index) => ({ letter, index }))
+  }
+  
+  // Letter animation variants
+  const letterVariants = {
+    initial: {
+      opacity: 0,
+      y: 30,
+      scale: 0.8,
+      filter: "blur(8px)"
+    },
+    animate: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 2.5,
+        delay: 0.3 + (index * 0.1),
+        ease: luxuryEasing
+      }
+    })
+  }
+
+  const experienceLetters = splitText("Experience")
+  const architectLetters = splitText("ARCHITECT")
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       
-      {/* Dramatic accent lines */}
+      {/* Dramatic accent lines - delayed to appear after text */}
       <motion.div 
         className="absolute left-1/2 top-1/2 w-px h-32 bg-foreground/20"
         initial={{ scaleY: 0, opacity: 0 }}
         animate={{ scaleY: 1, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
+        transition={{ duration: 0.8, delay: 4.2 }}
         style={{ transformOrigin: "center" }}
       />
       <motion.div 
         className="absolute left-1/2 top-1/2 w-32 h-px bg-foreground/20"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.7 }}
+        transition={{ duration: 0.8, delay: 4.4 }}
         style={{ transformOrigin: "center" }}
       />
       
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        <motion.h1 
-          className="font-serif text-7xl md:text-9xl lg:text-[12rem] font-extralight text-foreground mb-4 md:mb-6 leading-[0.8] tracking-[-0.04em]"
-          initial={{ opacity: 0, y: 50, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          Experience
-        </motion.h1>
+      <div className="relative z-10 text-center px-6 max-w-7xl mx-auto">
+        {/* Experience - Letter by letter stagger */}
+        <h1 className="font-serif text-8xl md:text-9xl lg:text-[14rem] font-extralight text-foreground mb-4 md:mb-6 leading-none tracking-wider">
+          {experienceLetters.map(({ letter, index }) => (
+            <motion.span
+              key={index}
+              custom={index}
+              variants={letterVariants}
+              initial="initial"
+              animate="animate"
+              className="inline-block"
+              style={{ display: letter === ' ' ? 'inline' : 'inline-block' }}
+            >
+              {letter === ' ' ? '\u00A0' : letter}
+            </motion.span>
+          ))}
+        </h1>
         
-        <motion.h2 
-          className="font-sans text-4xl md:text-6xl lg:text-8xl font-light text-foreground/90 mb-8 md:mb-12 tracking-[0.2em] md:tracking-[0.3em] lg:tracking-[0.4em] uppercase"
-          initial={{ opacity: 0, y: 30, letterSpacing: "0.1em" }}
-          animate={{ opacity: 1, y: 0, letterSpacing: ["0.1em", "0.4em"] }}
-          transition={{ 
-            duration: 1.5, 
-            delay: 0.4,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            letterSpacing: { duration: 2, ease: "easeOut" }
-          }}
-        >
-          ARCHITECT
-        </motion.h2>
-        
-        <motion.p 
-          className="text-xl md:text-2xl lg:text-3xl text-foreground/70 max-w-3xl mx-auto leading-relaxed font-light tracking-wide"
-          initial={{ opacity: 0, y: 30, blur: 10 }}
-          animate={{ opacity: 1, y: 0, blur: 0 }}
-          transition={{ 
-            duration: 1.2, 
-            delay: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }}
-        >
-          Designing invisible systems that touch the human soul
-        </motion.p>
+        {/* ARCHITECT - Letter by letter stagger with offset */}
+        <h2 className="font-sans text-6xl md:text-8xl lg:text-[10rem] font-light text-foreground/95 mb-8 md:mb-12 leading-none tracking-wider uppercase">
+          {architectLetters.map(({ letter, index }) => (
+            <motion.span
+              key={index}
+              custom={experienceLetters.length + index + 2} // Offset after "Experience"
+              variants={letterVariants}
+              initial="initial"
+              animate="animate"
+              className="inline-block"
+              style={{ display: letter === ' ' ? 'inline' : 'inline-block' }}
+            >
+              {letter === ' ' ? '\u00A0' : letter}
+            </motion.span>
+          ))}
+        </h2>
       </div>
     </section>
   )
