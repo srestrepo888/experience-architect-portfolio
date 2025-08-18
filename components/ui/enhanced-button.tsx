@@ -9,7 +9,7 @@ import { ButtonText } from "@/components/typography"
 import { ArrowRight, ExternalLink, Download, ChevronRight } from "lucide-react"
 
 const enhancedButtonVariants = cva(
-  "inline-flex items-center justify-center rounded-lg font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-50 pointer-events-auto cursor-pointer",
+  "inline-flex items-center justify-center rounded-lg font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-[9999] pointer-events-auto cursor-pointer border-2 border-red-500",
   {
     variants: {
       variant: {
@@ -127,7 +127,11 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
       whileHover: { scale: 1.05, y: -2 },
       whileTap: { scale: 0.98 },
       transition: { duration: 0.2, ease: "easeInOut" },
-      style: { zIndex: 50, pointerEvents: 'auto' },
+      style: { 
+        zIndex: 9999, 
+        pointerEvents: 'auto',
+        position: 'relative'
+      },
     }
 
     // External link
@@ -153,7 +157,18 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
           <motion.a 
             className={buttonClasses} 
             {...motionProps}
-            onClick={() => console.log('EnhancedButton clicked:', href)}
+            onClick={(e) => {
+              console.log('EnhancedButton clicked:', href);
+              console.log('Event target:', e.target);
+              console.log('Event currentTarget:', e.currentTarget);
+            }}
+            onMouseEnter={() => console.log('Button hovered')}
+            style={{ 
+              zIndex: 9999, 
+              pointerEvents: 'auto',
+              position: 'relative',
+              cursor: 'pointer'
+            }}
           >
             {buttonContent}
           </motion.a>

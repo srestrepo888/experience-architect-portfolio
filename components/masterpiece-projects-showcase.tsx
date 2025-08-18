@@ -291,10 +291,11 @@ export default function MasterpieceProjectsShowcase() {
 
               {/* Enhanced Project Information */}
               <motion.div
-                className="lg:col-span-5 space-y-6 sm:space-y-8 order-2 lg:order-none relative z-40 pointer-events-auto"
+                className="lg:col-span-5 space-y-6 sm:space-y-8 order-2 lg:order-none relative z-[9998] pointer-events-auto"
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
+                style={{ zIndex: 9998, pointerEvents: 'auto', position: 'relative' }}
               >
                 {/* Title & Subtitle with enhanced animations */}
                 <div>
@@ -359,10 +360,11 @@ export default function MasterpieceProjectsShowcase() {
 
                 {/* Enhanced Action Buttons */}
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-4 relative z-50 pointer-events-auto"
+                  className="flex flex-col sm:flex-row gap-4 relative z-[9999] pointer-events-auto"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
+                  style={{ zIndex: 9999, pointerEvents: 'auto', position: 'relative' }}
                 >
                   <EnhancedButton
                     href={`/project/${currentProject.slug}`}
