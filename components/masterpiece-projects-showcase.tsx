@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { getAllProjects } from "@/lib/projects"
+import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
 
 export default function MasterpieceProjectsShowcase() {
   const router = useRouter()
@@ -104,65 +105,80 @@ export default function MasterpieceProjectsShowcase() {
               </div>
             )}
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button
-                onClick={goToProjectDetails}
-                className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-lg"
-              >
-                View Project Details
-              </button>
+            {/* BULLETPROOF ACTION BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 relative z-[9999] pointer-events-auto">
+              <div className="flex-1">
+                <BulletproofNavigationButton
+                  href={`/project/${currentProject.slug}`}
+                  variant="primary"
+                  size="md"
+                  className="w-full relative z-[9999]"
+                >
+                  View Project Details
+                </BulletproofNavigationButton>
+              </div>
 
               {currentProject.webpage && (
-                <a
-                  href={currentProject.webpage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 border-2 border-blue-600 text-blue-600 bg-transparent py-3 px-6 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-colors text-center"
-                >
-                  Visit Live Site
-                </a>
+                <div className="flex-1">
+                  <BulletproofNavigationButton
+                    href={currentProject.webpage}
+                    external={true}
+                    variant="outline"
+                    size="md"
+                    icon="external"
+                    className="w-full relative z-[9999]"
+                  >
+                    Visit Live Site
+                  </BulletproofNavigationButton>
+                </div>
               )}
             </div>
           </div>
         </div>
 
-        {/* Simple Navigation */}
-        <div className="flex items-center justify-center mt-16 space-x-8">
-          <button
+        {/* BULLETPROOF NAVIGATION */}
+        <div className="flex items-center justify-center mt-16 space-x-8 relative z-[9999] pointer-events-auto">
+          <BulletproofNavigationButton
             onClick={goToPrevious}
-            className="px-6 py-3 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+            variant="outline"
+            size="md"
+            icon="left"
+            className="relative z-[9999]"
           >
-            ← Previous
-          </button>
+            Previous
+          </BulletproofNavigationButton>
 
           {/* Project Counter */}
-          <div className="text-center">
+          <div className="text-center px-8">
             <p className="text-lg font-semibold text-gray-900">
               {currentIndex + 1} of {projects.length}
             </p>
             <p className="text-sm text-gray-500">{currentProject.title}</p>
           </div>
 
-          <button
+          <BulletproofNavigationButton
             onClick={goToNext}
-            className="px-6 py-3 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+            variant="outline"
+            size="md"
+            icon="right"
+            className="relative z-[9999]"
           >
-            Next →
-          </button>
+            Next
+          </BulletproofNavigationButton>
         </div>
 
-        {/* Project Dots */}
-        <div className="flex justify-center mt-8 space-x-2">
+        {/* BULLETPROOF PROJECT DOTS */}
+        <div className="flex justify-center mt-8 space-x-2 relative z-[9999] pointer-events-auto">
           {projects.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
+              className={`w-3 h-3 rounded-full transition-colors relative z-[9999] cursor-pointer ${
                 index === currentIndex
                   ? 'bg-blue-600'
                   : 'bg-gray-300 hover:bg-gray-400'
               }`}
+              style={{ zIndex: 9999, pointerEvents: 'auto' }}
             />
           ))}
         </div>

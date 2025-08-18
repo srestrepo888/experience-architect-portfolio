@@ -4,9 +4,9 @@ import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects"
 import EnhancedNavigation from "@/components/enhanced-navigation"
 import Footer from "@/components/footer"
 import { PerfectSection, PerfectSectionHeader } from "@/components/ui/perfect-section"
-import { EnhancedButton } from "@/components/ui/enhanced-button"
+import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
+import { ProjectNavigation } from "@/components/ui/project-navigation"
 import { ArrowLeft, ExternalLink, Play, Maximize2, Download } from "lucide-react"
-import Link from "next/link"
 import { HeadingMedium, BodyLarge } from "@/components/typography"
 import { EnhancedProjectGallery } from "@/components/ui/enhanced-project-gallery"
 
@@ -55,12 +55,16 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Hero Section */}
       <PerfectSection spacing="hero" container="content">
-        <div className="flex items-center gap-4 mb-8">
-          <Link href="/projects">
-            <EnhancedButton variant="ghost" size="sm" icon={<ArrowLeft className="w-4 h-4" />} iconPosition="left">
-              Back to Projects
-            </EnhancedButton>
-          </Link>
+        <div className="flex items-center gap-4 mb-8 relative z-[9999] pointer-events-auto">
+          <BulletproofNavigationButton 
+            href="/projects" 
+            variant="ghost" 
+            size="sm" 
+            icon="left"
+            className="relative z-[9999]"
+          >
+            Back to Projects
+          </BulletproofNavigationButton>
         </div>
 
         <PerfectSectionHeader
@@ -82,16 +86,18 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         {project.webpage && (
-          <EnhancedButton
-            href={project.webpage}
-            external={true}
-            variant="outline"
-            size="md"
-            icon={<ExternalLink className="w-4 h-4" />}
-            className="mb-12"
-          >
-            Visit Live Site
-          </EnhancedButton>
+          <div className="mb-12 relative z-[9999] pointer-events-auto">
+            <BulletproofNavigationButton
+              href={project.webpage}
+              external={true}
+              variant="outline"
+              size="md"
+              icon="external"
+              className="relative z-[9999]"
+            >
+              Visit Live Site
+            </BulletproofNavigationButton>
+          </div>
         )}
       </PerfectSection>
 
@@ -238,19 +244,20 @@ export default async function ProjectPage({ params }: Props) {
         </PerfectSection>
       )}
 
-      {/* Navigation */}
+      {/* BULLETPROOF PROJECT NAVIGATION */}
       <PerfectSection spacing="spacious" container="content">
-        <div className="flex justify-between items-center">
-          <Link href="/projects">
-            <EnhancedButton variant="outline" size="lg" icon={<ArrowLeft className="w-4 h-4" />} iconPosition="left">
-              All Projects
-            </EnhancedButton>
-          </Link>
-          <Link href="/#contact">
-            <EnhancedButton variant="primary" size="lg">
-              Start Your Project
-            </EnhancedButton>
-          </Link>
+        <ProjectNavigation currentProject={project} />
+        
+        {/* Call to Action */}
+        <div className="text-center mt-16 relative z-[9999] pointer-events-auto">
+          <BulletproofNavigationButton 
+            href="/#contact" 
+            variant="primary" 
+            size="lg"
+            className="relative z-[9999]"
+          >
+            Start Your Project
+          </BulletproofNavigationButton>
         </div>
       </PerfectSection>
 
