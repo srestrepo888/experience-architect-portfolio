@@ -96,7 +96,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/silvanarestrepo/experience-architect-fresh",
+    "outputFileTracingRoot": "/Users/silvanarestrepo/.Trash/ExperienceArchitect",
     "experimental": {
       "allowedDevOrigins": [],
       "nodeMiddleware": false,
@@ -175,7 +175,7 @@
       "forceSwcTransforms": false,
       "largePageDataBytes": 128000,
       "turbo": {
-        "root": "/Users/silvanarestrepo/experience-architect-fresh"
+        "root": "/Users/silvanarestrepo/.Trash/ExperienceArchitect"
       },
       "typedRoutes": false,
       "typedEnv": false,
@@ -282,7 +282,7 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs"
   },
-  "appDir": "/Users/silvanarestrepo/experience-architect-fresh",
+  "appDir": "/Users/silvanarestrepo/.Trash/ExperienceArchitect",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

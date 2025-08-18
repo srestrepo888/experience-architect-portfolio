@@ -1,4 +1,4 @@
-// File: /Users/silvanarestrepo/experience-architect-fresh/app/luxury-showcase/page.tsx
+// File: /Users/silvanarestrepo/.Trash/ExperienceArchitect/app/luxury-showcase/page.tsx
 import * as entry from '../../../../app/luxury-showcase/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

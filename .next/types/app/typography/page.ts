@@ -1,4 +1,4 @@
-// File: /Users/silvanarestrepo/experience-architect-fresh/app/typography/page.tsx
+// File: /Users/silvanarestrepo/.Trash/ExperienceArchitect/app/typography/page.tsx
 import * as entry from '../../../../app/typography/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
