@@ -1,30 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/projects": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/projects",
-      "dataRoute": "/projects.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -216,6 +192,30 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/projects": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/projects",
+      "dataRoute": "/projects.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {
@@ -247,8 +247,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "3714ca7db1b82e8a6e81ea8aaf138c7a",
-    "previewModeSigningKey": "34f4a58f1f69094475958683e6a31df6121f6109cba1578a0ea38817d2b82aff",
-    "previewModeEncryptionKey": "cfe01c666d37a77d718e999e4a57273ba428435e510ca613292ff327e927fd00"
+    "previewModeId": "23d7de64b1b6028630ad6dd35ea1928b",
+    "previewModeSigningKey": "88565c63ee448e1e2edad809d4dbce717a7ea3c1c2ec840e2187b4d543bf450d",
+    "previewModeEncryptionKey": "82d7a953064e8ef29095f7ed7ff0dfa0862f21a17f3bfcce0b4122dcf7f49b95"
   }
 }
