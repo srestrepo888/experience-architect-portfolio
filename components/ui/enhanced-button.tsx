@@ -9,7 +9,7 @@ import { ButtonText } from "@/components/typography"
 import { ArrowRight, ExternalLink, Download, ChevronRight } from "lucide-react"
 
 const enhancedButtonVariants = cva(
-  "inline-flex items-center justify-center rounded-lg font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group",
+  "inline-flex items-center justify-center rounded-lg font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-50 pointer-events-auto cursor-pointer",
   {
     variants: {
       variant: {
@@ -124,9 +124,10 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
     )
 
     const motionProps = {
-      whileHover: { scale: 1.02 },
+      whileHover: { scale: 1.05, y: -2 },
       whileTap: { scale: 0.98 },
       transition: { duration: 0.2, ease: "easeInOut" },
+      style: { zIndex: 50, pointerEvents: 'auto' },
     }
 
     // External link
@@ -149,7 +150,11 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
     if (href) {
       return (
         <Link href={href} passHref legacyBehavior>
-          <motion.a className={buttonClasses} {...motionProps}>
+          <motion.a 
+            className={buttonClasses} 
+            {...motionProps}
+            onClick={() => console.log('EnhancedButton clicked:', href)}
+          >
             {buttonContent}
           </motion.a>
         </Link>

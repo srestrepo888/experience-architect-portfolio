@@ -133,14 +133,14 @@ export function PerfectImageContainer({
 
       {/* Loading State */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-slate-200 animate-pulse">
+        <div className="absolute inset-0 bg-slate-200 animate-pulse pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shimmer" />
         </div>
       )}
 
       {/* Error State */}
       {hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-100 pointer-events-none">
           <div className="text-center text-slate-500">
             <div className="w-12 h-12 mx-auto mb-2 bg-slate-300 rounded-lg flex items-center justify-center">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

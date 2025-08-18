@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Play, Pause, ExternalLink, MapPin, Calendar, Building2 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { getAllProjects } from "@/lib/projects"
+import { EnhancedButton } from "@/components/ui/enhanced-button"
 import {
   DisplayLarge,
   HeadingLarge,
@@ -290,7 +291,7 @@ export default function MasterpieceProjectsShowcase() {
 
               {/* Enhanced Project Information */}
               <motion.div
-                className="lg:col-span-5 space-y-6 sm:space-y-8 order-2 lg:order-none"
+                className="lg:col-span-5 space-y-6 sm:space-y-8 order-2 lg:order-none relative z-40 pointer-events-auto"
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -358,28 +359,30 @@ export default function MasterpieceProjectsShowcase() {
 
                 {/* Enhanced Action Buttons */}
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col sm:flex-row gap-4 relative z-50 pointer-events-auto"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
-                  <motion.button
-                    onClick={() => router.push(`/project/${currentProject.slug}`)}
-                    className="flex-1 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-700 transition-all duration-300"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
+                  <EnhancedButton
+                    href={`/project/${currentProject.slug}`}
+                    variant="primary"
+                    size="lg"
+                    width="full"
+                    icon="arrow"
                   >
-                    <span>Explore Project Details</span>
-                  </motion.button>
+                    Explore Project Details
+                  </EnhancedButton>
 
                   {currentProject.webpage && (
                     <motion.a
                       href={currentProject.webpage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 border border-gray-900 text-gray-900 bg-transparent px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-all duration-300"
-                      whileHover={{ scale: 1.02, y: -2 }}
+                      className="flex items-center justify-center space-x-2 border border-gray-900 text-gray-900 bg-transparent px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-all duration-300 relative z-50 pointer-events-auto cursor-pointer"
+                      whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.98 }}
+                      style={{ zIndex: 50, pointerEvents: 'auto' }}
                     >
                       <span>Visit Live Site</span>
                       <motion.div
@@ -406,9 +409,10 @@ export default function MasterpieceProjectsShowcase() {
           {/* Enhanced Previous Button */}
           <motion.button
             onClick={goToPrevious}
-            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/40 hover:via-white/50 hover:to-white/40 dark:hover:from-brand-night_subtle_bg/40 dark:hover:via-brand-night_subtle_bg/50 dark:hover:to-brand-night_subtle_bg/40 transition-all duration-500 shadow-lg hover:shadow-xl group"
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/40 hover:via-white/50 hover:to-white/40 dark:hover:from-brand-night_subtle_bg/40 dark:hover:via-brand-night_subtle_bg/50 dark:hover:to-brand-night_subtle_bg/40 transition-all duration-500 shadow-lg hover:shadow-xl group relative z-50 pointer-events-auto cursor-pointer"
             whileHover={{ scale: 1.05, x: -5 }}
             whileTap={{ scale: 0.95 }}
+            style={{ zIndex: 50, pointerEvents: 'auto' }}
           >
             <motion.div animate={{ x: [0, -4, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
               <ChevronLeft className="w-5 h-5 text-brand-graphite_medium_text dark:text-brand-moonstone_medium_text" />
@@ -477,13 +481,14 @@ export default function MasterpieceProjectsShowcase() {
                 <motion.button
                   key={index}
                   onClick={() => goToProject(index)}
-                  className={`relative overflow-hidden rounded-full transition-all duration-500 ${
+                  className={`relative overflow-hidden rounded-full transition-all duration-500 z-50 pointer-events-auto cursor-pointer ${
                     index === currentIndex
                       ? "w-12 h-3 bg-brand-charcoal_soft_text dark:bg-brand-moonstone_light_text"
                       : "w-3 h-3 bg-brand-charcoal_soft_text/20 dark:bg-brand-moonstone_light_text/20 hover:bg-brand-charcoal_soft_text/40 dark:hover:bg-brand-moonstone_light_text/40"
                   }`}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
+                  style={{ zIndex: 50, pointerEvents: 'auto' }}
                 >
                   {index === currentIndex && (
                     <motion.div
@@ -500,9 +505,10 @@ export default function MasterpieceProjectsShowcase() {
           {/* Enhanced Next Button */}
           <motion.button
             onClick={goToNext}
-            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/40 hover:via-white/50 hover:to-white/40 dark:hover:from-brand-night_subtle_bg/40 dark:hover:via-brand-night_subtle_bg/50 dark:hover:to-brand-night_subtle_bg/40 transition-all duration-500 shadow-lg hover:shadow-xl group"
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/40 hover:via-white/50 hover:to-white/40 dark:hover:from-brand-night_subtle_bg/40 dark:hover:via-brand-night_subtle_bg/50 dark:hover:to-brand-night_subtle_bg/40 transition-all duration-500 shadow-lg hover:shadow-xl group relative z-50 pointer-events-auto cursor-pointer"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
+            style={{ zIndex: 50, pointerEvents: 'auto' }}
           >
             <span className="font-medium text-brand-graphite_medium_text dark:text-brand-moonstone_medium_text">
               Next
@@ -522,9 +528,10 @@ export default function MasterpieceProjectsShowcase() {
         >
           <motion.button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/35 hover:via-white/45 hover:to-white/35 dark:hover:from-brand-night_subtle_bg/35 dark:hover:via-brand-night_subtle_bg/45 dark:hover:to-brand-night_subtle_bg/35 transition-all duration-300 group"
+            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-white/25 via-white/35 to-white/25 dark:bg-gradient-to-r dark:from-brand-night_subtle_bg/25 dark:via-brand-night_subtle_bg/35 dark:to-brand-night_subtle_bg/25 backdrop-blur-lg rounded-2xl border border-white/30 dark:border-brand-moonstone_light_text/20 hover:from-white/35 hover:via-white/45 hover:to-white/35 dark:hover:from-brand-night_subtle_bg/35 dark:hover:via-brand-night_subtle_bg/45 dark:hover:to-brand-night_subtle_bg/35 transition-all duration-300 group relative z-50 pointer-events-auto cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{ zIndex: 50, pointerEvents: 'auto' }}
           >
             <motion.div
               animate={{ rotate: isAutoPlaying ? 360 : 0 }}

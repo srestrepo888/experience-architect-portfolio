@@ -107,14 +107,14 @@ export function ImageContainer({
 
       {/* Loading State */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse">
+        <div className="absolute inset-0 bg-muted animate-pulse pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shimmer" />
         </div>
       )}
 
       {/* Error State */}
       {hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-muted">
+        <div className="absolute inset-0 flex items-center justify-center bg-muted pointer-events-none">
           <div className="text-center text-muted-foreground">
             <div className="w-12 h-12 mx-auto mb-2 bg-border rounded-lg flex items-center justify-center">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export function ImageContainer({
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-start p-6"
+          className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-start p-6 pointer-events-none"
         >
           {overlayContent && (
             <motion.div

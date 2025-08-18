@@ -119,7 +119,7 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
                 />
 
                 {/* Sophisticated Zoom Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 hover:opacity-100 transition-all duration-500 flex items-center justify-center rounded-2xl backdrop-blur-[2px]">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 hover:opacity-100 transition-all duration-500 flex items-center justify-center rounded-2xl backdrop-blur-[2px] pointer-events-none">
                   <div className="bg-white/95 backdrop-blur-md rounded-full p-5 shadow-[0_20px_40px_-8px_rgba(0,0,0,0.3)] border border-white/20 hover:scale-110 transition-transform duration-300">
                     <ZoomIn className="w-8 h-8 text-gray-900" />
                   </div>
@@ -193,7 +193,7 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
               aria-label={`Go to slide ${index + 1}`}
             >
               {index === currentIndex && (
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-primary animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-primary animate-pulse pointer-events-none" />
               )}
             </button>
           ))}
@@ -225,7 +225,7 @@ export function EnhancedProjectGallery({ images }: EnhancedProjectGalleryProps) 
               />
               <div
                 className={cn(
-                  "absolute inset-0 transition-all duration-300",
+                  "absolute inset-0 transition-all duration-300 pointer-events-none",
                   index === currentIndex ? "bg-primary/20 backdrop-blur-[1px]" : "bg-black/0 hover:bg-black/10",
                 )}
               />
