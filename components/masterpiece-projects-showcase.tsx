@@ -24,6 +24,11 @@ export default function MasterpieceProjectsShowcase() {
   const [direction, setDirection] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
 
+  // Debug logging
+  console.log('Projects loaded:', projects.length)
+  console.log('Current index:', currentIndex)
+  console.log('Current project:', projects[currentIndex])
+
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return
@@ -39,23 +44,27 @@ export default function MasterpieceProjectsShowcase() {
   }, [isAutoPlaying, projects.length])
 
   const goToNext = () => {
-    console.log('Next button clicked')
+    console.log('Next button clicked, current index:', currentIndex, 'total projects:', projects.length)
     setDirection(1)
     setIsTransitioning(true)
-    setCurrentIndex((prev) => (prev + 1) % projects.length)
+    const newIndex = (currentIndex + 1) % projects.length
+    console.log('Setting new index to:', newIndex)
+    setCurrentIndex(newIndex)
     setTimeout(() => setIsTransitioning(false), 800)
   }
 
   const goToPrevious = () => {
-    console.log('Previous button clicked')
+    console.log('Previous button clicked, current index:', currentIndex, 'total projects:', projects.length)
     setDirection(-1)
     setIsTransitioning(true)
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length)
+    const newIndex = (currentIndex - 1 + projects.length) % projects.length
+    console.log('Setting new index to:', newIndex)
+    setCurrentIndex(newIndex)
     setTimeout(() => setIsTransitioning(false), 800)
   }
 
   const goToProject = (index: number) => {
-    console.log('Project indicator clicked:', index)
+    console.log('Project indicator clicked:', index, 'current index:', currentIndex)
     setDirection(index > currentIndex ? 1 : -1)
     setIsTransitioning(true)
     setCurrentIndex(index)
@@ -183,27 +192,38 @@ export default function MasterpieceProjectsShowcase() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <button
-                onClick={() => {
-                  console.log('Explore button clicked, navigating to:', `/project/${currentProject.slug}`)
-                  router.push(`/project/${currentProject.slug}`)
-                }}
-                className="flex-1 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-700 transition-all duration-300 cursor-pointer"
-              >
-                Explore Project Details
-              </button>
+                             <button
+                 onClick={() => {
+                   console.log('Explore button clicked')
+                   console.log('Current project:', currentProject)
+                   console.log('Project slug:', currentProject.slug)
+                   console.log('Navigating to:', `/project/${currentProject.slug}`)
+                   try {
+                     router.push(`/project/${currentProject.slug}`)
+                   } catch (error) {
+                     console.error('Navigation error:', error)
+                   }
+                 }}
+                 className="flex-1 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-700 transition-all duration-300 cursor-pointer"
+               >
+                 Explore Project Details
+               </button>
 
-              {currentProject.webpage && (
-                <a
-                  href={currentProject.webpage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 border border-gray-900 text-gray-900 bg-transparent px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-pointer"
-                >
-                  <span>Visit Live Site</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              )}
+                             {currentProject.webpage && (
+                 <a
+                   href={currentProject.webpage}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   onClick={() => {
+                     console.log('Visit Live Site clicked')
+                     console.log('Webpage URL:', currentProject.webpage)
+                   }}
+                   className="flex items-center justify-center space-x-2 border border-gray-900 text-gray-900 bg-transparent px-6 py-3 rounded-lg font-medium tracking-wide hover:bg-gray-900 hover:text-white transition-all duration-300 cursor-pointer"
+                 >
+                   <span>Visit Live Site</span>
+                   <ExternalLink className="w-4 h-4" />
+                 </a>
+               )}
             </motion.div>
           </motion.div>
         </div>
