@@ -24,15 +24,15 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-stone-50/60 backdrop-blur-sm -z-10" />
           <PerfectSectionHeader
             overline="01 — About"
-            title="Strategic Design Philosophy"
+            title="Human-Centered Innovation"
             subtitle="I believe the most compelling stories begin with curiosity—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design."
             align="center"
           />
           <PerfectGrid cols={2} gap="dramatic" className="items-center">
             <div className="space-y-8">
               <BodyMedium>
-                At my core, I am an architect of invisible systems, adept at listening to unspoken and designing
-                experiences that touch the human soul. I have embarked on projects ranging from wellness movements to
+                At my core, I am a strategic experience designer, adept at listening to unspoken needs and designing
+                solutions that connect business objectives with human aspirations. I have embarked on projects ranging from wellness movements to
                 creating AI-driven platforms that empower developers worldwide.
               </BodyMedium>
               <Quote variant="large" className="my-10">
