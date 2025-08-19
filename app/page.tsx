@@ -6,7 +6,7 @@ import Footer from "@/components/footer"
 import EnhancedNavigation from "@/components/enhanced-navigation"
 import DetailedServicesSection from "@/components/detailed-services-section"
 import AnimatedExperience from "@/components/animated-experience"
-import { BodyMedium, BodyLarge, Quote, Overline } from "@/components/typography"
+import { BodyMedium, BodyLarge, Quote, Overline, HeadingLarge } from "@/components/typography"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
 import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
@@ -113,59 +113,60 @@ export default function HomePage() {
           </PerfectLayout>
         </SectionFlowEnhancer>
 
-        {/* Experience Section with Sophisticated Flow */}
+        {/* Experience Section with Perfect Layout */}
         <SectionFlowEnhancer 
           sectionId="experience" 
           colorTheme={getColorTheme('experience')}
           intensity="medium"
         >
-          <PerfectSection spacing="spacious" container="content">
-          <PerfectSectionHeader
-            overline="03 — Journey"
-            title="Professional Experience"
-            subtitle="With over a decade of experience across diverse industries, I've developed a unique perspective on design and strategy. My career journey has equipped me with the skills to navigate complex challenges and deliver impactful solutions."
-            align="center"
-          />
-          <AnimatedExperience />
-          </PerfectSection>
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+            <PerfectStack spacing="loose" align="center" className="mb-20">
+              <Overline className="text-muted-foreground/80 tracking-wider">03 — Journey</Overline>
+              <HeadingLarge className="text-center">Professional Experience</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
+                With over a decade of experience across diverse industries, I've developed a unique perspective on design and strategy. My career journey has equipped me with the skills to navigate complex challenges and deliver impactful solutions.
+              </BodyLarge>
+            </PerfectStack>
+            <AnimatedExperience />
+          </PerfectLayout>
         </SectionFlowEnhancer>
 
-        {/* Services Section with Sophisticated Flow */}
+        {/* Services Section with Perfect Layout */}
         <SectionFlowEnhancer 
           sectionId="services" 
           colorTheme={getColorTheme('services')}
           intensity="medium"
         >
-          <PerfectSection spacing="spacious" container="full" background="subtle">
-          <div className="container mx-auto px-6 md:px-8 lg:px-12">
-            <PerfectSectionHeader
-              overline="04 — Services"
-              title="Design Excellence"
-              subtitle="Meticulously architected solutions addressing demanding market realities and evolving client's needs."
-              align="center"
-            />
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
+            <PerfectStack spacing="loose" align="center" className="mb-20">
+              <Overline className="text-muted-foreground/80 tracking-wider">04 — Services</Overline>
+              <HeadingLarge className="text-center">Design Excellence</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
+                Meticulously architected solutions addressing demanding market realities and evolving client's needs.
+              </BodyLarge>
+            </PerfectStack>
             <DetailedServicesSection />
-          </div>
-          </PerfectSection>
+          </PerfectLayout>
         </SectionFlowEnhancer>
 
-        {/* Contact Section with Sophisticated Flow */}
+        {/* Contact Section with Perfect Layout */}
         <SectionFlowEnhancer 
           sectionId="contact" 
           colorTheme={getColorTheme('contact')}
           intensity="strong"
         >
-          <PerfectSection spacing="spacious" container="content">
-          <PerfectSectionHeader
-            align="center"
-            overline="05 — Contact"
-            title="Let's Create Together"
-            subtitle="Have a project in mind? I'd love to hear about it. Let's connect and build something exceptional."
-          />
-          <div className="mt-12 max-w-2xl mx-auto">
-            <ContactForm />
-          </div>
-          </PerfectSection>
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+            <PerfectStack spacing="loose" align="center" className="mb-20">
+              <Overline className="text-muted-foreground/80 tracking-wider">05 — Contact</Overline>
+              <HeadingLarge className="text-center">Let's Create Together</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
+                Have a project in mind? I'd love to hear about it. Let's connect and build something exceptional.
+              </BodyLarge>
+            </PerfectStack>
+            <PerfectCard padding="xl" variant="minimal" className="max-w-2xl mx-auto">
+              <ContactForm />
+            </PerfectCard>
+          </PerfectLayout>
         </SectionFlowEnhancer>
         </main>
         <Footer />

@@ -4,10 +4,10 @@ import { notFound } from "next/navigation"
 import { getProjectBySlug } from "@/lib/projects"
 import EnhancedNavigation from "@/components/enhanced-navigation"
 import Footer from "@/components/footer"
-import { PerfectSection } from "@/components/ui/perfect-section"
+import { PerfectLayout, PerfectStack, PerfectCard, PerfectGrid } from "@/components/ui/perfect-layout"
 import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
 import { ProjectNavigation } from "@/components/ui/project-navigation"
-import { ArrowLeft, ExternalLink, Calendar, Building2, Target } from "lucide-react"
+import { Calendar, Building2, Target } from "lucide-react"
 import { 
   DisplayLarge, 
   HeadingLarge, 
@@ -60,11 +60,11 @@ export default async function ProjectPage({ params }: Props) {
           colorTheme={getColorTheme('projects')}
           intensity="strong"
         >
-          <PerfectSection spacing="hero" container="full">
-            <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+          <PerfectLayout variant="section" spacing="hero" maxWidth="wide">
+            <PerfectStack spacing="loose">
               {/* Navigation */}
               <motion.div 
-                className="flex items-center gap-4 mb-16 relative z-50"
+                className="flex items-center gap-4 relative z-50"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -83,102 +83,117 @@ export default async function ProjectPage({ params }: Props) {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                 {/* ENHANCED CONTENT HIERARCHY */}
                 <motion.div 
-                  className="lg:col-span-6 space-y-10"
+                  className="lg:col-span-6"
                   initial={{ opacity: 0, x: -40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  {/* Project Meta */}
-                  <div className="space-y-4">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                    >
-                      <Overline className="text-amber-600 font-medium tracking-wider">
-                        {project.client} • {project.year}
-                      </Overline>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      <DisplayLarge className="text-slate-900 leading-[1.1] tracking-tight">
-                        {project.title}
-                      </DisplayLarge>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                    >
-                      <SubheadingLarge className="text-slate-600 leading-relaxed max-w-2xl">
-                        {project.subtitle}
-                      </SubheadingLarge>
-                    </motion.div>
-                  </div>
-
-                  {/* PREMIUM META CARDS */}
-                  <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                  >
-                    {/* Client Card */}
-                    <div className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border border-white/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
-                          <Building2 className="w-5 h-5 text-white" />
-                        </div>
-                        <Caption className="text-slate-500 font-medium uppercase tracking-wider">
-                          Client
-                        </Caption>
-                      </div>
-                      <BodyMedium className="text-slate-900 font-semibold">
-                        {project.client}
-                      </BodyMedium>
-                    </div>
-
-                    {/* Year Card */}
-                    <div className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border border-white/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
-                          <Calendar className="w-5 h-5 text-white" />
-                        </div>
-                        <Caption className="text-slate-500 font-medium uppercase tracking-wider">
-                          Year
-                        </Caption>
-                      </div>
-                      <BodyMedium className="text-slate-900 font-semibold">
-                        {project.year}
-                      </BodyMedium>
-                    </div>
-                  </motion.div>
-
-                  {/* Action Buttons */}
-                  <motion.div 
-                    className="flex flex-col sm:flex-row gap-4 pt-4"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                  >
-                    {project.webpage && (
-                      <BulletproofNavigationButton
-                        href={project.webpage}
-                        external={true}
-                        variant="primary"
-                        size="md"
-                        icon="external"
-                        className="flex-1"
+                  <PerfectStack spacing="loose">
+                    {/* Project Meta */}
+                    <div className="space-y-4">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
                       >
-                        Visit Live Site
-                      </BulletproofNavigationButton>
-                    )}
-                  </motion.div>
+                        <Overline className="text-amber-600 font-medium tracking-wider">
+                          {project.client} • {project.year}
+                        </Overline>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                      >
+                        <DisplayLarge className="text-slate-900 leading-[1.1] tracking-tight">
+                          {project.title}
+                        </DisplayLarge>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                      >
+                        <SubheadingLarge className="text-slate-600 leading-relaxed max-w-2xl">
+                          {project.subtitle}
+                        </SubheadingLarge>
+                      </motion.div>
+                    </div>
+
+                    {/* PREMIUM META CARDS */}
+                    <motion.div 
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                    >
+                      <PerfectGrid columns={{ sm: 1, md: 2 }} gap="lg">
+                        {/* Client Card */}
+                        <PerfectCard 
+                          padding="lg" 
+                          variant="elevated" 
+                          className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border border-white/30 hover:shadow-xl transition-all duration-300"
+                        >
+                          <PerfectStack spacing="tight">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                                <Building2 className="w-5 h-5 text-white" />
+                              </div>
+                              <Caption className="text-slate-500 font-medium uppercase tracking-wider">
+                                Client
+                              </Caption>
+                            </div>
+                            <BodyMedium className="text-slate-900 font-semibold">
+                              {project.client}
+                            </BodyMedium>
+                          </PerfectStack>
+                        </PerfectCard>
+
+                        {/* Year Card */}
+                        <PerfectCard 
+                          padding="lg" 
+                          variant="elevated" 
+                          className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border border-white/30 hover:shadow-xl transition-all duration-300"
+                        >
+                          <PerfectStack spacing="tight">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
+                                <Calendar className="w-5 h-5 text-white" />
+                              </div>
+                              <Caption className="text-slate-500 font-medium uppercase tracking-wider">
+                                Year
+                              </Caption>
+                            </div>
+                            <BodyMedium className="text-slate-900 font-semibold">
+                              {project.year}
+                            </BodyMedium>
+                          </PerfectStack>
+                        </PerfectCard>
+                      </PerfectGrid>
+                    </motion.div>
+
+                    {/* Action Buttons */}
+                    <motion.div 
+                      className="flex flex-col sm:flex-row gap-4 pt-4"
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.8 }}
+                    >
+                      {project.webpage && (
+                        <BulletproofNavigationButton
+                          href={project.webpage}
+                          external={true}
+                          variant="primary"
+                          size="md"
+                          icon="external"
+                          className="flex-1"
+                        >
+                          Visit Live Site
+                        </BulletproofNavigationButton>
+                      )}
+                    </motion.div>
+                  </PerfectStack>
                 </motion.div>
 
                 {/* Project Image */}
@@ -198,74 +213,77 @@ export default async function ProjectPage({ params }: Props) {
                   </div>
                 </motion.div>
               </div>
-            </div>
-          </PerfectSection>
+            </PerfectStack>
+          </PerfectLayout>
         </SectionFlowEnhancer>
 
         {/* PROJECT CONTEXT SECTION */}
-        <PerfectSection spacing="spacious" container="content">
-          <motion.div 
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="text-center mb-16">
-              <HeadingLarge className="text-slate-900 mb-6">
+        <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+          <PerfectStack spacing="loose" align="center">
+            <PerfectStack spacing="relaxed" align="center" className="mb-16">
+              <HeadingLarge className="text-slate-900">
                 Project Context
               </HeadingLarge>
-              <BodyLarge className="text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              <BodyLarge className="text-slate-600 leading-relaxed max-w-3xl text-center">
                 {project.context}
               </BodyLarge>
-            </div>
+            </PerfectStack>
 
             {/* Services */}
             {project.services && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <PerfectGrid columns={{ sm: 1, md: 2, lg: 3 }} gap="lg">
                 {project.services.map((service, idx) => (
                   <motion.div
                     key={idx}
-                    className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                   >
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Target className="w-8 h-8 text-white" />
-                    </div>
-                    <HeadingMedium className="text-slate-900 mb-3">
-                      {service}
-                    </HeadingMedium>
+                    <PerfectCard 
+                      padding="xl" 
+                      variant="elevated" 
+                      className="text-center bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 hover:shadow-xl transition-all duration-300"
+                    >
+                      <PerfectStack spacing="relaxed" align="center">
+                        <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center">
+                          <Target className="w-8 h-8 text-white" />
+                        </div>
+                        <HeadingMedium className="text-slate-900">
+                          {service}
+                        </HeadingMedium>
+                      </PerfectStack>
+                    </PerfectCard>
                   </motion.div>
                 ))}
-              </div>
+              </PerfectGrid>
             )}
-          </motion.div>
-        </PerfectSection>
+          </PerfectStack>
+        </PerfectLayout>
 
         {/* ENHANCED PROJECT NAVIGATION */}
-        <PerfectSection spacing="spacious" container="content">
-          <ProjectNavigation currentProject={project} />
-          
-          <motion.div 
-            className="text-center mt-20"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <BulletproofNavigationButton 
-              href="/#contact" 
-              variant="primary" 
-              size="lg"
-              className="bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 shadow-lg hover:shadow-xl"
+        <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+          <PerfectStack spacing="loose" align="center">
+            <ProjectNavigation currentProject={project} />
+            
+            <motion.div 
+              className="text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              Start Your Project
-            </BulletproofNavigationButton>
-          </motion.div>
-        </PerfectSection>
+              <BulletproofNavigationButton 
+                href="/#contact" 
+                variant="primary" 
+                size="lg"
+                className="bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 shadow-lg hover:shadow-xl"
+              >
+                Start Your Project
+              </BulletproofNavigationButton>
+            </motion.div>
+          </PerfectStack>
+        </PerfectLayout>
 
         <Footer />
       </div>
