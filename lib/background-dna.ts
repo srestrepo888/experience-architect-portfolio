@@ -176,10 +176,7 @@ export const getColorTheme = (section: keyof typeof BACKGROUND_DNA.colorRiver) =
   return {
     primary: `rgb(${colors.primary})`,
     secondary: `rgb(${colors.secondary})`,
-    accent: `rgb(${colors.accent})`,
-    primaryRgba: (opacity: number) => `rgba(${colors.primary}, ${opacity})`,
-    secondaryRgba: (opacity: number) => `rgba(${colors.secondary}, ${opacity})`,
-    accentRgba: (opacity: number) => `rgba(${colors.accent}, ${opacity})`
+    accent: `rgb(${colors.accent})`
   }
 }
 
