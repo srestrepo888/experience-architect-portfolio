@@ -7,20 +7,18 @@ import Footer from "@/components/footer"
 import { PerfectSection } from "@/components/ui/perfect-section"
 import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
 import { ProjectNavigation } from "@/components/ui/project-navigation"
-import { ArrowLeft, ExternalLink, Play, Maximize2, Download, Calendar, Building2, MapPin, Target, TrendingUp, Users } from "lucide-react"
+import { ArrowLeft, ExternalLink, Calendar, Building2, Target } from "lucide-react"
 import { 
   DisplayLarge, 
   HeadingLarge, 
-  HeadingMedium, 
-  HeadingSmall,
+  HeadingMedium,
   SubheadingLarge,
   BodyLarge, 
   BodyMedium,
   Caption,
   Overline 
 } from "@/components/typography"
-import { motion, useScroll, useTransform, useInView } from "framer-motion"
-import { useRef } from "react"
+import { motion } from "framer-motion"
 import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
 import { SectionFlowEnhancer } from "@/components/ui/section-flow-enhancer"
 import { getColorTheme } from "@/lib/background-dna"
