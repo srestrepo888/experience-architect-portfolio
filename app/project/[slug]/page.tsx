@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: Props) {
           intensity="strong"
         >
           <PerfectSection spacing="hero" container="full">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           {/* Navigation */}
           <motion.div 
             className="flex items-center gap-4 mb-16 relative z-50"
@@ -512,6 +512,63 @@ export default async function ProjectPage({ params }: Props) {
               </div>
             </div>
           </div>
+        </PerfectSection>
+      )}
+
+      {/* PROTOTYPE SHOWCASE SECTION */}
+      {project.prototypeShowcase && (
+        <PerfectSection spacing="spacious" container="content">
+          <motion.div 
+            className="max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="text-center mb-16">
+              <HeadingLarge className="text-slate-900 mb-4">
+                Prototype Showcase
+              </HeadingLarge>
+              <BodyMedium className="text-slate-600 max-w-2xl mx-auto">
+                Experience the interactive prototype and see how the solution comes to life
+              </BodyMedium>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <HeadingMedium className="text-slate-900">
+                  {project.prototypeShowcase.title}
+                </HeadingMedium>
+                <BodyMedium className="text-slate-600 leading-relaxed">
+                  {project.prototypeShowcase.description}
+                </BodyMedium>
+                
+                {project.prototypeShowcase.features && (
+                  <div className="space-y-3">
+                    {project.prototypeShowcase.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full" />
+                        <BodyMedium className="text-slate-700">{feature}</BodyMedium>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="relative">
+                <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 rounded-2xl p-8 shadow-xl">
+                  <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center">
+                    <div className="text-center">
+                      <Play className="w-16 h-16 text-slate-400 mx-auto mb-4" />
+                      <BodyMedium className="text-slate-600">
+                        Interactive Prototype
+                      </BodyMedium>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </PerfectSection>
       )}
 
