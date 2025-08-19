@@ -48,32 +48,32 @@ export default function SimpleHero() {
   const architectLetters = splitText("ARCHITECT")
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-stone-50/30">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-stone-50/30 px-4 md:px-8">
       
       {/* Ambient background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.05)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(244,63,94,0.05)_0%,transparent_50%)]" />
       
-      {/* Dramatic accent lines - delayed to appear after text */}
+      {/* Elegant accent lines - proportional to typography */}
       <motion.div 
-        className="absolute left-1/2 top-1/2 w-px h-32 bg-foreground/20"
+        className="absolute left-1/2 top-1/2 w-px h-20 bg-foreground/15"
         initial={{ scaleY: 0, opacity: 0 }}
         animate={{ scaleY: 1, opacity: 1 }}
         transition={{ duration: 0.8, delay: 4.2 }}
         style={{ transformOrigin: "center" }}
       />
       <motion.div 
-        className="absolute left-1/2 top-1/2 w-32 h-px bg-foreground/20"
+        className="absolute left-1/2 top-1/2 w-20 h-px bg-foreground/15"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
         transition={{ duration: 0.8, delay: 4.4 }}
         style={{ transformOrigin: "center" }}
       />
       
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-7xl mx-auto">
-        {/* Experience - Letter by letter stagger with luxury spacing */}
-        <h1 className="font-serif text-8xl md:text-9xl lg:text-[16rem] xl:text-[18rem] font-extralight text-foreground mb-6 md:mb-8 leading-[0.85] tracking-[0.02em]">
+      {/* Content with proper constraints and responsive spacing */}
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto py-8 md:py-12 lg:py-16">
+        {/* Experience - Elegant proportional typography */}
+        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light text-foreground mb-4 md:mb-6 leading-tight tracking-wider max-w-4xl mx-auto">
           {experienceLetters.map(({ letter, index }) => (
             <motion.span
               key={index}
@@ -123,8 +123,8 @@ export default function SimpleHero() {
           ))}
         </h1>
         
-        {/* ARCHITECT - Letter by letter stagger with offset and ULTRA dramatic size */}
-        <h2 className="font-sans text-8xl md:text-9xl lg:text-[14rem] xl:text-[16rem] font-light text-foreground/95 mb-12 md:mb-20 leading-[0.75] tracking-[0.08em] uppercase">
+        {/* ARCHITECT - Matching proportional scale with sophistication */}
+        <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl font-light text-foreground/95 mb-8 md:mb-12 leading-tight tracking-wider uppercase max-w-4xl mx-auto">
           {architectLetters.map(({ letter, index }) => (
             <motion.span
               key={index}

@@ -7,7 +7,7 @@ import EnhancedNavigation from "@/components/enhanced-navigation"
 import DetailedServicesSection from "@/components/detailed-services-section"
 import AnimatedExperience from "@/components/animated-experience"
 import { PerfectGrid } from "@/components/ui/perfect-grid"
-import { BodyMedium, Quote } from "@/components/typography"
+import { BodyMedium, BodyLarge, Quote, Overline } from "@/components/typography"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
 
@@ -22,17 +22,16 @@ export default function HomePage() {
         <PerfectSection id="about" spacing="spacious" container="content">
           {/* Sophisticated tonal overlay */}
           <div className="absolute inset-0 bg-stone-50/60 backdrop-blur-sm -z-10" />
-          <PerfectSectionHeader
-            overline="01 — About"
-            title="Human-Centered Innovation"
-            subtitle="I believe the most compelling stories begin with curiosity—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design."
-            align="center"
-          />
+          <div className="text-center mb-16">
+            <Overline className="mb-8 text-muted-foreground/80">01 — About</Overline>
+            <BodyLarge className="max-w-4xl mx-auto text-muted-foreground leading-relaxed">
+              I believe the most compelling stories begin with curiosity—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design.
+            </BodyLarge>
+          </div>
           <PerfectGrid cols={2} gap="dramatic" className="items-center">
             <div className="space-y-8">
               <BodyMedium>
-                At my core, I am a strategic experience designer, adept at listening to unspoken needs and designing
-                solutions that connect business objectives with human aspirations. I have embarked on projects ranging from wellness movements to
+                I have embarked on projects ranging from wellness movements to
                 creating AI-driven platforms that empower developers worldwide.
               </BodyMedium>
               <Quote variant="large" className="my-10">
