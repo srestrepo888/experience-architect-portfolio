@@ -29,6 +29,11 @@ interface EnhancedNavigationProps {
 
 const defaultNavItems: NavItem[] = [
   {
+    href: "#hero",
+    label: "Home",
+    description: "Return to the top of the page",
+  },
+  {
     href: "#about",
     label: "About",
     description: "Learn about my background and approach",
@@ -61,7 +66,7 @@ export default function EnhancedNavigation({
   navItems = defaultNavItems,
   ctaButton = {
     label: "Get In Touch",
-    href: "#contact",
+    href: "#hero",
   },
   className,
 }: EnhancedNavigationProps) {

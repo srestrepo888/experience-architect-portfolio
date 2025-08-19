@@ -70,8 +70,18 @@ export default async function ProjectPage({ params }: Props) {
                 transition={{ duration: 0.6 }}
               >
                 <BulletproofNavigationButton 
-                  href="/projects" 
+                  href="/#hero" 
                   variant="ghost" 
+                  size="sm" 
+                  icon="left"
+                  className="backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20"
+                >
+                  Back to Main Page
+                </BulletproofNavigationButton>
+                
+                <BulletproofNavigationButton 
+                  href="/#projects" 
+                  variant="outline" 
                   size="sm" 
                   icon="left"
                   className="backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20"
