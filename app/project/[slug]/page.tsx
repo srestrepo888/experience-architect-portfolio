@@ -35,21 +35,7 @@ function getProjectFromParams(slug: string) {
   return project
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata | undefined> {
-  const resolvedParams = await params
-  const project = getProjectFromParams(resolvedParams.slug)
-  if (!project) return
-
-  return {
-    title: `${project.title} | Silvana Portfolio`,
-    description: project.subtitle,
-    openGraph: {
-      title: project.title,
-      description: project.subtitle,
-      images: [project.heroImage || "/placeholder.svg"],
-    },
-  }
-}
+// Note: generateMetadata removed as this is a client component
 
 // Note: generateStaticParams removed as this is a client component
 
