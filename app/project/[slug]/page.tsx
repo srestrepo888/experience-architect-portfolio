@@ -51,12 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata | un
   }
 }
 
-export async function generateStaticParams() {
-  const slugs = getAllProjectSlugs()
-  return slugs.map((slug) => ({
-    slug: slug,
-  }))
-}
+// Note: generateStaticParams removed as this is a client component
 
 export default async function ProjectPage({ params }: Props) {
   const resolvedParams = await params
