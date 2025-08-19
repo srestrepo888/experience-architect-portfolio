@@ -9,27 +9,31 @@ import AnimatedExperience from "@/components/animated-experience"
 import { BodyMedium, BodyLarge, Quote, Overline, HeadingLarge } from "@/components/typography"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
-import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
-import { SectionFlowEnhancer } from "@/components/ui/section-flow-enhancer"
-import { getColorTheme } from "@/lib/background-dna"
+import { ContentAwareSectionEnhancer } from "@/components/ui/content-aware-section-enhancer"
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
 
 export default function HomePage() {
   return (
     <div className="text-foreground relative min-h-screen">
-      {/* Sophisticated Background System */}
-      <SophisticatedBackground variant="home" />
-      
       <div className="relative z-10">
         <EnhancedNavigation />
         <main>
-          <SimpleHero />
+          {/* Hero Section with Maximum Visual Impact */}
+          <ContentAwareSectionEnhancer
+            sectionId="hero"
+            section="hero"
+            contentType="hero"
+            intensity="maximum"
+          >
+            <SimpleHero />
+          </ContentAwareSectionEnhancer>
 
-        {/* About Section with Perfect Layout */}
-        <SectionFlowEnhancer 
-          sectionId="about" 
-          colorTheme={getColorTheme('about')}
-          intensity="medium"
+        {/* About Section - Text Optimized */}
+        <ContentAwareSectionEnhancer
+          sectionId="about"
+          section="about"
+          contentType="text-secondary"
+          intensity="subtle"
         >
           <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -93,12 +97,13 @@ export default function HomePage() {
               </PerfectCard>
             </PerfectGrid>
           </PerfectLayout>
-        </SectionFlowEnhancer>
+        </ContentAwareSectionEnhancer>
 
-        {/* Projects Section with Perfect Layout */}
-        <SectionFlowEnhancer 
-          sectionId="projects" 
-          colorTheme={getColorTheme('projects')}
+        {/* Projects Section - Gallery Optimized */}
+        <ContentAwareSectionEnhancer
+          sectionId="projects"
+          section="projects"
+          contentType="gallery"
           intensity="strong"
         >
           <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
@@ -111,13 +116,14 @@ export default function HomePage() {
             </PerfectStack>
             <MasterpieceProjectsShowcase />
           </PerfectLayout>
-        </SectionFlowEnhancer>
+        </ContentAwareSectionEnhancer>
 
-        {/* Experience Section with Perfect Layout */}
-        <SectionFlowEnhancer 
-          sectionId="experience" 
-          colorTheme={getColorTheme('experience')}
-          intensity="medium"
+        {/* Experience Section - Text Primary */}
+        <ContentAwareSectionEnhancer
+          sectionId="experience"
+          section="experience"
+          contentType="text-primary"
+          intensity="minimal"
         >
           <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -129,12 +135,13 @@ export default function HomePage() {
             </PerfectStack>
             <AnimatedExperience />
           </PerfectLayout>
-        </SectionFlowEnhancer>
+        </ContentAwareSectionEnhancer>
 
-        {/* Services Section with Perfect Layout */}
-        <SectionFlowEnhancer 
-          sectionId="services" 
-          colorTheme={getColorTheme('services')}
+        {/* Services Section - Text Secondary */}
+        <ContentAwareSectionEnhancer
+          sectionId="services"
+          section="services"
+          contentType="text-secondary"
           intensity="medium"
         >
           <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
@@ -147,13 +154,14 @@ export default function HomePage() {
             </PerfectStack>
             <DetailedServicesSection />
           </PerfectLayout>
-        </SectionFlowEnhancer>
+        </ContentAwareSectionEnhancer>
 
-        {/* Contact Section with Perfect Layout */}
-        <SectionFlowEnhancer 
-          sectionId="contact" 
-          colorTheme={getColorTheme('contact')}
-          intensity="strong"
+        {/* Contact Section - Form Optimized */}
+        <ContentAwareSectionEnhancer
+          sectionId="contact"
+          section="contact"
+          contentType="contact"
+          intensity="medium"
         >
           <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -167,7 +175,7 @@ export default function HomePage() {
               <ContactForm />
             </PerfectCard>
           </PerfectLayout>
-        </SectionFlowEnhancer>
+        </ContentAwareSectionEnhancer>
         </main>
         <Footer />
       </div>

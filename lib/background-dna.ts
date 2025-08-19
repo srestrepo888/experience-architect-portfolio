@@ -109,6 +109,59 @@ export const BACKGROUND_DNA = {
     }
   },
 
+  // Content-type specific adaptations
+  contentAdaptations: {
+    hero: {
+      sophistication: "maximum",
+      backgroundOpacity: [0.4, 0.7, 0.9, 0.7, 0.5],
+      textureOpacity: [0.04, 0.06, 0.05, 0.03, 0.02],
+      animationSpeed: 1.0,
+      cursorFollowing: true,
+      organicElements: true,
+      breathingIntensity: "strong"
+    },
+    
+    textPrimary: {
+      sophistication: "minimal",
+      backgroundOpacity: [0.08, 0.12, 0.15, 0.12, 0.08],
+      textureOpacity: [0.003, 0.006, 0.005, 0.003, 0.002],
+      animationSpeed: 0.2,
+      cursorFollowing: false,
+      organicElements: false,
+      breathingIntensity: "subtle"
+    },
+    
+    textSecondary: {
+      sophistication: "elegant",
+      backgroundOpacity: [0.15, 0.25, 0.3, 0.25, 0.15],
+      textureOpacity: [0.008, 0.015, 0.012, 0.008, 0.005],
+      animationSpeed: 0.4,
+      cursorFollowing: true,
+      organicElements: false,
+      breathingIntensity: "medium"
+    },
+    
+    gallery: {
+      sophistication: "high",
+      backgroundOpacity: [0.25, 0.4, 0.5, 0.4, 0.3],
+      textureOpacity: [0.015, 0.025, 0.02, 0.015, 0.01],
+      animationSpeed: 0.7,
+      cursorFollowing: true,
+      organicElements: true,
+      breathingIntensity: "strong"
+    },
+    
+    contact: {
+      sophistication: "high",
+      backgroundOpacity: [0.2, 0.35, 0.4, 0.35, 0.25],
+      textureOpacity: [0.012, 0.02, 0.016, 0.012, 0.008],
+      animationSpeed: 0.6,
+      cursorFollowing: true,
+      organicElements: false,
+      breathingIntensity: "medium"
+    }
+  },
+
   // Page-specific adaptations while maintaining DNA
   pageAdaptations: {
     home: {
@@ -189,4 +242,37 @@ export const generateSectionGradient = (
   intensity: number = 1
 ) => {
   return BACKGROUND_DNA.gradients.createRiverGradient(section, intensity)
+}
+
+// Content-aware intensity calculator
+export const calculateContentIntensity = (
+  contentType: 'hero' | 'text-primary' | 'text-secondary' | 'gallery' | 'contact',
+  baseIntensity: number = 1
+) => {
+  const intensityMap = {
+    hero: 1.0,
+    'text-primary': 0.15,
+    'text-secondary': 0.35,
+    gallery: 0.75,
+    contact: 0.6
+  }
+  
+  return baseIntensity * intensityMap[contentType]
+}
+
+// Background transition calculator
+export const getBackgroundTransition = (
+  fromContent: string,
+  toContent: string
+) => {
+  const transitionMatrix = {
+    'hero-text': { duration: 2.0, easing: [0.4, 0, 0.2, 1] },
+    'text-gallery': { duration: 1.5, easing: [0.25, 0.1, 0.25, 1] },
+    'gallery-text': { duration: 1.8, easing: [0.4, 0, 0.2, 1] },
+    'text-contact': { duration: 1.3, easing: [0.25, 0.1, 0.25, 1] },
+    default: { duration: 1.5, easing: [0.25, 0.1, 0.25, 1] }
+  }
+  
+  const key = `${fromContent}-${toContent}` as keyof typeof transitionMatrix
+  return transitionMatrix[key] || transitionMatrix.default
 }
