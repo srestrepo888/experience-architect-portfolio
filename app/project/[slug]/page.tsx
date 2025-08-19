@@ -22,6 +22,9 @@ import {
 } from "@/components/typography"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useRef } from "react"
+import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
+import { SectionFlowEnhancer } from "@/components/ui/section-flow-enhancer"
+import { getColorTheme } from "@/lib/background-dna"
 
 interface Props {
   params: Promise<{
@@ -45,15 +48,26 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="fixed inset-0 bg-gradient-to-br from-stone-50/30 via-amber-50/20 to-rose-50/30 pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.1)_0%,transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(244,63,94,0.1)_0%,transparent_50%)] pointer-events-none" />
+      {/* Sophisticated Background System for Projects */}
+      <SophisticatedBackground 
+        variant="project" 
+        colorProgression={{
+          start: "rose-50",
+          middle: "amber-50", 
+          end: "orange-50"
+        }}
+      />
       
-      <EnhancedNavigation />
+      <div className="relative z-10">
+        <EnhancedNavigation />
 
-      {/* SOPHISTICATED HERO SECTION */}
-      <PerfectSection spacing="hero" container="full">
+        {/* SOPHISTICATED HERO SECTION */}
+        <SectionFlowEnhancer 
+          sectionId="project-hero" 
+          colorTheme={getColorTheme('projects')}
+          intensity="strong"
+        >
+          <PerfectSection spacing="hero" container="full">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           {/* Navigation */}
           <motion.div 
@@ -273,10 +287,16 @@ export default async function ProjectPage({ params }: Props) {
             </motion.div>
           </div>
         </div>
-      </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-      {/* NARRATIVE CONTENT SECTIONS */}
-      <PerfectSection spacing="spacious" container="content">
+        {/* NARRATIVE CONTENT SECTIONS */}
+        <SectionFlowEnhancer 
+          sectionId="project-content" 
+          colorTheme={getColorTheme('about')}
+          intensity="medium"
+        >
+          <PerfectSection spacing="spacious" container="content">
         <div className="max-w-4xl mx-auto space-y-20">
           
           {/* CONTEXT SECTION */}
@@ -390,14 +410,18 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           </motion.div>
         </div>
-      </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-      {/* IMMERSIVE GALLERY EXPERIENCE */}
-      {project.galleryImages && project.galleryImages.length > 0 && (
-        <PerfectSection spacing="spacious" container="full" background="subtle">
-          <div className="relative">
-            {/* Background Enhancement */}
-            <div className="absolute inset-0 bg-gradient-to-b from-stone-50/60 via-amber-50/40 to-rose-50/60 backdrop-blur-sm" />
+        {/* IMMERSIVE GALLERY EXPERIENCE */}
+        {project.galleryImages && project.galleryImages.length > 0 && (
+          <SectionFlowEnhancer 
+            sectionId="project-gallery" 
+            colorTheme={getColorTheme('projects')}
+            intensity="strong"
+          >
+            <PerfectSection spacing="spacious" container="full" background="subtle">
+              <div className="relative">
             
             <div className="relative max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
               <motion.div 
@@ -550,9 +574,11 @@ export default async function ProjectPage({ params }: Props) {
             Start Your Project
           </BulletproofNavigationButton>
         </motion.div>
-      </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   )
 }

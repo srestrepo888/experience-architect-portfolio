@@ -10,18 +10,28 @@ import { PerfectGrid } from "@/components/ui/perfect-grid"
 import { BodyMedium, BodyLarge, Quote, Overline } from "@/components/typography"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
+import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
+import { SectionFlowEnhancer } from "@/components/ui/section-flow-enhancer"
+import { getColorTheme } from "@/lib/background-dna"
 
 export default function HomePage() {
   return (
-    <div className="text-foreground relative z-10">
-      <EnhancedNavigation />
-      <main>
-        <SimpleHero />
+    <div className="text-foreground relative min-h-screen">
+      {/* Sophisticated Background System */}
+      <SophisticatedBackground variant="home" />
+      
+      <div className="relative z-10">
+        <EnhancedNavigation />
+        <main>
+          <SimpleHero />
 
-        {/* About Section */}
-        <PerfectSection id="about" spacing="spacious" container="content">
-          {/* Sophisticated tonal overlay */}
-          <div className="absolute inset-0 bg-stone-50/60 backdrop-blur-sm -z-10" />
+        {/* About Section with Sophisticated Flow */}
+        <SectionFlowEnhancer 
+          sectionId="about" 
+          colorTheme={getColorTheme('about')}
+          intensity="medium"
+        >
+          <PerfectSection spacing="spacious" container="content">
           <div className="text-center mb-16">
             <Overline className="mb-8 text-muted-foreground/80">01 — About</Overline>
             <BodyLarge className="max-w-4xl mx-auto text-muted-foreground leading-relaxed">
@@ -77,12 +87,16 @@ export default function HomePage() {
               </div>
             </div>
           </PerfectGrid>
-        </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-        {/* Masterpiece Projects Showcase */}
-        <PerfectSection id="projects" spacing="spacious" container="full" background="subtle">
-          {/* Luxury tonal gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-rose-50/75 via-orange-50/70 to-amber-50/75 backdrop-blur-sm -z-10" />
+        {/* Projects Section with Sophisticated Flow */}
+        <SectionFlowEnhancer 
+          sectionId="projects" 
+          colorTheme={getColorTheme('projects')}
+          intensity="strong"
+        >
+          <PerfectSection spacing="spacious" container="full" background="subtle">
           <div className="container mx-auto px-6 md:px-8 lg:px-12">
             <PerfectSectionHeader
               overline="02 — Selected Works"
@@ -92,12 +106,16 @@ export default function HomePage() {
             />
           </div>
           <MasterpieceProjectsShowcase />
-        </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-        {/* Experience Section */}
-        <PerfectSection id="experience" spacing="spacious" container="content">
-          {/* Sophisticated experience overlay */}
-          <div className="absolute inset-0 bg-stone-50/60 backdrop-blur-sm -z-10" />
+        {/* Experience Section with Sophisticated Flow */}
+        <SectionFlowEnhancer 
+          sectionId="experience" 
+          colorTheme={getColorTheme('experience')}
+          intensity="medium"
+        >
+          <PerfectSection spacing="spacious" container="content">
           <PerfectSectionHeader
             overline="03 — Journey"
             title="Professional Experience"
@@ -105,12 +123,16 @@ export default function HomePage() {
             align="center"
           />
           <AnimatedExperience />
-        </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-        {/* Services Section */}
-        <PerfectSection id="services" spacing="spacious" container="full" background="subtle">
-          {/* Refined services overlay */}
-          <div className="absolute inset-0 bg-amber-50/40 backdrop-blur-sm -z-10" />
+        {/* Services Section with Sophisticated Flow */}
+        <SectionFlowEnhancer 
+          sectionId="services" 
+          colorTheme={getColorTheme('services')}
+          intensity="medium"
+        >
+          <PerfectSection spacing="spacious" container="full" background="subtle">
           <div className="container mx-auto px-6 md:px-8 lg:px-12">
             <PerfectSectionHeader
               overline="04 — Services"
@@ -120,12 +142,16 @@ export default function HomePage() {
             />
             <DetailedServicesSection />
           </div>
-        </PerfectSection>
+          </PerfectSection>
+        </SectionFlowEnhancer>
 
-        {/* Contact Section */}
-        <PerfectSection id="contact" spacing="spacious" container="content">
-          {/* Elegant contact overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-rose-50/50 to-transparent backdrop-blur-sm -z-10" />
+        {/* Contact Section with Sophisticated Flow */}
+        <SectionFlowEnhancer 
+          sectionId="contact" 
+          colorTheme={getColorTheme('contact')}
+          intensity="strong"
+        >
+          <PerfectSection spacing="spacious" container="content">
           <PerfectSectionHeader
             align="center"
             overline="05 — Contact"
@@ -135,9 +161,11 @@ export default function HomePage() {
           <div className="mt-12 max-w-2xl mx-auto">
             <ContactForm />
           </div>
-        </PerfectSection>
-      </main>
-      <Footer />
+          </PerfectSection>
+        </SectionFlowEnhancer>
+        </main>
+        <Footer />
+      </div>
     </div>
   )
 }

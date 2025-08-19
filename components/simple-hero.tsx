@@ -48,11 +48,7 @@ export default function SimpleHero() {
   const architectLetters = splitText("ARCHITECT")
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-stone-50/30 px-4 md:px-8">
-      
-      {/* Ambient background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.05)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(244,63,94,0.05)_0%,transparent_50%)]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 md:px-8">
       
       {/* Elegant accent lines - proportional to typography */}
       <motion.div 
