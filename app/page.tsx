@@ -10,36 +10,19 @@ import { BodyMedium, BodyLarge, Quote, Overline, HeadingLarge } from "@/componen
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
-import { HarmoniousBackgroundSystem, ContentAwareBackgroundWrapper } from "@/components/ui/harmonious-background-system"
+
 
 export default function HomePage() {
   return (
     <div className="text-foreground relative min-h-screen">
-      {/* Harmonious Background System */}
-      <HarmoniousBackgroundSystem
-        sectionId="main"
-        contentType="hero"
-        intensity="moderate"
-      />
-      
       <div className="relative z-10">
         <EnhancedNavigation />
-          <main>
-            {/* Hero Section with Maximum Visual Impact */}
-            <ContentAwareBackgroundWrapper
-              sectionId="hero"
-              contentType="hero"
-              intensity="enhanced"
-            >
-              <SimpleHero />
-            </ContentAwareBackgroundWrapper>
+        
+        <main>
+          {/* Hero Section with Maximum Visual Impact */}
+          <SimpleHero />
 
-            {/* About Section - Text Optimized */}
-            <ContentAwareBackgroundWrapper
-              sectionId="about"
-              contentType="text-secondary"
-              intensity="subtle"
-            >
+          {/* About Section - Text Optimized */}
               <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
                   <Overline className="text-muted-foreground/80 tracking-wider">01 — About</Overline>
@@ -102,14 +85,8 @@ export default function HomePage() {
                   </PerfectCard>
                 </PerfectGrid>
               </PerfectLayout>
-            </ContentAwareBackgroundWrapper>
 
             {/* Projects Section - Gallery Optimized */}
-            <ContentAwareBackgroundWrapper
-              sectionId="projects"
-              contentType="visual"
-              intensity="enhanced"
-            >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
                   <Overline className="text-muted-foreground/80 tracking-wider">02 — Selected Works</Overline>
@@ -120,14 +97,8 @@ export default function HomePage() {
                 </PerfectStack>
                 <MasterpieceProjectsShowcase />
               </PerfectLayout>
-            </ContentAwareBackgroundWrapper>
 
             {/* Experience Section - Text Primary */}
-            <ContentAwareBackgroundWrapper
-              sectionId="experience"
-              contentType="text-primary"
-              intensity="subtle"
-            >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
                   <Overline className="text-muted-foreground/80 tracking-wider">03 — Journey</Overline>
@@ -138,14 +109,8 @@ export default function HomePage() {
                 </PerfectStack>
                 <AnimatedExperience />
               </PerfectLayout>
-            </ContentAwareBackgroundWrapper>
 
             {/* Services Section - Text Secondary */}
-            <ContentAwareBackgroundWrapper
-              sectionId="services"
-              contentType="text-secondary"
-              intensity="moderate"
-            >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
                   <Overline className="text-muted-foreground/80 tracking-wider">04 — Services</Overline>
@@ -156,14 +121,8 @@ export default function HomePage() {
                 </PerfectStack>
                 <DetailedServicesSection />
               </PerfectLayout>
-            </ContentAwareBackgroundWrapper>
 
             {/* Contact Section - Form Optimized */}
-            <ContentAwareBackgroundWrapper
-              sectionId="contact"
-              contentType="interactive"
-              intensity="moderate"
-            >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
                   <Overline className="text-muted-foreground/80 tracking-wider">05 — Contact</Overline>
@@ -176,7 +135,6 @@ export default function HomePage() {
                   <ContactForm />
                 </PerfectCard>
               </PerfectLayout>
-            </ContentAwareBackgroundWrapper>
           </main>
         <Footer />
       </div>
