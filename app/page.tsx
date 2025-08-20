@@ -32,24 +32,24 @@ export default function HomePage() {
         <AboutBackground>
           <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/90 tracking-wider font-medium">01 — About</Overline>
-              <BodyLarge className="max-w-4xl text-center text-foreground/90 leading-relaxed font-light">
+              <Overline className="text-muted-foreground/80 tracking-wider">01 — About</Overline>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 I believe the most compelling stories begin with curiosity—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design.
               </BodyLarge>
             </PerfectStack>
             
             <PerfectGrid columns={{ sm: 1, lg: 2 }} gap="xl" className="items-center">
-              <PerfectCard padding="xl" variant="minimal" className="backdrop-blur-sm bg-background/40 border border-border/20">
+              <PerfectCard padding="xl" variant="minimal">
                 <PerfectStack spacing="relaxed">
-                  <BodyMedium className="leading-relaxed text-foreground/85">
+                  <BodyMedium className="leading-relaxed">
                     I have embarked on projects ranging from wellness movements to
                     creating AI-driven platforms that empower developers worldwide.
                   </BodyMedium>
-                  <Quote variant="large" className="text-center text-foreground/90">
+                  <Quote variant="large" className="text-center">
                     Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of
                     the human perspective.
                   </Quote>
-                  <BodyMedium className="leading-relaxed text-foreground/85">
+                  <BodyMedium className="leading-relaxed">
                     Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility!
                   </BodyMedium>
                   <div className="pt-4">
@@ -59,20 +59,19 @@ export default function HomePage() {
                       variant="secondary"
                       size="lg"
                       icon="download"
-                      className="backdrop-blur-sm bg-foreground/10 hover:bg-foreground/15 border border-foreground/20"
                     >
                       Download CV
                     </EnhancedButton>
                   </div>
                 </PerfectStack>
               </PerfectCard>
-              <PerfectCard padding="lg" variant="minimal" className="backdrop-blur-sm bg-background/30 border border-border/15">
+              <PerfectCard padding="lg" variant="minimal">
                 <PerfectStack spacing="relaxed" align="center">
                   <div
                     className="relative w-full max-w-md mx-auto"
                     style={{
-                      maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-                      WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+                      maskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
+                      WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
                     }}
                   >
                     <PortraitImage
@@ -85,7 +84,7 @@ export default function HomePage() {
                       className="w-full"
                     />
                   </div>
-                  <Quote variant="default" attribution="Silvana" className="text-center max-w-sm text-foreground/90">
+                  <Quote variant="default" attribution="Silvana" className="text-center max-w-sm">
                     "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the
                     intangible essence of human desire."
                   </Quote>
@@ -99,9 +98,9 @@ export default function HomePage() {
         <ProjectsBackground>
           <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/90 tracking-wider font-medium">02 — Selected Works</Overline>
-              <HeadingLarge className="text-center text-foreground font-light">Crafting Digital Masterpieces</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-foreground/85 leading-relaxed">
+              <Overline className="text-muted-foreground/80 tracking-wider">02 — Selected Works</Overline>
+              <HeadingLarge className="text-center">Crafting Digital Masterpieces</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 A curated selection of projects that demonstrate a commitment to design excellence, strategic thinking, and impactful user experiences.
               </BodyLarge>
             </PerfectStack>
@@ -113,9 +112,9 @@ export default function HomePage() {
         <ExperienceBackground>
           <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/95 tracking-wider font-medium">03 — Journey</Overline>
-              <HeadingLarge className="text-center text-foreground font-light">Professional Experience</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-foreground/90 leading-relaxed">
+              <Overline className="text-muted-foreground/80 tracking-wider">03 — Journey</Overline>
+              <HeadingLarge className="text-center">Professional Experience</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 With over a decade of experience across diverse industries, I've developed a unique perspective on design and strategy. My career journey has equipped me with the skills to navigate complex challenges and deliver impactful solutions.
               </BodyLarge>
             </PerfectStack>
@@ -127,9 +126,9 @@ export default function HomePage() {
         <ServicesBackground>
           <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/90 tracking-wider font-medium">04 — Services</Overline>
-              <HeadingLarge className="text-center text-foreground font-light">Design Excellence</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-foreground/85 leading-relaxed">
+              <Overline className="text-muted-foreground/80 tracking-wider">04 — Services</Overline>
+              <HeadingLarge className="text-center">Design Excellence</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 Meticulously architected solutions addressing demanding market realities and evolving client's needs.
               </BodyLarge>
             </PerfectStack>
@@ -141,13 +140,13 @@ export default function HomePage() {
         <ContactBackground>
           <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/90 tracking-wider font-medium">05 — Contact</Overline>
-              <HeadingLarge className="text-center text-foreground font-light">Let's Create Together</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-foreground/85 leading-relaxed">
+              <Overline className="text-muted-foreground/80 tracking-wider">05 — Contact</Overline>
+              <HeadingLarge className="text-center">Let's Create Together</HeadingLarge>
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 Have a project in mind? I'd love to hear about it. Let's connect and build something exceptional.
               </BodyLarge>
             </PerfectStack>
-            <PerfectCard padding="xl" variant="minimal" className="max-w-2xl mx-auto backdrop-blur-sm bg-background/50 border border-border/25">
+            <PerfectCard padding="xl" variant="minimal" className="max-w-2xl mx-auto">
               <ContactForm />
             </PerfectCard>
           </PerfectLayout>
