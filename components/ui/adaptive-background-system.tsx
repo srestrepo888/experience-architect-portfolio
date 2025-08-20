@@ -81,7 +81,7 @@ export function AdaptiveBackgroundSystem({
   const gradientRotation = useTransform(smoothProgress, [0, 1], [0, 45 * config.animationSpeed])
   const textureOpacity = useTransform(
     smoothProgress, 
-    [0, 0.3, 0.7, 1], 
+    [0, 0.25, 0.5, 0.75, 1], 
     config.textureOpacity
   )
 
