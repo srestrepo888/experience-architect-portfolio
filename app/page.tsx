@@ -10,42 +10,33 @@ import { BodyMedium, BodyLarge, Quote, Overline, HeadingLarge } from "@/componen
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
-import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
-import { SectionFlowEnhancer } from "@/components/ui/section-flow-enhancer"
-import { ContentAwareSectionEnhancer } from "@/components/ui/content-aware-section-enhancer"
+import { HarmoniousBackgroundSystem, ContentAwareBackgroundWrapper } from "@/components/ui/harmonious-background-system"
 
 export default function HomePage() {
   return (
     <div className="text-foreground relative min-h-screen">
-      {/* Sophisticated Background System */}
-      <SophisticatedBackground />
+      {/* Harmonious Background System */}
+      <HarmoniousBackgroundSystem
+        sectionId="main"
+        contentType="hero"
+        intensity="moderate"
+      />
       
       <div className="relative z-10">
         <EnhancedNavigation />
-        <SectionFlowEnhancer 
-          sectionId="main-content"
-          colorTheme={{
-            primary: "rgb(59, 130, 246)",
-            secondary: "rgb(147, 51, 234)", 
-            accent: "rgb(245, 158, 11)"
-          }}
-          intensity="medium"
-        >
           <main>
             {/* Hero Section with Maximum Visual Impact */}
-            <ContentAwareSectionEnhancer
+            <ContentAwareBackgroundWrapper
               sectionId="hero"
-              section="hero"
               contentType="hero"
-              intensity="maximum"
+              intensity="enhanced"
             >
               <SimpleHero />
-            </ContentAwareSectionEnhancer>
+            </ContentAwareBackgroundWrapper>
 
             {/* About Section - Text Optimized */}
-            <ContentAwareSectionEnhancer
+            <ContentAwareBackgroundWrapper
               sectionId="about"
-              section="about"
               contentType="text-secondary"
               intensity="subtle"
             >
@@ -111,14 +102,13 @@ export default function HomePage() {
                   </PerfectCard>
                 </PerfectGrid>
               </PerfectLayout>
-            </ContentAwareSectionEnhancer>
+            </ContentAwareBackgroundWrapper>
 
             {/* Projects Section - Gallery Optimized */}
-            <ContentAwareSectionEnhancer
+            <ContentAwareBackgroundWrapper
               sectionId="projects"
-              section="projects"
-              contentType="gallery"
-              intensity="strong"
+              contentType="visual"
+              intensity="enhanced"
             >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -130,14 +120,13 @@ export default function HomePage() {
                 </PerfectStack>
                 <MasterpieceProjectsShowcase />
               </PerfectLayout>
-            </ContentAwareSectionEnhancer>
+            </ContentAwareBackgroundWrapper>
 
             {/* Experience Section - Text Primary */}
-            <ContentAwareSectionEnhancer
+            <ContentAwareBackgroundWrapper
               sectionId="experience"
-              section="experience"
               contentType="text-primary"
-              intensity="minimal"
+              intensity="subtle"
             >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -149,14 +138,13 @@ export default function HomePage() {
                 </PerfectStack>
                 <AnimatedExperience />
               </PerfectLayout>
-            </ContentAwareSectionEnhancer>
+            </ContentAwareBackgroundWrapper>
 
             {/* Services Section - Text Secondary */}
-            <ContentAwareSectionEnhancer
+            <ContentAwareBackgroundWrapper
               sectionId="services"
-              section="services"
               contentType="text-secondary"
-              intensity="medium"
+              intensity="moderate"
             >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -168,14 +156,13 @@ export default function HomePage() {
                 </PerfectStack>
                 <DetailedServicesSection />
               </PerfectLayout>
-            </ContentAwareSectionEnhancer>
+            </ContentAwareBackgroundWrapper>
 
             {/* Contact Section - Form Optimized */}
-            <ContentAwareSectionEnhancer
+            <ContentAwareBackgroundWrapper
               sectionId="contact"
-              section="contact"
-              contentType="contact"
-              intensity="medium"
+              contentType="interactive"
+              intensity="moderate"
             >
               <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
                 <PerfectStack spacing="loose" align="center" className="mb-20">
@@ -189,9 +176,8 @@ export default function HomePage() {
                   <ContactForm />
                 </PerfectCard>
               </PerfectLayout>
-            </ContentAwareSectionEnhancer>
+            </ContentAwareBackgroundWrapper>
           </main>
-        </SectionFlowEnhancer>
         <Footer />
       </div>
     </div>
