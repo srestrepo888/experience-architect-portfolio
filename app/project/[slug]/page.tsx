@@ -7,7 +7,7 @@ import Footer from "@/components/footer"
 import { PerfectLayout, PerfectStack, PerfectCard, PerfectGrid } from "@/components/ui/perfect-layout"
 import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
 import { ProjectNavigation } from "@/components/ui/project-navigation"
-import { Calendar, Building2, Target } from "lucide-react"
+import { Calendar, Building2 } from "lucide-react"
 import { 
   DisplayLarge, 
   HeadingLarge, 
@@ -16,7 +16,8 @@ import {
   BodyLarge, 
   BodyMedium,
   Caption,
-  Overline 
+  Overline,
+  Quote
 } from "@/components/typography"
 import { motion } from "framer-motion"
 import { SophisticatedBackground } from "@/components/ui/sophisticated-background"
@@ -215,7 +216,7 @@ export default async function ProjectPage({ params }: Props) {
                 >
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                     <img
-                      src={project.thumbnailImage || `/placeholder.jpg`}
+                      src={project.heroImage || project.thumbnailImage || `/placeholder.jpg`}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -238,11 +239,56 @@ export default async function ProjectPage({ params }: Props) {
                 {project.context}
               </BodyLarge>
             </PerfectStack>
+          </PerfectStack>
+        </PerfectLayout>
 
-            {/* Services */}
-            {project.services && (
+        {/* PROJECT SCOPE SECTION */}
+        {project.scope && (
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+            <PerfectStack spacing="loose" align="center">
+              <PerfectStack spacing="relaxed" align="center" className="mb-16">
+                <HeadingLarge className="text-slate-900">
+                  Project Scope
+                </HeadingLarge>
+                <BodyLarge className="text-slate-600 leading-relaxed max-w-3xl text-center">
+                  {project.scope}
+                </BodyLarge>
+              </PerfectStack>
+            </PerfectStack>
+          </PerfectLayout>
+        )}
+
+        {/* PROJECT IMPACT SECTION */}
+        {project.impact && (
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+            <PerfectStack spacing="loose" align="center">
+              <PerfectStack spacing="relaxed" align="center" className="mb-16">
+                <HeadingLarge className="text-slate-900">
+                  Project Impact
+                </HeadingLarge>
+                <BodyLarge className="text-slate-600 leading-relaxed max-w-3xl text-center">
+                  {project.impact}
+                </BodyLarge>
+              </PerfectStack>
+            </PerfectStack>
+          </PerfectLayout>
+        )}
+
+        {/* PROJECT GALLERY SECTION */}
+        {project.galleryImages && project.galleryImages.length > 0 && (
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
+            <PerfectStack spacing="loose" align="center">
+              <PerfectStack spacing="relaxed" align="center" className="mb-16">
+                <HeadingLarge className="text-slate-900">
+                  Project Gallery
+                </HeadingLarge>
+                <BodyLarge className="text-slate-600 leading-relaxed max-w-3xl text-center">
+                  A visual journey through the project's key moments and deliverables
+                </BodyLarge>
+              </PerfectStack>
+              
               <PerfectGrid columns={{ sm: 1, md: 2, lg: 3 }} gap="lg">
-                {project.services.map((service, idx) => (
+                {project.galleryImages.map((image, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 30 }}
@@ -251,25 +297,71 @@ export default async function ProjectPage({ params }: Props) {
                     transition={{ duration: 0.6, delay: idx * 0.1 }}
                   >
                     <PerfectCard 
-                      padding="xl" 
+                      padding="lg" 
                       variant="elevated" 
-                      className="text-center bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 hover:shadow-xl transition-all duration-300"
+                      className="overflow-hidden bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 hover:shadow-xl transition-all duration-300"
                     >
-                      <PerfectStack spacing="relaxed" align="center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center">
-                          <Target className="w-8 h-8 text-white" />
-                        </div>
-                        <HeadingMedium className="text-slate-900">
-                          {service}
-                        </HeadingMedium>
-                      </PerfectStack>
+                      <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover"
+                        />
+                        {image.url && (
+                          <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <BulletproofNavigationButton
+                              href={image.url}
+                              external={true}
+                              variant="primary"
+                              size="sm"
+                              icon="external"
+                              className="bg-white/90 text-slate-900 hover:bg-white"
+                            >
+                              View
+                            </BulletproofNavigationButton>
+                          </div>
+                        )}
+                      </div>
                     </PerfectCard>
                   </motion.div>
                 ))}
               </PerfectGrid>
-            )}
-          </PerfectStack>
-        </PerfectLayout>
+            </PerfectStack>
+          </PerfectLayout>
+        )}
+
+        {/* TESTIMONIAL SECTION */}
+        {project.testimonial && (
+          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+            <PerfectStack spacing="loose" align="center">
+              <PerfectStack spacing="relaxed" align="center" className="mb-16">
+                <HeadingLarge className="text-slate-900">
+                  Client Testimonial
+                </HeadingLarge>
+              </PerfectStack>
+              
+              <PerfectCard 
+                padding="xl" 
+                variant="elevated" 
+                className="max-w-4xl mx-auto bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 hover:shadow-xl transition-all duration-300"
+              >
+                <PerfectStack spacing="relaxed" align="center">
+                  <Quote variant="large" className="text-center">
+                    "{project.testimonial.quote}"
+                  </Quote>
+                  <div className="text-center">
+                    <BodyMedium className="text-slate-900 font-semibold">
+                      {project.testimonial.author}
+                    </BodyMedium>
+                    <Caption className="text-slate-600">
+                      {project.testimonial.role}
+                    </Caption>
+                  </div>
+                </PerfectStack>
+              </PerfectCard>
+            </PerfectStack>
+          </PerfectLayout>
+        )}
 
         {/* ENHANCED PROJECT NAVIGATION */}
         <PerfectLayout variant="section" spacing="spacious" maxWidth="content">

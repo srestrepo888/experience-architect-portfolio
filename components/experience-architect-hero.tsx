@@ -3,12 +3,12 @@
 import type React from "react"
 import { useEffect, useRef, useState, useMemo } from "react"
 import { motion, useScroll, useTransform, useMotionValue, animate, type Variants } from "framer-motion"
-import { useTheme } from "next-themes"
+
 
 // --- Main Hero Component ---
 export default function ExperienceArchitectHero() {
   const [isMounted, setIsMounted] = useState(false)
-  const { theme } = useTheme()
+
   const targetRef = useRef<HTMLDivElement>(null)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [isInteracted, setIsInteracted] = useState(false) // Has user clicked the bud?
@@ -85,7 +85,7 @@ export default function ExperienceArchitectHero() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0])
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.65])
 
-  const currentTheme = theme || "light"
+  const currentTheme = "light"
   const config = BLOOM_CONFIG
 
   const experienceText = "EXPERIENCE".split("")
