@@ -100,8 +100,8 @@ export function ContentAwareSectionEnhancer({
         ease: config.easing 
       }}
     >
-      {/* Adaptive Background System Integration - TEMPORARILY DISABLED */}
-      {/* <motion.div
+      {/* Adaptive Background System Integration */}
+      <motion.div
         className="absolute inset-0 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: isActive ? 1 : 0 }}
@@ -115,7 +115,7 @@ export function ContentAwareSectionEnhancer({
           intensity={intensity}
           section={section}
         />
-      </motion.div> */}
+      </motion.div>
 
       {/* Content-Aware Transition Zones */}
       {contentType !== 'text-primary' && (

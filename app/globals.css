@@ -5,22 +5,22 @@
 @layer base {
   :root {
     /* Perfect Consistent Color System - Enhanced for Luxury Background */
-    --background: 26 27% 98% / 0.1; /* #F8F6F4 - TRANSPARENT for background overlay */
+    --background: 26 27% 98%; /* #F8F6F4 - Clean solid background */
     --foreground: 26 4% 15%; /* #262421 - Perfect contrast text */
 
-    --card: 26 27% 99% / 0.95; /* #FAF8F6 - TRANSPARENT for luxury background */
+    --card: 26 27% 99%; /* #FAF8F6 - Clean solid cards */
     --card-foreground: 26 4% 15%;
 
-    --popover: 26 27% 98% / 0.95;
+    --popover: 26 27% 98%;
     --popover-foreground: 26 4% 15%;
 
     --primary: 26 4% 12%; /* #1F1D1B - Sophisticated primary */
     --primary-foreground: 26 27% 99%;
 
-    --secondary: 26 27% 96% / 0.9; /* #F2EFEC - TRANSPARENT secondary */
+    --secondary: 26 27% 96%; /* #F2EFEC - Clean solid secondary */
     --secondary-foreground: 26 4% 25%; /* #403E3A */
 
-    --muted: 26 20% 95% / 0.8; /* #F0EDEA - TRANSPARENT muted background */
+    --muted: 26 20% 95%; /* #F0EDEA - Clean solid muted background */
     --muted-foreground: 26 4% 35%; /* #5A5754 */
 
     --accent: 26 4% 15%; /* Consistent with foreground */
@@ -29,9 +29,9 @@
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 26 15% 88% / 0.6; /* #E5E1DD - TRANSPARENT sophisticated borders */
-    --input: 26 15% 88% / 0.6;
-    --ring: 26 10% 80% / 0.8; /* #D1CCC6 - TRANSPARENT focus rings */
+    --border: 26 15% 88%; /* #E5E1DD - Clean solid borders */
+    --input: 26 15% 88%;
+    --ring: 26 10% 80%; /* #D1CCC6 - Clean solid focus rings */
 
     --radius: 0.5rem; /* 8px - Perfect border radius */
 
@@ -55,19 +55,19 @@
 
   .dark {
     /* Enhanced dark mode colors for luxury background compatibility */
-    --background: 27 3% 6% / 0.1; /* #0F0E0D - TRANSPARENT deep dark for background overlay */
+    --background: 27 3% 6%; /* #0F0E0D - Clean solid dark background */
     --foreground: 30 25% 94%; /* #EDEAE5 - Enhanced light text */
 
-    --card: 27 3% 8% / 0.95; /* #141312 - TRANSPARENT dark cards */
+    --card: 27 3% 8%; /* #141312 - Clean solid dark cards */
     --card-foreground: 30 25% 94%;
 
     --primary: 26 30% 85%; /* #DDD0C1 - Warm light primary */
     --primary-foreground: 27 3% 8%;
 
-    --secondary: 27 3% 14% / 0.9; /* #242220 - TRANSPARENT */
+    --secondary: 27 3% 14%; /* #242220 - Clean solid dark */
     --secondary-foreground: 30 20% 75%; /* #BFB8B1 */
 
-    --muted: 27 3% 12% / 0.8; /* #1F1E1C - TRANSPARENT */
+    --muted: 27 3% 12%; /* #1F1E1C - Clean solid dark */
     --muted-foreground: 30 15% 65%; /* #A8A19A */
 
     --accent: 26 30% 85%;
@@ -76,9 +76,9 @@
     --destructive: 0 60% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 27 3% 18% / 0.6; /* #2E2C2A - TRANSPARENT */
-    --input: 27 3% 18% / 0.6;
-    --ring: 26 4% 30% / 0.8; /* #4D4A47 - TRANSPARENT */
+    --border: 27 3% 18%; /* #2E2C2A - Clean solid dark */
+    --input: 27 3% 18%;
+    --ring: 26 4% 30%; /* #4D4A47 - Clean solid dark */
 
     /* Dark mode shadows */
     --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
