@@ -106,7 +106,7 @@ export default async function ProjectPage({ params }: Props) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                       >
-                        <Overline className="text-amber-600 font-medium tracking-wider">
+                        <Overline className="text-slate-600 font-medium tracking-wider">
                           {project.client} • {project.year}
                         </Overline>
                       </motion.div>
@@ -147,7 +147,7 @@ export default async function ProjectPage({ params }: Props) {
                         >
                           <PerfectStack spacing="tight">
                             <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                              <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center">
                                 <Building2 className="w-5 h-5 text-white" />
                               </div>
                               <Caption className="text-slate-500 font-medium uppercase tracking-wider">
@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }: Props) {
                         >
                           <PerfectStack spacing="tight">
                             <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
+                              <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center">
                                 <Calendar className="w-5 h-5 text-white" />
                               </div>
                               <Caption className="text-slate-500 font-medium uppercase tracking-wider">
@@ -256,7 +256,7 @@ export default async function ProjectPage({ params }: Props) {
                       className="text-center bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 hover:shadow-xl transition-all duration-300"
                     >
                       <PerfectStack spacing="relaxed" align="center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center">
+                        <div className="w-16 h-16 bg-gradient-to-br from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center">
                           <Target className="w-8 h-8 text-white" />
                         </div>
                         <HeadingMedium className="text-slate-900">

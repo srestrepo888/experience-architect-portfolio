@@ -77,7 +77,7 @@ export default function MasterpieceProjectsShowcase() {
                   {currentProject.services.map((service, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium"
                     >
                       {service}
                     </span>
@@ -166,8 +166,8 @@ export default function MasterpieceProjectsShowcase() {
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-colors cursor-pointer ${
                 index === currentIndex
-                  ? 'bg-blue-600'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? 'bg-slate-600'
+                  : 'bg-slate-300 hover:bg-slate-400'
               }`}
             />
           ))}
