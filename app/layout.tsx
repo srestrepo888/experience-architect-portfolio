@@ -4,7 +4,6 @@ import { Cormorant_Garamond, Inter } from "next/font/google"
 import "./globals.css"
 import ScrollProgress from "@/components/scroll-progress"
 import NavigationAudit from "@/components/navigation-audit"
-import Portfolio from "@/components/ui/refined-animated-background"
 
 // ULTRA-LUXURIOUS DISPLAY FONT: Cormorant Garamond
 const serif = Cormorant_Garamond({
@@ -51,9 +50,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Silvana Portfolio" />
       </head>
       <body className={`${serif.variable} ${sans.variable} font-sans antialiased bg-background text-foreground safe-y`}>
-        <div className="fixed inset-0 -z-10">
-          <Portfolio />
-        </div>
         <ScrollProgress />
         {children}
         {process.env.NODE_ENV === "development" && <NavigationAudit />}
