@@ -27,8 +27,8 @@ export function MasterpieceBackgroundSystem({
       case "hero":
         return {
           asset: "/luxury-geometric-background.png",
-          opacity: [0.15, 0.25, 0.15],
-          overlayOpacity: [0.75, 0.55, 0.75],
+          opacity: [0.35, 0.45, 0.35],
+          overlayOpacity: [0.55, 0.35, 0.55],
           overlayColor: "from-background/35 via-background/15 to-background/55",
           textOverlay: "from-background/10 via-transparent to-background/10",
           scale: [1, 1.1, 1],
@@ -39,8 +39,8 @@ export function MasterpieceBackgroundSystem({
       case "about":
         return {
           asset: "/elegant-brand-identity.png", 
-          opacity: [0.12, 0.16, 0.12],
-          overlayOpacity: [0.65, 0.55, 0.65],
+          opacity: [0.28, 0.36, 0.28],
+          overlayOpacity: [0.45, 0.35, 0.45],
           overlayColor: "from-background/45 via-background/25 to-background/45",
           textOverlay: "from-background/15 via-background/5 to-background/15",
           scale: [1.05, 1, 1.05],
@@ -51,8 +51,8 @@ export function MasterpieceBackgroundSystem({
       case "projects":
         return {
           asset: "/luxury-geometric-background.png",
-          opacity: [0.18, 0.24, 0.18],
-          overlayOpacity: [0.60, 0.45, 0.60],
+          opacity: [0.32, 0.42, 0.32],
+          overlayOpacity: [0.40, 0.25, 0.40],
           overlayColor: "from-background/40 via-background/20 to-background/40",
           textOverlay: "from-background/12 via-transparent to-background/12",
           scale: [1, 1.08, 1],
@@ -63,8 +63,8 @@ export function MasterpieceBackgroundSystem({
       case "experience":
         return {
           asset: "/minimal-luxury-interior.png",
-          opacity: [0.10, 0.14, 0.10],
-          overlayOpacity: [0.70, 0.60, 0.70],
+          opacity: [0.25, 0.32, 0.25],
+          overlayOpacity: [0.50, 0.40, 0.50],
           overlayColor: "from-background/50 via-background/30 to-background/50",
           textOverlay: "from-background/18 via-background/8 to-background/18",
           scale: [1.1, 1.05, 1.1],
@@ -75,8 +75,8 @@ export function MasterpieceBackgroundSystem({
       case "services":
         return {
           asset: "/elegant-brand-identity.png",
-          opacity: [0.14, 0.18, 0.14],
-          overlayOpacity: [0.62, 0.50, 0.62],
+          opacity: [0.30, 0.38, 0.30],
+          overlayOpacity: [0.42, 0.30, 0.42],
           overlayColor: "from-background/42 via-background/22 to-background/42",
           textOverlay: "from-background/14 via-background/6 to-background/14",
           scale: [1.03, 1.06, 1.03],
@@ -87,8 +87,8 @@ export function MasterpieceBackgroundSystem({
       case "contact":
         return {
           asset: "/luxury-geometric-background.png",
-          opacity: [0.16, 0.20, 0.16],
-          overlayOpacity: [0.58, 0.48, 0.58],
+          opacity: [0.34, 0.40, 0.34],
+          overlayOpacity: [0.38, 0.28, 0.38],
           overlayColor: "from-background/38 via-background/18 to-background/38",
           textOverlay: "from-background/12 via-transparent to-background/12",
           scale: [1, 1.04, 1],
