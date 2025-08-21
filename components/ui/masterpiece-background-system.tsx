@@ -62,14 +62,14 @@ export function MasterpieceBackgroundSystem({
 
       case "experience":
         return {
-          asset: "/minimal-luxury-interior.png",
-          opacity: [0.25, 0.32, 0.25],
-          overlayOpacity: [0.50, 0.40, 0.50],
-          overlayColor: "from-background/50 via-background/30 to-background/50",
-          textOverlay: "from-background/18 via-background/8 to-background/18",
-          scale: [1.1, 1.05, 1.1],
-          blur: [8, 5, 8],
-          className: "object-cover object-bottom"
+          asset: "/luxury-geometric-background.png",
+          opacity: [0.28, 0.36, 0.28],
+          overlayOpacity: [0.45, 0.35, 0.45],
+          overlayColor: "from-background/45 via-background/25 to-background/45",
+          textOverlay: "from-background/15 via-background/5 to-background/15",
+          scale: [1.05, 1, 1.05],
+          blur: [6, 3, 6],
+          className: "object-cover object-center"
         }
 
       case "services":
