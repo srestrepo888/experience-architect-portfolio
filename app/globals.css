@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Perfect Consistent Color System - Enhanced for Luxury Background */
-    --background: 26 27% 98% / 0.1; /* #F8F6F4 - TRANSPARENT for background overlay */
+    --background: 26 27% 98%; /* #F8F6F4 - Solid background for proper contrast */
     --foreground: 26 4% 15%; /* #262421 - Perfect contrast text */
 
     --card: 26 27% 99% / 0.95; /* #FAF8F6 - More transparent for luxury background */
@@ -198,9 +198,9 @@
     @apply bg-transparent;
   }
 
-  /* Override any white backgrounds */
+  /* Enhanced white background for proper display */
   .bg-white {
-    background-color: hsl(var(--background)) !important;
+    background-color: hsl(var(--background));
   }
 
   /* iOS Input Styling */
@@ -408,10 +408,9 @@
     background: rgba(15, 14, 13, 0.85);
   }
 
-  /* Override any conflicting background colors to maintain consistency */
-  .bg-white,
+  /* Background color consistency for luxury background system */
   .bg-background {
-    background-color: transparent !important;
+    background-color: hsl(var(--background));
   }
 
   /* Ensure section backgrounds work harmoniously with site-wide background */
