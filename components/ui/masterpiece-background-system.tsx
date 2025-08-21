@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
-const ASSET_VERSION = "v2025-08-21-4-definitive"
+const ASSET_VERSION = "v2025-08-21-5-corrected"
 
 interface MasterpieceBackgroundProps {
   section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
@@ -23,17 +23,20 @@ export function MasterpieceBackgroundSystem({
     offset: ["start end", "end start"]
   })
 
-  // DEFINITIVE VISUAL JOURNEY: Each section creates a distinct, powerful visual experience
+  // CORRECTED: Using only your approved design assets with enhanced visual impact
   const getSectionConfig = () => {
+    const APPROVED_GEOMETRIC = "/luxury-geometric-background.png"
+    const APPROVED_TEXTURE = "/background-texture.png"
+
     switch (section) {
       case "hero":
-        // MAXIMUM IMPACT: Full luxury geometric power
+        // MAXIMUM IMPACT: Your luxury geometric background at full power
         return {
-          asset: "/luxury-geometric-background.png",
-          opacity: [0.95, 1.0, 0.95],
-          overlayOpacity: [0.15, 0.05, 0.15],
-          overlayColor: "from-background/15 via-transparent to-background/20",
-          textOverlay: "from-transparent via-transparent to-transparent",
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.85, 0.95, 0.85],
+          overlayOpacity: [0.25, 0.10, 0.25],
+          overlayColor: "from-background/25 via-background/5 to-background/30",
+          textOverlay: "from-background/5 via-transparent to-background/8",
           scale: [1, 1.08, 1],
           blur: [0, 0, 0],
           className: "object-cover object-center",
@@ -42,90 +45,90 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "about":
-        // PORTRAIT HARMONY: Elegant brand identity that frames your portrait
+        // PORTRAIT FOCUSED: Muted geometric that doesn't compete with your portrait
         return {
-          asset: "/elegant-brand-identity.png",
-          opacity: [0.70, 0.80, 0.70],
-          overlayOpacity: [0.40, 0.25, 0.40],
-          overlayColor: "from-background/40 via-background/15 to-background/45",
-          textOverlay: "from-background/8 via-transparent to-background/12",
-          scale: [1.03, 1.06, 1.03],
-          blur: [1, 0, 1],
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.25, 0.35, 0.25],
+          overlayOpacity: [0.75, 0.60, 0.75],
+          overlayColor: "from-background/75 via-background/50 to-background/80",
+          textOverlay: "from-background/20 via-background/10 to-background/25",
+          scale: [1.02, 1.05, 1.02],
+          blur: [8, 4, 8],
           className: "object-cover object-center",
           animation: "elegant",
           sophisticatedBlend: "normal",
         }
 
       case "projects":
-        // CREATIVE ENERGY: Dynamic fashion ecommerce aesthetic for project showcase
+        // CREATIVE SHOWCASE: Medium impact geometric for project display
         return {
-          asset: "/elegant-fashion-ecommerce.png",
-          opacity: [0.75, 0.85, 0.75],
-          overlayOpacity: [0.25, 0.10, 0.25],
-          overlayColor: "from-background/25 via-transparent to-background/30",
-          textOverlay: "from-background/5 via-transparent to-background/8",
-          scale: [1, 1.10, 1],
-          blur: [0, 0, 0],
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.60, 0.70, 0.60],
+          overlayOpacity: [0.40, 0.25, 0.40],
+          overlayColor: "from-background/40 via-background/20 to-background/45",
+          textOverlay: "from-background/10 via-transparent to-background/15",
+          scale: [1, 1.06, 1],
+          blur: [2, 1, 2],
           className: "object-cover object-center",
           animation: "dynamic",
           sophisticatedBlend: "normal",
         }
 
       case "experience":
-        // PROFESSIONAL POWER: Executive portrait energy for career timeline
+        // PROFESSIONAL TIMELINE: Balanced geometric for experience content
         return {
-          asset: "/elegant-professional-woman.png",
-          opacity: [0.65, 0.75, 0.65],
-          overlayOpacity: [0.45, 0.30, 0.45],
-          overlayColor: "from-background/45 via-background/20 to-background/50",
-          textOverlay: "from-background/10 via-background/3 to-background/15",
-          scale: [1.02, 1.05, 1.02],
-          blur: [2, 1, 2],
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.45, 0.55, 0.45],
+          overlayOpacity: [0.55, 0.40, 0.55],
+          overlayColor: "from-background/55 via-background/35 to-background/60",
+          textOverlay: "from-background/15 via-background/8 to-background/20",
+          scale: [1.01, 1.04, 1.01],
+          blur: [4, 2, 4],
           className: "object-cover object-center",
           animation: "sophisticated",
           sophisticatedBlend: "normal",
         }
 
       case "services":
-        // LUXURY TEXTURE: Minimal luxury interior for service sophistication
+        // TEXTURE DISTINCTION: Your approved texture background for services
         return {
-          asset: "/minimal-luxury-interior.png",
-          opacity: [0.80, 0.90, 0.80],
-          overlayOpacity: [0.30, 0.15, 0.30],
-          overlayColor: "from-background/30 via-background/8 to-background/35",
-          textOverlay: "from-background/6 via-transparent to-background/10",
-          scale: [1.01, 1.07, 1.01],
-          blur: [0, 0, 0],
+          asset: APPROVED_TEXTURE,
+          opacity: [0.70, 0.80, 0.70],
+          overlayOpacity: [0.35, 0.20, 0.35],
+          overlayColor: "from-background/35 via-background/15 to-background/40",
+          textOverlay: "from-background/8 via-background/3 to-background/12",
+          scale: [1.01, 1.05, 1.01],
+          blur: [1, 0, 1],
           className: "object-cover object-center",
           animation: "refined",
           sophisticatedBlend: "normal",
         }
 
       case "contact":
-        // SOPHISTICATED CLOSE: Luxury detail for final engagement
+        // ENGAGEMENT FOCUS: Reduced geometric for contact clarity
         return {
-          asset: "/luxury-detail-1.png",
-          opacity: [0.60, 0.70, 0.60],
-          overlayOpacity: [0.50, 0.35, 0.50],
-          overlayColor: "from-background/50 via-background/25 to-background/55",
-          textOverlay: "from-background/12 via-background/5 to-background/18",
-          scale: [1, 1.04, 1],
-          blur: [1, 0, 1],
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.35, 0.45, 0.35],
+          overlayOpacity: [0.60, 0.45, 0.60],
+          overlayColor: "from-background/60 via-background/40 to-background/65",
+          textOverlay: "from-background/15 via-background/8 to-background/20",
+          scale: [1, 1.03, 1],
+          blur: [3, 2, 3],
           className: "object-cover object-center",
           animation: "elegant",
           sophisticatedBlend: "normal",
         }
 
       case "footer":
-        // MASTERPIECE FINALE: Secondary luxury detail for sophisticated closure
+        // SOPHISTICATED CLOSURE: Subtle geometric for footer
         return {
-          asset: "/luxury-detail-2.png",
-          opacity: [0.55, 0.65, 0.55],
-          overlayOpacity: [0.55, 0.40, 0.55],
-          overlayColor: "from-background/55 via-background/30 to-background/60",
-          textOverlay: "from-background/15 via-background/8 to-background/20",
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.30, 0.40, 0.30],
+          overlayOpacity: [0.65, 0.50, 0.65],
+          overlayColor: "from-background/65 via-background/45 to-background/70",
+          textOverlay: "from-background/18 via-background/10 to-background/22",
           scale: [1.01, 1.03, 1.01],
-          blur: [2, 1, 2],
+          blur: [5, 3, 5],
           className: "object-cover object-center",
           animation: "minimal",
           sophisticatedBlend: "normal",
@@ -133,13 +136,13 @@ export function MasterpieceBackgroundSystem({
 
       default:
         return {
-          asset: "/luxury-geometric-background.png",
-          opacity: [0.50, 0.60, 0.50],
-          overlayOpacity: [0.45, 0.30, 0.45],
-          overlayColor: "from-background/45 via-background/25 to-background/45",
-          textOverlay: "from-background/15 via-background/5 to-background/15",
-          scale: [1, 1.05, 1],
-          blur: [2, 1, 2],
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.40, 0.50, 0.40],
+          overlayOpacity: [0.50, 0.35, 0.50],
+          overlayColor: "from-background/50 via-background/30 to-background/55",
+          textOverlay: "from-background/15 via-background/8 to-background/18",
+          scale: [1, 1.04, 1],
+          blur: [3, 2, 3],
           className: "object-cover object-center",
           animation: "default",
           sophisticatedBlend: "normal",
