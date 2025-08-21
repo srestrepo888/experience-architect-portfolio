@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import { ButtonText } from "@/components/typography"
 import { ArrowRight, ExternalLink, Download, ChevronRight, Loader2 } from "lucide-react"
+import { ElevatedButton, type ElevatedButtonProps } from "./elevated-button-system"
 
 // SOPHISTICATED BUTTON SYSTEM - WORLD-CLASS LUXURY IMPLEMENTATION
 // Inspired by luxury brands: Hermès, Cartier, Rolex, Chanel
@@ -225,3 +226,24 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
 )
 
 EnhancedButton.displayName = "EnhancedButton"
+
+// ENHANCED COMPATIBILITY LAYER
+// Provides backward compatibility while leveraging the new elevated system
+export const EnhancedButtonV2 = React.forwardRef<HTMLButtonElement, ElevatedButtonProps>(
+  (props, ref) => {
+    return (
+      <ElevatedButton
+        ref={ref}
+        tactileFeedback={true}
+        magneticEffect={props.variant === "luxury"}
+        elevation="moderate"
+        {...props}
+      />
+    )
+  }
+)
+
+EnhancedButtonV2.displayName = "EnhancedButtonV2"
+
+// Export the elevated system as the default for new implementations
+export { ElevatedButton as SophisticatedButton, ElevatedButtonGroup as SophisticatedButtonGroup } from "./elevated-button-system"
