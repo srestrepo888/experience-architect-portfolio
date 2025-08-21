@@ -5,7 +5,7 @@ import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
 interface MasterpieceBackgroundProps {
-  section: "hero" | "about" | "projects" | "experience" | "services" | "contact"
+  section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
   children: ReactNode
   className?: string
 }
@@ -94,6 +94,18 @@ export function MasterpieceBackgroundSystem({
           scale: [1, 1.04, 1],
           blur: [2, 1, 2],
           className: "object-cover object-top"
+        }
+
+      case "footer":
+        return {
+          asset: "/luxury-geometric-background.png",
+          opacity: [0.25, 0.30, 0.25],
+          overlayOpacity: [0.50, 0.40, 0.50],
+          overlayColor: "from-background/50 via-background/30 to-background/50",
+          textOverlay: "from-background/20 via-background/10 to-background/20",
+          scale: [1.02, 1, 1.02],
+          blur: [4, 2, 4],
+          className: "object-cover object-center"
         }
     }
   }
@@ -240,6 +252,14 @@ export function ServicesBackground({ children }: { children: ReactNode }) {
 export function ContactBackground({ children }: { children: ReactNode }) {
   return (
     <MasterpieceBackgroundSystem section="contact" className="py-24 md:py-32">
+      {children}
+    </MasterpieceBackgroundSystem>
+  )
+}
+
+export function FooterBackground({ children }: { children: ReactNode }) {
+  return (
+    <MasterpieceBackgroundSystem section="footer" className="py-16 md:py-20">
       {children}
     </MasterpieceBackgroundSystem>
   )

@@ -14,7 +14,8 @@ import {
   ProjectsBackground,
   ExperienceBackground,
   ServicesBackground,
-  ContactBackground
+  ContactBackground,
+  FooterBackground
 } from "@/components/ui/masterpiece-background-system"
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
 
@@ -152,7 +153,9 @@ export default function HomePage() {
           </PerfectLayout>
         </ContactBackground>
       </main>
-      <Footer />
+      <FooterBackground>
+        <Footer />
+      </FooterBackground>
     </div>
   )
 }
