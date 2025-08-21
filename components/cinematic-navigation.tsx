@@ -133,11 +133,14 @@ export default function CinematicNavigation() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href="#hero"
-                  onClick={() => handleNavClick('#hero')}
-                  className="text-xl font-serif font-light text-foreground hover:text-foreground/80 transition-colors duration-300"
+                  href="https://silvana.mmm.page/human-perspective"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-serif font-light text-foreground hover:text-foreground/80 transition-colors duration-300 group"
+                  aria-label="Visit Silvana's Voice - Human Perspective Manifesto"
                 >
-                  Silvana Restrepo
+                  <span className="group-hover:underline decoration-1 underline-offset-4">Silvana Restrepo</span>
+                  <span className="ml-1 text-xs text-muted-foreground group-hover:text-foreground/60 transition-colors duration-300">My Voice</span>
                 </Link>
               </motion.div>
 
@@ -321,6 +324,21 @@ export default function CinematicNavigation() {
                   }}
                   className="pt-8"
                 >
+                  <Link
+                    href="https://silvana.mmm.page/human-perspective"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group mb-6"
+                    aria-label="Visit Silvana's Voice - Human Perspective Manifesto"
+                  >
+                    <span className="text-2xl font-serif font-light text-foreground hover:text-muted-foreground transition-colors duration-300">
+                      My Voice
+                    </span>
+                    <span className="block mt-1 text-sm text-muted-foreground group-hover:text-muted-foreground/70 transition-colors duration-300">
+                      Human Perspective Manifesto
+                    </span>
+                  </Link>
+                  
                   <EnhancedButton
                     href="#contact"
                     onClick={(e) => {
