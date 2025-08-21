@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
+const ASSET_VERSION = "v2025-08-21-1"
+
 interface MasterpieceBackgroundProps {
   section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
   children: ReactNode
@@ -152,6 +154,8 @@ export function MasterpieceBackgroundSystem({
     default: { initial: { opacity: 0, scale: 1.04 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
   }
 
+  const assetWithVersion = `${config.asset}?${ASSET_VERSION}`
+
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
       <motion.div
@@ -160,7 +164,7 @@ export function MasterpieceBackgroundSystem({
         {...animationVariants[config.animation as keyof typeof animationVariants]}
       >
         <Image
-          src={config.asset}
+          src={assetWithVersion}
           alt={`${section} background`}
           fill
           className={config.className}
