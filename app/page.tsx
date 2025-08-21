@@ -38,12 +38,12 @@ export default function HomePage() {
             <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.ABOUT.SECTION_NUMBER} — {CONTENT_CONFIG.ABOUT.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.ABOUT.HEADING}</HeadingLarge>
             </PerfectStack>
             
             <PerfectGrid columns={{ sm: 1, lg: 2 }} gap="xl" className="items-center">
               <PerfectCard padding="xl" variant="minimal">
                 <PerfectStack spacing="relaxed">
-                  <HeadingLarge className="text-center mb-6">{CONTENT_CONFIG.ABOUT.HEADING}</HeadingLarge>
                   <BodyLarge className="leading-relaxed whitespace-pre-line">
                     {CONTENT_CONFIG.ABOUT.DESCRIPTION}
                   </BodyLarge>
@@ -101,6 +101,7 @@ export default function HomePage() {
             <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.PROJECTS.SECTION_NUMBER} — {CONTENT_CONFIG.PROJECTS.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.PROJECTS.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 {CONTENT_CONFIG.PROJECTS.SUBTITLE}
               </BodyLarge>
@@ -116,6 +117,7 @@ export default function HomePage() {
             <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.EXPERIENCE.SECTION_NUMBER} — {CONTENT_CONFIG.EXPERIENCE.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.EXPERIENCE.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
               </BodyLarge>
@@ -131,6 +133,7 @@ export default function HomePage() {
             <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.SERVICES.SECTION_NUMBER} — {CONTENT_CONFIG.SERVICES.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.SERVICES.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
                 {CONTENT_CONFIG.SERVICES.DESCRIPTION}
               </BodyLarge>

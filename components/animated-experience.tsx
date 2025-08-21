@@ -115,11 +115,6 @@ export default function AnimatedExperience() {
 
   return (
     <div className="w-full">
-      {/* Main heading */}
-      <div className="text-center mb-16">
-        <HeadingLarge className="text-center">{CONTENT_CONFIG.EXPERIENCE.HEADING}</HeadingLarge>
-      </div>
-      
       {/* Animated list of experiences */}
       <AnimatedList
         items={experienceItems}

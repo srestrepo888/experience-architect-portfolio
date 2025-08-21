@@ -83,11 +83,6 @@ const services = [
 export default function DetailedServicesSection() {
   return (
     <div className="w-full">
-      {/* Main heading */}
-      <div className="text-center mb-16">
-        <HeadingLarge className="text-center">{CONTENT_CONFIG.SERVICES.HEADING}</HeadingLarge>
-      </div>
-      
       {/* Services grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
