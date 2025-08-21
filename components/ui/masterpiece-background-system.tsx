@@ -21,7 +21,7 @@ export function MasterpieceBackgroundSystem({
     offset: ["start end", "end start"]
   })
 
-  // Section-specific background configurations with luxury enhancements
+  // Section-specific background configurations with COMPLEMENTARY backgrounds
   const getSectionConfig = () => {
     switch (section) {
       case "hero":
@@ -39,46 +39,33 @@ export function MasterpieceBackgroundSystem({
       
       case "about":
         return {
-          asset: "/luxury-geometric-background.png", 
-          opacity: [0.28, 0.36, 0.28],
-          overlayOpacity: [0.45, 0.35, 0.45],
-          overlayColor: "from-background/45 via-background/25 to-background/45",
-          textOverlay: "from-background/15 via-background/5 to-background/15",
+          asset: "/elegant-brand-identity.png", // Complementary background
+          opacity: [0.25, 0.32, 0.25],
+          overlayOpacity: [0.50, 0.40, 0.50],
+          overlayColor: "from-background/50 via-background/30 to-background/50",
+          textOverlay: "from-background/20 via-background/10 to-background/20",
           scale: [1.05, 1, 1.05],
-          blur: [6, 3, 6],
+          blur: [8, 4, 8],
           className: "object-cover object-center",
           animation: "elegant"
         }
 
       case "projects":
         return {
-          asset: "/luxury-geometric-background.png",
-          opacity: [0.32, 0.42, 0.32],
-          overlayOpacity: [0.40, 0.25, 0.40],
-          overlayColor: "from-background/40 via-background/20 to-background/40",
-          textOverlay: "from-background/12 via-transparent to-background/12",
+          asset: "/elegant-fashion-ecommerce.png", // Complementary background
+          opacity: [0.28, 0.36, 0.28],
+          overlayOpacity: [0.45, 0.35, 0.45],
+          overlayColor: "from-background/45 via-background/25 to-background/45",
+          textOverlay: "from-background/15 via-background/5 to-background/15",
           scale: [1, 1.08, 1],
-          blur: [3, 1, 3],
+          blur: [6, 3, 6],
           className: "object-cover object-center",
           animation: "dynamic"
         }
 
       case "experience":
         return {
-          asset: "/luxury-geometric-background.png",
-          opacity: [0.28, 0.36, 0.28],
-          overlayOpacity: [0.45, 0.35, 0.45],
-          overlayColor: "from-background/45 via-background/25 to-background/45",
-          textOverlay: "from-background/15 via-background/5 to-background/15",
-          scale: [1.05, 1, 1.05],
-          blur: [6, 3, 6],
-          className: "object-cover object-center",
-          animation: "sophisticated"
-        }
-
-      case "services":
-        return {
-          asset: "/background-texture.png",
+          asset: "/elegant-professional-woman.png", // Complementary background
           opacity: [0.30, 0.38, 0.30],
           overlayOpacity: [0.42, 0.30, 0.42],
           overlayColor: "from-background/42 via-background/22 to-background/42",
@@ -86,25 +73,38 @@ export function MasterpieceBackgroundSystem({
           scale: [1.03, 1.06, 1.03],
           blur: [5, 2, 5],
           className: "object-cover object-center",
+          animation: "sophisticated"
+        }
+
+      case "services":
+        return {
+          asset: "/minimal-luxury-interior.png", // Complementary background
+          opacity: [0.32, 0.40, 0.32],
+          overlayOpacity: [0.40, 0.25, 0.40],
+          overlayColor: "from-background/40 via-background/20 to-background/40",
+          textOverlay: "from-background/12 via-transparent to-background/12",
+          scale: [1, 1.04, 1],
+          blur: [4, 2, 4],
+          className: "object-cover object-center",
           animation: "refined"
         }
 
       case "contact":
         return {
-          asset: "/luxury-geometric-background.png",
+          asset: "/luxury-detail-1.png", // Complementary background
           opacity: [0.34, 0.40, 0.34],
           overlayOpacity: [0.38, 0.28, 0.38],
           overlayColor: "from-background/38 via-background/18 to-background/38",
           textOverlay: "from-background/12 via-transparent to-background/12",
           scale: [1, 1.04, 1],
-          blur: [2, 1, 2],
+          blur: [3, 1, 3],
           className: "object-cover object-top",
           animation: "elegant"
         }
 
       case "footer":
         return {
-          asset: "/luxury-geometric-background.png",
+          asset: "/luxury-detail-2.png", // Complementary background
           opacity: [0.25, 0.32, 0.25],
           overlayOpacity: [0.50, 0.40, 0.50],
           overlayColor: "from-background/50 via-background/30 to-background/50",
@@ -117,7 +117,7 @@ export function MasterpieceBackgroundSystem({
 
       default:
         return {
-          asset: "/luxury-geometric-background.png",
+          asset: "/background-texture.png",
           opacity: [0.30, 0.40, 0.30],
           overlayOpacity: [0.45, 0.30, 0.45],
           overlayColor: "from-background/45 via-background/25 to-background/45",
@@ -217,7 +217,7 @@ export function MasterpieceBackgroundSystem({
         <div className="absolute inset-0 opacity-[0.01] bg-[linear-gradient(45deg,transparent_25%,rgba(15,23,42,0.1)_25%,rgba(15,23,42,0.1)_50%,transparent_50%,transparent_75%,rgba(15,23,42,0.1)_75%)] bg-[length:8px_8px]" />
       </motion.div>
 
-      {/* Content with Luxury Positioning */}
+      {/* Content with Luxury Positioning - NO SECTION DIVIDERS */}
       <div className="relative z-10">
         {children}
       </div>
