@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
-const ASSET_VERSION = "v2025-08-21-1"
+const ASSET_VERSION = "v2025-08-21-2"
 
 interface MasterpieceBackgroundProps {
   section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
@@ -43,15 +43,15 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "about":
-        // Muted variant—same palette, higher blur and overlay for calm reading
+        // More visibly muted for clear differentiation
         return {
           asset: HERO_ASSET,
-          opacity: [0.24, 0.30, 0.24],
-          overlayOpacity: [0.58, 0.44, 0.58],
-          overlayColor: "from-background/55 via-background/35 to-background/55",
-          textOverlay: "from-background/18 via-background/8 to-background/18",
-          scale: [1.02, 1.04, 1.02],
-          blur: [5, 3, 5],
+          opacity: [0.20, 0.26, 0.20],
+          overlayOpacity: [0.72, 0.58, 0.72],
+          overlayColor: "from-background/65 via-background/42 to-background/65",
+          textOverlay: "from-background/22 via-background/12 to-background/22",
+          scale: [1.02, 1.05, 1.02],
+          blur: [10, 6, 10],
           className: "object-cover object-center",
           animation: "elegant",
         }
@@ -83,15 +83,15 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "services":
-        // Enhanced but subtle texture; harmonized overlays with hero
+        // Slightly stronger overlays for better readability
         return {
           asset: SERVICES_ASSET,
           opacity: [0.28, 0.34, 0.28],
-          overlayOpacity: [0.50, 0.36, 0.50],
-          overlayColor: "from-background/50 via-background/28 to-background/50",
-          textOverlay: "from-background/14 via-background/6 to-background/14",
+          overlayOpacity: [0.56, 0.42, 0.56],
+          overlayColor: "from-background/56 via-background/32 to-background/56",
+          textOverlay: "from-background/16 via-background/8 to-background/16",
           scale: [1.01, 1.05, 1.01],
-          blur: [4, 2, 4],
+          blur: [5, 3, 5],
           className: "object-cover object-center",
           animation: "refined",
         }
