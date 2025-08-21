@@ -7,46 +7,53 @@
     text-wrap: balance;
   }
   
-  /* Modern Gradient Utilities */
-  .gradient-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Ultra-Sophisticated Gradient System */
+  .gradient-luxury-warm {
+    background: linear-gradient(135deg, #f5f2ef 0%, #f0ede9 35%, #ebe6e1 100%);
   }
   
-  .gradient-secondary {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  .gradient-luxury-cool {
+    background: linear-gradient(135deg, #f7f5f3 0%, #f2efec 35%, #ede9e5 100%);
   }
   
-  .gradient-tertiary {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  .gradient-sophisticated {
+    background: linear-gradient(135deg, #faf8f6 0%, #f4f1ee 50%, #efebe7 100%);
   }
   
-  .gradient-text-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  .gradient-text-luxury {
+    background: linear-gradient(135deg, #201e1a 0%, #2d2a25 35%, #3a3630 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
-  .gradient-text-secondary {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  .gradient-text-elegant {
+    background: linear-gradient(135deg, #141210 0%, #201e1a 50%, #373430 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
-  /* Advanced Glass Morphism */
-  .glass-morphism {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  /* Ultra-Sophisticated Glass Morphism */
+  .glass-morphism-luxury {
+    background: rgba(249, 247, 245, 0.12);
+    backdrop-filter: blur(24px) saturate(130%) brightness(105%);
+    border: 1px solid rgba(249, 247, 245, 0.18);
+    box-shadow: 0 12px 40px rgba(32, 30, 26, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   }
   
-  .glass-morphism-dark {
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  .glass-morphism-elegant {
+    background: rgba(244, 241, 238, 0.08);
+    backdrop-filter: blur(16px) saturate(120%) brightness(102%);
+    border: 1px solid rgba(244, 241, 238, 0.15);
+    box-shadow: 0 8px 32px rgba(32, 30, 26, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-morphism-subtle {
+    background: rgba(250, 248, 246, 0.06);
+    backdrop-filter: blur(12px) saturate(110%);
+    border: 1px solid rgba(250, 248, 246, 0.12);
+    box-shadow: 0 6px 24px rgba(32, 30, 26, 0.03);
   }
   
   /* Modern Animation Utilities */

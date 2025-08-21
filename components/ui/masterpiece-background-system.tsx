@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
-const ASSET_VERSION = "v2025-08-21-2"
+const ASSET_VERSION = "v2025-08-21-4-definitive"
 
 interface MasterpieceBackgroundProps {
   section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
@@ -23,121 +23,138 @@ export function MasterpieceBackgroundSystem({
     offset: ["start end", "end start"]
   })
 
-  // Unified, fluent background system
+  // DEFINITIVE VISUAL JOURNEY: Each section creates a distinct, powerful visual experience
   const getSectionConfig = () => {
-    const HERO_ASSET = "/luxury-geometric-background.png"
-    const SERVICES_ASSET = "/background-texture.png"
-
     switch (section) {
       case "hero":
+        // MAXIMUM IMPACT: Full luxury geometric power
         return {
-          asset: HERO_ASSET,
-          opacity: [0.36, 0.44, 0.36],
-          overlayOpacity: [0.55, 0.36, 0.55],
-          overlayColor: "from-background/40 via-background/20 to-background/55",
-          textOverlay: "from-background/10 via-transparent to-background/10",
+          asset: "/luxury-geometric-background.png",
+          opacity: [0.95, 1.0, 0.95],
+          overlayOpacity: [0.15, 0.05, 0.15],
+          overlayColor: "from-background/15 via-transparent to-background/20",
+          textOverlay: "from-transparent via-transparent to-transparent",
           scale: [1, 1.08, 1],
-          blur: [0, 1, 0],
+          blur: [0, 0, 0],
           className: "object-cover object-center",
           animation: "luxury",
+          sophisticatedBlend: "normal",
         }
 
       case "about":
-        // More visibly muted for clear differentiation
+        // PORTRAIT HARMONY: Elegant brand identity that frames your portrait
         return {
-          asset: HERO_ASSET,
-          opacity: [0.20, 0.26, 0.20],
-          overlayOpacity: [0.72, 0.58, 0.72],
-          overlayColor: "from-background/65 via-background/42 to-background/65",
-          textOverlay: "from-background/22 via-background/12 to-background/22",
-          scale: [1.02, 1.05, 1.02],
-          blur: [10, 6, 10],
+          asset: "/elegant-brand-identity.png",
+          opacity: [0.70, 0.80, 0.70],
+          overlayOpacity: [0.40, 0.25, 0.40],
+          overlayColor: "from-background/40 via-background/15 to-background/45",
+          textOverlay: "from-background/8 via-transparent to-background/12",
+          scale: [1.03, 1.06, 1.03],
+          blur: [1, 0, 1],
           className: "object-cover object-center",
           animation: "elegant",
+          sophisticatedBlend: "normal",
         }
 
       case "projects":
+        // CREATIVE ENERGY: Dynamic fashion ecommerce aesthetic for project showcase
         return {
-          asset: HERO_ASSET,
-          opacity: [0.30, 0.38, 0.30],
-          overlayOpacity: [0.48, 0.34, 0.48],
-          overlayColor: "from-background/48 via-background/28 to-background/48",
-          textOverlay: "from-background/12 via-transparent to-background/12",
-          scale: [1, 1.06, 1],
-          blur: [2, 1, 2],
+          asset: "/elegant-fashion-ecommerce.png",
+          opacity: [0.75, 0.85, 0.75],
+          overlayOpacity: [0.25, 0.10, 0.25],
+          overlayColor: "from-background/25 via-transparent to-background/30",
+          textOverlay: "from-background/5 via-transparent to-background/8",
+          scale: [1, 1.10, 1],
+          blur: [0, 0, 0],
           className: "object-cover object-center",
           animation: "dynamic",
+          sophisticatedBlend: "normal",
         }
 
       case "experience":
+        // PROFESSIONAL POWER: Executive portrait energy for career timeline
         return {
-          asset: HERO_ASSET,
-          opacity: [0.28, 0.36, 0.28],
-          overlayOpacity: [0.50, 0.36, 0.50],
-          overlayColor: "from-background/50 via-background/30 to-background/50",
-          textOverlay: "from-background/14 via-background/6 to-background/14",
-          scale: [1.01, 1.04, 1.01],
-          blur: [3, 2, 3],
+          asset: "/elegant-professional-woman.png",
+          opacity: [0.65, 0.75, 0.65],
+          overlayOpacity: [0.45, 0.30, 0.45],
+          overlayColor: "from-background/45 via-background/20 to-background/50",
+          textOverlay: "from-background/10 via-background/3 to-background/15",
+          scale: [1.02, 1.05, 1.02],
+          blur: [2, 1, 2],
           className: "object-cover object-center",
           animation: "sophisticated",
+          sophisticatedBlend: "normal",
         }
 
       case "services":
-        // Slightly stronger overlays for better readability
+        // LUXURY TEXTURE: Minimal luxury interior for service sophistication
         return {
-          asset: SERVICES_ASSET,
-          opacity: [0.28, 0.34, 0.28],
-          overlayOpacity: [0.56, 0.42, 0.56],
-          overlayColor: "from-background/56 via-background/32 to-background/56",
-          textOverlay: "from-background/16 via-background/8 to-background/16",
-          scale: [1.01, 1.05, 1.01],
-          blur: [5, 3, 5],
+          asset: "/minimal-luxury-interior.png",
+          opacity: [0.80, 0.90, 0.80],
+          overlayOpacity: [0.30, 0.15, 0.30],
+          overlayColor: "from-background/30 via-background/8 to-background/35",
+          textOverlay: "from-background/6 via-transparent to-background/10",
+          scale: [1.01, 1.07, 1.01],
+          blur: [0, 0, 0],
           className: "object-cover object-center",
           animation: "refined",
+          sophisticatedBlend: "normal",
         }
 
       case "contact":
+        // SOPHISTICATED CLOSE: Luxury detail for final engagement
         return {
-          asset: HERO_ASSET,
-          opacity: [0.30, 0.36, 0.30],
-          overlayOpacity: [0.46, 0.32, 0.46],
-          overlayColor: "from-background/46 via-background/26 to-background/46",
-          textOverlay: "from-background/12 via-transparent to-background/12",
+          asset: "/luxury-detail-1.png",
+          opacity: [0.60, 0.70, 0.60],
+          overlayOpacity: [0.50, 0.35, 0.50],
+          overlayColor: "from-background/50 via-background/25 to-background/55",
+          textOverlay: "from-background/12 via-background/5 to-background/18",
           scale: [1, 1.04, 1],
-          blur: [2, 1, 2],
+          blur: [1, 0, 1],
           className: "object-cover object-center",
           animation: "elegant",
+          sophisticatedBlend: "normal",
         }
 
       case "footer":
+        // MASTERPIECE FINALE: Secondary luxury detail for sophisticated closure
         return {
-          asset: HERO_ASSET,
-          opacity: [0.26, 0.32, 0.26],
-          overlayOpacity: [0.50, 0.38, 0.50],
-          overlayColor: "from-background/52 via-background/30 to-background/52",
-          textOverlay: "from-background/16 via-background/8 to-background/16",
+          asset: "/luxury-detail-2.png",
+          opacity: [0.55, 0.65, 0.55],
+          overlayOpacity: [0.55, 0.40, 0.55],
+          overlayColor: "from-background/55 via-background/30 to-background/60",
+          textOverlay: "from-background/15 via-background/8 to-background/20",
           scale: [1.01, 1.03, 1.01],
-          blur: [4, 3, 4],
+          blur: [2, 1, 2],
           className: "object-cover object-center",
           animation: "minimal",
+          sophisticatedBlend: "normal",
         }
 
       default:
         return {
-          asset: HERO_ASSET,
-          opacity: [0.30, 0.40, 0.30],
+          asset: "/luxury-geometric-background.png",
+          opacity: [0.50, 0.60, 0.50],
           overlayOpacity: [0.45, 0.30, 0.45],
           overlayColor: "from-background/45 via-background/25 to-background/45",
           textOverlay: "from-background/15 via-background/5 to-background/15",
           scale: [1, 1.05, 1],
-          blur: [4, 2, 4],
+          blur: [2, 1, 2],
           className: "object-cover object-center",
           animation: "default",
+          sophisticatedBlend: "normal",
         }
     }
   }
 
   const config = getSectionConfig()
+  
+  // Debug logging
+  console.log(`Background system for ${section}:`, {
+    asset: config.asset,
+    opacity: config.opacity,
+    assetPath: `${config.asset}?${ASSET_VERSION}`
+  })
 
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5, 1], config.opacity)
   const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], config.scale)
@@ -145,13 +162,13 @@ export function MasterpieceBackgroundSystem({
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], config.overlayOpacity)
 
   const animationVariants = {
-    luxury: { initial: { opacity: 0, scale: 1.08 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } },
-    elegant: { initial: { opacity: 0, scale: 1.04 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-    dynamic: { initial: { opacity: 0, scale: 1.06 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-    sophisticated: { initial: { opacity: 0, scale: 1.02 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-    refined: { initial: { opacity: 0, scale: 1.04 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-    minimal: { initial: { opacity: 0, scale: 1.02 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-    default: { initial: { opacity: 0, scale: 1.04 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+    luxury: { initial: { opacity: 0, scale: 1.12, filter: "blur(8px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } },
+    elegant: { initial: { opacity: 0, scale: 1.06, filter: "blur(6px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } },
+    dynamic: { initial: { opacity: 0, scale: 1.08, filter: "blur(4px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+    sophisticated: { initial: { opacity: 0, scale: 1.04, filter: "blur(6px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } },
+    refined: { initial: { opacity: 0, scale: 1.06, filter: "blur(5px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+    minimal: { initial: { opacity: 0, scale: 1.03, filter: "blur(4px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    default: { initial: { opacity: 0, scale: 1.05, filter: "blur(5px)" }, animate: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } },
   }
 
   const assetWithVersion = `${config.asset}?${ASSET_VERSION}`
@@ -160,7 +177,12 @@ export function MasterpieceBackgroundSystem({
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
       <motion.div
         className="absolute inset-0"
-        style={{ opacity: backgroundOpacity, scale: backgroundScale, filter: `blur(${backgroundBlur}px)` }}
+        style={{ 
+          opacity: backgroundOpacity, 
+          scale: backgroundScale, 
+          filter: `blur(${backgroundBlur}px)`,
+          mixBlendMode: config.sophisticatedBlend as any || "normal"
+        }}
         {...animationVariants[config.animation as keyof typeof animationVariants]}
       >
         <Image
@@ -170,12 +192,28 @@ export function MasterpieceBackgroundSystem({
           className={config.className}
           priority={section === "hero"}
           quality={95}
+          onError={(e) => {
+            console.log(`Failed to load background image: ${assetWithVersion}`)
+            // Fallback to a solid color
+            e.currentTarget.style.display = 'none'
+            const parent = e.currentTarget.parentElement
+            if (parent) {
+              parent.style.backgroundColor = '#f5f2ef'
+            }
+          }}
         />
       </motion.div>
 
-      <motion.div className="absolute inset-0" style={{ opacity: overlayOpacity }}>
+      <motion.div 
+        className="absolute inset-0" 
+        style={{ opacity: overlayOpacity }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <div className={`absolute inset-0 bg-gradient-to-b ${config.overlayColor}`} />
-        <div className={`absolute inset-0 bg-gradient-to-b ${config.textOverlay}`} />
+        <div className={`absolute inset-0 bg-gradient-to-br ${config.textOverlay}`} />
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/5 to-background/10" />
       </motion.div>
 
       <div className="relative z-10">

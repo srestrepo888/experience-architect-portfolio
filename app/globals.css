@@ -4,47 +4,47 @@
 
 @layer base {
   :root {
-    /* Perfect Consistent Color System - Enhanced for Luxury Background */
-    --background: 26 27% 98%; /* #F8F6F4 - Solid background for proper contrast */
-    --foreground: 26 4% 15%; /* #262421 - Perfect contrast text */
+    /* Ultra-Sophisticated Color System - Enhanced for Perfection */
+    --background: 26 28% 98.5%; /* #F9F7F5 - Ultra-refined warm white */
+    --foreground: 26 8% 12%; /* #201E1A - Deep, sophisticated charcoal */
 
-    --card: 26 27% 99% / 0.95; /* #FAF8F6 - More transparent for luxury background */
-    --card-foreground: 26 4% 15%;
+    --card: 26 28% 99% / 0.96; /* #FAFAF8 - Perfect card transparency */
+    --card-foreground: 26 6% 14%;
 
-    --popover: 26 27% 98% / 0.95;
-    --popover-foreground: 26 4% 15%;
+    --popover: 26 28% 99% / 0.97;
+    --popover-foreground: 26 6% 14%;
 
-    --primary: 26 4% 12%; /* #1F1D1B - Sophisticated primary */
-    --primary-foreground: 26 27% 99%;
+    --primary: 26 12% 8%; /* #141210 - Ultra-sophisticated near-black */
+    --primary-foreground: 26 28% 99.5%;
 
-    --secondary: 26 27% 96% / 0.9; /* #F2EFEC - TRANSPARENT secondary */
-    --secondary-foreground: 26 4% 25%; /* #403E3A */
+    --secondary: 26 28% 96.5% / 0.92; /* #F4F2F0 - Refined transparency */
+    --secondary-foreground: 26 8% 22%; /* #373430 */
 
-    --muted: 26 20% 95% / 0.8; /* #F0EDEA - TRANSPARENT muted background */
-    --muted-foreground: 26 4% 35%; /* #5A5754 */
+    --muted: 26 22% 95.5% / 0.82; /* #F1EFEC - Enhanced muted transparency */
+    --muted-foreground: 26 8% 32%; /* #524F4B */
 
-    --accent: 26 4% 15%; /* Consistent with foreground */
-    --accent-foreground: 26 27% 97%;
+    --accent: 26 10% 12%; /* Refined accent tone */
+    --accent-foreground: 26 28% 98%;
 
-    --destructive: 0 65% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 99%;
 
-    --border: 26 15% 88% / 0.6; /* #E5E1DD - TRANSPARENT sophisticated borders */
-    --input: 26 15% 88% / 0.6;
-    --ring: 26 10% 80% / 0.8; /* #D1CCC6 - TRANSPARENT focus rings */
+    --border: 26 18% 89% / 0.65; /* #E7E3DF - Enhanced border sophistication */
+    --input: 26 18% 89% / 0.65;
+    --ring: 26 15% 78% / 0.85; /* #CFC9C3 - Perfect focus rings */
 
-    --radius: 0.5rem; /* 8px - Perfect border radius */
+    --radius: 0.625rem; /* 10px - Enhanced border radius for luxury feel */
 
-    /* Perfect Typography Scale */
-    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+    /* Ultra-Sophisticated Typography Scale */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
 
-    /* Perfect Shadows */
-    --shadow-subtle: 0 1px 2px rgba(38, 36, 33, 0.04);
-    --shadow-soft: 0 2px 8px rgba(38, 36, 33, 0.06);
-    --shadow-medium: 0 4px 16px rgba(38, 36, 33, 0.08);
-    --shadow-strong: 0 8px 32px rgba(38, 36, 33, 0.12);
-    --shadow-dramatic: 0 16px 64px rgba(38, 36, 33, 0.16);
+    /* Ultra-Refined Shadow System */
+    --shadow-subtle: 0 1px 3px rgba(32, 30, 26, 0.03), 0 1px 2px rgba(32, 30, 26, 0.02);
+    --shadow-soft: 0 2px 8px rgba(32, 30, 26, 0.05), 0 1px 3px rgba(32, 30, 26, 0.03);
+    --shadow-medium: 0 4px 16px rgba(32, 30, 26, 0.07), 0 2px 6px rgba(32, 30, 26, 0.04);
+    --shadow-strong: 0 8px 32px rgba(32, 30, 26, 0.10), 0 4px 12px rgba(32, 30, 26, 0.06);
+    --shadow-dramatic: 0 16px 64px rgba(32, 30, 26, 0.14), 0 8px 24px rgba(32, 30, 26, 0.08);
 
     /* iOS Safe Area Support */
     --safe-area-inset-top: env(safe-area-inset-top);
@@ -64,10 +64,12 @@
   body {
     @apply text-foreground antialiased;
     font-family: var(--font-sans);
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    font-variation-settings: "opsz" 32;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "kern", "liga", "clig", "calt";
+    font-variation-settings: "opsz" 28, "wght" 400;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
     width: 100%;
+    letter-spacing: -0.01em;
 
     /* iOS Optimizations */
     -webkit-font-smoothing: antialiased;
@@ -99,7 +101,7 @@
     user-select: text;
   }
 
-  /* Perfect Typography Hierarchy */
+  /* Ultra-Sophisticated Typography Hierarchy */
   h1,
   h2,
   h3,
@@ -107,18 +109,25 @@
   h5,
   h6 {
     @apply font-serif;
-    font-feature-settings: "ss01", "ss02";
+    font-feature-settings: "ss01", "ss02", "kern", "liga", "dlig", "hlig", "calt";
+    font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.02em;
+    font-variant-ligatures: common-ligatures discretionary-ligatures historical-ligatures;
   }
 
   p {
     @apply text-muted-foreground;
-    line-height: 1.75;
-    font-weight: 300;
+    line-height: 1.65;
+    font-weight: 350;
+    font-feature-settings: "kern", "liga", "calt", "onum";
     hanging-punctuation: first last;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    hyphens: auto;
+    text-wrap: pretty;
   }
 
   /* Perfect Smooth Scrolling - iOS Optimized */
@@ -358,18 +367,36 @@
     aspect-ratio: 3 / 4;
   }
 
-  /* Perfect Typography Utilities */
+  /* Ultra-Sophisticated Typography Utilities */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-primary/85 to-primary/90 bg-clip-text text-transparent;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shimmer 3s ease-in-out infinite;
   }
 
   .text-sophisticated {
-    font-feature-settings: "ss01", "ss02", "cv02", "cv03";
+    font-feature-settings: "ss01", "ss02", "cv02", "cv03", "kern", "liga", "dlig", "calt";
+    font-optical-sizing: auto;
     letter-spacing: -0.025em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+  }
+
+  /* Enhanced Typography Effects */
+  .text-luxury {
+    font-weight: 275;
+    letter-spacing: 0.015em;
+    word-spacing: 0.05em;
+    text-shadow: 0 1px 2px rgba(32, 30, 26, 0.08);
+  }
+
+  .text-elegance {
+    font-variation-settings: "opsz" 24, "wght" 320;
+    font-feature-settings: "kern", "liga", "calt", "swsh";
+    letter-spacing: 0.025em;
   }
 
   /* iOS Optimized Interactive States */
@@ -495,6 +522,24 @@
   to {
     opacity: 1;
     -webkit-transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
   }
 }
 

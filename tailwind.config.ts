@@ -86,6 +86,16 @@ const config = {
         strong: "var(--shadow-strong)",
         dramatic: "var(--shadow-dramatic)",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-sophisticated": "linear-gradient(135deg, var(--tw-gradient-stops))",
+        "gradient-luxury": "linear-gradient(45deg, var(--tw-gradient-stops))",
+      },
+      backdropBlur: {
+        "xs": "1px",
+        "2xs": "0.5px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
