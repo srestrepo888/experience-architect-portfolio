@@ -84,6 +84,82 @@ Before every commit:
 - Modify unrequested components
 - Break existing integrations
 
+## 🎯 DESIGN EXCELLENCE STANDARDS
+
+### Content Standards
+- **NEVER add unauthorized copy or text**
+- **ONLY use pre-approved content from CONTENT_CONFIG**
+- **ALL text must be explicitly approved by user**
+- **NO placeholder text or generic content**
+
+### Design System Compliance
+- **STRICTLY follow the established design system**
+- **Use only approved colors, spacing, typography**
+- **Maintain sophisticated, elegant, ultra-luxurious aesthetic**
+- **Ensure fluent movement and perfect craftsmanship**
+
+### Component Management
+- **When adding new components, REMOVE old conflicting ones**
+- **NO duplicate functionality or competing elements**
+- **Clean up deprecated components immediately**
+- **Maintain single source of truth for each feature**
+
+## 🔍 MANDATORY QUALITY ASSURANCE
+
+### Double QA Protocol (REQUIRED BEFORE EVERY RESPONSE)
+1. **Content Verification**: Only approved copy included?
+2. **Design System Check**: Follows established patterns?
+3. **Aesthetic Validation**: Meets sophistication standards?
+4. **Conflict Resolution**: No competing components?
+5. **Accessibility Review**: WCAG compliant?
+
+### Design Principles Validation
+Every implementation must demonstrate:
+- ✅ **Sophistication** - Refined, polished execution
+- ✅ **Elegance** - Graceful, tasteful design choices
+- ✅ **Ultra-luxury** - Premium feel and attention to detail
+- ✅ **Fluent movement** - Smooth, natural animations
+- ✅ **Perfect craftsmanship** - Flawless implementation
+
+## 📐 BEST PRACTICES COMPLIANCE
+
+### Heuristic Practices
+- **Jakob Nielsen's 10 usability heuristics**
+- **Clear system status and feedback**
+- **User control and freedom**
+- **Consistency and standards**
+- **Error prevention and recovery**
+
+### Visual Design Practices
+- **Hierarchy through typography and spacing**
+- **Consistent visual language**
+- **Purposeful use of color and contrast**
+- **Balanced composition and alignment**
+- **Meaningful visual relationships**
+
+### Navigation Strategies
+- **Clear information architecture**
+- **Intuitive navigation patterns**
+- **Consistent interaction behaviors**
+- **Accessible navigation aids**
+- **Logical content flow**
+
+### User Experience Design
+- **User-centered design decisions**
+- **Clear user goals and tasks**
+- **Reduced cognitive load**
+- **Seamless interaction flows**
+- **Responsive and adaptive design**
+
+### Visual Accessibility
+- **WCAG 2.1 AA compliance minimum**
+- **Sufficient color contrast ratios**
+- **Keyboard navigation support**
+- **Screen reader compatibility**
+- **Focus management and indicators**
+- **Alternative text for images**
+- **Semantic HTML structure**
+
 ---
 
-**Remember: The user's time and prompts are valuable. Every mistake costs them both. Be surgical, precise, and protective of existing work.**
+**ZERO TOLERANCE POLICY: Every output must pass double QA and meet all design excellence standards. The user's vision of sophistication and luxury must be reflected in every detail.**

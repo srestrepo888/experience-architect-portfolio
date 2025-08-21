@@ -66,6 +66,65 @@ Every mistake costs the user:
 
 **ZERO TOLERANCE for scope creep or accidental modifications.**
 
+## 🏆 DESIGN EXCELLENCE ENFORCEMENT
+
+### Content Integrity
+- **ZERO unauthorized copy allowed**
+- **ALL text must come from approved CONTENT_CONFIG**
+- **NO generic placeholder content ever**
+- **User approval required for any new copy**
+
+### Quality Gates (MANDATORY)
+Every change must pass these gates:
+
+#### Gate 1: Content Verification
+- [ ] Only approved copy used
+- [ ] No unauthorized text additions
+- [ ] All content matches CONTENT_CONFIG
+- [ ] No placeholder or generic content
+
+#### Gate 2: Design System Compliance
+- [ ] Follows established color palette
+- [ ] Uses approved typography scale
+- [ ] Maintains spacing consistency
+- [ ] Adheres to component patterns
+
+#### Gate 3: Aesthetic Excellence
+- [ ] Meets sophistication standards
+- [ ] Demonstrates elegance and luxury
+- [ ] Shows fluent movement
+- [ ] Displays perfect craftsmanship
+
+#### Gate 4: UX Best Practices
+- [ ] Follows Nielsen's heuristics
+- [ ] Maintains clear navigation
+- [ ] Provides excellent usability
+- [ ] Supports accessibility (WCAG 2.1 AA)
+
+#### Gate 5: Component Hygiene
+- [ ] Removes old/conflicting components
+- [ ] No duplicate functionality
+- [ ] Clean codebase maintained
+- [ ] Single source of truth preserved
+
+### Accessibility Standards (NON-NEGOTIABLE)
+- **Color contrast ratio ≥ 4.5:1** for normal text
+- **Color contrast ratio ≥ 3:1** for large text
+- **Keyboard navigation** fully functional
+- **Screen reader support** with proper ARIA labels
+- **Focus indicators** clearly visible
+- **Semantic HTML** structure maintained
+
+### Design Sophistication Checklist
+Every implementation must demonstrate:
+- 🎨 **Visual hierarchy** through typography and spacing
+- 🏛️ **Architectural precision** in layout and composition
+- ✨ **Luxury attention to detail** in micro-interactions
+- 🌊 **Fluent animation** that feels natural and elegant
+- 🔮 **Sophisticated color harmony** that enhances the experience
+
 ---
+
+**IMPLEMENTATION RULE: Nothing ships without passing ALL quality gates. Excellence is non-negotiable.**
 
 **GOLDEN RULE: If it's not explicitly mentioned in the request, DON'T TOUCH IT.**
