@@ -1,58 +1,70 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useEffect, useState } from "react"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 
 export default function CinematicHero() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   })
 
-  // Parallax and cinematic effects
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  const blur = useTransform(scrollYProgress, [0, 1], [0, 2])
+  // Silk-like parallax effects
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.6])
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
 
-  // Split text for staggered animation
-  const splitText = (text: string) => {
-    return text.split('').map((letter, index) => ({ letter, index }))
-  }
+  // Mouse interaction for silk movement
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        y: (e.clientY / window.innerHeight - 0.5) * 2
+      })
+    }
 
-  const experienceLetters = splitText(CONTENT_CONFIG.HERO.MAIN_TITLE)
-  const architectLetters = splitText(CONTENT_CONFIG.HERO.SUBTITLE)
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
 
-  // Ultra-luxury stagger animation
-  const letterVariants = {
+  // Organic text emergence animation
+  const textVariants = {
     initial: {
       opacity: 0,
-      y: 100,
-      scale: 0.3,
-      rotateX: 90,
-      filter: "blur(10px)",
+      y: 60,
+      scale: 0.8,
+      filter: "blur(20px)",
     },
-    animate: (index: number) => ({
+    animate: {
       opacity: 1,
       y: 0,
       scale: 1,
-      rotateX: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 1.2,
-        delay: 0.8 + (index * 0.08),
+        duration: 2,
         ease: [0.25, 0.1, 0.25, 1],
       }
-    }),
-    hover: {
-      scale: 1.1,
-      y: -5,
-      filter: "brightness(1.2)",
+    }
+  }
+
+  const subtitleVariants = {
+    initial: {
+      opacity: 0,
+      y: 40,
+      filter: "blur(15px)",
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
       transition: {
-        duration: 0.3,
-        ease: "easeOut"
+        duration: 1.8,
+        delay: 1.2,
+        ease: [0.25, 0.1, 0.25, 1],
       }
     }
   }
@@ -63,220 +75,319 @@ export default function CinematicHero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ y, opacity }}
     >
-      {/* Cinematic background layers */}
-      <motion.div 
-        className="absolute inset-0 -z-10"
-        style={{ 
-          scale,
-          filter: `blur(${blur}px)`,
-          background: `
-            radial-gradient(ellipse at 20% 20%, rgba(251, 191, 36, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 80%, rgba(244, 63, 94, 0.12) 0%, transparent 50%),
-            linear-gradient(135deg, 
-              rgba(245, 245, 244, 0.8) 0%, 
-              rgba(251, 191, 36, 0.15) 25%, 
-              rgba(244, 63, 94, 0.12) 50%, 
-              rgba(249, 115, 22, 0.15) 75%, 
-              rgba(245, 245, 244, 0.8) 100%
-            )
-          `
-        }}
-      />
+      {/* Silk Fabric Background System */}
+      <div className="absolute inset-0">
+        {/* Primary silk layer - flowing base */}
+        <motion.div 
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 140% 120% at 20% 30%, 
+                hsl(33, 15%, 96%) 0%, 
+                hsl(15, 12%, 95%) 25%, 
+                hsl(33, 15%, 97%) 50%, 
+                hsl(15, 12%, 96%) 75%, 
+                hsl(33, 15%, 95%) 100%
+              )
+            `,
+            scale,
+          }}
+          animate={{
+            background: [
+              `radial-gradient(ellipse 140% 120% at 20% 30%, 
+                hsl(33, 15%, 96%) 0%, 
+                hsl(15, 12%, 95%) 25%, 
+                hsl(33, 15%, 97%) 50%, 
+                hsl(15, 12%, 96%) 75%, 
+                hsl(33, 15%, 95%) 100%
+              )`,
+              `radial-gradient(ellipse 160% 140% at 80% 70%, 
+                hsl(15, 12%, 96%) 0%, 
+                hsl(33, 15%, 95%) 25%, 
+                hsl(15, 12%, 97%) 50%, 
+                hsl(33, 15%, 96%) 75%, 
+                hsl(15, 12%, 95%) 100%
+              )`,
+              `radial-gradient(ellipse 140% 120% at 20% 30%, 
+                hsl(33, 15%, 96%) 0%, 
+                hsl(15, 12%, 95%) 25%, 
+                hsl(33, 15%, 97%) 50%, 
+                hsl(15, 12%, 96%) 75%, 
+                hsl(33, 15%, 95%) 100%
+              )`
+            ]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
 
-      {/* Floating geometric elements */}
+        {/* Silk wave layers - multiple flowing gradients */}
+        <motion.div
+          className="absolute inset-0 opacity-40"
+          animate={{
+            background: [
+              "linear-gradient(45deg, transparent 0%, hsl(33, 15%, 92%) 20%, transparent 40%, hsl(15, 12%, 93%) 60%, transparent 80%)",
+              "linear-gradient(135deg, hsl(15, 12%, 93%) 0%, transparent 25%, hsl(33, 15%, 92%) 50%, transparent 75%)",
+              "linear-gradient(225deg, transparent 0%, hsl(33, 15%, 92%) 30%, transparent 60%, hsl(15, 12%, 93%) 90%)",
+              "linear-gradient(315deg, hsl(15, 12%, 93%) 0%, transparent 35%, hsl(33, 15%, 92%) 70%, transparent 100%)",
+              "linear-gradient(45deg, transparent 0%, hsl(33, 15%, 92%) 20%, transparent 40%, hsl(15, 12%, 93%) 60%, transparent 80%)"
+            ]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * 8}px)`
+          }}
+        />
+
+        {/* Secondary silk flow */}
+        <motion.div
+          className="absolute inset-0 opacity-25"
+          animate={{
+            background: [
+              "radial-gradient(ellipse 200% 100% at 0% 50%, hsl(15, 12%, 94%) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 100% 50%, hsl(33, 15%, 94%) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 50% 0%, hsl(15, 12%, 94%) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 50% 100%, hsl(33, 15%, 94%) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 0% 50%, hsl(15, 12%, 94%) 0%, transparent 40%)"
+            ]
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{
+            transform: `translate(${mousePosition.x * -8}px, ${mousePosition.y * 6}px)`
+          }}
+        />
+
+        {/* Silk sheen effects */}
+        <motion.div
+          className="absolute inset-0 opacity-15"
+          animate={{
+            background: [
+              "linear-gradient(60deg, transparent 0%, hsl(0, 0%, 100%) 10%, transparent 20%)",
+              "linear-gradient(120deg, transparent 40%, hsl(0, 0%, 100%) 50%, transparent 60%)",
+              "linear-gradient(240deg, transparent 70%, hsl(0, 0%, 100%) 80%, transparent 90%)",
+              "linear-gradient(300deg, transparent 20%, hsl(0, 0%, 100%) 30%, transparent 40%)",
+              "linear-gradient(60deg, transparent 0%, hsl(0, 0%, 100%) 10%, transparent 20%)"
+            ]
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
+
+      {/* Floating silk fibers */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full bg-gradient-to-r from-sophisticated/20 to-sophisticated/10"
+            style={{
+              left: `${20 + (i * 10)}%`,
+              top: `${30 + (i % 3) * 20}%`,
+            }}
+            animate={{
+              y: [-20, -80, -20],
+              x: [-10, 15, -10],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              duration: 8 + (i * 0.5),
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.8
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Elegant geometric accents */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400/20 rounded-full"
+        className="absolute top-1/3 left-1/4 w-3 h-3 rounded-full bg-sophisticated/10"
         animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.2, 0.5, 0.2],
-          y: [0, -20, 0],
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.7, 0.3],
+          rotate: [0, 180, 360],
         }}
         transition={{
-          duration: 6,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut"
         }}
+        style={{
+          transform: `translate(${mousePosition.x * 15}px, ${mousePosition.y * 12}px)`
+        }}
       />
 
       <motion.div
-        className="absolute top-3/4 right-1/3 w-3 h-3 bg-rose-400/15 rounded-full"
+        className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-sophisticated/15"
         animate={{
-          scale: [1, 1.8, 1],
-          opacity: [0.15, 0.4, 0.15],
-          x: [0, 25, 0],
+          scale: [1, 1.6, 1],
+          opacity: [0.2, 0.5, 0.2],
+          rotate: [360, 180, 0],
         }}
         transition={{
-          duration: 8,
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2
+          delay: 3
+        }}
+        style={{
+          transform: `translate(${mousePosition.x * -12}px, ${mousePosition.y * 10}px)`
         }}
       />
 
-      {/* Elegant accent lines */}
-      <motion.div 
-        className="absolute left-1/2 top-1/2 w-px h-32 bg-gradient-to-b from-transparent via-foreground/20 to-transparent"
-        initial={{ scaleY: 0, opacity: 0 }}
-        animate={{ scaleY: 1, opacity: 1 }}
-        transition={{ duration: 1.5, delay: 3.5, ease: [0.25, 0.1, 0.25, 1] }}
-        style={{ transformOrigin: "center" }}
-      />
-      
-      <motion.div 
-        className="absolute left-1/2 top-1/2 w-32 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent"
-        initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 1.5, delay: 4, ease: [0.25, 0.1, 0.25, 1] }}
-        style={{ transformOrigin: "center" }}
-      />
-
-      {/* Main content */}
+      {/* Main content with silk-like emergence */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        {/* Experience - with cinematic reveal */}
+        
+        {/* EXPERIENCE - organic emergence */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-6"
+          variants={textVariants}
+          initial="initial"
+          animate="animate"
+          className="mb-8"
         >
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-foreground leading-tight tracking-wide">
-            {experienceLetters.map(({ letter, index }) => (
-              <motion.span
-                key={index}
-                custom={index}
-                variants={letterVariants}
-                initial="initial"
-                animate="animate"
-                whileHover="hover"
-                className="inline-block relative group cursor-default"
-                style={{ 
-                  display: letter === ' ' ? 'inline' : 'inline-block',
-                  transformStyle: 'preserve-3d',
-                  perspective: '1000px'
-                }}
-              >
-                <span 
-                  className="relative z-10 bg-gradient-to-b from-foreground via-foreground/95 to-foreground/85"
-                  style={{
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent'
-                  }}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </span>
-                
-                {/* Luxury shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                  animate={{
-                    background: [
-                      'linear-gradient(90deg, transparent, rgba(251,191,36,0.1), transparent)',
-                      'linear-gradient(90deg, transparent, rgba(244,63,94,0.1), transparent)',
-                      'linear-gradient(90deg, transparent, rgba(251,191,36,0.1), transparent)'
-                    ],
-                    x: ['-100%', '100%', '-100%']
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 5 + (index * 0.1)
-                  }}
-                />
-              </motion.span>
-            ))}
-          </h1>
+          <motion.h1 
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-sophisticated leading-[0.9] tracking-[-0.02em]"
+            style={{
+              background: `linear-gradient(135deg, 
+                hsl(var(--foreground)) 0%, 
+                hsl(var(--foreground) / 0.9) 50%, 
+                hsl(var(--foreground) / 0.8) 100%
+              )`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent'
+            }}
+          >
+            <motion.span
+              className="inline-block"
+              animate={{
+                textShadow: [
+                  "0 0 0px hsl(var(--foreground) / 0)",
+                  "0 2px 8px hsl(var(--foreground) / 0.1)",
+                  "0 0 0px hsl(var(--foreground) / 0)"
+                ]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {CONTENT_CONFIG.HERO.MAIN_TITLE}
+            </motion.span>
+          </motion.h1>
         </motion.div>
         
-        {/* ARCHITECT - with enhanced drama */}
+        {/* ARCHITECT - flowing subtitle */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
+          variants={subtitleVariants}
+          initial="initial"
+          animate="animate"
+          className="mb-12"
         >
-          <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground/90 leading-tight tracking-widest uppercase">
-            {architectLetters.map(({ letter, index }) => (
-              <motion.span
-                key={index}
-                custom={experienceLetters.length + index + 3}
-                variants={letterVariants}
-                initial="initial"
-                animate="animate"
-                whileHover="hover"
-                className="inline-block relative group cursor-default"
-                style={{ 
-                  display: letter === ' ' ? 'inline' : 'inline-block',
-                  transformStyle: 'preserve-3d',
-                  perspective: '1000px'
-                }}
-              >
-                <span 
-                  className="relative z-10 bg-gradient-to-b from-foreground/95 via-foreground/85 to-foreground/75"
-                  style={{
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent'
-                  }}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </span>
-                
-                {/* Enhanced shimmer for ARCHITECT */}
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                  animate={{
-                    background: [
-                      'linear-gradient(90deg, transparent, rgba(249,115,22,0.15), transparent)',
-                      'linear-gradient(90deg, transparent, rgba(168,85,247,0.12), transparent)',
-                      'linear-gradient(90deg, transparent, rgba(249,115,22,0.15), transparent)'
-                    ],
-                    x: ['-100%', '100%', '-100%']
-                  }}
-                  transition={{
-                    duration: 3.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 6 + (index * 0.08)
-                  }}
-                />
-              </motion.span>
-            ))}
-          </h2>
+          <motion.h2 
+            className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-sophisticated/85 leading-tight tracking-[0.1em] uppercase"
+            style={{
+              background: `linear-gradient(120deg, 
+                hsl(var(--foreground) / 0.85) 0%, 
+                hsl(var(--foreground) / 0.7) 50%, 
+                hsl(var(--foreground) / 0.85) 100%
+              )`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent'
+            }}
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            {CONTENT_CONFIG.HERO.SUBTITLE}
+          </motion.h2>
         </motion.div>
 
-        {/* Subtle tagline reveal */}
+        {/* Elegant tagline with silk emergence */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 4.5, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-12"
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1.5, delay: 2.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-16"
         >
-          <p className="text-sm sm:text-base md:text-lg font-light text-muted-foreground/70 tracking-wide uppercase max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg font-light text-sophisticated/60 tracking-[0.08em] uppercase max-w-2xl mx-auto leading-relaxed">
             {CONTENT_CONFIG.HERO.TAGLINE}
           </p>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Silk-inspired scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 6 }}
+        transition={{ duration: 1, delay: 4 }}
       >
         <motion.div
-          className="w-6 h-10 border border-foreground/20 rounded-full flex justify-center"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center space-y-3"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
+          {/* Elegant scroll line */}
           <motion.div
-            className="w-1 h-3 bg-foreground/30 rounded-full mt-2"
-            animate={{ scaleY: [1, 0.3, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px h-16 bg-gradient-to-b from-transparent via-sophisticated/30 to-transparent"
+            animate={{
+              height: [64, 48, 64],
+              opacity: [0.3, 0.7, 0.3]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Flowing indicator dot */}
+          <motion.div
+            className="w-2 h-2 rounded-full bg-sophisticated/40"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.4, 0.8, 0.4],
+              y: [0, 12, 0]
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
           />
         </motion.div>
       </motion.div>
+
+      {/* Subtle silk border accent */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sophisticated/20 to-transparent"
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 2, delay: 3, ease: [0.25, 0.1, 0.25, 1] }}
+      />
     </motion.section>
   )
 }
