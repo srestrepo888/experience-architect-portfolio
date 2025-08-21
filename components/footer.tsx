@@ -204,7 +204,7 @@ export default function Footer() {
                 transition={{ duration: 0.4, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
               >
-                © 2024 • Experience Architect Portfolio
+                {CONTENT_CONFIG.FOOTER.COPYRIGHT}
               </motion.div>
               <motion.div 
                 className="text-xs text-foreground/40 font-light tracking-wide"

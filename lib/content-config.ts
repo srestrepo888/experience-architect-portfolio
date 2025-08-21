@@ -18,7 +18,7 @@ export const CONTENT_CONFIG = {
   HERO: {
     MAIN_TITLE: "EXPERIENCE",
     SUBTITLE: "ARCHITECT",
-    TAGLINE: "Experience Architect",
+    TAGLINE: "",
     SCROLL_INDICATOR: {
       ARIA_LABEL: "Scroll down to explore the portfolio"
     }

@@ -23,8 +23,8 @@ const sans = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Silvana | Experience Architect",
-  description: "Portfolio of Silvana, an experience architect specializing in creating sophisticated digital products.",
+  title: "Silvana | Portfolio",
+  description: "Portfolio of Silvana — sophisticated, human-centered strategic design and product leadership.",
   viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
   themeColor: "#F5F1EE",
   appleWebApp: {
