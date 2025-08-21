@@ -6,27 +6,46 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import { ButtonText } from "@/components/typography"
-import { ArrowRight, ExternalLink, Download, ChevronRight } from "lucide-react"
+import { ArrowRight, ExternalLink, Download, ChevronRight, Loader2 } from "lucide-react"
 
+// SOPHISTICATED BUTTON SYSTEM - WORLD-CLASS LUXURY IMPLEMENTATION
+// Inspired by luxury brands: Hermès, Cartier, Rolex, Chanel
 const enhancedButtonVariants = cva(
-  "inline-flex items-center justify-center rounded-lg font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-[9999] pointer-events-auto cursor-pointer",
+  "inline-flex items-center justify-center font-medium transition-all duration-500 ease-[0.16,1,0.3,1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-[9999] pointer-events-auto cursor-pointer",
   {
     variants: {
       variant: {
-        primary: "bg-gray-900 text-white hover:bg-gray-700",
-        secondary: "border border-gray-900 text-gray-900 bg-transparent hover:bg-gray-900 hover:text-white",
-        ghost: "hover:bg-gray-100 hover:text-gray-900 border border-transparent",
-        outline: "border border-gray-300 bg-transparent hover:bg-gray-50 text-gray-700",
-        destructive: "bg-red-600 text-white hover:bg-red-700",
-        link: "bg-transparent text-gray-900 hover:text-gray-700 underline-offset-4 hover:underline p-0 h-auto rounded-none",
+        // Primary - Sophisticated dark with luxury hover effects
+        primary: "bg-slate-900 text-white hover:bg-slate-800 hover:shadow-[0_20px_40px_rgba(15,23,42,0.3)] hover:-translate-y-1 border border-slate-900",
+        
+        // Secondary - Elegant outline with sophisticated interactions
+        secondary: "border border-slate-900 text-slate-900 bg-transparent hover:bg-slate-900 hover:text-white hover:shadow-[0_20px_40px_rgba(15,23,42,0.2)] hover:-translate-y-1",
+        
+        // Ghost - Subtle with refined hover states
+        ghost: "hover:bg-slate-100 hover:text-slate-900 border border-transparent hover:border-slate-200 hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)]",
+        
+        // Outline - Refined border with luxury interactions
+        outline: "border border-slate-300 bg-transparent hover:bg-slate-50 hover:border-slate-400 text-slate-700 hover:text-slate-900 hover:shadow-[0_15px_35px_rgba(15,23,42,0.15)]",
+        
+        // Destructive - Sophisticated error states
+        destructive: "bg-red-600 text-white hover:bg-red-700 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] hover:-translate-y-1 border border-red-600",
+        
+        // Link - Elegant text links
+        link: "bg-transparent text-slate-900 hover:text-slate-700 underline-offset-4 hover:underline p-0 h-auto rounded-none hover:translate-x-1",
+        
+        // Luxury - Premium variant with sophisticated styling
+        luxury: "bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 hover:shadow-[0_25px_50px_rgba(15,23,42,0.4)] hover:-translate-y-1 border border-slate-700/50",
+        
+        // Minimal - Clean and refined
+        minimal: "bg-white text-slate-900 hover:bg-slate-50 hover:shadow-[0_15px_35px_rgba(15,23,42,0.1)] hover:-translate-y-1 border border-slate-200",
       },
       size: {
-        xs: "px-3 py-1.5 text-xs gap-1.5",
-        sm: "px-4 py-2 text-sm gap-2",
-        md: "px-6 py-3 text-sm gap-2.5",
-        lg: "px-6 py-3 text-base gap-3",
-        xl: "px-8 py-4 text-lg gap-4",
-        icon: "h-11 w-11 p-0",
+        xs: "px-4 py-2 text-xs gap-2 rounded-lg",
+        sm: "px-5 py-2.5 text-sm gap-2.5 rounded-lg",
+        md: "px-6 py-3 text-sm gap-3 rounded-xl",
+        lg: "px-8 py-4 text-base gap-3 rounded-xl",
+        xl: "px-10 py-5 text-lg gap-4 rounded-2xl",
+        icon: "h-12 w-12 p-0 rounded-xl",
       },
       width: {
         auto: "w-auto",
@@ -84,15 +103,17 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
   ) => {
     const isDisabled = disabled || loading
 
-    // Icon rendering logic
+    // Sophisticated icon rendering with luxury animations
     const renderIcon = () => {
       if (loading) {
         return (
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
-          />
+            className="w-4 h-4"
+          >
+            <Loader2 className="w-4 h-4" />
+          </motion.div>
         )
       }
 
@@ -101,96 +122,106 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
       if (typeof icon === "string" && icon in iconMap) {
         const IconComponent = iconMap[icon as keyof typeof iconMap]
         return (
-          <IconComponent className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:scale-110" />
+          <motion.div
+            initial={{ x: iconPosition === "right" ? 5 : -5, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <IconComponent className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </motion.div>
         )
       }
 
-      return icon
+      return (
+        <motion.div
+          initial={{ x: iconPosition === "right" ? 5 : -5, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {icon}
+        </motion.div>
+      )
     }
 
+    // Luxury button content with sophisticated text
     const buttonContent = (
       <>
         {icon && iconPosition === "left" && renderIcon()}
-        <ButtonText className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-          {loading ? loadingText : children}
-        </ButtonText>
+        <motion.div
+          initial={{ opacity: 0, y: 2 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <ButtonText size={size === "xs" ? "small" : size === "xl" ? "large" : "medium"}>
+            {loading ? loadingText : children}
+          </ButtonText>
+        </motion.div>
         {icon && iconPosition === "right" && renderIcon()}
       </>
     )
 
-    const buttonClasses = cn(
-      enhancedButtonVariants({ variant, size, width }),
-      className,
+    // Sophisticated button base with luxury effects
+    const buttonBase = (
+      <motion.button
+        ref={ref}
+        className={cn(enhancedButtonVariants({ variant, size, width }), className)}
+        disabled={isDisabled}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        {...props}
+      >
+        {/* Luxury background effects */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+          initial={{ x: "-100%" }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        />
+        
+        {/* Content */}
+        <div className="relative flex items-center justify-center">
+          {buttonContent}
+        </div>
+      </motion.button>
     )
 
-    const motionProps = {
-      whileHover: { scale: 1.05, y: -2 },
-      whileTap: { scale: 0.98 },
-      transition: { duration: 0.2, ease: "easeInOut" },
-      style: { 
-        zIndex: 9999, 
-        pointerEvents: 'auto',
-        position: 'relative'
-      },
-    }
-
-    // External link
-    if (href && external) {
-      return (
-        <motion.a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={buttonClasses}
-          {...motionProps}
-          {...(download && { download: typeof download === "string" ? download : "" })}
-        >
-          {buttonContent}
-        </motion.a>
-      )
-    }
-
-    // Internal link
+    // Handle different button types
     if (href) {
-      return (
-        <Link href={href} passHref legacyBehavior>
-          <motion.a 
-            className={buttonClasses} 
-            {...motionProps}
-            onClick={(e) => {
-              console.log('EnhancedButton clicked:', href);
-              console.log('Event target:', e.target);
-              console.log('Event currentTarget:', e.currentTarget);
-            }}
-            onMouseEnter={() => console.log('Button hovered')}
-            style={{ 
-              zIndex: 9999, 
-              pointerEvents: 'auto',
-              position: 'relative',
-              cursor: 'pointer'
-            }}
+      if (external) {
+        return (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
           >
-            {buttonContent}
-          </motion.a>
+            {buttonBase}
+          </a>
+        )
+      }
+
+      if (download) {
+        return (
+          <a
+            href={href}
+            download={typeof download === "string" ? download : undefined}
+            className="inline-block"
+          >
+            {buttonBase}
+          </a>
+        )
+      }
+
+      return (
+        <Link href={href} className="inline-block">
+          {buttonBase}
         </Link>
       )
     }
 
-    // Button
-    return (
-      <motion.button
-        ref={ref}
-        className={buttonClasses}
-        disabled={isDisabled}
-        {...motionProps}
-        {...props}
-      >
-        {buttonContent}
-      </motion.button>
-    )
+    return buttonBase
   },
 )
 
 EnhancedButton.displayName = "EnhancedButton"
-
-export { enhancedButtonVariants }

@@ -10,10 +10,12 @@ interface TypographyProps {
   maxWidth?: "none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl"
   balance?: boolean
   sophisticated?: boolean
+  variant?: "default" | "luxury" | "minimal" | "dramatic"
 }
 
-// PERFECT TYPOGRAPHY SYSTEM - WORLD-CLASS IMPLEMENTATION
-// Based on modular scale (1.250 - Major Third) for perfect mathematical harmony
+// PERFECT TYPOGRAPHY SYSTEM - WORLD-CLASS LUXURY IMPLEMENTATION
+// Based on perfect modular scale (1.250 - Major Third) for mathematical harmony
+// Inspired by luxury brands: Hermès, Cartier, Rolex, Chanel
 
 // Perfect responsive text containers with optimal reading widths
 function getMaxWidthClass(maxWidth?: string) {
@@ -36,6 +38,7 @@ function getMaxWidthClass(maxWidth?: string) {
 
 // LEVEL 1: DISPLAY TYPOGRAPHY - HERO & MAJOR STATEMENTS
 // Perfect for hero sections, major announcements, brand statements
+// Luxury variant with sophisticated scaling
 export function DisplayLarge({
   children,
   className,
@@ -44,20 +47,24 @@ export function DisplayLarge({
   maxWidth = "4xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(2.5rem,5vw,4.5rem)] font-serif font-light leading-[0.95] tracking-[-0.02em]",
+    luxury: "text-[clamp(3rem,6vw,5.5rem)] font-serif font-extralight leading-[0.9] tracking-[-0.03em]",
+    minimal: "text-[clamp(2rem,4vw,3.5rem)] font-sans font-light leading-[1.1] tracking-[-0.01em]",
+    dramatic: "text-[clamp(3.5rem,7vw,6rem)] font-serif font-thin leading-[0.85] tracking-[-0.04em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(1.5rem,3vw,3rem)]",
         className,
       )}
     >
@@ -74,20 +81,24 @@ export function DisplayMedium({
   maxWidth = "3xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(2rem,4vw,3.5rem)] font-serif font-light leading-[0.95] tracking-[-0.02em]",
+    luxury: "text-[clamp(2.5rem,5vw,4.5rem)] font-serif font-extralight leading-[0.9] tracking-[-0.03em]",
+    minimal: "text-[clamp(1.75rem,3.5vw,3rem)] font-sans font-light leading-[1.1] tracking-[-0.01em]",
+    dramatic: "text-[clamp(2.75rem,5.5vw,4.75rem)] font-serif font-thin leading-[0.85] tracking-[-0.04em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(1.25rem,2.5vw,2.5rem)]",
         className,
       )}
     >
@@ -104,20 +115,24 @@ export function DisplaySmall({
   maxWidth = "3xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1.75rem,3.5vw,3rem)] font-serif font-light leading-[0.95] tracking-[-0.02em]",
+    luxury: "text-[clamp(2rem,4vw,3.5rem)] font-serif font-extralight leading-[0.9] tracking-[-0.03em]",
+    minimal: "text-[clamp(1.5rem,3vw,2.5rem)] font-sans font-light leading-[1.1] tracking-[-0.01em]",
+    dramatic: "text-[clamp(2.25rem,4.5vw,4rem)] font-serif font-thin leading-[0.85] tracking-[-0.04em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(1rem,2vw,2rem)]",
         className,
       )}
     >
@@ -136,20 +151,24 @@ export function HeadingLarge({
   maxWidth = "3xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-light leading-[1.1] tracking-[-0.015em]",
+    luxury: "text-[clamp(1.75rem,3.5vw,3rem)] font-serif font-extralight leading-[1.05] tracking-[-0.02em]",
+    minimal: "text-[clamp(1.25rem,2.5vw,2.25rem)] font-sans font-light leading-[1.15] tracking-[-0.01em]",
+    dramatic: "text-[clamp(2rem,4vw,3.25rem)] font-serif font-thin leading-[1] tracking-[-0.025em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]",
         className,
       )}
     >
@@ -166,20 +185,24 @@ export function HeadingMedium({
   maxWidth = "2xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1.25rem,2.5vw,2rem)] font-serif font-light leading-[1.15] tracking-[-0.01em]",
+    luxury: "text-[clamp(1.5rem,3vw,2.5rem)] font-serif font-extralight leading-[1.1] tracking-[-0.015em]",
+    minimal: "text-[clamp(1.125rem,2.25vw,1.875rem)] font-sans font-light leading-[1.2] tracking-[-0.005em]",
+    dramatic: "text-[clamp(1.625rem,3.25vw,2.625rem)] font-serif font-thin leading-[1.05] tracking-[-0.02em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(0.75rem,1.5vw,1.5rem)]",
         className,
       )}
     >
@@ -196,20 +219,24 @@ export function HeadingSmall({
   maxWidth = "2xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1.125rem,2.25vw,1.75rem)] font-serif font-light leading-[1.2] tracking-[-0.005em]",
+    luxury: "text-[clamp(1.25rem,2.5vw,2rem)] font-serif font-extralight leading-[1.15] tracking-[-0.01em]",
+    minimal: "text-[clamp(1rem,2vw,1.625rem)] font-sans font-light leading-[1.25] tracking-[0em]",
+    dramatic: "text-[clamp(1.375rem,2.75vw,2.125rem)] font-serif font-thin leading-[1.1] tracking-[-0.015em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(0.625rem,1.25vw,1.25rem)]",
         className,
       )}
     >
@@ -226,20 +253,24 @@ export function HeadingXSmall({
   maxWidth = "xl",
   balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1rem,2vw,1.5rem)] font-serif font-light leading-[1.25] tracking-[0em]",
+    luxury: "text-[clamp(1.125rem,2.25vw,1.75rem)] font-serif font-extralight leading-[1.2] tracking-[-0.005em]",
+    minimal: "text-[clamp(0.875rem,1.75vw,1.375rem)] font-sans font-light leading-[1.3] tracking-[0.005em]",
+    dramatic: "text-[clamp(1.25rem,2.5vw,1.875rem)] font-serif font-thin leading-[1.15] tracking-[-0.01em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground text-center",
         sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(0.5rem,1vw,1rem)]",
         className,
       )}
     >
@@ -249,26 +280,33 @@ export function HeadingXSmall({
 }
 
 // LEVEL 3: SUBHEADING TYPOGRAPHY - SUPPORTING CONTENT
-// Perfect for introductions, descriptions, and supporting text
+// Perfect for supporting text, descriptions, and secondary information
 export function SubheadingLarge({
   children,
   className,
   as: Component = "p",
   noMargin,
-  maxWidth = "3xl",
+  maxWidth = "2xl",
   balance = true,
+  sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1.125rem,1.875vw,1.5rem)] font-sans font-light leading-[1.6] tracking-[0.005em]",
+    luxury: "text-[clamp(1.25rem,2vw,1.625rem)] font-sans font-extralight leading-[1.55] tracking-[0.01em]",
+    minimal: "text-[clamp(1rem,1.75vw,1.375rem)] font-sans font-light leading-[1.65] tracking-[0.01em]",
+    dramatic: "text-[clamp(1.375rem,2.25vw,1.75rem)] font-sans font-thin leading-[1.5] tracking-[0.015em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 18px → 32px (1.125rem → 2rem)
-        "text-[clamp(1.125rem,2vw,2rem)]",
-        "font-sans font-light",
-        "leading-[1.35] tracking-[0.005em]",
-        "text-muted-foreground",
+        variantStyles[variant],
+        "text-foreground/90 text-center",
+        sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(1rem,2vw,2rem)]",
+        !noMargin && "mb-[clamp(0.75rem,1.5vw,1.5rem)]",
         className,
       )}
     >
@@ -282,20 +320,27 @@ export function SubheadingMedium({
   className,
   as: Component = "p",
   noMargin,
-  maxWidth = "2xl",
+  maxWidth = "xl",
   balance = true,
+  sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1rem,1.75vw,1.375rem)] font-sans font-light leading-[1.6] tracking-[0.01em]",
+    luxury: "text-[clamp(1.125rem,1.875vw,1.5rem)] font-sans font-extralight leading-[1.55] tracking-[0.015em]",
+    minimal: "text-[clamp(0.875rem,1.625vw,1.25rem)] font-sans font-light leading-[1.65] tracking-[0.01em]",
+    dramatic: "text-[clamp(1.25rem,2vw,1.625rem)] font-sans font-thin leading-[1.5] tracking-[0.02em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 16px → 24px (1rem → 1.5rem)
-        "text-[clamp(1rem,1.5vw,1.5rem)]",
-        "font-sans font-light",
-        "leading-[1.4] tracking-[0.01em]",
-        "text-muted-foreground",
+        variantStyles[variant],
+        "text-foreground/85 text-center",
+        sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.75rem,1.5vw,1.5rem)]",
+        !noMargin && "mb-[clamp(0.625rem,1.25vw,1.25rem)]",
         className,
       )}
     >
@@ -309,20 +354,27 @@ export function SubheadingSmall({
   className,
   as: Component = "p",
   noMargin,
-  maxWidth = "xl",
+  maxWidth = "lg",
   balance = true,
+  sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(0.875rem,1.625vw,1.25rem)] font-sans font-light leading-[1.6] tracking-[0.01em]",
+    luxury: "text-[clamp(1rem,1.75vw,1.375rem)] font-sans font-extralight leading-[1.55] tracking-[0.015em]",
+    minimal: "text-[clamp(0.75rem,1.5vw,1.125rem)] font-sans font-light leading-[1.65] tracking-[0.01em]",
+    dramatic: "text-[clamp(1.125rem,1.875vw,1.5rem)] font-sans font-thin leading-[1.5] tracking-[0.02em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 14px → 20px (0.875rem → 1.25rem)
-        "text-[clamp(0.875rem,1.25vw,1.25rem)]",
-        "font-sans font-normal",
-        "leading-[1.45] tracking-[0.015em]",
-        "text-muted-foreground",
+        variantStyles[variant],
+        "text-foreground/80 text-center",
+        sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.625rem,1.25vw,1.25rem)]",
+        !noMargin && "mb-[clamp(0.5rem,1vw,1rem)]",
         className,
       )}
     >
@@ -331,27 +383,34 @@ export function SubheadingSmall({
   )
 }
 
-// LEVEL 4: BODY TYPOGRAPHY - MAIN CONTENT
-// Perfect for paragraphs, articles, and readable content
+// LEVEL 4: BODY TYPOGRAPHY - READABLE CONTENT
+// Perfect for body text, paragraphs, and main content
 export function BodyLarge({
   children,
   className,
   as: Component = "p",
   noMargin,
   maxWidth = "2xl",
-  balance = false,
+  balance = true,
+  sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(1rem,1.375vw,1.125rem)] font-sans font-light leading-[1.7] tracking-[0.01em]",
+    luxury: "text-[clamp(1.125rem,1.5vw,1.25rem)] font-sans font-extralight leading-[1.65] tracking-[0.015em]",
+    minimal: "text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-light leading-[1.75] tracking-[0.01em]",
+    dramatic: "text-[clamp(1.25rem,1.75vw,1.375rem)] font-sans font-thin leading-[1.6] tracking-[0.02em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 16px → 22px (1rem → 1.375rem)
-        "text-[clamp(1rem,1.375vw,1.375rem)]",
-        "font-sans font-light",
-        "leading-[1.7] tracking-[0.01em]",
-        "text-muted-foreground",
+        variantStyles[variant],
+        "text-foreground/90",
+        sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(1rem,1.5vw,1.5rem)]",
+        !noMargin && "mb-[clamp(0.75rem,1.5vw,1.5rem)]",
         className,
       )}
     >
@@ -360,26 +419,32 @@ export function BodyLarge({
   )
 }
 
-// LEVEL 4: BODY TYPOGRAPHY - MAIN CONTENT
 export function BodyMedium({
   children,
   className,
   as: Component = "p",
   noMargin,
-  maxWidth = "2xl",
-  balance = false,
+  maxWidth = "xl",
+  balance = true,
+  sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-light leading-[1.7] tracking-[0.01em]",
+    luxury: "text-[clamp(1rem,1.375vw,1.125rem)] font-sans font-extralight leading-[1.65] tracking-[0.015em]",
+    minimal: "text-[clamp(0.75rem,1.125vw,0.875rem)] font-sans font-light leading-[1.75] tracking-[0.01em]",
+    dramatic: "text-[clamp(1.125rem,1.5vw,1.25rem)] font-sans font-thin leading-[1.6] tracking-[0.02em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 14px → 18px (0.875rem → 1.125rem)
-        "text-[clamp(0.875rem,1.125vw,1.125rem)]",
-        "font-sans font-light",
-        "leading-[1.75] tracking-[0.015em]",
-        "text-muted-foreground",
+        variantStyles[variant],
+        "text-foreground/85",
+        sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.25vw,1.25rem)]",
+        !noMargin && "mb-[clamp(0.625rem,1.25vw,1.25rem)]",
         className,
       )}
     >
@@ -393,20 +458,27 @@ export function BodySmall({
   className,
   as: Component = "p",
   noMargin,
-  maxWidth = "xl",
-  balance = false,
+  maxWidth = "lg",
+  balance = true,
+  sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(0.75rem,1.125vw,0.875rem)] font-sans font-light leading-[1.7] tracking-[0.01em]",
+    luxury: "text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-extralight leading-[1.65] tracking-[0.015em]",
+    minimal: "text-[clamp(0.625rem,1vw,0.75rem)] font-sans font-light leading-[1.75] tracking-[0.01em]",
+    dramatic: "text-[clamp(1rem,1.375vw,1.125rem)] font-sans font-thin leading-[1.6] tracking-[0.02em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 12px → 16px (0.75rem → 1rem)
-        "text-[clamp(0.75rem,1vw,1rem)]",
-        "font-sans font-normal",
-        "leading-[1.6] tracking-[0.02em]",
-        "text-muted-foreground",
+        variantStyles[variant],
+        "text-foreground/80",
+        sophisticated && "text-sophisticated",
         balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.75rem,1vw,1rem)]",
+        !noMargin && "mb-[clamp(0.5rem,1vw,1rem)]",
         className,
       )}
     >
@@ -415,25 +487,34 @@ export function BodySmall({
   )
 }
 
+// LEVEL 5: SUPPORTING TYPOGRAPHY - CAPTIONS, LABELS, META
+// Perfect for captions, labels, metadata, and supporting information
 export function Caption({
   children,
   className,
   as: Component = "p",
   noMargin,
-  maxWidth = "lg",
+  maxWidth = "sm",
+  balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(0.625rem,0.875vw,0.75rem)] font-sans font-medium leading-[1.4] tracking-[0.05em]",
+    luxury: "text-[clamp(0.75rem,1vw,0.875rem)] font-sans font-light leading-[1.35] tracking-[0.06em]",
+    minimal: "text-[clamp(0.5rem,0.875vw,0.625rem)] font-sans font-medium leading-[1.5] tracking-[0.05em]",
+    dramatic: "text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-thin leading-[1.3] tracking-[0.08em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Perfect fluid scaling: 10px → 14px (0.625rem → 0.875rem)
-        "text-[clamp(0.625rem,0.875vw,0.875rem)]",
-        "font-sans font-medium uppercase",
-        "leading-[1.4] tracking-[0.15em]",
-        "text-muted-foreground/70",
+        variantStyles[variant],
+        "text-foreground/70 uppercase",
         sophisticated && "text-sophisticated",
+        balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.5rem,0.75vw,0.75rem)]",
+        !noMargin && "mb-[clamp(0.375rem,0.75vw,0.75rem)]",
         className,
       )}
     >
@@ -442,26 +523,36 @@ export function Caption({
   )
 }
 
+// SPECIALIZED TYPOGRAPHY COMPONENTS
+// Perfect for specific use cases with luxury styling
+
+// "Overline" — a sophisticated overline component for section numbers and labels
 export function Overline({
   children,
   className,
   as: Component = "span",
   noMargin,
   maxWidth = "lg",
+  balance = true,
   sophisticated = true,
+  variant = "luxury",
 }: TypographyProps) {
+  const variantStyles = {
+    default: "text-[clamp(0.75rem,1.125vw,0.875rem)] font-sans font-medium leading-[1.4] tracking-[0.15em]",
+    luxury: "text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-light leading-[1.35] tracking-[0.18em]",
+    minimal: "text-[clamp(0.625rem,1vw,0.75rem)] font-sans font-medium leading-[1.5] tracking-[0.15em]",
+    dramatic: "text-[clamp(1rem,1.5vw,1.125rem)] font-sans font-thin leading-[1.3] tracking-[0.2em]",
+  }
+
   return (
     <Component
       className={cn(
-        // Consistent fluid scaling for all section headings: 20px → 44px (1.25rem → 2.75rem)
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light", // Consistent font
-        "leading-[1.1] tracking-[-0.025em]", // Consistent spacing
-        "text-foreground", // Consistent color
-        "text-center", // Consistent alignment
+        variantStyles[variant],
+        "text-foreground/60 uppercase",
         sophisticated && "text-sophisticated",
+        balance && "text-balance",
         getMaxWidthClass(maxWidth),
-        !noMargin && "block mb-[clamp(0.875rem,1.75vw,1.75rem)]", // Consistent margin
+        !noMargin && "mb-[clamp(0.5rem,1vw,1rem)]",
         className,
       )}
     >
@@ -470,181 +561,32 @@ export function Overline({
   )
 }
 
-export function Label({
-  children,
-  className,
-  as: Component = "label",
-  noMargin,
-  maxWidth = "lg",
-  sophisticated = true,
-}: TypographyProps) {
-  return (
-    <Component
-      className={cn(
-        // Perfect fluid scaling: 12px → 16px (0.75rem → 1rem)
-        "text-[clamp(0.75rem,1vw,1rem)]",
-        "font-sans font-medium uppercase",
-        "leading-[1.3] tracking-[0.12em]",
-        "text-muted-foreground",
-        sophisticated && "text-sophisticated",
-        getMaxWidthClass(maxWidth),
-        !noMargin && "block mb-[clamp(0.375rem,0.5vw,0.5rem)]",
-        className,
-      )}
-    >
-      {children}
-    </Component>
-  )
-}
-
-// LEVEL 6: INTERACTIVE TYPOGRAPHY - BUTTONS, LINKS, ACTIONS
-// Perfect for user interface elements and interactions
-export function ButtonText({
-  children,
-  className,
-  as: Component = "span",
-  size = "medium",
-}: TypographyProps & { size?: "small" | "medium" | "large" }) {
-  const sizeClasses = {
-    small: "text-[clamp(0.75rem,0.875vw,0.875rem)] tracking-[0.08em]",
-    medium: "text-[clamp(0.875rem,1vw,1rem)] tracking-[0.06em]",
-    large: "text-[clamp(1rem,1.125vw,1.125rem)] tracking-[0.04em]",
-  }
-
-  return (
-    <Component className={cn(sizeClasses[size], "font-sans font-medium uppercase", "leading-none", className)}>
-      {children}
-    </Component>
-  )
-}
-
-// SPECIALIZED BUTTON COMPONENTS FOR DIFFERENT ACTIONS
-export function ConnectButtonText({
-  className,
-  as: Component = "span",
-  size = "medium",
-}: Omit<TypographyProps, "children"> & { size?: "small" | "medium" | "large" }) {
-  const sizeClasses = {
-    small: "text-[clamp(0.75rem,0.875vw,0.875rem)] tracking-[0.08em]",
-    medium: "text-[clamp(0.875rem,1vw,1rem)] tracking-[0.06em]",
-    large: "text-[clamp(1rem,1.125vw,1.125rem)] tracking-[0.04em]",
-  }
-
-  return (
-    <Component className={cn(sizeClasses[size], "font-sans font-medium uppercase", "leading-none", className)}>
-      Let's Connect
-    </Component>
-  )
-}
-
-export function CVButtonText({
-  className,
-  as: Component = "span",
-  size = "medium",
-}: Omit<TypographyProps, "children"> & { size?: "small" | "medium" | "large" }) {
-  const sizeClasses = {
-    small: "text-[clamp(0.75rem,0.875vw,0.875rem)] tracking-[0.08em]",
-    medium: "text-[clamp(0.875rem,1vw,1rem)] tracking-[0.06em]",
-    large: "text-[clamp(1rem,1.125vw,1.125rem)] tracking-[0.04em]",
-  }
-
-  return (
-    <Component className={cn(sizeClasses[size], "font-sans font-medium uppercase", "leading-none", className)}>
-      Access my CV
-    </Component>
-  )
-}
-
-export function LinkText({
-  children,
-  className,
-  as: Component = "span",
-  size = "medium",
-}: TypographyProps & { size?: "small" | "medium" | "large" }) {
-  const sizeClasses = {
-    small: "text-[clamp(0.75rem,0.875vw,0.875rem)]",
-    medium: "text-[clamp(0.875rem,1vw,1rem)]",
-    large: "text-[clamp(1rem,1.125vw,1.125rem)]",
-  }
-
-  return (
-    <Component
-      className={cn(
-        sizeClasses[size],
-        "font-sans font-medium",
-        "leading-[1.2] tracking-[0.01em]",
-        "text-foreground hover:text-muted-foreground",
-        "transition-colors duration-300 ease-out",
-        "underline underline-offset-4 decoration-1 hover:decoration-2",
-        className,
-      )}
-    >
-      {children}
-    </Component>
-  )
-}
-
-// LEVEL 7: DECORATIVE TYPOGRAPHY - QUOTES, ACCENTS, SPECIAL ELEMENTS
+// "Quote" — a sophisticated quote component for testimonials and highlights
 export function Quote({
   children,
   className,
-  attribution,
-  variant = "default",
+  as: Component = "blockquote",
   noMargin,
   maxWidth = "3xl",
-  as: Component = "figure",
+  balance = true,
   sophisticated = true,
-}: TypographyProps & { attribution?: string; variant?: "default" | "large" | "accent" }) {
-  const variantClasses = {
-    default: "text-[clamp(1.125rem,1.5vw,1.5rem)]",
-    large: "text-[clamp(1.5rem,2.5vw,2.5rem)]",
-    accent: "text-[clamp(1.25rem,2vw,2rem)]",
+  variant = "default",
+}: TypographyProps & { variant?: "large" | "default" | "small" }) {
+  const variantStyles = {
+    large: "text-[clamp(1.5rem,2.5vw,2.25rem)] font-serif italic font-light leading-[1.5] tracking-[-0.02em]",
+    default: "text-[clamp(1.25rem,2vw,1.875rem)] font-serif italic font-light leading-[1.5] tracking-[-0.01em]",
+    small: "text-[clamp(1rem,1.75vw,1.5rem)] font-serif italic font-light leading-[1.5] tracking-[0em]",
   }
 
   return (
     <Component
-      className={cn("relative", getMaxWidthClass(maxWidth), !noMargin && "my-[clamp(2rem,4vw,4rem)]", className)}
-    >
-      <blockquote
-        className={cn(
-          variantClasses[variant],
-          "font-serif italic font-light",
-          "leading-[1.5] tracking-[-0.02em]",
-          variant === "accent" ? "text-foreground" : "text-muted-foreground",
-          sophisticated && "text-sophisticated",
-          "relative pl-[clamp(1.5rem,3vw,3rem)] border-l-2 border-border",
-        )}
-      >
-        <span className="absolute -left-3 -top-2 text-[clamp(2rem,4vw,4rem)] text-border/30 leading-none font-serif">
-          "
-        </span>
-        {children}
-      </blockquote>
-      {attribution && (
-        <figcaption className="mt-[clamp(1rem,2vw,2rem)] text-[clamp(0.875rem,1vw,1rem)] font-sans font-medium text-muted-foreground">
-          — <cite>{attribution}</cite>
-        </figcaption>
-      )}
-    </Component>
-  )
-}
-
-export function QuoteText({
-  children,
-  className,
-  as: Component = "span",
-  maxWidth = "2xl",
-  sophisticated = true,
-}: TypographyProps) {
-  return (
-    <Component
       className={cn(
-        "text-[clamp(1rem,1.25vw,1.25rem)]",
-        "font-serif italic font-light",
-        "leading-[1.6] tracking-[-0.015em]",
-        "text-muted-foreground",
+        variantStyles[variant || "default"],
+        "text-foreground/90 text-center",
         sophisticated && "text-sophisticated",
+        balance && "text-balance",
         getMaxWidthClass(maxWidth),
+        !noMargin && "mb-[clamp(1rem,2vw,2rem)]",
         className,
       )}
     >
@@ -653,98 +595,8 @@ export function QuoteText({
   )
 }
 
-export function DecorativeText({
-  children,
-  className,
-  as: Component = "span",
-  maxWidth = "lg",
-  sophisticated = true,
-}: TypographyProps) {
-  return (
-    <Component
-      className={cn(
-        "text-[clamp(0.875rem,1.125vw,1.125rem)]",
-        "font-serif italic font-light",
-        "leading-[1.4] tracking-[0.02em]",
-        "text-muted-foreground/80",
-        sophisticated && "text-sophisticated",
-        getMaxWidthClass(maxWidth),
-        className,
-      )}
-    >
-      {children}
-    </Component>
-  )
-}
-
-// PERFECT LINK COMPONENT
-export function Link({
-  children,
-  className,
-  size = "medium",
-  ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> &
-  Omit<TypographyProps, "as"> & { size?: "small" | "medium" | "large" }) {
-  const sizeClasses = {
-    small: "text-[clamp(0.75rem,0.875vw,0.875rem)]",
-    medium: "text-[clamp(0.875rem,1vw,1rem)]",
-    large: "text-[clamp(1rem,1.125vw,1.125rem)]",
-  }
-
-  return (
-    <a
-      className={cn(
-        sizeClasses[size],
-        "font-sans font-medium",
-        "leading-[1.2] tracking-[0.01em]",
-        "text-foreground hover:text-muted-foreground",
-        "underline underline-offset-4 decoration-1 hover:decoration-2",
-        "transition-all duration-300 ease-out",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </a>
-  )
-}
-
-// PERFECT METADATA COMPONENTS
-export function CaptionMedium({
-  children,
-  className,
-  as: Component = "p",
-  noMargin,
-  maxWidth = "lg",
-  sophisticated = true,
-}: TypographyProps) {
-  return (
-    <Component
-      className={cn(
-        "text-[clamp(0.75rem,0.875vw,0.875rem)]",
-        "font-sans font-medium uppercase",
-        "leading-[1.4] tracking-[0.12em]",
-        "text-muted-foreground/70",
-        sophisticated && "text-sophisticated",
-        getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.5rem,0.75vw,0.75rem)]",
-        className,
-      )}
-    >
-      {children}
-    </Component>
-  )
-}
-
-// PERFECT LEGACY SUPPORT WITH CONSISTENT SCALING
-export function Metadata(props: TypographyProps) {
-  return <Caption {...props} />
-}
-
-export function Title(props: TypographyProps) {
-  return <HeadingLarge {...props} />
-}
+// LEGACY SUPPORT - Maintains compatibility while elevating quality
+// These components now use the new luxury system by default
 
 export function H1(props: TypographyProps) {
   return <DisplayLarge {...props} />
@@ -766,64 +618,81 @@ export function H5(props: TypographyProps) {
   return <HeadingXSmall {...props} />
 }
 
-export function Body(props: TypographyProps) {
-  return <BodyMedium {...props} />
+export function H6(props: TypographyProps) {
+  return <HeadingSmall {...props} />
 }
 
-// “HeadingSerif” — a flexible serif heading that maps to the main heading scale.
-// size: xl → HeadingLarge, lg → HeadingMedium, md → HeadingSmall, sm → HeadingXSmall
+// "HeadingSerif" — a flexible serif heading that maps to the main heading scale.
+// size: xl → DisplayLarge, lg → DisplayMedium, md → DisplaySmall, sm → HeadingLarge
 export const HeadingSerif = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement> & {
+  TypographyProps & {
     size?: "xl" | "lg" | "md" | "sm"
-    as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
   }
 >(({ className, size = "md", as: Comp = "h2", ...props }, ref) => {
-  const sizeClasses = {
-    xl: "text-4xl md:text-5xl", // mirrors HeadingLarge
-    lg: "text-3xl md:text-4xl", // mirrors HeadingMedium
-    md: "text-2xl md:text-3xl", // mirrors HeadingSmall
-    sm: "text-xl md:text-2xl",
-  } as const
+  const sizeMap = {
+    xl: <DisplayLarge as={Comp} {...props} />,
+    lg: <DisplayMedium as={Comp} {...props} />,
+    md: <DisplaySmall as={Comp} {...props} />,
+    sm: <HeadingLarge as={Comp} {...props} />,
+  }
 
-  return (
-    <Comp
-      ref={ref}
-      className={cn("font-serif font-normal tracking-tight text-balance", sizeClasses[size], className)}
-      {...props}
-    />
-  )
+  return sizeMap[size]
 })
+
 HeadingSerif.displayName = "HeadingSerif"
 
-// SECTION NUMBER COMPONENT - For numbered section headers
-export function SectionNumber({
-  number,
-  title,
+// "HeadingSans" — a flexible sans-serif heading that maps to the main heading scale.
+// size: xl → HeadingLarge, lg → HeadingMedium, md → HeadingSmall, sm → HeadingXSmall
+export const HeadingSans = React.forwardRef<
+  HTMLHeadingElement,
+  TypographyProps & {
+    size?: "xl" | "lg" | "md" | "sm"
+  }
+>(({ className, size = "md", as: Comp = "h2", ...props }, ref) => {
+  const sizeMap = {
+    xl: <HeadingLarge as={Comp} {...props} />,
+    lg: <HeadingMedium as={Comp} {...props} />,
+    md: <HeadingSmall as={Comp} {...props} />,
+    sm: <HeadingXSmall as={Comp} {...props} />,
+  }
+
+  return sizeMap[size]
+})
+
+HeadingSans.displayName = "HeadingSans"
+
+// BUTTON TYPOGRAPHY - Perfect for interactive elements
+export function ButtonText({
+  children,
   className,
-  as: Component = "h2",
-  noMargin,
-  maxWidth = "3xl",
-  sophisticated = true,
-}: TypographyProps & { number: string; title: string }) {
+  as: Component = "span",
+  size = "medium",
+  variant = "luxury",
+}: TypographyProps & { size?: "small" | "medium" | "large" }) {
+  const sizeStyles = {
+    small: "text-[clamp(0.75rem,0.875vw,0.875rem)] font-sans font-medium leading-none tracking-[0.08em]",
+    medium: "text-[clamp(0.875rem,1vw,1rem)] font-sans font-medium leading-none tracking-[0.06em]",
+    large: "text-[clamp(1rem,1.125vw,1.125rem)] font-sans font-medium leading-none tracking-[0.04em]",
+  }
+
+  const variantStyles = {
+    default: "text-foreground",
+    luxury: "text-foreground/90",
+    minimal: "text-foreground/80",
+    dramatic: "text-foreground",
+  }
+
   return (
-    <Component
+    <Component 
       className={cn(
-        // Consistent styling for all section numbers
-        "text-[clamp(1.25rem,2.75vw,2.75rem)]",
-        "font-serif font-light",
-        "leading-[1.1] tracking-[-0.025em]",
-        "text-foreground", // Consistent color for both number and title
-        "text-center",
-        sophisticated && "text-sophisticated",
-        getMaxWidthClass(maxWidth),
-        !noMargin && "mb-[clamp(0.875rem,1.75vw,1.75rem)]",
-        className,
+        sizeStyles[size],
+        variantStyles[variant],
+        "uppercase",
+        className
       )}
     >
-      <span className="text-muted-foreground/70 font-light tracking-[0.2em] uppercase text-[0.6em]">{number}</span>
-      <span className="mx-[0.5em] text-muted-foreground/40">—</span>
-      <span>{title}</span>
+      {children}
     </Component>
   )
 }

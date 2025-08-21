@@ -21,7 +21,7 @@ export function MasterpieceBackgroundSystem({
     offset: ["start end", "end start"]
   })
 
-  // Section-specific background configurations
+  // Section-specific background configurations with luxury enhancements
   const getSectionConfig = () => {
     switch (section) {
       case "hero":
@@ -33,7 +33,8 @@ export function MasterpieceBackgroundSystem({
           textOverlay: "from-background/10 via-transparent to-background/10",
           scale: [1, 1.1, 1],
           blur: [0, 2, 0],
-          className: "object-cover object-center"
+          className: "object-cover object-center",
+          animation: "luxury"
         }
       
       case "about":
@@ -45,7 +46,8 @@ export function MasterpieceBackgroundSystem({
           textOverlay: "from-background/15 via-background/5 to-background/15",
           scale: [1.05, 1, 1.05],
           blur: [6, 3, 6],
-          className: "object-cover object-center"
+          className: "object-cover object-center",
+          animation: "elegant"
         }
 
       case "projects":
@@ -57,7 +59,8 @@ export function MasterpieceBackgroundSystem({
           textOverlay: "from-background/12 via-transparent to-background/12",
           scale: [1, 1.08, 1],
           blur: [3, 1, 3],
-          className: "object-cover object-center"
+          className: "object-cover object-center",
+          animation: "dynamic"
         }
 
       case "experience":
@@ -69,7 +72,8 @@ export function MasterpieceBackgroundSystem({
           textOverlay: "from-background/15 via-background/5 to-background/15",
           scale: [1.05, 1, 1.05],
           blur: [6, 3, 6],
-          className: "object-cover object-center"
+          className: "object-cover object-center",
+          animation: "sophisticated"
         }
 
       case "services":
@@ -81,7 +85,8 @@ export function MasterpieceBackgroundSystem({
           textOverlay: "from-background/14 via-background/6 to-background/14",
           scale: [1.03, 1.06, 1.03],
           blur: [5, 2, 5],
-          className: "object-cover object-center"
+          className: "object-cover object-center",
+          animation: "refined"
         }
 
       case "contact":
@@ -93,125 +98,137 @@ export function MasterpieceBackgroundSystem({
           textOverlay: "from-background/12 via-transparent to-background/12",
           scale: [1, 1.04, 1],
           blur: [2, 1, 2],
-          className: "object-cover object-top"
+          className: "object-cover object-top",
+          animation: "elegant"
         }
 
       case "footer":
         return {
           asset: "/luxury-geometric-background.png",
-          opacity: [0.25, 0.30, 0.25],
+          opacity: [0.25, 0.32, 0.25],
           overlayOpacity: [0.50, 0.40, 0.50],
           overlayColor: "from-background/50 via-background/30 to-background/50",
           textOverlay: "from-background/20 via-background/10 to-background/20",
-          scale: [1.02, 1, 1.02],
+          scale: [1.02, 1.05, 1.02],
+          blur: [8, 4, 8],
+          className: "object-cover object-center",
+          animation: "minimal"
+        }
+
+      default:
+        return {
+          asset: "/luxury-geometric-background.png",
+          opacity: [0.30, 0.40, 0.30],
+          overlayOpacity: [0.45, 0.30, 0.45],
+          overlayColor: "from-background/45 via-background/25 to-background/45",
+          textOverlay: "from-background/15 via-background/5 to-background/15",
+          scale: [1, 1.05, 1],
           blur: [4, 2, 4],
-          className: "object-cover object-center"
+          className: "object-cover object-center",
+          animation: "default"
         }
     }
   }
 
   const config = getSectionConfig()
-  
-  // Animated transforms
+
+  // Sophisticated scroll-based transformations
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5, 1], config.opacity)
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], config.overlayOpacity)
   const backgroundScale = useTransform(scrollYProgress, [0, 0.5, 1], config.scale)
   const backgroundBlur = useTransform(scrollYProgress, [0, 0.5, 1], config.blur)
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], config.overlayOpacity)
+
+  // Luxury animation variants
+  const animationVariants = {
+    luxury: {
+      initial: { opacity: 0, scale: 1.1 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+    },
+    elegant: {
+      initial: { opacity: 0, scale: 1.05 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+    },
+    dynamic: {
+      initial: { opacity: 0, scale: 1.08 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+    sophisticated: {
+      initial: { opacity: 0, scale: 1.03 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] }
+    },
+    refined: {
+      initial: { opacity: 0, scale: 1.06 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }
+    },
+    minimal: {
+      initial: { opacity: 0, scale: 1.02 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+    },
+    default: {
+      initial: { opacity: 0, scale: 1.05 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+    }
+  }
 
   return (
-    <motion.section
-      ref={containerRef}
-      className={`relative overflow-hidden ${className}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      {/* Main Background Asset */}
+    <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
+      {/* Luxury Background Image with Sophisticated Effects */}
       <motion.div
-        className="absolute inset-0 will-change-transform"
+        className="absolute inset-0"
         style={{
           opacity: backgroundOpacity,
           scale: backgroundScale,
-          filter: `blur(${backgroundBlur}px)`
+          filter: `blur(${backgroundBlur}px)`,
         }}
+        {...animationVariants[config.animation as keyof typeof animationVariants]}
       >
         <Image
           src={config.asset}
-          alt=""
+          alt={`${section} background`}
           fill
-          className={`${config.className} will-change-transform`}
-          style={{
-            objectFit: 'cover',
-            objectPosition: config.className.includes('object-top') ? 'top' : 
-                            config.className.includes('object-bottom') ? 'bottom' : 'center'
-          }}
+          className={config.className}
           priority={section === "hero"}
-          quality={section === "hero" ? 95 : 85}
-          sizes="100vw"
+          quality={95}
         />
       </motion.div>
 
-      {/* Primary Overlay - Balanced Content Protection */}
+      {/* Sophisticated Overlay System */}
       <motion.div
-        className={`absolute inset-0 bg-gradient-to-b ${config.overlayColor}`}
+        className="absolute inset-0"
         style={{ opacity: overlayOpacity }}
-      />
+      >
+        {/* Primary overlay for text readability */}
+        <div className={`absolute inset-0 bg-gradient-to-b ${config.overlayColor}`} />
+        
+        {/* Secondary overlay for enhanced contrast */}
+        <div className={`absolute inset-0 bg-gradient-to-b ${config.textOverlay}`} />
+        
+        {/* Luxury texture overlay */}
+        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(circle_at_2px_2px,rgba(15,23,42,0.6)_1px,transparent_0)] bg-[length:24px_24px]" />
+        
+        {/* Sophisticated noise pattern */}
+        <div className="absolute inset-0 opacity-[0.01] bg-[linear-gradient(45deg,transparent_25%,rgba(15,23,42,0.1)_25%,rgba(15,23,42,0.1)_50%,transparent_50%,transparent_75%,rgba(15,23,42,0.1)_75%)] bg-[length:8px_8px]" />
+      </motion.div>
 
-      {/* Secondary Overlay - Subtle Text Readability Enhancement */}
-      <div className={`absolute inset-0 bg-gradient-to-t ${config.textOverlay}`} />
-
-      {/* Sophisticated Texture Layer - Reduced for visibility */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.008]"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 2px 2px, rgba(0,0,0,0.6) 1px, transparent 0),
-            linear-gradient(45deg, transparent 49%, rgba(0,0,0,0.2) 50%, transparent 51%)
-          `,
-          backgroundSize: '80px 80px, 160px 160px'
-        }}
-        animate={{
-          backgroundPosition: [
-            '0% 0%, 0% 0%',
-            '80px 80px, 160px 160px'
-          ]
-        }}
-        transition={{
-          duration: 180,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-
-      {/* Hero-specific Breathing Light Enhancement */}
-      {section === "hero" && (
-        <motion.div
-          className="absolute inset-0 bg-gradient-radial from-amber-400/8 via-transparent to-transparent"
-          animate={{
-            opacity: [0.4, 0.7, 0.4],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      )}
-
-      {/* Content with Perfect Contrast */}
+      {/* Content with Luxury Positioning */}
       <div className="relative z-10">
         {children}
       </div>
-    </motion.section>
+    </div>
   )
 }
 
-// Individual section backgrounds for perfect control
+// Specialized background components for each section
 export function HeroBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="hero" className="min-h-screen">
+    <MasterpieceBackgroundSystem section="hero">
       {children}
     </MasterpieceBackgroundSystem>
   )
@@ -219,7 +236,7 @@ export function HeroBackground({ children }: { children: ReactNode }) {
 
 export function AboutBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="about" className="py-24 md:py-32">
+    <MasterpieceBackgroundSystem section="about">
       {children}
     </MasterpieceBackgroundSystem>
   )
@@ -227,7 +244,7 @@ export function AboutBackground({ children }: { children: ReactNode }) {
 
 export function ProjectsBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="projects" className="py-24 md:py-32">
+    <MasterpieceBackgroundSystem section="projects">
       {children}
     </MasterpieceBackgroundSystem>
   )
@@ -235,7 +252,7 @@ export function ProjectsBackground({ children }: { children: ReactNode }) {
 
 export function ExperienceBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="experience" className="py-24 md:py-32">
+    <MasterpieceBackgroundSystem section="experience">
       {children}
     </MasterpieceBackgroundSystem>
   )
@@ -243,7 +260,7 @@ export function ExperienceBackground({ children }: { children: ReactNode }) {
 
 export function ServicesBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="services" className="py-24 md:py-32">
+    <MasterpieceBackgroundSystem section="services">
       {children}
     </MasterpieceBackgroundSystem>
   )
@@ -251,7 +268,7 @@ export function ServicesBackground({ children }: { children: ReactNode }) {
 
 export function ContactBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="contact" className="py-24 md:py-32">
+    <MasterpieceBackgroundSystem section="contact">
       {children}
     </MasterpieceBackgroundSystem>
   )
@@ -259,7 +276,7 @@ export function ContactBackground({ children }: { children: ReactNode }) {
 
 export function FooterBackground({ children }: { children: ReactNode }) {
   return (
-    <MasterpieceBackgroundSystem section="footer" className="py-16 md:py-20">
+    <MasterpieceBackgroundSystem section="footer">
       {children}
     </MasterpieceBackgroundSystem>
   )
