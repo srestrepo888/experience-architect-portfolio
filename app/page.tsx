@@ -18,6 +18,7 @@ import {
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
 import { ScrollToTop } from "@/components/ui/scroll-to-top"
 import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 export default function HomePage() {
   return (
@@ -36,9 +37,10 @@ export default function HomePage() {
           <AboutBackground>
             <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/80 tracking-wider">01 — About</Overline>
+              <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.ABOUT.SECTION_NUMBER} — {CONTENT_CONFIG.ABOUT.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.ABOUT.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
-                I believe the most compelling stories begin with curiosity—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design.
+                {CONTENT_CONFIG.ABOUT.DESCRIPTION}
               </BodyLarge>
             </PerfectStack>
             
@@ -104,10 +106,10 @@ export default function HomePage() {
           <ProjectsBackground>
             <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/80 tracking-wider">02 — Selected Works</Overline>
-              <HeadingLarge className="text-center">Crafting Digital Masterpieces</HeadingLarge>
+              <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.PROJECTS.SECTION_NUMBER} — {CONTENT_CONFIG.PROJECTS.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.PROJECTS.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
-                A curated selection of projects that demonstrate a commitment to design excellence, strategic thinking, and impactful user experiences.
+                {CONTENT_CONFIG.PROJECTS.DESCRIPTION}
               </BodyLarge>
             </PerfectStack>
             <MasterpieceProjectsShowcase />
@@ -120,10 +122,10 @@ export default function HomePage() {
           <ExperienceBackground>
             <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/80 tracking-wider">03 — Journey</Overline>
-              <HeadingLarge className="text-center">Professional Experience</HeadingLarge>
+              <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.EXPERIENCE.SECTION_NUMBER} — {CONTENT_CONFIG.EXPERIENCE.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.EXPERIENCE.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
-                With over a decade of experience across diverse industries, I've developed a unique perspective on design and strategy. My career journey has equipped me with the skills to navigate complex challenges and deliver impactful solutions.
+                {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
               </BodyLarge>
             </PerfectStack>
             <AnimatedExperience />
@@ -136,10 +138,10 @@ export default function HomePage() {
           <ServicesBackground>
             <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
             <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/80 tracking-wider">04 — Services</Overline>
-              <HeadingLarge className="text-center">Design Excellence</HeadingLarge>
+              <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.SERVICES.SECTION_NUMBER} — {CONTENT_CONFIG.SERVICES.SECTION_TITLE}</Overline>
+              <HeadingLarge className="text-center">{CONTENT_CONFIG.SERVICES.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
-                Meticulously architected solutions addressing demanding market realities and evolving client's needs.
+                {CONTENT_CONFIG.SERVICES.DESCRIPTION}
               </BodyLarge>
             </PerfectStack>
             <DetailedServicesSection />

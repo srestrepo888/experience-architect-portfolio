@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 export default function CinematicHero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -252,7 +253,7 @@ export default function CinematicHero() {
           className="mt-12"
         >
           <p className="text-sm sm:text-base md:text-lg font-light text-muted-foreground/70 tracking-wide uppercase max-w-2xl mx-auto leading-relaxed">
-            Crafting Digital Experiences Where Strategy Meets Soul
+            {CONTENT_CONFIG.HERO.TAGLINE}
           </p>
         </motion.div>
       </div>

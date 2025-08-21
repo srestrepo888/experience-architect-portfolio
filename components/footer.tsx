@@ -6,6 +6,7 @@ import { BodyMedium, Overline } from "@/components/typography"
 import { Github, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 import { EnhancedButton } from "./ui/enhanced-button"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com/in/silvanarestrepo", icon: Linkedin },
@@ -32,7 +33,7 @@ export default function Footer() {
               <div className="absolute inset-0 opacity-[0.03] bg-gradient-to-br from-foreground/10 via-transparent to-foreground/5 rounded-lg" />
               <div className="relative">
                 <BodyMedium className="text-lg leading-relaxed text-foreground font-medium">
-                  Architecting experiences that connect strategy with soul.
+                  {CONTENT_CONFIG.FOOTER.MISSION_STATEMENT}
                 </BodyMedium>
               </div>
             </div>
@@ -40,7 +41,7 @@ export default function Footer() {
 
           {/* Middle: Enhanced Navigate */}
           <div className="md:col-span-1">
-            <Overline className="mb-4 text-foreground/80">Navigate</Overline>
+            <Overline className="mb-4 text-foreground/80">{CONTENT_CONFIG.FOOTER.NAVIGATE.TITLE}</Overline>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -59,7 +60,7 @@ export default function Footer() {
 
           {/* Right: Enhanced Connect */}
           <div className="md:col-span-1">
-            <Overline className="mb-4 text-foreground/80">Connect</Overline>
+            <Overline className="mb-4 text-foreground/80">{CONTENT_CONFIG.FOOTER.CONNECT.TITLE}</Overline>
             <div className="space-y-4">
               {/* Social Links */}
               <div className="flex items-center space-x-4">

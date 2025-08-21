@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 interface NavItem {
   href: string
@@ -14,33 +15,7 @@ interface NavItem {
   external?: boolean
 }
 
-const navItems: NavItem[] = [
-  {
-    href: "#hero",
-    label: "Home",
-    description: "Return to the beginning",
-  },
-  {
-    href: "#about", 
-    label: "About",
-    description: "My story and approach",
-  },
-  {
-    href: "#projects",
-    label: "Projects", 
-    description: "Featured work and case studies",
-  },
-  {
-    href: "#experience",
-    label: "Experience",
-    description: "Professional journey",
-  },
-  {
-    href: "#services",
-    label: "Services",
-    description: "How I can help",
-  },
-]
+const navItems: NavItem[] = CONTENT_CONFIG.NAVIGATION.ITEMS
 
 export default function CinematicNavigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -134,8 +109,8 @@ export default function CinematicNavigation() {
                   className="text-xl font-serif font-light text-foreground hover:text-foreground/80 transition-colors duration-300 group"
                   aria-label="Visit Silvana's Voice - Human Perspective Manifesto"
                 >
-                  <span className="group-hover:underline decoration-1 underline-offset-4">Silvana Restrepo</span>
-                  <span className="ml-1 text-xs text-muted-foreground group-hover:text-foreground/60 transition-colors duration-300">My Voice</span>
+                  <span className="group-hover:underline decoration-1 underline-offset-4">{CONTENT_CONFIG.NAVIGATION.LOGO.TEXT}</span>
+                  <span className="ml-1 text-xs text-muted-foreground group-hover:text-foreground/60 transition-colors duration-300">{CONTENT_CONFIG.NAVIGATION.LOGO.SUBTITLE}</span>
                 </Link>
               </motion.div>
 
@@ -205,7 +180,7 @@ export default function CinematicNavigation() {
                   size="sm"
                   className="backdrop-blur-sm bg-foreground/5 hover:bg-foreground/10 border border-border/30"
                 >
-                  Let's Connect
+                  {CONTENT_CONFIG.NAVIGATION.CTA.TEXT}
                 </EnhancedButton>
               </div>
 
@@ -344,7 +319,7 @@ export default function CinematicNavigation() {
                     size="lg"
                     className="backdrop-blur-sm bg-foreground/10 hover:bg-foreground/20"
                   >
-                    Let's Connect
+                    {CONTENT_CONFIG.NAVIGATION.CTA.TEXT}
                     <ArrowUpRight className="w-4 h-4 ml-2" />
                   </EnhancedButton>
                 </motion.div>
