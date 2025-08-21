@@ -75,65 +75,18 @@ export default function CinematicHero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ y, opacity }}
     >
-      {/* Silk Fabric Background System */}
-      <div className="absolute inset-0">
-        {/* Primary silk layer - flowing base */}
-        <motion.div 
-          className="absolute inset-0"
-          style={{
-            background: `
-              radial-gradient(ellipse 140% 120% at 20% 30%, 
-                hsl(33, 15%, 96%) 0%, 
-                hsl(15, 12%, 95%) 25%, 
-                hsl(33, 15%, 97%) 50%, 
-                hsl(15, 12%, 96%) 75%, 
-                hsl(33, 15%, 95%) 100%
-              )
-            `,
-            scale,
-          }}
-          animate={{
-            background: [
-              `radial-gradient(ellipse 140% 120% at 20% 30%, 
-                hsl(33, 15%, 96%) 0%, 
-                hsl(15, 12%, 95%) 25%, 
-                hsl(33, 15%, 97%) 50%, 
-                hsl(15, 12%, 96%) 75%, 
-                hsl(33, 15%, 95%) 100%
-              )`,
-              `radial-gradient(ellipse 160% 140% at 80% 70%, 
-                hsl(15, 12%, 96%) 0%, 
-                hsl(33, 15%, 95%) 25%, 
-                hsl(15, 12%, 97%) 50%, 
-                hsl(33, 15%, 96%) 75%, 
-                hsl(15, 12%, 95%) 100%
-              )`,
-              `radial-gradient(ellipse 140% 120% at 20% 30%, 
-                hsl(33, 15%, 96%) 0%, 
-                hsl(15, 12%, 95%) 25%, 
-                hsl(33, 15%, 97%) 50%, 
-                hsl(15, 12%, 96%) 75%, 
-                hsl(33, 15%, 95%) 100%
-              )`
-            ]
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-
-        {/* Silk wave layers - multiple flowing gradients */}
+      {/* Silk Fabric Animation Overlay - Works WITH existing background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Silk wave layers - subtle overlays on existing background */}
         <motion.div
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-25"
           animate={{
             background: [
-              "linear-gradient(45deg, transparent 0%, hsl(33, 15%, 92%) 20%, transparent 40%, hsl(15, 12%, 93%) 60%, transparent 80%)",
-              "linear-gradient(135deg, hsl(15, 12%, 93%) 0%, transparent 25%, hsl(33, 15%, 92%) 50%, transparent 75%)",
-              "linear-gradient(225deg, transparent 0%, hsl(33, 15%, 92%) 30%, transparent 60%, hsl(15, 12%, 93%) 90%)",
-              "linear-gradient(315deg, hsl(15, 12%, 93%) 0%, transparent 35%, hsl(33, 15%, 92%) 70%, transparent 100%)",
-              "linear-gradient(45deg, transparent 0%, hsl(33, 15%, 92%) 20%, transparent 40%, hsl(15, 12%, 93%) 60%, transparent 80%)"
+              "linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 20%, transparent 40%, rgba(255,255,255,0.05) 60%, transparent 80%)",
+              "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 25%, rgba(255,255,255,0.1) 50%, transparent 75%)",
+              "linear-gradient(225deg, transparent 0%, rgba(255,255,255,0.1) 30%, transparent 60%, rgba(255,255,255,0.05) 90%)",
+              "linear-gradient(315deg, rgba(255,255,255,0.05) 0%, transparent 35%, rgba(255,255,255,0.1) 70%, transparent 100%)",
+              "linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 20%, transparent 40%, rgba(255,255,255,0.05) 60%, transparent 80%)"
             ]
           }}
           transition={{
@@ -146,16 +99,16 @@ export default function CinematicHero() {
           }}
         />
 
-        {/* Secondary silk flow */}
+        {/* Secondary silk flow - enhances existing background */}
         <motion.div
-          className="absolute inset-0 opacity-25"
+          className="absolute inset-0 opacity-15"
           animate={{
             background: [
-              "radial-gradient(ellipse 200% 100% at 0% 50%, hsl(15, 12%, 94%) 0%, transparent 40%)",
-              "radial-gradient(ellipse 200% 100% at 100% 50%, hsl(33, 15%, 94%) 0%, transparent 40%)",
-              "radial-gradient(ellipse 200% 100% at 50% 0%, hsl(15, 12%, 94%) 0%, transparent 40%)",
-              "radial-gradient(ellipse 200% 100% at 50% 100%, hsl(33, 15%, 94%) 0%, transparent 40%)",
-              "radial-gradient(ellipse 200% 100% at 0% 50%, hsl(15, 12%, 94%) 0%, transparent 40%)"
+              "radial-gradient(ellipse 200% 100% at 0% 50%, rgba(255,255,255,0.08) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 100% 50%, rgba(255,255,255,0.12) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 50% 100%, rgba(255,255,255,0.12) 0%, transparent 40%)",
+              "radial-gradient(ellipse 200% 100% at 0% 50%, rgba(255,255,255,0.08) 0%, transparent 40%)"
             ]
           }}
           transition={{
@@ -168,16 +121,16 @@ export default function CinematicHero() {
           }}
         />
 
-        {/* Silk sheen effects */}
+        {/* Silk sheen effects - subtle light enhancement */}
         <motion.div
-          className="absolute inset-0 opacity-15"
+          className="absolute inset-0 opacity-8"
           animate={{
             background: [
-              "linear-gradient(60deg, transparent 0%, hsl(0, 0%, 100%) 10%, transparent 20%)",
-              "linear-gradient(120deg, transparent 40%, hsl(0, 0%, 100%) 50%, transparent 60%)",
-              "linear-gradient(240deg, transparent 70%, hsl(0, 0%, 100%) 80%, transparent 90%)",
-              "linear-gradient(300deg, transparent 20%, hsl(0, 0%, 100%) 30%, transparent 40%)",
-              "linear-gradient(60deg, transparent 0%, hsl(0, 0%, 100%) 10%, transparent 20%)"
+              "linear-gradient(60deg, transparent 0%, rgba(255,255,255,0.15) 10%, transparent 20%)",
+              "linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
+              "linear-gradient(240deg, transparent 70%, rgba(255,255,255,0.15) 80%, transparent 90%)",
+              "linear-gradient(300deg, transparent 20%, rgba(255,255,255,0.15) 30%, transparent 40%)",
+              "linear-gradient(60deg, transparent 0%, rgba(255,255,255,0.15) 10%, transparent 20%)"
             ]
           }}
           transition={{
