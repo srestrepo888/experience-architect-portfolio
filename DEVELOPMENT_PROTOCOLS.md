@@ -95,6 +95,8 @@ Before every commit:
 ### Design System Compliance
 - **STRICTLY follow the established design system**
 - **Use only approved colors, spacing, typography**
+- **Follow PERFECT_LAYOUT_SYSTEM.md for all spacing/padding**
+- **Use 8px grid system with mathematical precision**
 - **Maintain sophisticated, elegant, ultra-luxurious aesthetic**
 - **Ensure fluent movement and perfect craftsmanship**
 

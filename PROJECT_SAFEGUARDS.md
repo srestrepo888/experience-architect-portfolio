@@ -66,6 +66,19 @@ Every mistake costs the user:
 
 **ZERO TOLERANCE for scope creep or accidental modifications.**
 
+### Image & Asset Authorization Policy
+- **ZERO unauthorized images allowed** - No images outside approved asset library
+- **ONLY use existing approved images** from `/public` directory
+- **NO stock photos, placeholders, or external images**
+- **NO AI-generated images without explicit approval**
+- **User approval required** for any new image additions
+- **Existing approved assets**:
+  - `/luxury-geometric-background.png` - Primary background
+  - `/background-texture.png` - Texture background  
+  - `/silvana-portrait-transparent.png` - Portrait image
+  - Project images: `kayanee-hero.png`, `danone-hero.png`, etc.
+  - Brand assets in `/public` directory
+
 ## 🏆 DESIGN EXCELLENCE ENFORCEMENT
 
 ### Content Integrity

@@ -11,11 +11,13 @@
 
 ## ✅ QUALITY GATES (ALL MUST PASS)
 
-### Gate 1: Content Integrity
+### Gate 1: Content & Asset Integrity
 - [ ] **Zero unauthorized copy** - No text not from CONTENT_CONFIG
-- [ ] **No placeholder content** - All text is intentional and approved
+- [ ] **Zero unauthorized images** - Only approved assets from `/public`
+- [ ] **No placeholder content** - All text and images intentional and approved
 - [ ] **Consistent voice** - Matches established tone and style
-- [ ] **User-approved copy only** - Nothing generic or assumed
+- [ ] **User-approved content only** - Nothing generic or assumed
+- [ ] **Asset verification** - All images exist in approved asset library
 
 ### Gate 2: Design System Compliance
 - [ ] **Color palette adherence** - Uses only established colors
@@ -101,7 +103,9 @@
 
 **ZERO TOLERANCE FOR:**
 - Unauthorized content additions
+- Unauthorized image usage
 - Design system violations
+- Layout system violations
 - Accessibility failures
 - Scope creep
 - Quality compromises
