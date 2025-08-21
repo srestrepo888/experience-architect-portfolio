@@ -22,8 +22,8 @@ export default function CinematicHero() {
     return text.split('').map((letter, index) => ({ letter, index }))
   }
 
-  const experienceLetters = splitText("Experience")
-  const architectLetters = splitText("ARCHITECT")
+  const experienceLetters = splitText(CONTENT_CONFIG.HERO.MAIN_TITLE)
+  const architectLetters = splitText(CONTENT_CONFIG.HERO.SUBTITLE)
 
   // Ultra-luxury stagger animation
   const letterVariants = {

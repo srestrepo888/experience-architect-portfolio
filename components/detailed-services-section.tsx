@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import SophisticatedServiceCard from "@/components/ui/sophisticated-service-card"
+import { HeadingLarge } from "@/components/typography"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 const services = [
   {
@@ -80,17 +82,25 @@ const services = [
 
 export default function DetailedServicesSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-      {services.map((service, index) => (
-        <SophisticatedServiceCard
-          key={service.title}
-          title={service.title}
-          description={service.description}
-          features={service.features}
-          icon={service.icon}
-          index={index}
-        />
-      ))}
+    <div className="w-full">
+      {/* Main heading */}
+      <div className="text-center mb-16">
+        <HeadingLarge className="text-center">{CONTENT_CONFIG.SERVICES.HEADING}</HeadingLarge>
+      </div>
+      
+      {/* Services grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <SophisticatedServiceCard
+            key={service.title}
+            title={service.title}
+            description={service.description}
+            features={service.features}
+            icon={service.icon}
+            index={index}
+          />
+        ))}
+      </div>
     </div>
   )
 }

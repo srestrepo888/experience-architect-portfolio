@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { BodyMedium, Caption, HeadingSmall } from "@/components/typography"
+import { BodyMedium, Caption, HeadingSmall, HeadingLarge } from "@/components/typography"
 import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list"
 import { MagicButton } from "@/components/ui/magic-button"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 interface ExperienceItem {
   year: string
@@ -114,6 +115,11 @@ export default function AnimatedExperience() {
 
   return (
     <div className="w-full">
+      {/* Main heading */}
+      <div className="text-center mb-16">
+        <HeadingLarge className="text-center">{CONTENT_CONFIG.EXPERIENCE.HEADING}</HeadingLarge>
+      </div>
+      
       {/* Animated list of experiences */}
       <AnimatedList
         items={experienceItems}
