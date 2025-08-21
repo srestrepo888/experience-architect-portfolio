@@ -18,6 +18,8 @@ import {
   FooterBackground
 } from "@/components/ui/masterpiece-background-system"
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
+import { ScrollToTop } from "@/components/ui/scroll-to-top"
+import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation"
 
 export default function HomePage() {
   return (
@@ -25,13 +27,16 @@ export default function HomePage() {
       <CinematicNavigation />
       <main>
         {/* Hero Section - Maximum Visual Impact */}
-        <HeroBackground>
-          <CinematicHero />
-        </HeroBackground>
+        <section id="hero">
+          <HeroBackground>
+            <CinematicHero />
+          </HeroBackground>
+        </section>
 
         {/* About Section - Elegant Text Readability */}
-        <AboutBackground>
-          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+        <section id="about">
+          <AboutBackground>
+            <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">01 — About</Overline>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
@@ -55,8 +60,8 @@ export default function HomePage() {
                   </BodyMedium>
                   <div className="pt-4">
                     <EnhancedButton
-                      href="https://silvanarestrepoportfolio.vercel.app/"
-                      external={true}
+                      href="/silvana-restrepo-cv.pdf"
+                      external={false}
                       variant="secondary"
                       size="lg"
                       icon="download"
@@ -92,12 +97,14 @@ export default function HomePage() {
                 </PerfectStack>
               </PerfectCard>
             </PerfectGrid>
-          </PerfectLayout>
-        </AboutBackground>
+                      </PerfectLayout>
+          </AboutBackground>
+        </section>
 
         {/* Projects Section - Gallery Enhancement */}
-        <ProjectsBackground>
-          <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
+        <section id="projects">
+          <ProjectsBackground>
+            <PerfectLayout variant="section" spacing="spacious" maxWidth="wide">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">02 — Selected Works</Overline>
               <HeadingLarge className="text-center">Crafting Digital Masterpieces</HeadingLarge>
@@ -108,10 +115,12 @@ export default function HomePage() {
             <MasterpieceProjectsShowcase />
           </PerfectLayout>
         </ProjectsBackground>
+        </section>
 
         {/* Experience Section - Minimal Professional */}
-        <ExperienceBackground>
-          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+        <section id="experience">
+          <ExperienceBackground>
+            <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">03 — Journey</Overline>
               <HeadingLarge className="text-center">Professional Experience</HeadingLarge>
@@ -122,10 +131,12 @@ export default function HomePage() {
             <AnimatedExperience />
           </PerfectLayout>
         </ExperienceBackground>
+        </section>
 
         {/* Services Section - Sophisticated Balance */}
-        <ServicesBackground>
-          <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
+        <section id="services">
+          <ServicesBackground>
+            <PerfectLayout variant="section" spacing="spacious" maxWidth="full">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">04 — Services</Overline>
               <HeadingLarge className="text-center">Design Excellence</HeadingLarge>
@@ -136,10 +147,12 @@ export default function HomePage() {
             <DetailedServicesSection />
           </PerfectLayout>
         </ServicesBackground>
+        </section>
 
         {/* Contact Section - Focused Interaction */}
-        <ContactBackground>
-          <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
+        <section id="contact">
+          <ContactBackground>
+            <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">05 — Contact</Overline>
               <HeadingLarge className="text-center">Let's Create Together</HeadingLarge>
@@ -152,10 +165,13 @@ export default function HomePage() {
             </PerfectCard>
           </PerfectLayout>
         </ContactBackground>
+        </section>
       </main>
       <FooterBackground>
         <Footer />
       </FooterBackground>
+      <BreadcrumbNavigation />
+      <ScrollToTop />
     </div>
   )
 }

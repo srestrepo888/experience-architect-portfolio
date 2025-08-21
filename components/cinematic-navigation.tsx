@@ -88,9 +88,19 @@ export default function CinematicNavigation() {
           behavior: 'smooth',
           block: 'start'
         })
+        // Update active section immediately for better UX
+        setActiveSection(href.slice(1))
       }
     }
     setIsOpen(false)
+  }
+
+  // Enhanced keyboard navigation
+  const handleKeyDown = (event: React.KeyboardEvent, href: string) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      handleNavClick(href)
+    }
   }
 
   return (
@@ -150,8 +160,12 @@ export default function CinematicNavigation() {
                         e.preventDefault()
                         handleNavClick(item.href)
                       }}
+                      onKeyDown={(e) => handleKeyDown(e, item.href)}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`Navigate to ${item.label} section`}
                       className={cn(
-                        "relative text-sm font-medium transition-all duration-300 group",
+                        "relative text-sm font-medium transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:ring-offset-2 focus:ring-offset-background rounded px-2 py-1",
                         activeSection === item.href.slice(1)
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
@@ -278,7 +292,11 @@ export default function CinematicNavigation() {
                         e.preventDefault()
                         handleNavClick(item.href)
                       }}
-                      className="block group"
+                      onKeyDown={(e) => handleKeyDown(e, item.href)}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`Navigate to ${item.label} section`}
+                      className="block group focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:ring-offset-2 focus:ring-offset-background rounded px-2 py-1"
                     >
                       <span className="text-3xl font-serif font-light text-foreground hover:text-muted-foreground transition-colors duration-300">
                         {item.label}
