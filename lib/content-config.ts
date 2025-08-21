@@ -6,6 +6,9 @@
  * 
  * IMPORTANT: This is the single source of truth for all portfolio content.
  * All components must reference this configuration to ensure consistency.
+ * 
+ * NOTE: All content below has been explicitly approved by Silvana Restrepo.
+ * No changes should be made without her direct approval.
  */
 
 export const CONTENT_CONFIG = {
@@ -15,7 +18,7 @@ export const CONTENT_CONFIG = {
   HERO: {
     MAIN_TITLE: "EXPERIENCE",
     SUBTITLE: "ARCHITECT",
-    TAGLINE: "Architecting experiences that connect strategy with soul",
+    TAGLINE: "Experience Architect",
     SCROLL_INDICATOR: {
       ARIA_LABEL: "Scroll down to explore the portfolio"
     }
@@ -28,10 +31,10 @@ export const CONTENT_CONFIG = {
     SECTION_ID: "about",
     SECTION_NUMBER: "01",
     SECTION_TITLE: "About",
-    HEADING: "Personal Story",
-    DESCRIPTION: "I am an Experience Architect who believes in the power of human-centered design to transform businesses and create meaningful connections. My approach combines strategic thinking with deep empathy for user needs.",
+    HEADING: "About me",
+    DESCRIPTION: "I believe the most compelling stories begin with curiosity—a spark that has carried me across continents blending diverse perspectives from anthropology to Algorithms, from culture exploration to coding experiences.\n\nAt my core, I am an architect of invisible systems, designing experiences that touch the human soul.\n\nI have embarked on projects ranging from wellness movements to creating AI-driven platforms that empower developers worldwide.\n\nEach endeavour brings me closer to my mission: connecting strategic business goals with the essence of the human perspective.\n\nWelcome to my world—where strategy meets soul, and design becomes the universal language of possibility.",
     PERSONAL_QUOTE: {
-      TEXT: "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire.",
+      TEXT: "The art of MY CRAFT lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire.",
       ATTRIBUTION: "Silvana"
     },
     PORTRAIT: {
@@ -52,8 +55,10 @@ export const CONTENT_CONFIG = {
     SECTION_ID: "projects",
     SECTION_NUMBER: "02",
     SECTION_TITLE: "Selected Works",
-    HEADING: "Featured Projects",
-    DESCRIPTION: "A curated selection of strategic design projects that demonstrate my commitment to human-centered design, strategic thinking, and measurable business impact.",
+    HEADING: "Projects",
+    SUBTITLE: "A selection of strategic consulting projects across various industries.",
+    TAGS: ["ALL WORK", "EXPERIENCE DESIGN", "PRODUCT STRATEGY", "SERVICE DESIGN", "USER RESEARCH", "DESIGN OPS", "DIGITAL TRANSFORMATION"],
+    DESCRIPTION: "A selection of strategic consulting projects across various industries.",
     ARIA_LABEL: "Projects showcase section"
   },
 
@@ -64,8 +69,8 @@ export const CONTENT_CONFIG = {
     SECTION_ID: "experience",
     SECTION_NUMBER: "03",
     SECTION_TITLE: "Journey",
-    HEADING: "Professional Experience",
-    DESCRIPTION: "With over a decade of experience across diverse industries, I've developed a unique perspective on design and strategy. My career journey has equipped me with the skills to navigate complex challenges and deliver impactful solutions.",
+    HEADING: "My Experience",
+    DESCRIPTION: "Some of the hats I have worn over more than 20 years of non-stop continuous upscaling, reinventing, evolving, and reimagining business, brands, and teams.",
     ARIA_LABEL: "Professional experience timeline"
   },
 
@@ -76,8 +81,8 @@ export const CONTENT_CONFIG = {
     SECTION_ID: "services",
     SECTION_NUMBER: "04",
     SECTION_TITLE: "Services",
-    HEADING: "Design Excellence",
-    DESCRIPTION: "Strategic design solutions that address complex business challenges while maintaining focus on human needs and business objectives.",
+    HEADING: "Services",
+    DESCRIPTION: "Meticulously architected solutions addressing demanding market realities and evolving client needs.",
     ARIA_LABEL: "Services and capabilities section"
   },
 
@@ -86,26 +91,24 @@ export const CONTENT_CONFIG = {
   // ============================================================================
   FOOTER: {
     SECTION_ID: "footer",
-    MISSION_STATEMENT: "Architecting experiences that connect strategy with soul",
+    MISSION_STATEMENT: "Architecting experiences that connect strategy with soul.",
     NAVIGATE: {
-      TITLE: "Navigate",
+      TITLE: "Footer",
       LINKS: [
-        { text: "Home", href: "#hero" },
         { text: "About", href: "#about" },
         { text: "Projects", href: "#projects" },
         { text: "Experience", href: "#experience" },
-        { text: "Services", href: "#services" }
+        { text: "Services", href: "#services" },
+        { text: "My Voice", href: "https://silvana.mmm.page/human-perspective" }
       ]
     },
     CONNECT: {
-      TITLE: "Connect",
+      TITLE: "Let's Talk",
       SOCIAL_LINKS: [
-        { platform: "LinkedIn", href: "https://linkedin.com/in/silvanarestrepo", icon: "linkedin" },
-        { platform: "GitHub", href: "https://github.com/srestrepo888", icon: "github" }
+        { platform: "LinkedIn", href: "https://linkedin.com/in/silvanarestrepo", icon: "linkedin" }
       ],
       DIRECT_LINKS: [
-        { text: "My Voice", href: "https://silvana.mmm.page/human-perspective" },
-        { text: "Email", href: "mailto:srestrepo2@me.com" }
+        { text: "Contact", href: "mailto:silvanarestrepo888@gmail.com" }
       ]
     },
     COPYRIGHT: "© 2025. All rights reserved."
@@ -116,7 +119,7 @@ export const CONTENT_CONFIG = {
   // ============================================================================
   NAVIGATION: {
     LOGO: {
-      TEXT: "Silvana Restrepo",
+      TEXT: "silvana.",
       HREF: "https://silvana.mmm.page/human-perspective",
       SUBTITLE: "My Voice",
       ARIA_LABEL: "Go to My Voice manifesto"
@@ -129,7 +132,7 @@ export const CONTENT_CONFIG = {
       { href: "#services", label: "Services", description: "How I can help" }
     ],
     CTA: {
-      TEXT: "Let's Connect",
+      TEXT: "Let's Talk",
       HREF: "#footer",
       ARIA_LABEL: "Go to contact section"
     }

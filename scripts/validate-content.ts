@@ -20,7 +20,10 @@ const UNAUTHORIZED_CONTENT = [
   "Crafting Digital Masterpieces",
   "Accurate selection of projects that demonstrate a commitment to design excellence, strategic thinking, and impactful user experiences",
   "Design Excellence meticulously architected solution addressing demanding market realities and evolving client needs",
-  "meticulously architected solutions addressing demanding market realities and evolving client's needs"
+  "meticulously architected solutions addressing demanding market realities and evolving client's needs",
+  "I am an Experience Architect who believes in the power of human-centered design",
+  "Discover our latest work",
+  "Design Excellence"
 ]
 
 // File extensions to scan

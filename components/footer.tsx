@@ -13,13 +13,7 @@ const socialLinks = [
   { name: "GitHub", href: "https://github.com/srestrepo888", icon: Github },
 ]
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/#about" },
-  { name: "Projects", href: "/projects" },
-  { name: "My Voice", href: "https://silvana.mmm.page/human-perspective" },
-  { name: "Contact", href: "/#contact" },
-]
+const navLinks = CONTENT_CONFIG.FOOTER.NAVIGATE.LINKS
 
 export default function Footer() {
   return (
@@ -44,13 +38,13 @@ export default function Footer() {
             <Overline className="mb-4 text-foreground/80">{CONTENT_CONFIG.FOOTER.NAVIGATE.TITLE}</Overline>
             <ul className="space-y-3">
               {navLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.text}>
                   <Link href={link.href} passHref>
                     <EnhancedButton 
                       variant="link" 
                       className="p-0 h-auto text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-1"
                     >
-                      {link.name}
+                      {link.text}
                     </EnhancedButton>
                   </Link>
                 </li>
@@ -93,10 +87,10 @@ export default function Footer() {
               {/* Email */}
               <div>
                 <a 
-                  href="mailto:srestrepo2@me.com"
+                  href="mailto:silvanarestrepo888@gmail.com"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:underline"
                 >
-                  srestrepo2@me.com
+                  silvanarestrepo888@gmail.com
                 </a>
               </div>
             </div>

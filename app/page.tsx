@@ -39,7 +39,7 @@ export default function HomePage() {
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.ABOUT.SECTION_NUMBER} — {CONTENT_CONFIG.ABOUT.SECTION_TITLE}</Overline>
               <HeadingLarge className="text-center">{CONTENT_CONFIG.ABOUT.HEADING}</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
+              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed whitespace-pre-line">
                 {CONTENT_CONFIG.ABOUT.DESCRIPTION}
               </BodyLarge>
             </PerfectStack>
@@ -109,7 +109,7 @@ export default function HomePage() {
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.PROJECTS.SECTION_NUMBER} — {CONTENT_CONFIG.PROJECTS.SECTION_TITLE}</Overline>
               <HeadingLarge className="text-center">{CONTENT_CONFIG.PROJECTS.HEADING}</HeadingLarge>
               <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
-                {CONTENT_CONFIG.PROJECTS.DESCRIPTION}
+                {CONTENT_CONFIG.PROJECTS.SUBTITLE}
               </BodyLarge>
             </PerfectStack>
             <MasterpieceProjectsShowcase />

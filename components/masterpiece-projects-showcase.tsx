@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { getAllProjects } from "@/lib/projects"
 import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 
 export default function MasterpieceProjectsShowcase() {
   const router = useRouter()
@@ -36,7 +37,7 @@ export default function MasterpieceProjectsShowcase() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h1>
-          <p className="text-xl text-gray-600">Discover our latest work</p>
+          <p className="text-xl text-gray-600">{CONTENT_CONFIG.PROJECTS.SUBTITLE}</p>
         </div>
 
         {/* Project Display */}
