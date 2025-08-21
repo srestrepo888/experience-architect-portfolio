@@ -95,5 +95,5 @@ export function AnimatedListItem({
   children: React.ReactNode
   className?: string
 }) {
-  return <div className={cn("p-6 bg-white rounded-xl shadow-sm border border-black/5", className)}>{children}</div>
+  return <div className={cn("p-6 bg-transparent rounded-xl border transition-all duration-300", className)}>{children}</div>
 }

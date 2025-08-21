@@ -33,7 +33,7 @@ export default function MasterpieceProjectsShowcase() {
 
   return (
     <div className="min-h-screen p-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1800px] mx-auto">
         {/* Project Display */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Project Image */}
@@ -48,31 +48,36 @@ export default function MasterpieceProjectsShowcase() {
           </div>
 
           {/* Project Info */}
-          <div className="order-1 lg:order-2 space-y-6">
-            {/* Project Header */}
-            <div>
-              <p className="text-sm text-gray-500 mb-2">
-                {currentProject.year} • {currentProject.client}
-              </p>
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">
+          <div className="order-1 lg:order-2 space-y-8">
+            {/* Project Header - Enhanced Hierarchy */}
+            <div className="space-y-4">
+              {/* Project Title - Most Important */}
+              <h2 className="text-[clamp(2rem,4vw,3rem)] font-serif font-extralight text-sophisticated leading-[1.1] tracking-[-0.02em]">
                 {currentProject.title}
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              
+              {/* Project Subtitle - Clear Context */}
+              <p className="text-[clamp(1.25rem,2vw,1.5rem)] font-sans font-light text-sophisticated/90 leading-relaxed tracking-[0.015em]">
                 {currentProject.subtitle}
+              </p>
+              
+              {/* Client & Year - Metadata */}
+              <p className="text-[clamp(0.875rem,1.5vw,1rem)] font-sans font-light text-muted-foreground/70 tracking-wider uppercase">
+                {currentProject.year} • {currentProject.client}
               </p>
             </div>
 
-            {/* Services */}
+            {/* Services - Visual Badge System */}
             {currentProject.services && (
-              <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+              <div className="space-y-3">
+                <h3 className="text-[clamp(0.75rem,1vw,0.875rem)] font-sans font-medium text-muted-foreground/80 tracking-wider uppercase">
                   Services Provided
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {currentProject.services.map((service, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium"
+                      className="px-4 py-2 bg-sophisticated/5 text-sophisticated border border-sophisticated/10 rounded-full text-[clamp(0.875rem,1vw,1rem)] font-light tracking-wide hover:bg-sophisticated/10 transition-colors duration-300"
                     >
                       {service}
                     </span>
@@ -81,26 +86,26 @@ export default function MasterpieceProjectsShowcase() {
               </div>
             )}
 
-            {/* Project Context */}
+            {/* Project Context - Readable Body Text */}
             {currentProject.context && (
-              <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+              <div className="space-y-3">
+                <h3 className="text-[clamp(0.75rem,1vw,0.875rem)] font-sans font-medium text-muted-foreground/80 tracking-wider uppercase">
                   Project Context
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-[clamp(1rem,1.5vw,1.125rem)] font-sans font-extralight text-sophisticated/80 leading-relaxed tracking-[0.015em]">
                   {currentProject.context.split('\n\n')[0]}
                 </p>
               </div>
             )}
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            {/* Clear Call-to-Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <div className="flex-1">
                 <BulletproofNavigationButton
                   href={`/project/${currentProject.slug}`}
                   variant="primary"
-                  size="md"
-                  className="w-full"
+                  size="lg"
+                  className="w-full bg-sophisticated hover:bg-sophisticated/90 text-background font-medium tracking-wide"
                 >
                   View Project Details
                 </BulletproofNavigationButton>
@@ -112,9 +117,9 @@ export default function MasterpieceProjectsShowcase() {
                     href={currentProject.webpage}
                     external={true}
                     variant="outline"
-                    size="md"
+                    size="lg"
                     icon="external"
-                    className="w-full"
+                    className="w-full border-sophisticated/20 text-sophisticated hover:bg-sophisticated/5 font-light tracking-wide"
                   >
                     Visit Live Site
                   </BulletproofNavigationButton>

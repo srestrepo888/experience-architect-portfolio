@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
-const ASSET_VERSION = "v2025-08-21-5-corrected"
+const ASSET_VERSION = "v2025-08-21-6-masterpiece"
 
 interface MasterpieceBackgroundProps {
   section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
@@ -60,33 +60,34 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "projects":
-        // CREATIVE SHOWCASE: Medium impact geometric for project display
+        // CLEAN GALLERY: Pure gradient background for project showcase
         return {
-          asset: APPROVED_GEOMETRIC,
-          opacity: [0.60, 0.70, 0.60],
-          overlayOpacity: [0.40, 0.25, 0.40],
-          overlayColor: "from-background/40 via-background/20 to-background/45",
-          textOverlay: "from-background/10 via-transparent to-background/15",
-          scale: [1, 1.06, 1],
-          blur: [2, 1, 2],
+          asset: null, // No image asset - pure gradient
+          opacity: [1, 1, 1],
+          overlayOpacity: [1, 1, 1],
+          overlayColor: "from-[hsl(33,15%,96%)] via-[hsl(15,12%,95%)] to-[hsl(33,15%,97%)]",
+          textOverlay: "from-transparent via-transparent to-transparent",
+          scale: [1, 1, 1],
+          blur: [0, 0, 0],
           className: "object-cover object-center",
-          animation: "dynamic",
+          animation: "elegant",
           sophisticatedBlend: "normal",
         }
 
       case "experience":
-        // PROFESSIONAL TIMELINE: Balanced geometric for experience content
+        // ELEGANT ANIMATED GRADIENT: Professional timeline with subtle movement
         return {
-          asset: APPROVED_GEOMETRIC,
-          opacity: [0.45, 0.55, 0.45],
-          overlayOpacity: [0.55, 0.40, 0.55],
-          overlayColor: "from-background/55 via-background/35 to-background/60",
-          textOverlay: "from-background/15 via-background/8 to-background/20",
-          scale: [1.01, 1.04, 1.01],
-          blur: [4, 2, 4],
+          asset: null, // No image asset - pure animated gradient
+          opacity: [1, 1, 1],
+          overlayOpacity: [1, 1, 1],
+          overlayColor: "from-[hsl(33,15%,95%)] via-[hsl(15,12%,95%)] to-[hsl(33,15%,95%)]",
+          textOverlay: "from-transparent via-transparent to-transparent",
+          scale: [1, 1, 1],
+          blur: [0, 0, 0],
           className: "object-cover object-center",
           animation: "sophisticated",
           sophisticatedBlend: "normal",
+          customGradient: true,
         }
 
       case "services":
@@ -178,34 +179,37 @@ export function MasterpieceBackgroundSystem({
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
-      <motion.div
-        className="absolute inset-0"
-        style={{ 
-          opacity: backgroundOpacity, 
-          scale: backgroundScale, 
-          filter: `blur(${backgroundBlur}px)`,
-          mixBlendMode: config.sophisticatedBlend as any || "normal"
-        }}
-        {...animationVariants[config.animation as keyof typeof animationVariants]}
-      >
-        <Image
-          src={assetWithVersion}
-          alt={`${section} background`}
-          fill
-          className={config.className}
-          priority={section === "hero"}
-          quality={95}
-          onError={(e) => {
-            console.log(`Failed to load background image: ${assetWithVersion}`)
-            // Fallback to a solid color
-            e.currentTarget.style.display = 'none'
-            const parent = e.currentTarget.parentElement
-            if (parent) {
-              parent.style.backgroundColor = '#f5f2ef'
-            }
+      {/* Background Layer - Image or Pure Gradient */}
+      {config.asset && (
+        <motion.div
+          className="absolute inset-0"
+          style={{ 
+            opacity: backgroundOpacity, 
+            scale: backgroundScale, 
+            filter: `blur(${backgroundBlur}px)`,
+            mixBlendMode: config.sophisticatedBlend as any || "normal"
           }}
-        />
-      </motion.div>
+          {...animationVariants[config.animation as keyof typeof animationVariants]}
+        >
+          <Image
+            src={assetWithVersion}
+            alt={`${section} background`}
+            fill
+            className={config.className}
+            priority={section === "hero"}
+            quality={95}
+            onError={(e) => {
+              console.log(`Failed to load background image: ${assetWithVersion}`)
+              // Fallback to a solid color
+              e.currentTarget.style.display = 'none'
+              const parent = e.currentTarget.parentElement
+              if (parent) {
+                parent.style.backgroundColor = '#f5f2ef'
+              }
+            }}
+          />
+        </motion.div>
+      )}
 
       <motion.div 
         className="absolute inset-0" 
@@ -214,9 +218,11 @@ export function MasterpieceBackgroundSystem({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className={`absolute inset-0 bg-gradient-to-b ${config.overlayColor}`} />
+        <div className={`absolute inset-0 bg-gradient-to-b ${config.overlayColor} ${
+          section === "experience" ? 'animate-[subtleVerticalFlow_45s_ease-in-out_infinite]' : ''
+        }`} />
         <div className={`absolute inset-0 bg-gradient-to-br ${config.textOverlay}`} />
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/5 to-background/10" />
+        {config.asset && <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/5 to-background/10" />}
       </motion.div>
 
       <div className="relative z-10">

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Elegant Experience Section Animation */
+@keyframes subtleVerticalFlow {
+  0%, 100% { 
+    background-position: 0% 0%; 
+    background-size: 100% 100%;
+  }
+  50% { 
+    background-position: 0% 20%; 
+    background-size: 105% 110%;
+  }
+}
+
 @layer base {
   :root {
     /* Ultra-Sophisticated Color System - Enhanced for Perfection */
