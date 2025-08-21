@@ -27,8 +27,7 @@ export function BreadcrumbNavigation({ className }: BreadcrumbNavigationProps) {
         { id: "about", label: "About" },
         { id: "projects", label: "Projects" },
         { id: "experience", label: "Experience" },
-        { id: "services", label: "Services" },
-        { id: "contact", label: "Contact" }
+        { id: "services", label: "Services" }
       ]
 
       let currentSection = "hero"

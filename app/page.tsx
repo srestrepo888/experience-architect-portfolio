@@ -1,6 +1,5 @@
 import CinematicHero from "@/components/cinematic-hero"
 import MasterpieceProjectsShowcase from "@/components/masterpiece-projects-showcase"
-import ContactForm from "@/components/contact-form"
 import Footer from "@/components/footer"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import DetailedServicesSection from "@/components/detailed-services-section"
@@ -14,7 +13,6 @@ import {
   ProjectsBackground,
   ExperienceBackground,
   ServicesBackground,
-  ContactBackground,
   FooterBackground
 } from "@/components/ui/masterpiece-background-system"
 import { PerfectLayout, PerfectGrid, PerfectStack, PerfectCard } from "@/components/ui/perfect-layout"
@@ -149,26 +147,12 @@ export default function HomePage() {
         </ServicesBackground>
         </section>
 
-        {/* Contact Section - Focused Interaction */}
-        <section id="contact">
-          <ContactBackground>
-            <PerfectLayout variant="section" spacing="spacious" maxWidth="content">
-            <PerfectStack spacing="loose" align="center" className="mb-20">
-              <Overline className="text-muted-foreground/80 tracking-wider">05 — Contact</Overline>
-              <HeadingLarge className="text-center">Let's Create Together</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed">
-                Have a project in mind? I'd love to hear about it. Let's connect and build something exceptional.
-              </BodyLarge>
-            </PerfectStack>
-            <PerfectCard padding="xl" variant="minimal" className="max-w-2xl mx-auto">
-              <ContactForm />
-            </PerfectCard>
-          </PerfectLayout>
-        </ContactBackground>
-        </section>
+
       </main>
       <FooterBackground>
-        <Footer />
+        <section id="footer">
+          <Footer />
+        </section>
       </FooterBackground>
       <BreadcrumbNavigation />
       <ScrollToTop />

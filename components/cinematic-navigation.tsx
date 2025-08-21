@@ -40,11 +40,6 @@ const navItems: NavItem[] = [
     label: "Services",
     description: "How I can help",
   },
-  {
-    href: "#contact",
-    label: "Contact",
-    description: "Let's connect",
-  },
 ]
 
 export default function CinematicNavigation() {
@@ -201,10 +196,10 @@ export default function CinematicNavigation() {
               {/* CTA Button */}
               <div className="hidden lg:flex">
                 <EnhancedButton
-                  href="#contact"
+                  href="#footer"
                   onClick={(e) => {
                     e.preventDefault()
-                    handleNavClick('#contact')
+                    handleNavClick('#footer')
                   }}
                   variant="secondary"
                   size="sm"
@@ -340,10 +335,10 @@ export default function CinematicNavigation() {
                   </Link>
                   
                   <EnhancedButton
-                    href="#contact"
+                    href="#footer"
                     onClick={(e) => {
                       e.preventDefault()
-                      handleNavClick('#contact')
+                      handleNavClick('#footer')
                     }}
                     variant="secondary"
                     size="lg"
