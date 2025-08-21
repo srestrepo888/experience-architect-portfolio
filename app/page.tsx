@@ -39,34 +39,32 @@ export default function HomePage() {
             <PerfectStack spacing="loose" align="center" className="mb-20">
               <Overline className="text-muted-foreground/80 tracking-wider">{CONTENT_CONFIG.ABOUT.SECTION_NUMBER} — {CONTENT_CONFIG.ABOUT.SECTION_TITLE}</Overline>
               <HeadingLarge className="text-center">{CONTENT_CONFIG.ABOUT.HEADING}</HeadingLarge>
-              <BodyLarge className="max-w-4xl text-center text-muted-foreground leading-relaxed whitespace-pre-line">
-                {CONTENT_CONFIG.ABOUT.DESCRIPTION}
-              </BodyLarge>
             </PerfectStack>
             
             <PerfectGrid columns={{ sm: 1, lg: 2 }} gap="xl" className="items-center">
               <PerfectCard padding="xl" variant="minimal">
                 <PerfectStack spacing="relaxed">
-                  <BodyMedium className="leading-relaxed">
-                    I have embarked on projects ranging from wellness movements to
-                    creating AI-driven platforms that empower developers worldwide.
-                  </BodyMedium>
-                  <Quote variant="large" className="text-center">
-                    Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of
-                    the human perspective.
-                  </Quote>
-                  <BodyMedium className="leading-relaxed">
-                    Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility!
-                  </BodyMedium>
-                  <div className="pt-4">
+                  <BodyLarge className="leading-relaxed whitespace-pre-line">
+                    {CONTENT_CONFIG.ABOUT.DESCRIPTION}
+                  </BodyLarge>
+                  <div className="pt-6">
+                    <Quote variant="large" className="text-center">
+                      {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.TEXT}
+                    </Quote>
+                    <div className="text-center mt-2 text-muted-foreground">
+                      — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
+                    </div>
+                  </div>
+                  <div className="pt-6">
                     <EnhancedButton
-                      href="/silvana-restrepo-cv.pdf"
+                      href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
                       external={false}
                       variant="secondary"
                       size="lg"
                       icon="download"
+                      aria-label={CONTENT_CONFIG.ABOUT.CTA.ARIA_LABEL}
                     >
-                      Download CV
+                      {CONTENT_CONFIG.ABOUT.CTA.TEXT}
                     </EnhancedButton>
                   </div>
                 </PerfectStack>
@@ -81,8 +79,8 @@ export default function HomePage() {
                     }}
                   >
                     <PortraitImage
-                      src="/silvana-portrait-transparent.png"
-                      alt="A portrait of Silvana Restrepo with a transparent background."
+                      src={CONTENT_CONFIG.ABOUT.PORTRAIT.SRC}
+                      alt={CONTENT_CONFIG.ABOUT.PORTRAIT.ALT_TEXT}
                       hover={false}
                       rounded="none"
                       objectFit="contain"
@@ -90,10 +88,6 @@ export default function HomePage() {
                       className="w-full"
                     />
                   </div>
-                  <Quote variant="default" attribution="Silvana" className="text-center max-w-sm">
-                    "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the
-                    intangible essence of human desire."
-                  </Quote>
                 </PerfectStack>
               </PerfectCard>
             </PerfectGrid>

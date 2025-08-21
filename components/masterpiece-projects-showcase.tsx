@@ -34,12 +34,6 @@ export default function MasterpieceProjectsShowcase() {
   return (
     <div className="min-h-screen p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h1>
-          <p className="text-xl text-gray-600">{CONTENT_CONFIG.PROJECTS.SUBTITLE}</p>
-        </div>
-
         {/* Project Display */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Project Image */}

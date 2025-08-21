@@ -17,90 +17,97 @@ const navLinks = CONTENT_CONFIG.FOOTER.NAVIGATE.LINKS
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border/20 bg-gradient-to-b from-background to-background/95">
       <PerfectSection spacing="spacious" container="content">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Left: Most Important - Your Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          {/* Left: Mission Statement - Most Prominent */}
           <div className="md:col-span-1">
-            <div className="relative">
-              {/* Subtle background pattern */}
-              <div className="absolute inset-0 opacity-[0.03] bg-gradient-to-br from-foreground/10 via-transparent to-foreground/5 rounded-lg" />
-              <div className="relative">
-                <BodyMedium className="text-lg leading-relaxed text-foreground font-medium">
-                  {CONTENT_CONFIG.FOOTER.MISSION_STATEMENT}
-                </BodyMedium>
+            <div className="space-y-6">
+              <div className="text-2xl font-light text-foreground/90 leading-relaxed">
+                {CONTENT_CONFIG.FOOTER.MISSION_STATEMENT}
               </div>
             </div>
           </div>
 
-          {/* Middle: Enhanced Navigate */}
+          {/* Middle: Navigation */}
           <div className="md:col-span-1">
-            <Overline className="mb-4 text-foreground/80">{CONTENT_CONFIG.FOOTER.NAVIGATE.TITLE}</Overline>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.text}>
-                  <Link href={link.href} passHref>
-                    <EnhancedButton 
-                      variant="link" 
-                      className="p-0 h-auto text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-1"
-                    >
-                      {link.text}
-                    </EnhancedButton>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-6">
+              <Overline className="text-foreground/60 font-medium tracking-wider">
+                {CONTENT_CONFIG.FOOTER.NAVIGATE.TITLE}
+              </Overline>
+              <nav className="space-y-4">
+                {navLinks.map((link) => (
+                  <div key={link.text}>
+                    <Link href={link.href} passHref>
+                      <EnhancedButton 
+                        variant="link" 
+                        className="p-0 h-auto text-foreground/70 hover:text-foreground transition-all duration-300 hover:translate-x-1 font-normal"
+                      >
+                        {link.text}
+                      </EnhancedButton>
+                    </Link>
+                  </div>
+                ))}
+              </nav>
+            </div>
           </div>
 
-          {/* Right: Enhanced Connect */}
+          {/* Right: Connect */}
           <div className="md:col-span-1">
-            <Overline className="mb-4 text-foreground/80">{CONTENT_CONFIG.FOOTER.CONNECT.TITLE}</Overline>
-            <div className="space-y-4">
-              {/* Social Links */}
-              <div className="flex items-center space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
+            <div className="space-y-6">
+              <Overline className="text-foreground/60 font-medium tracking-wider">
+                {CONTENT_CONFIG.FOOTER.CONNECT.TITLE}
+              </Overline>
+              <div className="space-y-4">
+                {/* Social Links */}
+                <div className="flex items-center space-x-4">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/60 hover:text-foreground transition-all duration-300 hover:scale-110 p-2 rounded-lg hover:bg-foreground/5"
+                    >
+                      <social.icon className="w-5 h-5" />
+                      <span className="sr-only">{social.name}</span>
+                    </a>
+                  ))}
+                </div>
+                
+                {/* My Voice Link */}
+                <div>
+                  <Link 
+                    href="https://silvana.mmm.page/human-perspective"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+                    className="text-foreground/70 hover:text-foreground transition-colors duration-300 hover:underline inline-flex items-center space-x-2"
                   >
-                    <social.icon className="w-6 h-6" />
-                    <span className="sr-only">{social.name}</span>
+                    <span>My Voice</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
+                </div>
+                
+                {/* Email */}
+                <div>
+                  <a 
+                    href="mailto:silvanarestrepo888@gmail.com"
+                    className="text-foreground/70 hover:text-foreground transition-colors duration-300 hover:underline"
+                  >
+                    silvanarestrepo888@gmail.com
                   </a>
-                ))}
-              </div>
-              
-              {/* My Voice Link */}
-              <div>
-                <Link 
-                  href="https://silvana.mmm.page/human-perspective"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:underline"
-                >
-                  My Voice
-                </Link>
-              </div>
-              
-              {/* Email */}
-              <div>
-                <a 
-                  href="mailto:silvanarestrepo888@gmail.com"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:underline"
-                >
-                  silvanarestrepo888@gmail.com
-                </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/50 text-center">
-          <BodyMedium className="text-muted-foreground">
-            &copy; {new Date().getFullYear()} All Rights Reserved.
-          </BodyMedium>
+        <div className="mt-20 pt-8 border-t border-border/20 text-center">
+          <div className="text-sm text-foreground/50">
+            © 2024 • Experience Architect Portfolio
+          </div>
         </div>
       </PerfectSection>
     </footer>
