@@ -38,14 +38,14 @@ export function MasterpieceBackgroundSystem({
       
       case "about":
         return {
-          asset: "/elegant-brand-identity.png", 
+          asset: "/luxury-geometric-background.png", 
           opacity: [0.28, 0.36, 0.28],
           overlayOpacity: [0.45, 0.35, 0.45],
           overlayColor: "from-background/45 via-background/25 to-background/45",
           textOverlay: "from-background/15 via-background/5 to-background/15",
           scale: [1.05, 1, 1.05],
           blur: [6, 3, 6],
-          className: "object-cover object-top"
+          className: "object-cover object-center"
         }
 
       case "projects":
@@ -74,7 +74,7 @@ export function MasterpieceBackgroundSystem({
 
       case "services":
         return {
-          asset: "/elegant-brand-identity.png",
+          asset: "/background-texture.png",
           opacity: [0.30, 0.38, 0.30],
           overlayOpacity: [0.42, 0.30, 0.42],
           overlayColor: "from-background/42 via-background/22 to-background/42",
