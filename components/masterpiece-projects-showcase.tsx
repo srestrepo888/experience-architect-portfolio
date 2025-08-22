@@ -48,13 +48,13 @@ export default function MasterpieceProjectsShowcase() {
 
       {/* Main Content with Enhanced Spacing */}
       <div className="relative pt-20 pb-32">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
           
           {/* Sophisticated Project Display */}
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Project Image - Enhanced Visual Treatment */}
-            <div className="lg:col-span-7 order-2 lg:order-1">
+            <div className="lg:col-span-8 order-2 lg:order-1">
               <div className="group relative">
                 {/* Image Container with Elegant Hover */}
                 <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background/5 to-sophisticated/5 p-3">
@@ -79,7 +79,7 @@ export default function MasterpieceProjectsShowcase() {
             </div>
 
             {/* Project Information - Enhanced Hierarchy */}
-            <div className="lg:col-span-5 order-1 lg:order-2 space-y-10">
+            <div className="lg:col-span-4 order-1 lg:order-2 space-y-8">
               
               {/* Project Header with Refined Typography */}
               <div className="space-y-6">

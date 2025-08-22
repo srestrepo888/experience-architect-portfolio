@@ -25,7 +25,7 @@ const navLinks = [
   { text: "Projects", href: "#projects" },
   { text: "Experience", href: "#experience" },
   { text: "Services", href: "#services" },
-  { text: "My Voice", href: "https://silvana.mmm.page/human-perspective", external: true },
+  { text: "Contact", href: "#footer" },
 ]
 
 export default function Footer() {

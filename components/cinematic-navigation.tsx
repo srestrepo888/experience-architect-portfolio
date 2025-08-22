@@ -159,14 +159,15 @@ export default function CinematicNavigation() {
                     >
                       {item.label}
                       
-                      {/* Luxury active indicator */}
+                      {/* Organic active indicator */}
                       {activeSection === item.href.slice(1) && (
                         <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground/80 rounded-full"
+                          className="absolute -bottom-1 left-1/2 w-1 h-1 bg-foreground/60 rounded-full"
                           layoutId="activeIndicator"
-                          initial={{ opacity: 0, scaleX: 0 }}
-                          animate={{ opacity: 1, scaleX: 1 }}
-                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          style={{ x: '-50%' }}
                         />
                       )}
                       
@@ -186,10 +187,10 @@ export default function CinematicNavigation() {
               <div className="hidden lg:block">
                 <EnhancedButton
                   href="#footer"
-                  variant="luxury"
+                  variant="primary"
                   size="md"
                   icon="arrow"
-                  className="shadow-[0_8px_32px_rgba(15,23,42,0.15)] hover:shadow-[0_12px_40px_rgba(15,23,42,0.25)]"
+                  className="bg-slate-900 text-white hover:bg-slate-800 shadow-[0_8px_32px_rgba(15,23,42,0.15)] hover:shadow-[0_12px_40px_rgba(15,23,42,0.25)]"
                 >
                   {CONTENT_CONFIG.NAVIGATION.CTA.TEXT}
                 </EnhancedButton>

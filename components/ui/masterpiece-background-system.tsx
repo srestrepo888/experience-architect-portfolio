@@ -60,15 +60,15 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "projects":
-        // CLEAN GALLERY: Pure gradient background for project showcase
+        // SOPHISTICATED GALLERY: Consistent geometric with project focus
         return {
-          asset: null, // No image asset - pure gradient
-          opacity: [1, 1, 1],
-          overlayOpacity: [1, 1, 1],
-          overlayColor: "from-[hsl(33,15%,96%)] via-[hsl(15,12%,95%)] to-[hsl(33,15%,97%)]",
-          textOverlay: "from-transparent via-transparent to-transparent",
-          scale: [1, 1, 1],
-          blur: [0, 0, 0],
+          asset: APPROVED_GEOMETRIC,
+          opacity: [0.15, 0.25, 0.15],
+          overlayOpacity: [0.85, 0.70, 0.85],
+          overlayColor: "from-background/85 via-background/60 to-background/85",
+          textOverlay: "from-background/20 via-background/10 to-background/25",
+          scale: [1.01, 1.03, 1.01],
+          blur: [6, 3, 6],
           className: "object-cover object-center",
           animation: "elegant",
           sophisticatedBlend: "normal",

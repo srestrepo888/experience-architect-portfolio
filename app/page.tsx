@@ -1,6 +1,6 @@
 import CinematicHero from "@/components/cinematic-hero"
 import MasterpieceProjectsShowcase from "@/components/masterpiece-projects-showcase"
-import Footer from "@/components/footer"
+import SophisticatedFooter from "@/components/ui/sophisticated-footer"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import DetailedServicesSection from "@/components/detailed-services-section"
 import AnimatedExperience from "@/components/animated-experience"
@@ -15,15 +15,16 @@ import {
   ServicesBackground,
   FooterBackground
 } from "@/components/ui/masterpiece-background-system"
-import { 
-  LuxuryContainer, 
-  LuxurySection, 
-  PerfectGrid, 
-  TypographySpacing, 
+import {
+  LuxuryContainer,
+  LuxurySection,
+  PerfectGrid,
+  TypographySpacing,
   ComponentSpacing,
   LuxuryCard,
   SectionHeader
 } from "@/components/ui/enhanced-layout-system"
+import { SectionTransition } from "@/components/ui/section-transition"
 import { ScrollToTop } from "@/components/ui/scroll-to-top"
 import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation"
 import { CONTENT_CONFIG } from "@/lib/content-config"
@@ -69,7 +70,7 @@ export default function HomePage() {
                       <div className="pt-8">
                         <EnhancedButton
                           href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
-                          external={false}
+                          download="silvana-restrepo-cv.pdf"
                           variant="secondary"
                           size="lg"
                           icon="download"
@@ -80,32 +81,32 @@ export default function HomePage() {
                       </div>
                     </ComponentSpacing>
                   </LuxuryCard>
-                  <LuxuryCard padding="standard" elevation="minimal">
-                    <div className="flex items-center justify-center">
-                      <div
-                        className="relative w-full max-w-md mx-auto"
-                        style={{
-                          maskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
-                          WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
-                        }}
-                      >
-                        <PortraitImage
-                          src={CONTENT_CONFIG.ABOUT.PORTRAIT.SRC}
-                          alt={CONTENT_CONFIG.ABOUT.PORTRAIT.ALT_TEXT}
-                          hover={false}
-                          rounded="none"
-                          objectFit="contain"
-                          placeholder="empty"
-                          className="w-full"
-                        />
-                      </div>
+                  <div className="flex items-center justify-center">
+                    <div
+                      className="relative w-full max-w-md mx-auto"
+                      style={{
+                        maskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
+                        WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
+                      }}
+                    >
+                      <PortraitImage
+                        src={CONTENT_CONFIG.ABOUT.PORTRAIT.SRC}
+                        alt={CONTENT_CONFIG.ABOUT.PORTRAIT.ALT_TEXT}
+                        hover={false}
+                        rounded="none"
+                        objectFit="contain"
+                        placeholder="empty"
+                        className="w-full"
+                      />
                     </div>
-                  </LuxuryCard>
+                  </div>
                 </PerfectGrid>
               </LuxuryContainer>
             </LuxurySection>
           </AboutBackground>
         </section>
+
+        <SectionTransition variant="elegant" />
 
         {/* Projects Section - Gallery Enhancement */}
         <section id="projects">
@@ -125,6 +126,8 @@ export default function HomePage() {
           </ProjectsBackground>
         </section>
 
+        <SectionTransition variant="sophisticated" />
+
         {/* Experience Section - Minimal Professional */}
         <section id="experience">
           <ExperienceBackground>
@@ -142,6 +145,8 @@ export default function HomePage() {
             </LuxurySection>
           </ExperienceBackground>
         </section>
+
+        <SectionTransition variant="elegant" />
 
         {/* Services Section - Sophisticated Balance */}
         <section id="services">
@@ -164,7 +169,7 @@ export default function HomePage() {
       
       <FooterBackground>
         <section id="footer">
-          <Footer />
+          <SophisticatedFooter />
         </section>
       </FooterBackground>
       

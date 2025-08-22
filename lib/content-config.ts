@@ -68,8 +68,8 @@ export const CONTENT_CONFIG = {
   EXPERIENCE: {
     SECTION_ID: "experience",
     SECTION_NUMBER: "03",
-    SECTION_TITLE: "Journey",
-    HEADING: "My Experience",
+    SECTION_TITLE: "Experience",
+    HEADING: "Professional Journey",
     DESCRIPTION: "Some of the hats I have worn over more than 20 years of non-stop continuous upscaling, reinventing, evolving, and reimagining business, brands, and teams.",
     ARIA_LABEL: "Professional experience timeline"
   },
@@ -80,8 +80,8 @@ export const CONTENT_CONFIG = {
   SERVICES: {
     SECTION_ID: "services",
     SECTION_NUMBER: "04",
-    SECTION_TITLE: "Services",
-    HEADING: "Services",
+    SECTION_TITLE: "What I Do",
+    HEADING: "Services & Capabilities",
     DESCRIPTION: "Meticulously architected solutions addressing demanding market realities and evolving client needs.",
     ARIA_LABEL: "Services and capabilities section"
   },
@@ -99,7 +99,7 @@ export const CONTENT_CONFIG = {
         { text: "Projects", href: "#projects" },
         { text: "Experience", href: "#experience" },
         { text: "Services", href: "#services" },
-        { text: "My Voice", href: "https://silvana.mmm.page/human-perspective" }
+        { text: "Contact", href: "#footer" }
       ]
     },
     CONNECT: {
@@ -121,8 +121,7 @@ export const CONTENT_CONFIG = {
     LOGO: {
       TEXT: "silvana.",
       HREF: "https://silvana.mmm.page/human-perspective",
-      SUBTITLE: "My Voice",
-      ARIA_LABEL: "Go to My Voice manifesto"
+      ARIA_LABEL: "Go to portfolio home"
     },
     ITEMS: [
       { href: "#hero", label: "Home", description: "Return to the beginning" },

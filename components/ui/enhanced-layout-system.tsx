@@ -27,8 +27,8 @@ export function LuxuryContainer({
     "compact": "max-w-[800px]"      // Form content - modals, sidebars
   }
 
-  // Mathematical horizontal padding progression
-  const paddingClasses = "px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20"
+  // Optimized horizontal padding - reduced for better content access
+  const paddingClasses = "px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12"
 
   return (
     <div className={cn(
@@ -56,12 +56,12 @@ export function LuxurySection({
   animate = true
 }: LuxurySectionProps) {
   
-  // Vertical section spacing from PERFECT_LAYOUT_SYSTEM.md
+  // Optimized vertical section spacing - reduced for better user access
   const spacingClasses = {
-    "compact": "py-16 md:py-20 lg:py-24",       // 64px-96px
-    "normal": "py-24 md:py-32 lg:py-40",        // 96px-160px
-    "spacious": "py-32 md:py-40 lg:py-48",      // 128px-192px
-    "hero": "pt-32 pb-24 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40" // Dramatic presence
+    "compact": "py-8 md:py-12 lg:py-16",        // 32px-64px  
+    "normal": "py-12 md:py-16 lg:py-20",        // 48px-80px
+    "spacious": "py-16 md:py-20 lg:py-24",      // 64px-96px
+    "hero": "pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20" // Balanced presence
   }
 
   const sectionContent = (
