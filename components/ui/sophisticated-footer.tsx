@@ -69,7 +69,7 @@ export default function SophisticatedFooter() {
                 </Overline>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  {CONTENT_CONFIG.FOOTER.NAVIGATION.LINKS.map((link, index) => (
+                  {CONTENT_CONFIG.FOOTER.NAVIGATE.LINKS.map((link, index) => (
                     <motion.div
                       key={link.text}
                       initial={{ opacity: 0, x: -10 }}

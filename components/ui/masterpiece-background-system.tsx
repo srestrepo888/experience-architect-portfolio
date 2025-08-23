@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, ReactNode } from "react"
 import Image from "next/image"
 
-const ASSET_VERSION = "v2025-08-21-6-masterpiece"
+const ASSET_VERSION = "v2025-08-22-distinct-backgrounds"
 
 interface MasterpieceBackgroundProps {
   section: "hero" | "about" | "projects" | "experience" | "services" | "contact" | "footer"
@@ -23,21 +23,21 @@ export function MasterpieceBackgroundSystem({
     offset: ["start end", "end start"]
   })
 
-  // CORRECTED: Using only your approved design assets with enhanced visual impact
+  // DISTINCT CONNECTED BACKGROUNDS: Each section has unique character while maintaining cohesion
   const getSectionConfig = () => {
     const APPROVED_GEOMETRIC = "/luxury-geometric-background.png"
     const APPROVED_TEXTURE = "/background-texture.png"
 
     switch (section) {
       case "hero":
-        // MAXIMUM IMPACT: Your luxury geometric background at full power
+        // DRAMATIC PRESENCE: Full luxury geometric for maximum impact
         return {
           asset: APPROVED_GEOMETRIC,
-          opacity: [0.85, 0.95, 0.85],
-          overlayOpacity: [0.25, 0.10, 0.25],
-          overlayColor: "from-background/25 via-background/5 to-background/30",
-          textOverlay: "from-background/5 via-transparent to-background/8",
-          scale: [1, 1.08, 1],
+          opacity: [0.90, 1.0, 0.90],
+          overlayOpacity: [0.20, 0.05, 0.20],
+          overlayColor: "from-slate-900/10 via-transparent to-slate-900/15",
+          textOverlay: "from-transparent via-transparent to-transparent",
+          scale: [1, 1.05, 1],
           blur: [0, 0, 0],
           className: "object-cover object-center",
           animation: "luxury",
@@ -45,64 +45,65 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "about":
-        // PORTRAIT FOCUSED: Muted geometric that doesn't compete with your portrait
+        // WARM INTIMATE: Soft warm tones with geometric subtlety - content focused
         return {
           asset: APPROVED_GEOMETRIC,
-          opacity: [0.25, 0.35, 0.25],
-          overlayOpacity: [0.75, 0.60, 0.75],
-          overlayColor: "from-background/75 via-background/50 to-background/80",
-          textOverlay: "from-background/20 via-background/10 to-background/25",
-          scale: [1.02, 1.05, 1.02],
-          blur: [8, 4, 8],
-          className: "object-cover object-center",
+          opacity: [0.30, 0.40, 0.30],
+          overlayOpacity: [0.80, 0.65, 0.80],
+          overlayColor: "from-rose-50/90 via-amber-50/80 to-orange-50/85",
+          textOverlay: "from-white/30 via-white/10 to-white/25",
+          scale: [1.03, 1.06, 1.03],
+          blur: [12, 6, 12],
+          className: "object-cover object-right",
           animation: "elegant",
-          sophisticatedBlend: "normal",
+          sophisticatedBlend: "soft-light",
         }
 
       case "projects":
-        // SOPHISTICATED GALLERY: Consistent geometric with project focus
+        // CLEAN GALLERY: Pure gradient showcase - projects are the stars
         return {
-          asset: APPROVED_GEOMETRIC,
-          opacity: [0.15, 0.25, 0.15],
-          overlayOpacity: [0.85, 0.70, 0.85],
-          overlayColor: "from-background/85 via-background/60 to-background/85",
-          textOverlay: "from-background/20 via-background/10 to-background/25",
-          scale: [1.01, 1.03, 1.01],
-          blur: [6, 3, 6],
-          className: "object-cover object-center",
-          animation: "elegant",
-          sophisticatedBlend: "normal",
-        }
-
-      case "experience":
-        // ELEGANT ANIMATED GRADIENT: Professional timeline with subtle movement
-        return {
-          asset: null, // No image asset - pure animated gradient
+          asset: null,
           opacity: [1, 1, 1],
           overlayOpacity: [1, 1, 1],
-          overlayColor: "from-[hsl(33,15%,95%)] via-[hsl(15,12%,95%)] to-[hsl(33,15%,95%)]",
+          overlayColor: "from-slate-50/95 via-stone-25/90 to-slate-50/95",
           textOverlay: "from-transparent via-transparent to-transparent",
           scale: [1, 1, 1],
           blur: [0, 0, 0],
           className: "object-cover object-center",
-          animation: "sophisticated",
+          animation: "minimal",
           sophisticatedBlend: "normal",
           customGradient: true,
         }
 
-      case "services":
-        // TEXTURE DISTINCTION: Your approved texture background for services
+      case "experience":
+        // PROFESSIONAL DEPTH: Cool sophisticated tones with subtle texture
         return {
           asset: APPROVED_TEXTURE,
-          opacity: [0.70, 0.80, 0.70],
-          overlayOpacity: [0.35, 0.20, 0.35],
-          overlayColor: "from-background/35 via-background/15 to-background/40",
-          textOverlay: "from-background/8 via-background/3 to-background/12",
-          scale: [1.01, 1.05, 1.01],
-          blur: [1, 0, 1],
+          opacity: [0.25, 0.35, 0.25],
+          overlayOpacity: [0.85, 0.70, 0.85],
+          overlayColor: "from-slate-100/90 via-blue-50/80 to-slate-100/90",
+          textOverlay: "from-white/20 via-white/5 to-white/15",
+          scale: [1.02, 1.04, 1.02],
+          blur: [8, 4, 8],
+          className: "object-cover object-left",
+          animation: "sophisticated",
+          sophisticatedBlend: "multiply",
+          customGradient: true,
+        }
+
+      case "services":
+        // RICH TEXTURE: Deep texture background with sophisticated overlays
+        return {
+          asset: APPROVED_TEXTURE,
+          opacity: [0.60, 0.75, 0.60],
+          overlayOpacity: [0.45, 0.30, 0.45],
+          overlayColor: "from-emerald-50/85 via-teal-25/75 to-cyan-50/80",
+          textOverlay: "from-white/25 via-white/8 to-white/20",
+          scale: [1.01, 1.03, 1.01],
+          blur: [3, 1, 3],
           className: "object-cover object-center",
           animation: "refined",
-          sophisticatedBlend: "normal",
+          sophisticatedBlend: "overlay",
         }
 
       case "contact":
@@ -121,18 +122,18 @@ export function MasterpieceBackgroundSystem({
         }
 
       case "footer":
-        // SOPHISTICATED CLOSURE: Subtle geometric for footer
+        // SOPHISTICATED CLOSURE: Deep elegant tones for memorable ending
         return {
           asset: APPROVED_GEOMETRIC,
-          opacity: [0.30, 0.40, 0.30],
-          overlayOpacity: [0.65, 0.50, 0.65],
-          overlayColor: "from-background/65 via-background/45 to-background/70",
-          textOverlay: "from-background/18 via-background/10 to-background/22",
-          scale: [1.01, 1.03, 1.01],
-          blur: [5, 3, 5],
-          className: "object-cover object-center",
-          animation: "minimal",
-          sophisticatedBlend: "normal",
+          opacity: [0.45, 0.55, 0.45],
+          overlayOpacity: [0.70, 0.55, 0.70],
+          overlayColor: "from-slate-200/85 via-stone-100/80 to-slate-200/85",
+          textOverlay: "from-white/20 via-white/10 to-white/15",
+          scale: [1.02, 1.04, 1.02],
+          blur: [6, 3, 6],
+          className: "object-cover object-bottom",
+          animation: "elegant",
+          sophisticatedBlend: "multiply",
         }
 
       default:

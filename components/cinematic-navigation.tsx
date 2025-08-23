@@ -125,13 +125,7 @@ export default function CinematicNavigation() {
                   >
                     {CONTENT_CONFIG.NAVIGATION.LOGO.TEXT}
                   </motion.div>
-                  <motion.div
-                    className="text-xs text-foreground/60 font-light tracking-widest uppercase"
-                    whileHover={{ color: "rgb(71 85 105)" }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {CONTENT_CONFIG.NAVIGATION.LOGO.SUBTITLE}
-                  </motion.div>
+
                 </Link>
               </motion.div>
 
