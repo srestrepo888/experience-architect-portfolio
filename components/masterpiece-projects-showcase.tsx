@@ -47,18 +47,18 @@ export default function MasterpieceProjectsShowcase() {
       </div>
 
       {/* Main Content with Enhanced Spacing */}
-      <div className="relative pt-20 pb-32">
-        <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
+      <div className="relative" style={{ padding: "64px 0 128px 0" }}>
+        <div className="max-w-[1200px] mx-auto" style={{ padding: "0 32px" }}>
           
           {/* Sophisticated Project Display */}
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-12 items-start" style={{ gap: "48px" }}>
             
             {/* Project Image - Enhanced Visual Treatment */}
             <div className="lg:col-span-8 order-2 lg:order-1">
               <div className="group relative">
                 {/* Image Container with Elegant Hover */}
-                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background/5 to-sophisticated/5 p-3">
-                  <div className="relative rounded-2xl overflow-hidden">
+                <div className="relative overflow-hidden" style={{ borderRadius: "16px", padding: "8px", background: "hsl(240 5% 98%)" }}>
+                  <div className="relative overflow-hidden" style={{ borderRadius: "8px" }}>
                     <img
                       src={currentProject.thumbnailImage || `/placeholder.jpg`}
                       alt={currentProject.title}
@@ -70,8 +70,8 @@ export default function MasterpieceProjectsShowcase() {
                 </div>
                 
                 {/* Floating Project Index */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-sophisticated/90 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-xl">
-                  <span className="text-background font-light text-sm tracking-wider">
+                <div className="absolute flex items-center justify-center" style={{ top: "-8px", right: "-8px", width: "48px", height: "48px", background: "hsl(240 6% 10%)", borderRadius: "16px", boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)" }}>
+                  <span className="text-white font-light text-sm tracking-wider">
                     {String(currentIndex + 1).padStart(2, '0')}
                   </span>
                 </div>
@@ -79,18 +79,18 @@ export default function MasterpieceProjectsShowcase() {
             </div>
 
             {/* Project Information - Enhanced Hierarchy */}
-            <div className="lg:col-span-4 order-1 lg:order-2 space-y-8">
+            <div className="lg:col-span-4 order-1 lg:order-2" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
               
               {/* Project Header with Refined Typography */}
-              <div className="space-y-6">
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 {/* Project Title - Commanding Presence */}
-                <div className="space-y-3">
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <h2 className="text-[clamp(2.25rem,4.5vw,3.5rem)] font-serif font-extralight text-sophisticated leading-[0.95] tracking-[-0.025em] balance">
                     {currentProject.title}
                   </h2>
                   
                   {/* Elegant Divider */}
-                  <div className="w-16 h-px bg-gradient-to-r from-sophisticated/30 to-transparent" />
+                  <div style={{ width: "64px", height: "1px", background: "linear-gradient(to right, hsl(240 4% 46% / 0.3), transparent)" }} />
                 </div>
                 
                 {/* Project Subtitle - Clear Context */}
@@ -99,12 +99,12 @@ export default function MasterpieceProjectsShowcase() {
                 </p>
                 
                 {/* Client & Year - Refined Metadata */}
-                <div className="flex items-center space-x-6 pt-2">
-                  <span className="text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-light text-sophisticated/60 tracking-[0.1em] uppercase">
+                <div className="flex items-center" style={{ gap: "24px", paddingTop: "8px" }}>
+                  <span className="font-light uppercase" style={{ fontSize: "0.875rem", color: "hsl(240 4% 46% / 0.6)", letterSpacing: "0.1em" }}>
                     {currentProject.year}
                   </span>
-                  <div className="w-1 h-1 rounded-full bg-sophisticated/30" />
-                  <span className="text-[clamp(0.875rem,1.25vw,1rem)] font-sans font-light text-sophisticated/70 tracking-[0.05em]">
+                  <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "hsl(240 4% 46% / 0.3)" }} />
+                  <span className="font-light" style={{ fontSize: "0.875rem", color: "hsl(240 4% 46% / 0.7)", letterSpacing: "0.05em" }}>
                     {currentProject.client}
                   </span>
                 </div>
@@ -112,15 +112,16 @@ export default function MasterpieceProjectsShowcase() {
 
               {/* Services - Sophisticated Badge System */}
               {currentProject.services && (
-                <div className="space-y-5">
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <h3 className="text-[clamp(0.75rem,1vw,0.875rem)] font-sans font-medium text-sophisticated/70 tracking-[0.15em] uppercase">
                     Expertise Applied
                   </h3>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap" style={{ gap: "8px" }}>
                     {currentProject.services.map((service, idx) => (
                       <span
                         key={idx}
-                        className="group px-5 py-2.5 bg-sophisticated/8 hover:bg-sophisticated/12 border border-sophisticated/15 hover:border-sophisticated/25 rounded-full text-[clamp(0.875rem,1vw,1rem)] font-light text-sophisticated/80 tracking-[0.02em] transition-all duration-300 cursor-default"
+                        className="group font-light cursor-default transition-all duration-300" 
+                        style={{ padding: "8px 16px", background: "hsl(240 6% 10% / 0.08)", border: "1px solid hsl(240 6% 10% / 0.15)", borderRadius: "24px", fontSize: "0.875rem", color: "hsl(240 6% 10% / 0.8)", letterSpacing: "0.02em" }}
                       >
                         {service}
                       </span>
@@ -131,7 +132,7 @@ export default function MasterpieceProjectsShowcase() {
 
               {/* Project Context - Enhanced Readability */}
               {currentProject.context && (
-                <div className="space-y-4">
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <h3 className="text-[clamp(0.75rem,1vw,0.875rem)] font-sans font-medium text-sophisticated/70 tracking-[0.15em] uppercase">
                     Project Essence
                   </h3>
@@ -142,7 +143,7 @@ export default function MasterpieceProjectsShowcase() {
               )}
 
               {/* Enhanced Call-to-Action */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-8">
+              <div className="flex flex-col sm:flex-row" style={{ gap: "16px", paddingTop: "32px" }}>
                 <div className="flex-1">
                   <BulletproofNavigationButton
                     href={`/project/${currentProject.slug}`}
@@ -173,56 +174,64 @@ export default function MasterpieceProjectsShowcase() {
           </div>
 
           {/* Sophisticated Navigation - Enhanced Design */}
-          <div className="mt-24 pt-12 border-t border-sophisticated/10">
-            <div className="flex items-center justify-between max-w-4xl mx-auto">
+          <div style={{ marginTop: "96px", paddingTop: "48px", borderTop: "1px solid hsl(240 6% 10% / 0.1)" }}>
+            <div className="flex items-center justify-between" style={{ maxWidth: "1024px", margin: "0 auto" }}>
               
               {/* Previous Button */}
-              <BulletproofNavigationButton
-                onClick={goToPrevious}
-                variant="ghost"
-                size="lg"
-                icon="left"
-                className="group flex items-center space-x-3 text-sophisticated/70 hover:text-sophisticated transition-all duration-300 hover:-translate-x-1"
-              >
-                <span className="font-light tracking-wide">Previous Work</span>
-              </BulletproofNavigationButton>
+              <div className="group flex items-center" style={{ gap: "8px" }}>
+                <BulletproofNavigationButton
+                  onClick={goToPrevious}
+                  variant="ghost"
+                  size="lg"
+                  icon="left"
+                  className="transition-all duration-300 hover:-translate-x-1 text-[hsl(240_6%_10%_/_0.7)]" 
+                >
+                  <span className="font-light tracking-wide">Previous Work</span>
+                </BulletproofNavigationButton>
+              </div>
 
               {/* Elegant Project Counter */}
-              <div className="text-center px-8">
-                <div className="space-y-2">
-                  <p className="text-[clamp(1.125rem,1.5vw,1.25rem)] font-serif font-light text-sophisticated">
+              <div className="text-center" style={{ padding: "0 32px" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <p className="font-serif font-light" style={{ fontSize: "1.125rem", color: "hsl(240 6% 10%)" }}>
                     {String(currentIndex + 1).padStart(2, '0')} of {String(projects.length).padStart(2, '0')}
                   </p>
-                  <p className="text-[clamp(0.875rem,1vw,1rem)] font-sans font-light text-sophisticated/60 tracking-wide">
+                  <p className="font-light" style={{ fontSize: "0.875rem", color: "hsl(240 6% 10% / 0.6)", letterSpacing: "0.025em" }}>
                     {currentProject.title}
                   </p>
                 </div>
               </div>
 
               {/* Next Button */}
-              <BulletproofNavigationButton
-                onClick={goToNext}
-                variant="ghost"
-                size="lg"
-                icon="right"
-                className="group flex items-center space-x-3 text-sophisticated/70 hover:text-sophisticated transition-all duration-300 hover:translate-x-1"
-              >
-                <span className="font-light tracking-wide">Next Work</span>
-              </BulletproofNavigationButton>
+              <div className="group flex items-center" style={{ gap: "8px" }}>
+                <BulletproofNavigationButton
+                  onClick={goToNext}
+                  variant="ghost"
+                  size="lg"
+                  icon="right"
+                  className="transition-all duration-300 hover:translate-x-1 text-[hsl(240_6%_10%_/_0.7)]" 
+                >
+                  <span className="font-light tracking-wide">Next Work</span>
+                </BulletproofNavigationButton>
+              </div>
             </div>
           </div>
 
           {/* Refined Project Indicators */}
-          <div className="flex justify-center mt-12 space-x-3">
+          <div className="flex justify-center" style={{ marginTop: "48px", gap: "8px" }}>
             {projects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`group relative transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'w-8 h-2 bg-sophisticated rounded-full'
-                    : 'w-2 h-2 bg-sophisticated/25 hover:bg-sophisticated/50 rounded-full'
-                }`}
+                className="group relative transition-all duration-300"
+                style={{
+                  width: index === currentIndex ? "32px" : "8px",
+                  height: "8px",
+                  background: index === currentIndex 
+                    ? "hsl(240 6% 10%)" 
+                    : "hsl(240 6% 10% / 0.25)",
+                  borderRadius: "4px"
+                }}
                 aria-label={`Go to project ${index + 1}`}
               >
                 <div className="absolute inset-0 rounded-full bg-sophisticated/20 scale-0 group-hover:scale-150 transition-transform duration-300" />

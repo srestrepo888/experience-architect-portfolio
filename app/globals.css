@@ -16,56 +16,47 @@
 
 @layer base {
   :root {
-    /* Ultra-Sophisticated Color System - Enhanced for Perfection */
-    --background: 26 28% 98.5%; /* #F9F7F5 - Ultra-refined warm white */
-    --foreground: 26 8% 12%; /* #201E1A - Deep, sophisticated charcoal */
-
-    --card: 26 28% 99% / 0.96; /* #FAFAF8 - Perfect card transparency */
-    --card-foreground: 26 6% 14%;
-
-    --popover: 26 28% 99% / 0.97;
-    --popover-foreground: 26 6% 14%;
-
-    --primary: 26 12% 8%; /* #141210 - Ultra-sophisticated near-black */
-    --primary-foreground: 26 28% 99.5%;
-
-    --secondary: 26 28% 96.5% / 0.92; /* #F4F2F0 - Refined transparency */
-    --secondary-foreground: 26 8% 22%; /* #373430 */
-
-    --muted: 26 22% 95.5% / 0.82; /* #F1EFEC - Enhanced muted transparency */
-    --muted-foreground: 26 8% 32%; /* #524F4B */
-
-    --accent: 26 10% 12%; /* Refined accent tone */
-    --accent-foreground: 26 28% 98%;
-
-    --destructive: 0 62% 48%;
-    --destructive-foreground: 0 0% 99%;
-
-    --border: 26 18% 89% / 0.65; /* #E7E3DF - Enhanced border sophistication */
-    --input: 26 18% 89% / 0.65;
-    --ring: 26 15% 78% / 0.85; /* #CFC9C3 - Perfect focus rings */
-
-    --radius: 0.625rem; /* 10px - Enhanced border radius for luxury feel */
-
-    /* Ultra-Sophisticated Typography Scale */
-    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
-
-    /* Ultra-Refined Shadow System */
-    --shadow-subtle: 0 1px 3px rgba(32, 30, 26, 0.03), 0 1px 2px rgba(32, 30, 26, 0.02);
-    --shadow-soft: 0 2px 8px rgba(32, 30, 26, 0.05), 0 1px 3px rgba(32, 30, 26, 0.03);
-    --shadow-medium: 0 4px 16px rgba(32, 30, 26, 0.07), 0 2px 6px rgba(32, 30, 26, 0.04);
-    --shadow-strong: 0 8px 32px rgba(32, 30, 26, 0.10), 0 4px 12px rgba(32, 30, 26, 0.06);
-    --shadow-dramatic: 0 16px 64px rgba(32, 30, 26, 0.14), 0 8px 24px rgba(32, 30, 26, 0.08);
-
+    /* 🏛️ LANDOR COLOR SYSTEM - Mathematical Precision (No Fractional Chaos) */
+    
+    /* PRIMARY BRAND PALETTE */
+    --primary: 240 6% 10%;     /* Deep luxury charcoal */
+    --primary-foreground: 0 0% 100%; /* Pure white */
+    
+    /* NEUTRAL ARCHITECTURAL FOUNDATION */
+    --background: 0 0% 100%;   /* Pure white background */
+    --foreground: 240 6% 10%;  /* Primary text */
+    --surface: 240 5% 98%;     /* Card surfaces */
+    
+    /* SUPPORTING HIERARCHY */
+    --muted: 240 4% 90%;       /* Borders, dividers */
+    --muted-foreground: 240 4% 46%; /* Secondary text */
+    --accent: 240 5% 96%;      /* Subtle backgrounds */
+    --accent-foreground: 240 6% 10%; /* Text on accent */
+    
+    /* FUNCTIONAL COLORS (Simplified) */
+    --border: 240 4% 90%;      /* All borders */
+    --input: 240 4% 90%;       /* Input borders */  
+    --ring: 240 6% 10%;        /* Focus rings */
+    --success: 142 76% 36%;    /* Success states */
+    --warning: 38 92% 50%;     /* Warning states */
+    --error: 0 72% 51%;        /* Error states */
+    
+    /* DESIGN TOKENS */
+    --radius: 0.5rem;          /* 8px - Grid-aligned border radius */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    
+    /* LANDOR SHADOW SYSTEM (Simplified from 5 to 3) */
+    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.15);
+    
     /* iOS Safe Area Support */
     --safe-area-inset-top: env(safe-area-inset-top);
     --safe-area-inset-right: env(safe-area-inset-right);
     --safe-area-inset-bottom: env(safe-area-inset-bottom);
     --safe-area-inset-left: env(safe-area-inset-left);
   }
-
-
 }
 
 @layer base {
@@ -341,13 +332,77 @@
     -webkit-animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* Perfect Spacing - iOS Optimized */
+  /* ULTRA-SOPHISTICATED SPACING UTILITIES - Architectural Precision */
   .section-padding {
     @apply py-16 md:py-20 lg:py-24;
   }
 
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  /* ARCHITECTURAL SPACING CLASSES - Golden Ratio Based */
+  .spacing-monumental {
+    @apply py-32 md:py-48 lg:py-64 xl:py-80;
+  }
+  
+  .spacing-heroic {
+    @apply pt-48 pb-32 md:pt-64 md:pb-48 lg:pt-80 lg:pb-56 xl:pt-96 xl:pb-64;
+  }
+  
+  .spacing-spacious {
+    @apply py-24 md:py-36 lg:py-48 xl:py-60;
+  }
+  
+  .spacing-sophisticated {
+    @apply py-20 md:py-28 lg:py-36 xl:py-44;
+  }
+  
+  .spacing-intimate {
+    @apply py-16 md:py-24 lg:py-32 xl:py-40;
+  }
+
+  /* LUXURY CONTAINER SPACING */
+  .container-monumental {
+    @apply px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
+  }
+  
+  .container-luxury {
+    @apply px-4 sm:px-6 md:px-10 lg:px-14 xl:px-18 2xl:px-20;
+  }
+  
+  .container-sophisticated {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-18;
+  }
+
+  /* ARCHITECTURAL FLOW UTILITIES */
+  .flow-monumental > * + * {
+    @apply mt-16 md:mt-24 lg:mt-32;
+  }
+  
+  .flow-luxury > * + * {
+    @apply mt-12 md:mt-18 lg:mt-24;
+  }
+  
+  .flow-sophisticated > * + * {
+    @apply mt-10 md:mt-14 lg:mt-18;
+  }
+  
+  .flow-intimate > * + * {
+    @apply mt-6 md:mt-10 lg:mt-12;
+  }
+
+  /* GOLDEN RATIO SPACING */
+  .golden-ratio-spacing {
+    gap: calc(1rem * 1.618);
+  }
+  
+  .golden-ratio-margin {
+    margin: calc(1rem * 1.618);
+  }
+  
+  .golden-ratio-padding {
+    padding: calc(1rem * 1.618);
   }
 
   /* iOS Mobile Specific Spacing */
@@ -357,6 +412,18 @@
     }
     .container-padding {
       @apply px-4;
+    }
+    
+    .spacing-monumental {
+      @apply py-16;
+    }
+    
+    .spacing-heroic {
+      @apply pt-20 pb-12;
+    }
+    
+    .spacing-spacious {
+      @apply py-12;
     }
   }
 
@@ -389,12 +456,14 @@
   }
 
   .text-sophisticated {
+    color: hsl(var(--foreground) / 0.92);
     font-feature-settings: "ss01", "ss02", "cv02", "cv03", "kern", "liga", "dlig", "calt";
     font-optical-sizing: auto;
     letter-spacing: -0.025em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-variant-ligatures: common-ligatures discretionary-ligatures;
+    text-shadow: 0 1px 3px rgba(32, 30, 26, 0.04);
   }
 
   /* Enhanced Typography Effects */
@@ -409,6 +478,90 @@
     font-variation-settings: "opsz" 24, "wght" 320;
     font-feature-settings: "kern", "liga", "calt", "swsh";
     letter-spacing: 0.025em;
+  }
+
+  /* PERFECTIONIST SECTION TYPOGRAPHY */
+  .section-number {
+    color: hsl(var(--muted-foreground) / 0.70);
+    font-feature-settings: "tnum", "kern", "liga";
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    font-size: clamp(0.875rem, 1.25vw, 1rem);
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .section-title-refined {
+    color: hsl(var(--foreground) / 0.94);
+    font-feature-settings: "ss01", "ss02", "kern", "liga", "dlig", "calt";
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    line-height: 1.1;
+    text-shadow: 0 1px 2px rgba(32, 30, 26, 0.02);
+  }
+
+  .section-description-refined {
+    color: hsl(var(--muted-foreground) / 0.75);
+    font-feature-settings: "kern", "liga", "calt";
+    letter-spacing: 0.005em;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* PERFECTIONIST SPACE EFFICIENCY */
+  .space-efficient-grid {
+    display: grid;
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: start;
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 1024px) {
+    .space-efficient-grid {
+      grid-template-columns: 1fr 320px;
+    }
+  }
+
+  /* SEAMLESS SECTION TRANSITIONS */
+  .seamless-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground) / 0.7);
+    margin-bottom: 2rem;
+  }
+
+  .seamless-indicator::before,
+  .seamless-indicator::after {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(var(--border) / 0.6), transparent);
+  }
+
+  /* PERFECTIONIST PORTRAIT CONTAINER */
+  .portrait-refined {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom, hsl(var(--muted) / 0.1), hsl(var(--muted) / 0.2));
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  /* INTEGRATED QUOTE STYLING */
+  .quote-integrated {
+    border-left: 2px solid hsl(var(--border) / 0.3);
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: linear-gradient(to right, hsl(var(--muted) / 0.2), transparent);
   }
 
   /* iOS Optimized Interactive States */
@@ -432,6 +585,69 @@
   @media (hover: hover) {
     .hover-glow:hover {
       @apply shadow-strong;
+    }
+  }
+
+  /* Enhanced Button Interactions */
+  .button-luxury {
+    @apply transition-all duration-300 ease-out;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transform-origin: center;
+  }
+
+  @media (hover: hover) {
+    .button-luxury:hover {
+      @apply scale-[1.025] shadow-soft;
+      transform: translateY(-1px) scale(1.025);
+    }
+  }
+
+  .button-luxury:active {
+    @apply scale-[0.98];
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Enhanced Card Interactions */
+  .card-interactive {
+    @apply transition-all duration-300 ease-out;
+    -webkit-tap-highlight-color: transparent;
+    transform-origin: center;
+  }
+
+  @media (hover: hover) {
+    .card-interactive:hover {
+      @apply scale-[1.015] shadow-medium;
+      transform: translateY(-2px) scale(1.015);
+    }
+  }
+
+  /* Subtle Content Glow */
+  .content-glow {
+    position: relative;
+  }
+
+  .content-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      hsl(var(--primary) / 0.02) 0%,
+      hsl(var(--accent) / 0.03) 50%,
+      hsl(var(--primary) / 0.02) 100%
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+
+  @media (hover: hover) {
+    .content-glow:hover::before {
+      opacity: 1;
     }
   }
 

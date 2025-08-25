@@ -214,16 +214,18 @@ export default function CinematicHero() {
           className="mb-8"
         >
           <motion.h1 
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-sophisticated leading-[0.9] tracking-[-0.02em]"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-[-0.02em]"
             style={{
               background: `linear-gradient(135deg, 
-                hsl(var(--foreground)) 0%, 
-                hsl(var(--foreground) / 0.9) 50%, 
-                hsl(var(--foreground) / 0.8) 100%
+                hsl(var(--foreground) / 0.96) 0%, 
+                hsl(var(--foreground) / 0.90) 30%,
+                hsl(var(--foreground) / 0.94) 70%, 
+                hsl(var(--foreground) / 0.88) 100%
               )`,
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
-              color: 'transparent'
+              color: 'transparent',
+              textShadow: '0 2px 8px rgba(32, 30, 26, 0.06)'
             }}
           >
             <motion.span
@@ -254,16 +256,18 @@ export default function CinematicHero() {
           className="mb-12"
         >
           <motion.h2 
-            className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-sophisticated/85 leading-tight tracking-[0.1em] uppercase"
+            className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-[0.1em] uppercase"
             style={{
               background: `linear-gradient(120deg, 
-                hsl(var(--foreground) / 0.85) 0%, 
-                hsl(var(--foreground) / 0.7) 50%, 
+                hsl(var(--foreground) / 0.88) 0%, 
+                hsl(var(--foreground) / 0.75) 30%,
+                hsl(var(--foreground) / 0.82) 70%, 
                 hsl(var(--foreground) / 0.85) 100%
               )`,
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
-              color: 'transparent'
+              color: 'transparent',
+              textShadow: '0 1px 4px rgba(32, 30, 26, 0.04)'
             }}
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]

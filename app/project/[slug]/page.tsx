@@ -65,7 +65,8 @@ export default async function ProjectPage({ params }: Props) {
             <PerfectStack spacing="loose">
               {/* Navigation */}
               <motion.div 
-                className="flex items-center gap-4 relative z-50"
+                className="flex items-center relative z-50"
+                style={{ gap: "16px" }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -91,7 +92,7 @@ export default async function ProjectPage({ params }: Props) {
                 </BulletproofNavigationButton>
               </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 items-start" style={{ gap: "48px" }}>
                 {/* ENHANCED CONTENT HIERARCHY */}
                 <motion.div 
                   className="lg:col-span-6"
@@ -101,7 +102,7 @@ export default async function ProjectPage({ params }: Props) {
                 >
                   <PerfectStack spacing="loose">
                     {/* Project Meta */}
-                    <div className="space-y-4">
+                    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -139,54 +140,53 @@ export default async function ProjectPage({ params }: Props) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.6 }}
                     >
-                      <PerfectGrid columns={{ sm: 1, md: 2 }} gap="lg">
+                      <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "24px" }}>
                         {/* Client Card */}
-                        <PerfectCard 
-                          padding="lg" 
-                          variant="elevated" 
+                        <div 
                           className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border border-white/30 hover:shadow-xl transition-all duration-300"
+                          style={{ padding: "24px", borderRadius: "16px" }}
                         >
-                          <PerfectStack spacing="tight">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center">
-                                <Building2 className="w-5 h-5 text-white" />
+                          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                            <div className="flex items-center" style={{ gap: "8px" }}>
+                              <div className="bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center" style={{ width: "40px", height: "40px", borderRadius: "12px" }}>
+                                <Building2 className="text-white" style={{ width: "20px", height: "20px" }} />
                               </div>
-                              <Caption className="text-slate-500 font-medium uppercase tracking-wider">
+                              <span className="text-slate-500 font-medium uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.1em" }}>
                                 Client
-                              </Caption>
+                              </span>
                             </div>
-                            <BodyMedium className="text-slate-900 font-semibold">
+                            <span className="text-slate-900 font-semibold" style={{ fontSize: "1rem" }}>
                               {project.client}
-                            </BodyMedium>
-                          </PerfectStack>
-                        </PerfectCard>
+                            </span>
+                          </div>
+                        </div>
 
                         {/* Year Card */}
-                        <PerfectCard 
-                          padding="lg" 
-                          variant="elevated" 
+                        <div 
                           className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border border-white/30 hover:shadow-xl transition-all duration-300"
+                          style={{ padding: "24px", borderRadius: "16px" }}
                         >
-                          <PerfectStack spacing="tight">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center">
-                                <Calendar className="w-5 h-5 text-white" />
+                          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                            <div className="flex items-center" style={{ gap: "8px" }}>
+                              <div className="bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center" style={{ width: "40px", height: "40px", borderRadius: "12px" }}>
+                                <Calendar className="text-white" style={{ width: "20px", height: "20px" }} />
                               </div>
-                              <Caption className="text-slate-500 font-medium uppercase tracking-wider">
+                              <span className="text-slate-500 font-medium uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.1em" }}>
                                 Year
-                              </Caption>
+                              </span>
                             </div>
-                            <BodyMedium className="text-slate-900 font-semibold">
+                            <span className="text-slate-900 font-semibold" style={{ fontSize: "1rem" }}>
                               {project.year}
-                            </BodyMedium>
-                          </PerfectStack>
-                        </PerfectCard>
-                      </PerfectGrid>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
 
                     {/* Action Buttons */}
                     <motion.div 
-                      className="flex flex-col sm:flex-row gap-4 pt-4"
+                      className="flex flex-col sm:flex-row" 
+                      style={{ gap: "16px", paddingTop: "16px" }}
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.8 }}
