@@ -22,33 +22,33 @@ export function LandorBackgroundSystem({
   const getBackgroundConfig = () => {
     switch (state) {
       case "subtle":
-        // MINIMAL ELEGANCE: Pure content focus
+        // MINIMAL ELEGANCE: Pure content focus with geometric sophistication
         return {
-          background: "hsl(0 0% 100%)",           // Pure white
-          texture: "none",
-          overlay: "transparent",
+          background: "hsl(0 0% 100%)",
+          backgroundImage: "url('/luxury-geometric-background.png')",
+          opacity: 0.15,
+          overlay: "linear-gradient(135deg, hsl(240 5% 98% / 0.8) 0%, hsl(240 5% 96% / 0.9) 100%)",
           blur: "0px"
         }
 
       case "elevated":
-        // SOPHISTICATED DEPTH: Professional backdrop
+        // SOPHISTICATED DEPTH: Professional backdrop with geometric elegance
         return {
           background: "linear-gradient(135deg, hsl(240 5% 98%) 0%, hsl(240 5% 96%) 100%)",
-          texture: `radial-gradient(circle at 25% 25%, hsl(240 6% 10% / 0.02) 0%, transparent 50%),
-                   radial-gradient(circle at 75% 75%, hsl(240 6% 10% / 0.02) 0%, transparent 50%)`,
-          overlay: "transparent",
-          blur: "0px"
+          backgroundImage: "url('/luxury-geometric-background.png')",
+          opacity: 0.25,
+          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.4) 0%, hsl(15 12% 95% / 0.5) 50%, hsl(33 15% 96% / 0.4) 100%)",
+          blur: "1px"
         }
 
       case "dramatic":
         // LUXURY PRESENCE: Premium backdrop for hero sections
         return {
           background: "linear-gradient(135deg, hsl(240 5% 98%) 0%, hsl(240 5% 96%) 50%, hsl(240 5% 98%) 100%)",
-          texture: `radial-gradient(ellipse at 30% 30%, hsl(240 6% 10% / 0.03) 0%, transparent 70%),
-                   radial-gradient(ellipse at 70% 70%, hsl(240 6% 10% / 0.03) 0%, transparent 70%),
-                   linear-gradient(45deg, transparent 48%, hsl(240 6% 10% / 0.01) 50%, transparent 52%)`,
-          overlay: "hsl(240 5% 98% / 0.5)",
-          blur: "0.5px"
+          backgroundImage: "url('/luxury-geometric-background.png')",
+          opacity: 0.4,
+          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.6) 0%, hsl(15 12% 95% / 0.7) 30%, hsl(33 15% 95% / 0.6) 70%, hsl(15 12% 95% / 0.7) 100%)",
+          blur: "2px"
         }
     }
   }
@@ -57,14 +57,26 @@ export function LandorBackgroundSystem({
 
   return (
     <div className={`relative min-h-screen ${className}`}>
-      {/* LANDOR BACKGROUND LAYER */}
+      {/* LANDOR BACKGROUND IMAGE LAYER */}
+      {config.backgroundImage && (
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: config.backgroundImage,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            opacity: config.opacity,
+            filter: `blur(${config.blur})`
+          }}
+        />
+      )}
+
+      {/* LANDOR BASE LAYER */}
       <div 
         className="absolute inset-0"
         style={{
-          background: config.background,
-          backgroundImage: config.texture,
-          backdropFilter: `blur(${config.blur})`,
-          WebkitBackdropFilter: `blur(${config.blur})`
+          background: config.background
         }}
       />
 
@@ -72,9 +84,7 @@ export function LandorBackgroundSystem({
       <div 
         className="absolute inset-0"
         style={{
-          background: config.overlay,
-          backdropFilter: `blur(${config.blur})`,
-          WebkitBackdropFilter: `blur(${config.blur})`
+          background: config.overlay
         }}
       />
 
