@@ -16,7 +16,6 @@ export default function CinematicHero() {
   // Silk-like parallax effects
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.6])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
 
   // Mouse interaction for silk movement
   useEffect(() => {
@@ -44,30 +43,9 @@ export default function CinematicHero() {
       y: 0,
       scale: 1,
       filter: "blur(0px)",
-      transition: {
-        duration: 2,
-        ease: [0.25, 0.1, 0.25, 1],
-      }
     }
   }
 
-  const subtitleVariants = {
-    initial: {
-      opacity: 0,
-      y: 40,
-      filter: "blur(15px)",
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 1.8,
-        delay: 1.2,
-        ease: [0.25, 0.1, 0.25, 1],
-      }
-    }
-  }
 
   return (
     <motion.section 
@@ -250,9 +228,9 @@ export default function CinematicHero() {
         
         {/* ARCHITECT - flowing subtitle */}
         <motion.div
-          variants={subtitleVariants}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1.8, delay: 1.2, ease: "easeOut" }}
           className="mb-12"
         >
           <motion.h2 
@@ -286,7 +264,7 @@ export default function CinematicHero() {
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.5, delay: 2.5, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 1.5, delay: 2.5, ease: "easeOut" }}
           className="mb-16"
         >
           <p className="text-sm sm:text-base md:text-lg font-light text-sophisticated/60 tracking-[0.08em] uppercase max-w-2xl mx-auto leading-relaxed">
@@ -343,7 +321,7 @@ export default function CinematicHero() {
         className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sophisticated/20 to-transparent"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 2, delay: 3, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 2, delay: 3, ease: "easeOut" }}
       />
     </motion.section>
   )

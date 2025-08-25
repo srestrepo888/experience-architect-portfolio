@@ -11,7 +11,6 @@ import { Calendar, Building2 } from "lucide-react"
 import { 
   DisplayLarge, 
   HeadingLarge, 
-  HeadingMedium,
   SubheadingLarge,
   BodyLarge, 
   BodyMedium,
@@ -346,7 +345,7 @@ export default async function ProjectPage({ params }: Props) {
                 className="max-w-4xl mx-auto bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm border border-white/40 hover:shadow-xl transition-all duration-300"
               >
                 <PerfectStack spacing="relaxed" align="center">
-                  <Quote variant="large" className="text-center">
+                  <Quote className="text-center text-xl">
                     "{project.testimonial.quote}"
                   </Quote>
                   <div className="text-center">
