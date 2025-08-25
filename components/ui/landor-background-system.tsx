@@ -22,33 +22,33 @@ export function LandorBackgroundSystem({
   const getBackgroundConfig = () => {
     switch (state) {
       case "subtle":
-        // MINIMAL ELEGANCE: Pure content focus with geometric sophistication
+        // SOPHISTICATED ELEGANCE: Prominent geometric luxury
         return {
           background: "hsl(0 0% 100%)",
           backgroundImage: "url('/luxury-geometric-background.png')",
-          opacity: 0.15,
-          overlay: "linear-gradient(135deg, hsl(240 5% 98% / 0.8) 0%, hsl(240 5% 96% / 0.9) 100%)",
+          opacity: 0.45,
+          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.3) 0%, hsl(15 12% 95% / 0.4) 50%, hsl(33 15% 96% / 0.3) 100%)",
           blur: "0px"
         }
 
       case "elevated":
-        // SOPHISTICATED DEPTH: Professional backdrop with geometric elegance
+        // LUXURY DEPTH: Premium geometric sophistication
         return {
           background: "linear-gradient(135deg, hsl(240 5% 98%) 0%, hsl(240 5% 96%) 100%)",
           backgroundImage: "url('/luxury-geometric-background.png')",
-          opacity: 0.25,
-          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.4) 0%, hsl(15 12% 95% / 0.5) 50%, hsl(33 15% 96% / 0.4) 100%)",
-          blur: "1px"
+          opacity: 0.55,
+          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.2) 0%, hsl(15 12% 95% / 0.3) 30%, hsl(33 15% 95% / 0.4) 70%, hsl(15 12% 95% / 0.3) 100%)",
+          blur: "0px"
         }
 
       case "dramatic":
-        // LUXURY PRESENCE: Premium backdrop for hero sections
+        // HEROIC PRESENCE: Maximum luxury impact
         return {
           background: "linear-gradient(135deg, hsl(240 5% 98%) 0%, hsl(240 5% 96%) 50%, hsl(240 5% 98%) 100%)",
           backgroundImage: "url('/luxury-geometric-background.png')",
-          opacity: 0.4,
-          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.6) 0%, hsl(15 12% 95% / 0.7) 30%, hsl(33 15% 95% / 0.6) 70%, hsl(15 12% 95% / 0.7) 100%)",
-          blur: "2px"
+          opacity: 0.68,
+          overlay: "linear-gradient(135deg, hsl(33 15% 96% / 0.15) 0%, hsl(15 12% 95% / 0.25) 20%, hsl(33 15% 95% / 0.35) 50%, hsl(15 12% 95% / 0.25) 80%, hsl(33 15% 96% / 0.15) 100%)",
+          blur: "0px"
         }
     }
   }

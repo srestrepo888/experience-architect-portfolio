@@ -1,5 +1,5 @@
 import CinematicHero from "@/components/cinematic-hero"
-import MasterpieceProjectsShowcase from "@/components/masterpiece-projects-showcase"
+import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel"
 import SophisticatedFooter from "@/components/ui/sophisticated-footer"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import DetailedServicesSection from "@/components/detailed-services-section"
@@ -31,7 +31,7 @@ export default function HomePage() {
         {/* About Section - Maximum Space Efficiency */}
         <section id="about">
           <LandorBackgroundSystem state="elevated">
-            <LandorSection spacing="standard">
+            <LandorSection spacing="compact">
               <LandorContainer size="standard">
                 {/* Subtle Section Indicator - No Title Duplication */}
                 <div className="text-center mb-16 md:mb-20">
@@ -110,7 +110,7 @@ export default function HomePage() {
         {/* Projects Section - Seamless Visual Flow */}
         <section id="projects">
           <LandorBackgroundSystem state="elevated">
-            <LandorSection spacing="standard">
+            <LandorSection spacing="compact">
               <LandorContainer size="wide">
                 {/* Subtle Section Indicator */}
                 <div className="text-center mb-20 md:mb-24">
@@ -126,7 +126,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.PROJECTS.SUBTITLE}
                   </p>
                 </div>
-                <MasterpieceProjectsShowcase />
+                <SophisticatedProjectsCarousel />
               </LandorContainer>
             </LandorSection>
           </LandorBackgroundSystem>
@@ -135,7 +135,7 @@ export default function HomePage() {
         {/* Experience Section - Professional Sophistication */}
         <section id="experience">
           <LandorBackgroundSystem state="subtle">
-            <LandorSection spacing="standard">
+            <LandorSection spacing="compact">
               <LandorContainer size="standard">
                 {/* Subtle Section Indicator */}
                 <div className="text-center mb-18 md:mb-20">
@@ -160,7 +160,7 @@ export default function HomePage() {
         {/* Services Section - Sophisticated Excellence */}
         <section id="services">
           <LandorBackgroundSystem state="elevated">
-            <LandorSection spacing="standard">
+            <LandorSection spacing="compact">
               <LandorContainer size="standard">
                 {/* Subtle Section Indicator */}
                 <div className="text-center mb-18 md:mb-20">
