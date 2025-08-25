@@ -169,27 +169,67 @@ export default async function ProjectPage({ params }: Props) {
         </LandorSection>
 
         {/* PROJECT CONTEXT */}
-        {project.context && (
-          <LandorSection spacing="compact">
-            <LandorContainer size="content">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <LandorStack spacing="md" align="center">
-                  <HeadingLarge className="text-center">
-                    Project Context
-                  </HeadingLarge>
-                  <BodyLarge className="text-center leading-relaxed">
-                    {project.context}
-                  </BodyLarge>
-                </LandorStack>
-              </motion.div>
-            </LandorContainer>
-          </LandorSection>
-        )}
+        <LandorSection spacing="compact">
+          <LandorContainer size="content">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <LandorStack spacing="md" align="center">
+                <HeadingLarge className="text-center">
+                  Project Context
+                </HeadingLarge>
+                <BodyLarge className="text-center leading-relaxed">
+                  {project.context || "This strategic design project addresses complex business challenges through user-centered design thinking, comprehensive research, and innovative solution development to create meaningful experiences that drive measurable business outcomes."}
+                </BodyLarge>
+              </LandorStack>
+            </motion.div>
+          </LandorContainer>
+        </LandorSection>
+
+        {/* PROJECT APPROACH */}
+        <LandorSection spacing="compact">
+          <LandorContainer size="content">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <LandorStack spacing="md" align="center">
+                <HeadingLarge className="text-center">
+                  Design Approach
+                </HeadingLarge>
+                <BodyLarge className="text-center leading-relaxed">
+                  {project.scope || "Through strategic research, iterative design processes, and collaborative stakeholder engagement, this project delivered comprehensive solutions that balance user needs with business objectives while maintaining technical feasibility and scalability."}
+                </BodyLarge>
+              </LandorStack>
+            </motion.div>
+          </LandorContainer>
+        </LandorSection>
+
+        {/* BUSINESS IMPACT */}
+        <LandorSection spacing="compact">
+          <LandorContainer size="content">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <LandorStack spacing="md" align="center">
+                <HeadingLarge className="text-center">
+                  Business Impact
+                </HeadingLarge>
+                <BodyLarge className="text-center leading-relaxed">
+                  {project.impact || "The strategic implementation resulted in significant improvements across key performance indicators including increased user engagement, enhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrating the value of strategic design investment."}
+                </BodyLarge>
+              </LandorStack>
+            </motion.div>
+          </LandorContainer>
+        </LandorSection>
 
         {/* PROJECT GALLERY */}
         {project.galleryImages && project.galleryImages.length > 0 && (

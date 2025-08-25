@@ -54,10 +54,10 @@ export function LandorSection({
   animate = true
 }: LandorSectionProps) {
   const spacingStyles = {
-    compact: { padding: "48px 0" },      // 48px - Efficient
-    standard: { padding: "64px 0" },     // 64px - Professional
-    spacious: { padding: "80px 0" },     // 80px - Luxury
-    hero: { padding: "120px 0 64px 0" }  // 120px/64px - Heroic
+    compact: { padding: "24px 0" },      // 24px - Ultra-efficient
+    standard: { padding: "32px 0" },     // 32px - Minimal
+    spacious: { padding: "48px 0" },     // 48px - Standard
+    hero: { padding: "80px 0 32px 0" }   // 80px/32px - Heroic
   }
 
   const content = (

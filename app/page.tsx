@@ -183,11 +183,9 @@ export default function HomePage() {
         </section>
       </main>
       
-      <LandorBackgroundSystem state="subtle">
-        <section id="footer">
-          <SophisticatedFooter />
-        </section>
-      </LandorBackgroundSystem>
+      <section id="footer">
+        <SophisticatedFooter />
+      </section>
       
       <BreadcrumbNavigation />
       <ScrollToTop />

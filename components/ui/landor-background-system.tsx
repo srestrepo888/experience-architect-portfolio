@@ -57,6 +57,14 @@ export function LandorBackgroundSystem({
 
   return (
     <div className={`relative min-h-screen ${className}`}>
+      {/* LANDOR BASE LAYER */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: config.background
+        }}
+      />
+      
       {/* LANDOR BACKGROUND IMAGE LAYER */}
       {config.backgroundImage && (
         <div 
@@ -71,14 +79,6 @@ export function LandorBackgroundSystem({
           }}
         />
       )}
-
-      {/* LANDOR BASE LAYER */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: config.background
-        }}
-      />
 
       {/* LANDOR OVERLAY LAYER */}
       <div 
