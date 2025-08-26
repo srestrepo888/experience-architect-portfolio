@@ -7,7 +7,7 @@ import { LandorBackgroundSystem } from "@/components/ui/landor-background-system
 import { LandorContainer, LandorSection, LandorGrid, LandorStack, LandorCard } from "@/components/ui/landor-layout-system"
 import { DisplayHero, HeadingLarge, BodyLarge, BodyStandard, Caption } from "@/components/landor-typography"
 import { motion } from "framer-motion"
-import { Calendar, Building2, ArrowRight, Eye, Sparkles, Zap, Target, Lightbulb, TrendingUp, Compass, Palette, Users } from "lucide-react"
+import { Calendar, Building2, ArrowRight, Sparkles, Zap } from "lucide-react"
 
 interface Props {
   params: Promise<{
@@ -250,7 +250,7 @@ export default async function ProjectPage({ params }: Props) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
                     
-                    {/* FLOATING INNOVATION BADGE */}
+                    {/* ELEGANT PROJECT BADGE */}
                     <motion.div
                       className="absolute top-6 right-6"
                       initial={{ opacity: 0, scale: 0 }}
@@ -259,7 +259,7 @@ export default async function ProjectPage({ params }: Props) {
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       <div className="w-16 h-16 bg-white/90 backdrop-blur-xl rounded-full flex items-center justify-center shadow-2xl">
-                        <Eye className="w-8 h-8 text-primary" />
+                        <span className="text-primary text-xl font-light">⚡</span>
                       </div>
                     </motion.div>
                   </div>
@@ -316,8 +316,8 @@ export default async function ProjectPage({ params }: Props) {
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="flex flex-col items-center text-center mb-6"
                     >
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                        <Compass className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                        <span className="text-white text-2xl font-light">◎</span>
                       </div>
                       <HeadingLarge className="text-primary">
                         Context
@@ -348,8 +348,8 @@ export default async function ProjectPage({ params }: Props) {
                       transition={{ duration: 0.6, delay: 0.4 }}
                       className="flex flex-col items-center text-center mb-6"
                     >
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                        <Palette className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                        <span className="text-white text-2xl font-light">◆</span>
                       </div>
                       <HeadingLarge className="text-primary">
                         Approach
@@ -380,8 +380,8 @@ export default async function ProjectPage({ params }: Props) {
                       transition={{ duration: 0.6, delay: 0.5 }}
                       className="flex flex-col items-center text-center mb-6"
                     >
-                      <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                        <TrendingUp className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                        <span className="text-white text-2xl font-light">▲</span>
                       </div>
                       <HeadingLarge className="text-primary">
                         Impact
@@ -414,8 +414,8 @@ export default async function ProjectPage({ params }: Props) {
                       transition={{ duration: 0.6, delay: 0.6 }}
                       className="flex items-center justify-center mb-8"
                     >
-                      <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center shadow-xl">
-                        <Users className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-xl">
+                        <span className="text-white text-2xl font-light">●</span>
                       </div>
                     </motion.div>
                     
@@ -467,9 +467,9 @@ export default async function ProjectPage({ params }: Props) {
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.8 }}
-                      className="w-20 h-20 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center mr-6 shadow-2xl"
+                      className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mr-6 shadow-2xl"
                     >
-                      <Target className="w-10 h-10 text-white" />
+                      <span className="text-white text-3xl font-light">◊</span>
                     </motion.div>
                     <DisplayHero className="text-primary text-6xl">
                       Visual Journey
@@ -520,7 +520,7 @@ export default async function ProjectPage({ params }: Props) {
                               transition={{ duration: 0.4 }}
                             >
                               <div className="w-16 h-16 bg-white/95 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl border border-white/50">
-                                <Eye className="w-8 h-8 text-primary" />
+                                <span className="text-primary text-2xl font-light">◎</span>
                               </div>
                             </motion.div>
 
@@ -560,8 +560,8 @@ export default async function ProjectPage({ params }: Props) {
                           className={`${idx % 2 === 0 ? 'lg:col-span-2 lg:order-2' : 'lg:col-span-2 lg:order-1'} space-y-6`}
                         >
                           <div className="flex items-center mb-6">
-                            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                              <span className="text-white font-bold text-lg">
+                            <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                              <span className="text-white font-light text-lg">
                                 {(idx + 1).toString().padStart(2, '0')}
                               </span>
                             </div>
