@@ -7,7 +7,7 @@ import { LandorBackgroundSystem } from "@/components/ui/landor-background-system
 import { LandorContainer, LandorSection, LandorGrid, LandorStack, LandorCard } from "@/components/ui/landor-layout-system"
 import { DisplayHero, HeadingLarge, BodyLarge, BodyStandard, Caption } from "@/components/landor-typography"
 import { motion } from "framer-motion"
-import { Calendar, Building2, ArrowRight, Eye, Sparkles, Zap } from "lucide-react"
+import { Calendar, Building2, ArrowRight, Eye, Sparkles, Zap, Target, Lightbulb, TrendingUp, Compass, Palette, Users } from "lucide-react"
 
 interface Props {
   params: Promise<{
@@ -19,6 +19,20 @@ function getProjectFromParams(slug: string) {
   const project = getProjectBySlug(slug)
   if (!project) notFound()
   return project
+}
+
+function renderTextContent(text: string) {
+  return text.split('\n\n').map((paragraph, index) => (
+    <motion.p
+      key={index}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="mb-4 last:mb-0 leading-relaxed text-primary/80"
+    >
+      {paragraph.trim()}
+    </motion.p>
+  ))
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -37,7 +51,9 @@ export default async function ProjectPage({ params }: Props) {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       >
-        <LandorBackgroundSystem state="dramatic" />
+        <LandorBackgroundSystem state="dramatic">
+          <div></div>
+        </LandorBackgroundSystem>
         
         {/* SOPHISTICATED LUXURY PARTICLES - CSS BASED */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -226,11 +242,11 @@ export default async function ProjectPage({ params }: Props) {
                   whileHover={{ scale: 1.02, rotateY: 2 }}
                   className="relative"
                 >
-                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                  <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl">
                     <img
                       src={project.heroImage || project.thumbnailImage || "/placeholder.jpg"}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
                     
@@ -253,247 +269,347 @@ export default async function ProjectPage({ params }: Props) {
           </LandorContainer>
         </LandorSection>
 
-        {/* CONTENT SECTIONS - SIDE-BY-SIDE LUXURY LAYOUT */}
-        <LandorSection spacing="standard">
+        {/* ELEVATED CONTENT SECTIONS - HORIZONTAL LUXURY LAYOUT */}
+        <LandorSection spacing="spacious">
           <LandorContainer size="wide">
-            <LandorGrid cols={2} gap="xl">
+            {/* SOPHISTICATED SECTION HEADER */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-20"
+            >
+              <div className="flex items-center justify-center mb-8">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                  className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mr-4"
+                >
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </motion.div>
+                <DisplayHero className="text-primary">
+                  Project Journey
+                </DisplayHero>
+              </div>
+              <BodyLarge className="text-primary/70 max-w-3xl mx-auto">
+                From strategic context through innovative approach to measurable impact
+              </BodyLarge>
+            </motion.div>
+
+            {/* HORIZONTAL THREE-CARD LAYOUT */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               
-              {/* LEFT COLUMN - CONTEXT & APPROACH */}
-              <LandorStack spacing="xl">
-                {/* PROJECT CONTEXT */}
-                <motion.div
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8 }}
-                  whileHover={{ x: 4 }}
-                >
-                  <LandorCard variant="elevated" padding="xl" className="bg-white/60 backdrop-blur-xl border border-white/40 hover:bg-white/70 transition-all duration-500">
-                    <LandorStack spacing="md">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex items-center mb-4"
-                      >
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4">
-                          <Sparkles className="w-6 h-6 text-white" />
-                        </div>
-                        <HeadingLarge className="text-primary">
-                          Project Context
-                        </HeadingLarge>
-                      </motion.div>
-                      <BodyLarge className="leading-relaxed text-primary/80">
-                        {project.context || "This strategic design project addresses complex business challenges through user-centered design thinking, comprehensive research, and innovative solution development to create meaningful experiences that drive measurable business outcomes."}
-                      </BodyLarge>
-                    </LandorStack>
-                  </LandorCard>
-                </motion.div>
+              {/* PROJECT CONTEXT CARD */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
+              >
+                <LandorCard variant="elevated" padding="xl" className="h-full bg-white/70 backdrop-blur-xl border border-white/50 hover:bg-white/80 transition-all duration-700 group-hover:shadow-2xl">
+                  <LandorStack spacing="lg">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="flex flex-col items-center text-center mb-6"
+                    >
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                        <Compass className="w-8 h-8 text-white" />
+                      </div>
+                      <HeadingLarge className="text-primary">
+                        Context
+                      </HeadingLarge>
+                    </motion.div>
+                    
+                    <div className="space-y-4">
+                      {renderTextContent(project.context || "Strategic design project addressing business challenges through user-centered thinking and comprehensive research.\n\nFocused on creating meaningful experiences that deliver measurable business outcomes.")}
+                    </div>
+                  </LandorStack>
+                </LandorCard>
+              </motion.div>
 
-                {/* DESIGN APPROACH */}
-                <motion.div
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  whileHover={{ x: 4 }}
-                >
-                  <LandorCard variant="elevated" padding="xl" className="bg-white/60 backdrop-blur-xl border border-white/40 hover:bg-white/70 transition-all duration-500">
-                    <LandorStack spacing="md">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="flex items-center mb-4"
-                      >
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4">
-                          <Zap className="w-6 h-6 text-white" />
-                        </div>
-                        <HeadingLarge className="text-primary">
-                          Design Approach
-                        </HeadingLarge>
-                      </motion.div>
-                      <BodyLarge className="leading-relaxed text-primary/80">
-                        {project.scope || "Through strategic research, iterative design processes, and collaborative stakeholder engagement, this project delivered comprehensive solutions that balance user needs with business objectives while maintaining technical feasibility and scalability."}
-                      </BodyLarge>
-                    </LandorStack>
-                  </LandorCard>
-                </motion.div>
-              </LandorStack>
+              {/* DESIGN APPROACH CARD */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
+              >
+                <LandorCard variant="elevated" padding="xl" className="h-full bg-white/70 backdrop-blur-xl border border-white/50 hover:bg-white/80 transition-all duration-700 group-hover:shadow-2xl">
+                  <LandorStack spacing="lg">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      className="flex flex-col items-center text-center mb-6"
+                    >
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                        <Palette className="w-8 h-8 text-white" />
+                      </div>
+                      <HeadingLarge className="text-primary">
+                        Approach
+                      </HeadingLarge>
+                    </motion.div>
+                    
+                    <div className="space-y-4">
+                      {renderTextContent(project.scope || "Strategic research and iterative design processes delivering comprehensive solutions.\n\nBalancing user needs with business objectives while maintaining technical feasibility and scalability.")}
+                    </div>
+                  </LandorStack>
+                </LandorCard>
+              </motion.div>
 
-              {/* RIGHT COLUMN - IMPACT & TESTIMONIAL */}
-              <LandorStack spacing="xl">
-                {/* BUSINESS IMPACT */}
-                <motion.div
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8 }}
-                  whileHover={{ x: -4 }}
-                >
-                  <LandorCard variant="elevated" padding="xl" className="bg-white/60 backdrop-blur-xl border border-white/40 hover:bg-white/70 transition-all duration-500">
-                    <LandorStack spacing="md">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex items-center mb-4"
-                      >
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4">
-                          <Eye className="w-6 h-6 text-white" />
-                        </div>
-                        <HeadingLarge className="text-primary">
-                          Business Impact
-                        </HeadingLarge>
-                      </motion.div>
-                      <BodyLarge className="leading-relaxed text-primary/80">
-                        {project.impact || "The strategic implementation resulted in significant improvements across key performance indicators including increased user engagement, enhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrating the value of strategic design investment."}
-                      </BodyLarge>
-                    </LandorStack>
-                  </LandorCard>
-                </motion.div>
+              {/* BUSINESS IMPACT CARD */}
+              <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
+              >
+                <LandorCard variant="elevated" padding="xl" className="h-full bg-white/70 backdrop-blur-xl border border-white/50 hover:bg-white/80 transition-all duration-700 group-hover:shadow-2xl">
+                  <LandorStack spacing="lg">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                      className="flex flex-col items-center text-center mb-6"
+                    >
+                      <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                        <TrendingUp className="w-8 h-8 text-white" />
+                      </div>
+                      <HeadingLarge className="text-primary">
+                        Impact
+                      </HeadingLarge>
+                    </motion.div>
+                    
+                    <div className="space-y-4">
+                      {renderTextContent(project.impact || "Strategic implementation resulted in significant improvements across key performance indicators.\n\nEnhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrate design value.")}
+                    </div>
+                  </LandorStack>
+                </LandorCard>
+              </motion.div>
+            </div>
 
-                {/* TESTIMONIAL */}
-                {project.testimonial && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    whileHover={{ x: -4, scale: 1.02 }}
-                  >
-                    <LandorCard variant="elevated" padding="xl" className="bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-xl border border-white/50 hover:from-white/80 hover:to-white/60 transition-all duration-500">
-                      <LandorStack spacing="lg">
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.6, delay: 0.4 }}
-                        >
-                          <BodyLarge className="italic text-xl leading-relaxed text-primary/90 relative">
-                            <span className="text-6xl text-primary/20 absolute -top-4 -left-4">"</span>
-                            {project.testimonial.quote}
-                            <span className="text-6xl text-primary/20 absolute -bottom-8 -right-4">"</span>
-                          </BodyLarge>
-                        </motion.div>
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.6 }}
-                        >
-                          <BodyStandard className="font-semibold text-primary">
-                            {project.testimonial.author}
-                          </BodyStandard>
-                          <Caption className="text-primary/70">
-                            {project.testimonial.role}
-                          </Caption>
-                        </motion.div>
-                      </LandorStack>
-                    </LandorCard>
-                  </motion.div>
-                )}
-              </LandorStack>
-            </LandorGrid>
+            {/* ELEVATED TESTIMONIAL SECTION */}
+            {project.testimonial && (
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                whileHover={{ scale: 1.01 }}
+                className="max-w-4xl mx-auto"
+              >
+                <div className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-2xl border border-white/60 hover:from-white/90 hover:to-white/70 transition-all duration-700 shadow-2xl rounded-2xl p-16">
+                  <LandorStack spacing="xl" align="center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      className="flex items-center justify-center mb-8"
+                    >
+                      <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center shadow-xl">
+                        <Users className="w-8 h-8 text-white" />
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                      className="text-center"
+                    >
+                      <BodyLarge className="italic text-2xl leading-relaxed text-primary/90 relative mb-8 max-w-3xl">
+                        <span className="text-8xl text-primary/15 absolute -top-8 -left-8">"</span>
+                        {project.testimonial.quote}
+                        <span className="text-8xl text-primary/15 absolute -bottom-12 -right-8">"</span>
+                      </BodyLarge>
+                      <div className="flex flex-col items-center">
+                        <BodyStandard className="font-bold text-primary text-lg mb-2">
+                          {project.testimonial.author}
+                        </BodyStandard>
+                        <Caption className="text-primary/70 text-base">
+                          {project.testimonial.role}
+                        </Caption>
+                      </div>
+                    </motion.div>
+                  </LandorStack>
+                </div>
+              </motion.div>
+            )}
           </LandorContainer>
         </LandorSection>
 
-        {/* SPECTACULAR GALLERY SECTION */}
+        {/* CINEMATIC VISUAL JOURNEY - LARGE FORMAT EXPERIENCE */}
         {project.galleryImages && project.galleryImages.length > 0 && (
           <LandorSection spacing="spacious">
-            <LandorContainer size="wide">
+            <LandorContainer size="full">
               <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
               >
-                {/* GALLERY HEADER */}
+                {/* CINEMATIC HEADER */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-center mb-16"
+                  className="text-center mb-20"
                 >
-                  <div className="flex items-center justify-center mb-6">
+                  <div className="flex items-center justify-center mb-8">
                     <motion.div
-                      whileHover={{ rotate: 180, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                      className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mr-4"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.8 }}
+                      className="w-20 h-20 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center mr-6 shadow-2xl"
                     >
-                      <Sparkles className="w-8 h-8 text-white" />
+                      <Target className="w-10 h-10 text-white" />
                     </motion.div>
-                    <DisplayHero className="text-primary">
+                    <DisplayHero className="text-primary text-6xl">
                       Visual Journey
                     </DisplayHero>
                   </div>
-                  <BodyLarge className="text-primary/70 max-w-2xl mx-auto">
-                    Experience the project through carefully curated visual storytelling
+                  <BodyLarge className="text-primary/70 max-w-4xl mx-auto text-xl">
+                    Immerse yourself in the project's evolution through large-format visual storytelling and interactive exploration
                   </BodyLarge>
                 </motion.div>
                 
-                {/* SPECTACULAR GALLERY GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* LARGE FORMAT CAROUSEL */}
+                <div className="relative">
                   {project.galleryImages.map((image, idx) => (
                     <motion.div
                       key={idx}
-                      initial={{ opacity: 0, y: 60, scale: 0.8 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      initial={{ opacity: idx === 0 ? 1 : 0, x: idx === 0 ? 0 : 100 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: idx * 0.2 }}
-                      whileHover={{ 
-                        scale: 1.05, 
-                        y: -10,
-                        rotateX: 5,
-                        rotateY: 5
-                      }}
-                      className="group cursor-pointer"
+                      transition={{ duration: 1, delay: idx * 0.3 }}
+                      className="mb-24 last:mb-0"
                     >
-                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
+                      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
                         
-                        {/* OVERLAY WITH INNOVATION ELEMENTS */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        
-                        {/* FLOATING ACTION BUTTON */}
+                        {/* IMAGE SIDE - LARGE FORMAT */}
                         <motion.div
-                          className="absolute top-4 right-4 opacity-0 group-hover:opacity-100"
-                          initial={{ scale: 0 }}
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.3 }}
+                          initial={{ opacity: 0, x: idx % 2 === 0 ? -60 : 60, scale: 0.9 }}
+                          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.2 }}
+                          whileHover={{ scale: 1.02, y: -10 }}
+                          className={`${idx % 2 === 0 ? 'lg:col-span-3 lg:order-1' : 'lg:col-span-3 lg:order-2'} relative group cursor-pointer`}
                         >
-                          <div className="w-12 h-12 bg-white/90 backdrop-blur-xl rounded-full flex items-center justify-center shadow-xl">
-                            <Eye className="w-6 h-6 text-primary" />
+                          <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-50 to-gray-100">
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                            />
+                            
+                            {/* SOPHISTICATED OVERLAY */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            
+                            {/* FLOATING BADGE */}
+                            <motion.div
+                              className="absolute top-6 right-6 opacity-0 group-hover:opacity-100"
+                              initial={{ scale: 0, rotate: -180 }}
+                              whileHover={{ scale: 1.1, rotate: 0 }}
+                              transition={{ duration: 0.4 }}
+                            >
+                              <div className="w-16 h-16 bg-white/95 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl border border-white/50">
+                                <Eye className="w-8 h-8 text-primary" />
+                              </div>
+                            </motion.div>
+
+                            {/* SOPHISTICATED PARTICLES */}
+                            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100">
+                              {[...Array(4)].map((_, i) => (
+                                <motion.div
+                                  key={i}
+                                  className="absolute w-2 h-2 bg-white/40 rounded-full"
+                                  style={{
+                                    left: `${20 + (i * 20)}%`,
+                                    top: `${20 + (i * 15)}%`,
+                                  }}
+                                  initial={{ scale: 0, opacity: 0 }}
+                                  animate={{ 
+                                    scale: [0, 1, 0.5, 1],
+                                    opacity: [0, 0.8, 0.4, 0.8],
+                                    y: [-10, 10, -5, 15]
+                                  }}
+                                  transition={{ 
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    delay: i * 0.4
+                                  }}
+                                />
+                              ))}
+                            </div>
                           </div>
                         </motion.div>
 
-                        {/* INNOVATION PARTICLES */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100">
-                          {[...Array(6)].map((_, i) => (
-                            <motion.div
-                              key={i}
-                              className="absolute w-1 h-1 bg-white/60 rounded-full"
-                              initial={{ 
-                                x: "50%", 
-                                y: "50%",
-                                scale: 0
-                              }}
-                              animate={{ 
-                                x: `${Math.random() * 100}%`,
-                                y: `${Math.random() * 100}%`,
-                                scale: [0, 1, 0]
-                              }}
-                              transition={{ 
-                                duration: 2,
-                                repeat: Infinity,
-                                delay: i * 0.2
-                              }}
-                            />
-                          ))}
-                        </div>
+                        {/* CONTENT SIDE - SOPHISTICATED DESCRIPTION */}
+                        <motion.div
+                          initial={{ opacity: 0, x: idx % 2 === 0 ? 60 : -60 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.4 }}
+                          className={`${idx % 2 === 0 ? 'lg:col-span-2 lg:order-2' : 'lg:col-span-2 lg:order-1'} space-y-6`}
+                        >
+                          <div className="flex items-center mb-6">
+                            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                              <span className="text-white font-bold text-lg">
+                                {(idx + 1).toString().padStart(2, '0')}
+                              </span>
+                            </div>
+                            <div>
+                              <Caption className="text-primary/60 uppercase tracking-wider font-medium">
+                                Visual Highlight
+                              </Caption>
+                              <HeadingLarge className="text-primary">
+                                Key Insight {idx + 1}
+                              </HeadingLarge>
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-4">
+                            <BodyLarge className="text-primary/80 leading-relaxed">
+                              {image.alt}
+                            </BodyLarge>
+                            
+                            {image.url && (
+                              <motion.div
+                                whileHover={{ x: 4 }}
+                                whileTap={{ scale: 0.98 }}
+                              >
+                                <a
+                                  href={image.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium"
+                                >
+                                  <span>Explore in Detail</span>
+                                  <ArrowRight className="w-4 h-4 ml-2" />
+                                </a>
+                              </motion.div>
+                            )}
+                          </div>
+                        </motion.div>
                       </div>
+
+                      {/* ELEGANT SEPARATOR */}
+                      {idx < project.galleryImages.length - 1 && (
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 0.6 }}
+                          className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mt-16"
+                        />
+                      )}
                     </motion.div>
                   ))}
                 </div>
