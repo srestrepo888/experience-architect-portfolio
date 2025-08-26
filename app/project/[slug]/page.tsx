@@ -39,27 +39,27 @@ export default async function ProjectPage({ params }: Props) {
       >
         <LandorBackgroundSystem state="dramatic" />
         
-        {/* FLOATING INNOVATION PARTICLES */}
+        {/* SOPHISTICATED LUXURY PARTICLES - CSS BASED */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(12)].map((_, i) => (
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-primary/20 rounded-full"
-              initial={{ 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight,
-                scale: 0
+              className="absolute w-1 h-1 bg-primary/15 rounded-full"
+              style={{
+                left: `${10 + (i * 12)}%`,
+                top: `${15 + (i * 8)}%`,
               }}
+              initial={{ scale: 0, opacity: 0 }}
               animate={{ 
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                scale: [0, 1, 0]
+                scale: [0, 1, 0.8, 1],
+                opacity: [0, 0.6, 0.3, 0.6],
+                y: [-20, 20, -10, 15]
               }}
               transition={{ 
-                duration: Math.random() * 8 + 4,
+                duration: 6 + (i * 0.5),
                 repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.5
+                ease: [0.22, 1, 0.36, 1],
+                delay: i * 0.8
               }}
             />
           ))}
@@ -85,7 +85,7 @@ export default async function ProjectPage({ params }: Props) {
                   variant="primary" 
                   size="lg" 
                   icon="left"
-                  className="bg-white/90 backdrop-blur-xl text-primary hover:bg-white shadow-2xl border-0 px-6 py-4"
+                  className="bg-white/95 backdrop-blur-2xl text-primary hover:bg-white shadow-2xl border border-white/40 px-6 py-4 relative before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-white/10 before:to-transparent before:pointer-events-none"
                 >
                   Back to Projects
                 </BulletproofNavigationButton>
@@ -99,7 +99,7 @@ export default async function ProjectPage({ params }: Props) {
                   href="/" 
                   variant="outline" 
                   size="md"
-                  className="bg-white/80 backdrop-blur-xl border-white/50 text-primary hover:bg-white/90 shadow-xl"
+                  className="bg-white/90 backdrop-blur-2xl border border-white/60 text-primary hover:bg-white/95 shadow-xl relative before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none"
                 >
                   Home
                 </BulletproofNavigationButton>
