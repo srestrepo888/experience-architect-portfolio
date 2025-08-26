@@ -23,15 +23,12 @@ function getProjectFromParams(slug: string) {
 
 function renderTextContent(text: string) {
   return text.split('\n\n').map((paragraph, index) => (
-    <motion.p
+    <p
       key={index}
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
       className="mb-4 last:mb-0 leading-relaxed text-primary/80"
     >
       {paragraph.trim()}
-    </motion.p>
+    </p>
   ))
 }
 
@@ -285,7 +282,7 @@ export default async function ProjectPage({ params }: Props) {
                   transition={{ duration: 0.8 }}
                   className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mr-4"
                 >
-                  <Lightbulb className="w-8 h-8 text-white" />
+                  <span className="text-white text-xl font-light">⚡</span>
                 </motion.div>
                 <DisplayHero className="text-primary">
                   Project Journey
