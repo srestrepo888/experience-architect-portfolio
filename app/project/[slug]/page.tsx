@@ -7,7 +7,7 @@ import { LandorBackgroundSystem } from "@/components/ui/landor-background-system
 import { LandorContainer, LandorSection, LandorGrid, LandorStack, LandorCard } from "@/components/ui/landor-layout-system"
 import { DisplayHero, HeadingLarge, BodyLarge, BodyStandard, Caption } from "@/components/landor-typography"
 import { motion } from "framer-motion"
-import { ArrowLeft, Calendar, Building2, ExternalLink, ArrowRight } from "lucide-react"
+import { Calendar, Building2, ArrowRight, Eye, Sparkles, Zap } from "lucide-react"
 
 interface Props {
   params: Promise<{
@@ -29,353 +29,603 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = allProjects[(currentIndex + 1) % allProjects.length]
 
   return (
-    <LandorBackgroundSystem state="subtle">
-      <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* ULTRA-LUXURIOUS ANIMATED BACKGROUND */}
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <LandorBackgroundSystem state="dramatic" />
         
-        {/* NAVIGATION HEADER */}
-        <LandorSection spacing="compact">
-          <LandorContainer size="wide">
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center justify-between py-6"
-            >
-              <div className="flex items-center" style={{ gap: "16px" }}>
+        {/* FLOATING INNOVATION PARTICLES */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-primary/20 rounded-full"
+              initial={{ 
+                x: Math.random() * window.innerWidth, 
+                y: Math.random() * window.innerHeight,
+                scale: 0
+              }}
+              animate={{ 
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scale: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: Math.random() * 8 + 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.5
+              }}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      <div className="relative z-10">
+        {/* SOPHISTICATED FLOATING NAVIGATION */}
+        <motion.div 
+          className="fixed top-8 left-8 right-8 z-50"
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center" style={{ gap: "16px" }}>
+              <motion.div
+                whileHover={{ scale: 1.05, x: -4 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <BulletproofNavigationButton 
                   href="/#projects" 
-                  variant="ghost" 
-                  size="sm" 
+                  variant="primary" 
+                  size="lg" 
                   icon="left"
-                  className="text-primary hover:text-primary/80"
+                  className="bg-white/90 backdrop-blur-xl text-primary hover:bg-white shadow-2xl border-0 px-6 py-4"
                 >
                   Back to Projects
                 </BulletproofNavigationButton>
-                
-                <div className="w-px h-6 bg-border/30" />
-                
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <BulletproofNavigationButton 
                   href="/" 
-                  variant="ghost" 
-                  size="sm"
-                  className="text-muted-foreground hover:text-foreground"
+                  variant="outline" 
+                  size="md"
+                  className="bg-white/80 backdrop-blur-xl border-white/50 text-primary hover:bg-white/90 shadow-xl"
                 >
                   Home
                 </BulletproofNavigationButton>
-              </div>
-              
-              {project.webpage && (
+              </motion.div>
+            </div>
+            
+            {project.webpage && (
+              <motion.div
+                whileHover={{ scale: 1.05, x: 4 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <BulletproofNavigationButton
                   href={project.webpage}
                   external={true}
-                  variant="outline"
-                  size="sm"
+                  variant="primary"
+                  size="lg"
                   icon="external"
-                  className="border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5"
+                  className="bg-gradient-to-r from-primary to-primary/90 text-white shadow-2xl px-6 py-4"
                 >
-                  Visit Live Site
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Experience Live
                 </BulletproofNavigationButton>
-              )}
+              </motion.div>
+            )}
+          </div>
+        </motion.div>
+
+        {/* HERO SECTION - SPACE EFFICIENT LUXURY */}
+        <LandorSection spacing="hero">
+          <LandorContainer size="wide">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              style={{ marginTop: "120px" }}
+            >
+              <LandorGrid cols={2} gap="xl">
+                
+                {/* CONTENT COLUMN - SOPHISTICATED INFORMATION HIERARCHY */}
+                <motion.div
+                  initial={{ opacity: 0, x: -60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <LandorStack spacing="lg">
+                    
+                    {/* ANIMATED PROJECT META */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      <div className="flex items-center mb-6" style={{ gap: "20px" }}>
+                        <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                          <Building2 className="w-4 h-4 mr-2 text-primary" />
+                          <Caption className="text-primary font-medium">
+                            {project.client}
+                          </Caption>
+                        </div>
+                        <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                          <Calendar className="w-4 h-4 mr-2 text-primary" />
+                          <Caption className="text-primary font-medium">
+                            {project.year}
+                          </Caption>
+                        </div>
+                      </div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.9 }}
+                      >
+                        <DisplayHero className="mb-6 bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent">
+                          {project.title}
+                        </DisplayHero>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.1 }}
+                      >
+                        <BodyLarge className="max-w-xl text-primary/80 leading-relaxed">
+                          {project.subtitle}
+                        </BodyLarge>
+                      </motion.div>
+                    </motion.div>
+
+                    {/* SERVICES WITH SEXY ANIMATIONS */}
+                    {project.services && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 1.3 }}
+                      >
+                        <Caption className="text-primary/70 mb-4 block flex items-center">
+                          <Zap className="w-4 h-4 mr-2" />
+                          Expertise Applied
+                        </Caption>
+                        <div className="flex flex-wrap" style={{ gap: "12px" }}>
+                          {project.services.map((service, idx) => (
+                            <motion.span
+                              key={idx}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.5, delay: 1.4 + idx * 0.1 }}
+                              whileHover={{ scale: 1.05, y: -2 }}
+                              className="px-4 py-2 bg-white/15 backdrop-blur-sm border border-white/30 rounded-xl text-sm font-medium text-primary hover:bg-white/25 transition-all duration-300 cursor-default"
+                            >
+                              {service}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </LandorStack>
+                </motion.div>
+
+                {/* IMAGE COLUMN - DRAMATIC PRESENTATION */}
+                <motion.div
+                  initial={{ opacity: 0, x: 60, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  whileHover={{ scale: 1.02, rotateY: 2 }}
+                  className="relative"
+                >
+                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                    <img
+                      src={project.heroImage || project.thumbnailImage || "/placeholder.jpg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+                    
+                    {/* FLOATING INNOVATION BADGE */}
+                    <motion.div
+                      className="absolute top-6 right-6"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 1.5 }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <div className="w-16 h-16 bg-white/90 backdrop-blur-xl rounded-full flex items-center justify-center shadow-2xl">
+                        <Eye className="w-8 h-8 text-primary" />
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </LandorGrid>
             </motion.div>
           </LandorContainer>
         </LandorSection>
 
-        {/* HERO SECTION */}
+        {/* CONTENT SECTIONS - SIDE-BY-SIDE LUXURY LAYOUT */}
         <LandorSection spacing="standard">
           <LandorContainer size="wide">
             <LandorGrid cols={2} gap="xl">
               
-              {/* Content Column */}
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <LandorStack spacing="lg">
-                  
-                  {/* Project Meta */}
-                  <div>
-                    <div className="flex items-center mb-4" style={{ gap: "16px" }}>
-                      <Caption className="text-muted-foreground">
-                        {project.client}
-                      </Caption>
-                      <div className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-                      <Caption className="text-muted-foreground">
-                        {project.year}
-                      </Caption>
-                    </div>
-                    
-                    <DisplayHero className="mb-6">
-                      {project.title}
-                    </DisplayHero>
-                    
-                    <BodyLarge className="max-w-xl">
-                      {project.subtitle}
-                    </BodyLarge>
-                  </div>
+              {/* LEFT COLUMN - CONTEXT & APPROACH */}
+              <LandorStack spacing="xl">
+                {/* PROJECT CONTEXT */}
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8 }}
+                  whileHover={{ x: 4 }}
+                >
+                  <LandorCard variant="elevated" padding="xl" className="bg-white/60 backdrop-blur-xl border border-white/40 hover:bg-white/70 transition-all duration-500">
+                    <LandorStack spacing="md">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="flex items-center mb-4"
+                      >
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4">
+                          <Sparkles className="w-6 h-6 text-white" />
+                        </div>
+                        <HeadingLarge className="text-primary">
+                          Project Context
+                        </HeadingLarge>
+                      </motion.div>
+                      <BodyLarge className="leading-relaxed text-primary/80">
+                        {project.context || "This strategic design project addresses complex business challenges through user-centered design thinking, comprehensive research, and innovative solution development to create meaningful experiences that drive measurable business outcomes."}
+                      </BodyLarge>
+                    </LandorStack>
+                  </LandorCard>
+                </motion.div>
 
-                  {/* Services */}
-                  {project.services && (
-                    <div>
-                      <Caption className="text-muted-foreground mb-4 block">
-                        Services Provided
-                      </Caption>
-                      <div className="flex flex-wrap" style={{ gap: "8px" }}>
-                        {project.services.map((service, idx) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-2 bg-primary/8 border border-primary/15 rounded-lg text-sm font-medium text-primary"
-                          >
-                            {service}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                {/* DESIGN APPROACH */}
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  whileHover={{ x: 4 }}
+                >
+                  <LandorCard variant="elevated" padding="xl" className="bg-white/60 backdrop-blur-xl border border-white/40 hover:bg-white/70 transition-all duration-500">
+                    <LandorStack spacing="md">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="flex items-center mb-4"
+                      >
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4">
+                          <Zap className="w-6 h-6 text-white" />
+                        </div>
+                        <HeadingLarge className="text-primary">
+                          Design Approach
+                        </HeadingLarge>
+                      </motion.div>
+                      <BodyLarge className="leading-relaxed text-primary/80">
+                        {project.scope || "Through strategic research, iterative design processes, and collaborative stakeholder engagement, this project delivered comprehensive solutions that balance user needs with business objectives while maintaining technical feasibility and scalability."}
+                      </BodyLarge>
+                    </LandorStack>
+                  </LandorCard>
+                </motion.div>
+              </LandorStack>
 
-                  {/* CTA */}
-                  {project.webpage && (
-                    <BulletproofNavigationButton
-                      href={project.webpage}
-                      external={true}
-                      variant="primary"
-                      size="lg"
-                      icon="external"
-                      className="w-fit bg-primary hover:bg-primary/90 text-white"
-                    >
-                      View Live Project
-                    </BulletproofNavigationButton>
-                  )}
-                </LandorStack>
-              </motion.div>
+              {/* RIGHT COLUMN - IMPACT & TESTIMONIAL */}
+              <LandorStack spacing="xl">
+                {/* BUSINESS IMPACT */}
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8 }}
+                  whileHover={{ x: -4 }}
+                >
+                  <LandorCard variant="elevated" padding="xl" className="bg-white/60 backdrop-blur-xl border border-white/40 hover:bg-white/70 transition-all duration-500">
+                    <LandorStack spacing="md">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="flex items-center mb-4"
+                      >
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4">
+                          <Eye className="w-6 h-6 text-white" />
+                        </div>
+                        <HeadingLarge className="text-primary">
+                          Business Impact
+                        </HeadingLarge>
+                      </motion.div>
+                      <BodyLarge className="leading-relaxed text-primary/80">
+                        {project.impact || "The strategic implementation resulted in significant improvements across key performance indicators including increased user engagement, enhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrating the value of strategic design investment."}
+                      </BodyLarge>
+                    </LandorStack>
+                  </LandorCard>
+                </motion.div>
 
-              {/* Image Column */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src={project.heroImage || project.thumbnailImage || "/placeholder.jpg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </div>
-              </motion.div>
+                {/* TESTIMONIAL */}
+                {project.testimonial && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    whileHover={{ x: -4, scale: 1.02 }}
+                  >
+                    <LandorCard variant="elevated" padding="xl" className="bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-xl border border-white/50 hover:from-white/80 hover:to-white/60 transition-all duration-500">
+                      <LandorStack spacing="lg">
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                        >
+                          <BodyLarge className="italic text-xl leading-relaxed text-primary/90 relative">
+                            <span className="text-6xl text-primary/20 absolute -top-4 -left-4">"</span>
+                            {project.testimonial.quote}
+                            <span className="text-6xl text-primary/20 absolute -bottom-8 -right-4">"</span>
+                          </BodyLarge>
+                        </motion.div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.6 }}
+                        >
+                          <BodyStandard className="font-semibold text-primary">
+                            {project.testimonial.author}
+                          </BodyStandard>
+                          <Caption className="text-primary/70">
+                            {project.testimonial.role}
+                          </Caption>
+                        </motion.div>
+                      </LandorStack>
+                    </LandorCard>
+                  </motion.div>
+                )}
+              </LandorStack>
             </LandorGrid>
           </LandorContainer>
         </LandorSection>
 
-        {/* PROJECT CONTEXT */}
-        <LandorSection spacing="compact">
-          <LandorContainer size="content">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <LandorStack spacing="md" align="center">
-                <HeadingLarge className="text-center">
-                  Project Context
-                </HeadingLarge>
-                <BodyLarge className="text-center leading-relaxed">
-                  {project.context || "This strategic design project addresses complex business challenges through user-centered design thinking, comprehensive research, and innovative solution development to create meaningful experiences that drive measurable business outcomes."}
-                </BodyLarge>
-              </LandorStack>
-            </motion.div>
-          </LandorContainer>
-        </LandorSection>
-
-        {/* PROJECT APPROACH */}
-        <LandorSection spacing="compact">
-          <LandorContainer size="content">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <LandorStack spacing="md" align="center">
-                <HeadingLarge className="text-center">
-                  Design Approach
-                </HeadingLarge>
-                <BodyLarge className="text-center leading-relaxed">
-                  {project.scope || "Through strategic research, iterative design processes, and collaborative stakeholder engagement, this project delivered comprehensive solutions that balance user needs with business objectives while maintaining technical feasibility and scalability."}
-                </BodyLarge>
-              </LandorStack>
-            </motion.div>
-          </LandorContainer>
-        </LandorSection>
-
-        {/* BUSINESS IMPACT */}
-        <LandorSection spacing="compact">
-          <LandorContainer size="content">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <LandorStack spacing="md" align="center">
-                <HeadingLarge className="text-center">
-                  Business Impact
-                </HeadingLarge>
-                <BodyLarge className="text-center leading-relaxed">
-                  {project.impact || "The strategic implementation resulted in significant improvements across key performance indicators including increased user engagement, enhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrating the value of strategic design investment."}
-                </BodyLarge>
-              </LandorStack>
-            </motion.div>
-          </LandorContainer>
-        </LandorSection>
-
-        {/* PROJECT GALLERY */}
+        {/* SPECTACULAR GALLERY SECTION */}
         {project.galleryImages && project.galleryImages.length > 0 && (
-          <LandorSection spacing="compact">
+          <LandorSection spacing="spacious">
             <LandorContainer size="wide">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 1 }}
               >
-                <LandorStack spacing="lg" align="center">
-                  <HeadingLarge className="text-center mb-12">
-                    Project Gallery
-                  </HeadingLarge>
-                  
-                  <LandorGrid cols={3} gap="lg">
-                    {project.galleryImages.map((image, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: idx * 0.1 }}
-                      >
-                        <LandorCard variant="elevated" padding="sm">
-                          <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                            <img
-                              src={image.src}
-                              alt={image.alt}
-                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                            />
+                {/* GALLERY HEADER */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-center mb-16"
+                >
+                  <div className="flex items-center justify-center mb-6">
+                    <motion.div
+                      whileHover={{ rotate: 180, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mr-4"
+                    >
+                      <Sparkles className="w-8 h-8 text-white" />
+                    </motion.div>
+                    <DisplayHero className="text-primary">
+                      Visual Journey
+                    </DisplayHero>
+                  </div>
+                  <BodyLarge className="text-primary/70 max-w-2xl mx-auto">
+                    Experience the project through carefully curated visual storytelling
+                  </BodyLarge>
+                </motion.div>
+                
+                {/* SPECTACULAR GALLERY GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {project.galleryImages.map((image, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 60, scale: 0.8 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: idx * 0.2 }}
+                      whileHover={{ 
+                        scale: 1.05, 
+                        y: -10,
+                        rotateX: 5,
+                        rotateY: 5
+                      }}
+                      className="group cursor-pointer"
+                    >
+                      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        
+                        {/* OVERLAY WITH INNOVATION ELEMENTS */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
+                        {/* FLOATING ACTION BUTTON */}
+                        <motion.div
+                          className="absolute top-4 right-4 opacity-0 group-hover:opacity-100"
+                          initial={{ scale: 0 }}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className="w-12 h-12 bg-white/90 backdrop-blur-xl rounded-full flex items-center justify-center shadow-xl">
+                            <Eye className="w-6 h-6 text-primary" />
                           </div>
-                        </LandorCard>
-                      </motion.div>
-                    ))}
-                  </LandorGrid>
-                </LandorStack>
+                        </motion.div>
+
+                        {/* INNOVATION PARTICLES */}
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100">
+                          {[...Array(6)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="absolute w-1 h-1 bg-white/60 rounded-full"
+                              initial={{ 
+                                x: "50%", 
+                                y: "50%",
+                                scale: 0
+                              }}
+                              animate={{ 
+                                x: `${Math.random() * 100}%`,
+                                y: `${Math.random() * 100}%`,
+                                scale: [0, 1, 0]
+                              }}
+                              transition={{ 
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: i * 0.2
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </LandorContainer>
           </LandorSection>
         )}
 
-        {/* TESTIMONIAL */}
-        {project.testimonial && (
-          <LandorSection spacing="compact">
-            <LandorContainer size="content">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <LandorCard variant="elevated" padding="xl">
-                  <LandorStack spacing="lg" align="center">
-                    <BodyLarge className="text-center italic text-xl leading-relaxed">
-                      "{project.testimonial.quote}"
-                    </BodyLarge>
-                    <div className="text-center">
-                      <BodyStandard className="font-semibold">
-                        {project.testimonial.author}
-                      </BodyStandard>
-                      <Caption className="text-muted-foreground">
-                        {project.testimonial.role}
-                      </Caption>
-                    </div>
-                  </LandorStack>
-                </LandorCard>
-              </motion.div>
-            </LandorContainer>
-          </LandorSection>
-        )}
-
-        {/* NEXT PROJECT */}
-        <LandorSection spacing="compact">
+        {/* NEXT PROJECT - ULTRA SOPHISTICATED PRESENTATION */}
+        <LandorSection spacing="spacious">
           <LandorContainer size="wide">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 1 }}
             >
-              <LandorCard variant="elevated" padding="lg">
-                <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-center">
+              <LandorCard variant="elevated" padding="xl" className="bg-gradient-to-br from-white/80 via-white/70 to-white/60 backdrop-blur-2xl border border-white/50 hover:from-white/90 hover:via-white/80 hover:to-white/70 transition-all duration-700">
+                <div className="grid lg:grid-cols-[1fr_400px] gap-12 items-center">
                   
-                  <div>
-                    <Caption className="text-muted-foreground mb-2 block">
-                      Next Project
-                    </Caption>
-                    <HeadingLarge className="mb-4">
-                      {nextProject.title}
-                    </HeadingLarge>
-                    <BodyStandard className="text-muted-foreground mb-6">
-                      {nextProject.subtitle}
-                    </BodyStandard>
-                    
-                    <BulletproofNavigationButton
-                      href={`/project/${nextProject.slug}`}
-                      variant="primary"
-                      size="md"
-                      icon="right"
-                      className="bg-primary hover:bg-primary/90 text-white"
-                    >
-                      View Next Project
-                    </BulletproofNavigationButton>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <LandorStack spacing="lg">
+                      <div className="flex items-center mb-4">
+                        <motion.div
+                          whileHover={{ rotate: 360 }}
+                          transition={{ duration: 0.8 }}
+                          className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-4"
+                        >
+                          <ArrowRight className="w-6 h-6 text-white" />
+                        </motion.div>
+                        <Caption className="text-primary/70 font-medium uppercase tracking-wider">
+                          Continue the Journey
+                        </Caption>
+                      </div>
+                      
+                      <HeadingLarge className="text-primary mb-4">
+                        {nextProject.title}
+                      </HeadingLarge>
+                      
+                      <BodyStandard className="text-primary/70 mb-8 leading-relaxed">
+                        {nextProject.subtitle}
+                      </BodyStandard>
+                      
+                      <motion.div
+                        whileHover={{ scale: 1.05, x: 8 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <BulletproofNavigationButton
+                          href={`/project/${nextProject.slug}`}
+                          variant="primary"
+                          size="lg"
+                          icon="right"
+                          className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-xl px-8 py-4"
+                        >
+                          <Sparkles className="w-5 h-5 mr-2" />
+                          Explore Next Project
+                        </BulletproofNavigationButton>
+                      </motion.div>
+                    </LandorStack>
+                  </motion.div>
 
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                    <img
-                      src={nextProject.thumbnailImage || "/placeholder.jpg"}
-                      alt={nextProject.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 40, scale: 0.9 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    whileHover={{ scale: 1.05, rotateY: -5 }}
+                    className="relative"
+                  >
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                      <img
+                        src={nextProject.thumbnailImage || "/placeholder.jpg"}
+                        alt={nextProject.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+                    </div>
+                  </motion.div>
                 </div>
               </LandorCard>
             </motion.div>
           </LandorContainer>
         </LandorSection>
 
-        {/* BOTTOM NAVIGATION */}
-        <LandorSection spacing="compact">
+        {/* PROMINENT BOTTOM NAVIGATION */}
+        <LandorSection spacing="standard">
           <LandorContainer size="wide">
-            <div className="flex items-center justify-between py-8 border-t border-border/30">
-              <BulletproofNavigationButton
-                href="/#projects"
-                variant="ghost"
-                size="md"
-                icon="left"
-                className="text-primary hover:text-primary/80"
-              >
-                Back to All Projects
-              </BulletproofNavigationButton>
-              
-              <BulletproofNavigationButton
-                href="/#contact"
-                variant="primary"
-                size="md"
-                className="bg-primary hover:bg-primary/90 text-white"
-              >
-                Start Your Project
-              </BulletproofNavigationButton>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="border-t border-white/30 pt-12"
+            >
+              <div className="flex items-center justify-between">
+                <motion.div
+                  whileHover={{ scale: 1.05, x: -8 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <BulletproofNavigationButton
+                    href="/#projects"
+                    variant="outline"
+                    size="lg"
+                    icon="left"
+                    className="bg-white/20 backdrop-blur-xl border-white/40 text-primary hover:bg-white/30 px-8 py-4 shadow-xl"
+                  >
+                    All Projects
+                  </BulletproofNavigationButton>
+                </motion.div>
+                
+                <motion.div
+                  whileHover={{ scale: 1.05, x: 8 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <BulletproofNavigationButton
+                    href="/#contact"
+                    variant="primary"
+                    size="lg"
+                    className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white shadow-2xl px-12 py-4"
+                  >
+                    <Zap className="w-5 h-5 mr-2" />
+                    Start Your Project
+                  </BulletproofNavigationButton>
+                </motion.div>
+              </div>
+            </motion.div>
           </LandorContainer>
         </LandorSection>
       </div>
-    </LandorBackgroundSystem>
+    </div>
   )
 }
