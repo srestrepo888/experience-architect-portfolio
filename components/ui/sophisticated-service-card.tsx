@@ -110,7 +110,7 @@ export default function SophisticatedServiceCard({
           style={{ transformStyle: "preserve-3d" }}
         >
           <motion.div
-            className="w-16 h-16 rounded-2xl bg-slate-900/10 flex items-center justify-center text-2xl text-slate-700"
+            className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl text-primary"
             animate={isHovered ? {
               rotateY: [0, 180, 360],
               scale: [1, 1.1, 1],

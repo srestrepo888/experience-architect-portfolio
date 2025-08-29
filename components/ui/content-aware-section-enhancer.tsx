@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
-import { AdaptiveBackgroundSystem } from "./adaptive-background-system"
+import { Background } from "./background"
 
 interface ContentAwareSectionEnhancerProps {
   sectionId: string
@@ -110,11 +110,7 @@ export function ContentAwareSectionEnhancer({
           ease: config.easing
         }}
       >
-        <AdaptiveBackgroundSystem
-          contentType={contentType}
-          intensity={intensity}
-          section={section}
-        />
+        <Background>{children}</Background>
       </motion.div>
 
       {/* Content-Aware Transition Zones */}

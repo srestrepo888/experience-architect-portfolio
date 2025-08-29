@@ -3,11 +3,10 @@ import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-c
 import SophisticatedFooter from "@/components/ui/sophisticated-footer"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import DetailedServicesSection from "@/components/detailed-services-section"
-import AnimatedExperience from "@/components/animated-experience"
-import { BodyLarge, Quote } from "@/components/landor-typography"
+import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
+import { BodyLarge, Quote, HeadingLarge } from "@/components/sophisticated-typography"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { PortraitImage } from "@/components/ui/perfect-image-container"
-import { LandorBackgroundSystem } from "@/components/ui/landor-background-system"
 import {
   LandorContainer,
   LandorSection
@@ -15,80 +14,88 @@ import {
 import { ScrollToTop } from "@/components/ui/scroll-to-top"
 import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation"
 import { CONTENT_CONFIG } from "@/lib/content-config"
+import { Background } from "@/components/ui/background"
 
 export default function HomePage() {
   return (
-    <div className="text-foreground relative">
+    <Background className="text-foreground">
       <CinematicNavigation />
       <main className="relative">
-        {/* Hero Section - Seamless Visual Flow */}
+        {/* HERO: Fluent Background with Cinematic Effects */}
         <section id="hero">
-          <LandorBackgroundSystem state="dramatic">
-            <CinematicHero />
-          </LandorBackgroundSystem>
+          <CinematicHero />
         </section>
 
-        {/* About Section - Maximum Space Efficiency */}
+        {/* ABOUT: Fluent Continuation */}
         <section id="about">
-          <LandorBackgroundSystem state="elevated">
-            <LandorSection spacing="compact">
-              <LandorContainer size="standard">
-                {/* Subtle Section Indicator - No Title Duplication */}
+          <LandorSection spacing="compact">
+            <LandorContainer size="standard">
+                {/* About Me Section Header */}
                 <div className="text-center mb-16 md:mb-20">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-8">
                     <div className="w-8 h-px bg-gradient-to-r from-transparent to-border"></div>
                     <span>{CONTENT_CONFIG.ABOUT.SECTION_NUMBER}</span>
                     <div className="w-8 h-px bg-gradient-to-l from-transparent to-border"></div>
                   </div>
+                  <HeadingLarge className="text-center mb-4">
+                    {CONTENT_CONFIG.ABOUT.HEADING}
+                  </HeadingLarge>
                 </div>
                 
                 {/* PERFECTIONIST SPACE-EFFICIENT LAYOUT */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 lg:gap-16 xl:gap-20 items-start max-w-6xl mx-auto">
                   
-                  {/* Content Column - Optimized for Maximum Readability */}
-                  <div className="space-y-8">
-                    <div className="prose prose-lg max-w-none">
-                      <BodyLarge className="text-foreground/90 leading-[1.7] tracking-[0.01em] whitespace-pre-line font-light">
-                        {CONTENT_CONFIG.ABOUT.DESCRIPTION}
+                  {/* SOPHISTICATED CONTENT COLUMN */}
+                  <div className="space-y-10">
+                    {/* Core Philosophy - Sophisticated Typography */}
+                    <div className="space-y-8">
+                      <BodyLarge className="text-primary/95">
+                        I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents, blending diverse perspectives from anthropology to algorithms.
+                      </BodyLarge>
+                      <BodyLarge className="text-primary/90">
+                        At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul through strategic business alignment.
                       </BodyLarge>
                     </div>
                     
-                    {/* Quote - Integrated Naturally */}
-                    <div className="border-l-2 border-border/30 pl-6 py-4 bg-gradient-to-r from-muted/20 to-transparent">
-                      <Quote className="text-foreground/85 text-xl leading-[1.6] mb-3 not-italic">
-                        "{CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.TEXT}"
+                    {/* Impact Statement - Elegant Sophistication */}
+                    <div className="relative pl-8 py-8 before:absolute before:left-0 before:top-0 before:w-1 before:h-full before:bg-gradient-to-b before:from-primary/40 before:to-primary/10 before:rounded-full">
+                      <Quote className="text-primary/90 mb-6">
+                        "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
                       </Quote>
-                      <div className="text-muted-foreground font-light tracking-wide">
+                      <div className="text-primary/60 font-sans font-medium text-sm tracking-wider uppercase">
                         — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
                       </div>
                     </div>
                     
-                    {/* CTA - Positioned for Natural Flow */}
-                    <div className="pt-4">
+                    {/* Global Experience - Refined */}
+                    <BodyLarge className="text-primary/85">
+                      From wellness movements in Saudi Arabia to AI-driven platforms empowering developers worldwide—each endeavour brings me closer to my mission: <em className="font-serif italic text-primary">connecting strategic goals with human perspective</em>.
+                    </BodyLarge>
+                    
+                    {/* CTA - MAXIMUM VISIBILITY */}
+                    <div className="pt-8">
                       <EnhancedButton
                         href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
                         download="silvana-restrepo-cv.pdf"
-                        variant="secondary"
+                        variant="primary"
                         size="lg"
                         icon="download"
                         aria-label={CONTENT_CONFIG.ABOUT.CTA.ARIA_LABEL}
-                        className="button-luxury"
+                        className="bg-primary text-white hover:bg-primary/90 shadow-[0_16px_48px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_64px_rgba(15,23,42,0.35)] border-2 border-white/10 hover:border-white/20 relative z-10"
                       >
                         {CONTENT_CONFIG.ABOUT.CTA.TEXT}
                       </EnhancedButton>
                     </div>
                   </div>
 
-                  {/* Portrait Column - Space-Efficient Positioning */}
-                  <div className="flex justify-center lg:justify-end">
-                    <div className="relative w-full max-w-[280px] lg:max-w-[320px]">
-                      <div 
-                        className="aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-b from-muted/10 to-muted/20"
-                        style={{
-                          maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-                          WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-                        }}
-                      >
+                  {/* FLOATING PORTRAIT - SOPHISTICATED PRESENTATION */}
+                  <div className="flex justify-center lg:justify-end relative">
+                    <div className="relative w-full max-w-[280px] lg:max-w-[320px] group">
+                      {/* Floating Shadow */}
+                      <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      
+                      {/* Main Portrait */}
+                      <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
                         <PortraitImage
                           src={CONTENT_CONFIG.ABOUT.PORTRAIT.SRC}
                           alt={CONTENT_CONFIG.ABOUT.PORTRAIT.ALT_TEXT}
@@ -96,22 +103,30 @@ export default function HomePage() {
                           rounded="none"
                           objectFit="cover"
                           placeholder="empty"
-                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-102 filter group-hover:saturate-110"
                         />
+                        
+                        {/* Elegant Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        
+                        {/* Floating Badge */}
+                        <div className="absolute -bottom-4 -right-4 bg-white/95 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-white/40 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0">
+                          <div className="text-primary font-serif font-medium text-sm">
+                            Experience<br/>Architect
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </LandorContainer>
-            </LandorSection>
-          </LandorBackgroundSystem>
+            </LandorContainer>
+          </LandorSection>
         </section>
 
-        {/* Projects Section - Seamless Visual Flow */}
+        {/* PROJECTS: Fluent Continuation */}
         <section id="projects">
-          <LandorBackgroundSystem state="elevated">
-            <LandorSection spacing="compact">
-              <LandorContainer size="wide">
+          <LandorSection spacing="compact">
+            <LandorContainer size="wide">
                 {/* Subtle Section Indicator */}
                 <div className="text-center mb-20 md:mb-24">
                   <div className="inline-flex items-center gap-4 text-sm font-light tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
@@ -127,16 +142,14 @@ export default function HomePage() {
                   </p>
                 </div>
                 <SophisticatedProjectsCarousel />
-              </LandorContainer>
-            </LandorSection>
-          </LandorBackgroundSystem>
+            </LandorContainer>
+          </LandorSection>
         </section>
 
-        {/* Experience Section - Professional Sophistication */}
+        {/* EXPERIENCE: Fluent Continuation */}
         <section id="experience">
-          <LandorBackgroundSystem state="subtle">
-            <LandorSection spacing="compact">
-              <LandorContainer size="standard">
+          <LandorSection spacing="compact">
+            <LandorContainer size="standard">
                 {/* Subtle Section Indicator */}
                 <div className="text-center mb-18 md:mb-20">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
@@ -151,17 +164,15 @@ export default function HomePage() {
                     {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
                   </p>
                 </div>
-                <AnimatedExperience />
-              </LandorContainer>
-            </LandorSection>
-          </LandorBackgroundSystem>
+                <SophisticatedCareerJourney />
+            </LandorContainer>
+          </LandorSection>
         </section>
 
-        {/* Services Section - Sophisticated Excellence */}
+        {/* SERVICES: Fluent Continuation */}
         <section id="services">
-          <LandorBackgroundSystem state="elevated">
-            <LandorSection spacing="compact">
-              <LandorContainer size="standard">
+          <LandorSection spacing="compact">
+            <LandorContainer size="standard">
                 {/* Subtle Section Indicator */}
                 <div className="text-center mb-18 md:mb-20">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
@@ -177,18 +188,18 @@ export default function HomePage() {
                   </p>
                 </div>
                 <DetailedServicesSection />
-              </LandorContainer>
-            </LandorSection>
-          </LandorBackgroundSystem>
+            </LandorContainer>
+          </LandorSection>
         </section>
       </main>
       
+      {/* FOOTER: Fluent Conclusion */}
       <section id="footer">
         <SophisticatedFooter />
       </section>
       
       <BreadcrumbNavigation />
       <ScrollToTop />
-    </div>
+    </Background>
   )
 }

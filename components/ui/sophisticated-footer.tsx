@@ -11,11 +11,17 @@ export default function SophisticatedFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-slate-50/80 backdrop-blur-xl">
-      {/* Sophisticated background pattern */}
+    <footer className="relative bg-primary/5 backdrop-blur-xl">
+      {/* SOPHISTICATED BACKGROUND TREATMENT */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
-        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(circle_at_2px_2px,rgba(15,23,42,0.8)_1px,transparent_0)] bg-[length:24px_24px]" />
+        {/* Primary gradient foundation */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-primary/5 to-primary/10" />
+        
+        {/* Elegant pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_2px_2px,rgba(15,23,42,1)_1px,transparent_0)] bg-[length:32px_32px]" />
+        
+        {/* Sophisticated top border */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
 
       <div className="relative">

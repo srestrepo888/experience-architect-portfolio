@@ -2,43 +2,43 @@
 // Ensures consistent sophisticated color flow across all pages
 
 export const BACKGROUND_DNA = {
-  // Core Color River Progression
+  // BRAND-COMPLIANT: Primary color system only
   colorRiver: {
     hero: {
-      primary: "245, 245, 244", // stone-50
-      secondary: "251, 191, 36", // amber-400
-      accent: "249, 115, 22",    // orange-500
-      temperature: "warm"
+      primary: "15, 23, 42",    // slate-900 - brand primary
+      secondary: "248, 250, 252", // slate-50
+      accent: "71, 85, 105",     // slate-600
+      temperature: "sophisticated"
     },
     about: {
-      primary: "251, 191, 36",   // amber-400  
-      secondary: "245, 245, 244", // stone-50
-      accent: "244, 63, 94",     // rose-500
-      temperature: "warm-neutral"
+      primary: "15, 23, 42",     // slate-900 - brand primary
+      secondary: "248, 250, 252", // slate-50
+      accent: "100, 116, 139",   // slate-500
+      temperature: "elegant"
     },
     projects: {
-      primary: "244, 63, 94",    // rose-500
-      secondary: "251, 191, 36", // amber-400
-      accent: "249, 115, 22",    // orange-500
-      temperature: "warm-vibrant"
+      primary: "15, 23, 42",     // slate-900 - brand primary
+      secondary: "226, 232, 240", // slate-200
+      accent: "71, 85, 105",     // slate-600
+      temperature: "professional"
     },
     experience: {
-      primary: "249, 115, 22",   // orange-500
-      secondary: "244, 63, 94",  // rose-500
-      accent: "34, 197, 94",     // emerald-500
-      temperature: "warm-energetic"
+      primary: "15, 23, 42",     // slate-900 - brand primary
+      secondary: "241, 245, 249", // slate-100
+      accent: "100, 116, 139",   // slate-500
+      temperature: "refined"
     },
     services: {
-      primary: "34, 197, 94",    // emerald-500
-      secondary: "249, 115, 22", // orange-500
-      accent: "168, 85, 247",    // purple-500
-      temperature: "balanced"
+      primary: "15, 23, 42",     // slate-900 - brand primary
+      secondary: "248, 250, 252", // slate-50
+      accent: "148, 163, 184",   // slate-400
+      temperature: "sophisticated"
     },
     contact: {
-      primary: "168, 85, 247",   // purple-500
-      secondary: "34, 197, 94",  // emerald-500
-      accent: "245, 245, 244",   // stone-50
-      temperature: "cool-sophisticated"
+      primary: "15, 23, 42",     // slate-900 - brand primary
+      secondary: "226, 232, 240", // slate-200
+      accent: "100, 116, 139",   // slate-500
+      temperature: "professional"
     }
   },
 

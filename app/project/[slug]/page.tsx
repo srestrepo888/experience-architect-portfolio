@@ -3,8 +3,8 @@
 import { notFound } from "next/navigation"
 import { getProjectBySlug, getAllProjects } from "@/lib/projects"
 import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
-import { LandorBackgroundSystem } from "@/components/ui/landor-background-system"
 import { LandorContainer, LandorSection, LandorGrid } from "@/components/ui/landor-layout-system"
+import { Background } from "@/components/ui/background"
 import { DisplayHero, HeadingLarge, BodyLarge, BodyStandard, Caption } from "@/components/landor-typography"
 import { motion } from "framer-motion"
 import { Calendar, Building2, Sparkles } from "lucide-react"
@@ -40,44 +40,32 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = allProjects[(currentIndex + 1) % allProjects.length]
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* ULTRA-LUXURIOUS ANIMATED BACKGROUND */}
-      <motion.div 
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        <LandorBackgroundSystem state="dramatic">
-          <div></div>
-        </LandorBackgroundSystem>
-        
-        {/* SOPHISTICATED LUXURY PARTICLES - CSS BASED */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-primary/15 rounded-full"
-              style={{
-                left: `${10 + (i * 12)}%`,
-                top: `${15 + (i * 8)}%`,
-              }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
-                scale: [0, 1, 0.8, 1],
-                opacity: [0, 0.6, 0.3, 0.6],
-                y: [-20, 20, -10, 15]
-              }}
-              transition={{ 
-                duration: 6 + (i * 0.5),
-                repeat: Infinity,
-                ease: [0.22, 1, 0.36, 1],
-                delay: i * 0.8
-              }}
-            />
-          ))}
-        </div>
-      </motion.div>
+    <Background className="min-h-screen">
+      {/* SOPHISTICATED FLOATING PARTICLES */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-primary/10 rounded-full"
+            style={{
+              left: `${15 + (i * 14)}%`,
+              top: `${20 + (i * 12)}%`,
+            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ 
+              scale: [0, 1, 0.7, 1],
+              opacity: [0, 0.4, 0.2, 0.4],
+              y: [-15, 15, -8, 12]
+            }}
+            transition={{ 
+              duration: 8 + (i * 0.7),
+              repeat: Infinity,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay: i * 1.2
+            }}
+          />
+        ))}
+      </div>
 
       <div className="relative z-10">
         {/* SOPHISTICATED FLOATING NAVIGATION */}
@@ -140,77 +128,101 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </motion.div>
 
-        {/* ULTRA-CONDENSED HERO - SINGLE SCREEN HEIGHT */}
-        <LandorSection spacing="compact">
+        {/* SCREEN 1: SOPHISTICATED HERO - PROPER VISUAL HIERARCHY */}
+        <LandorSection spacing="hero">
           <LandorContainer size="wide">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              style={{ marginTop: "100px" }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              style={{ marginTop: "120px" }}
             >
-              <LandorGrid cols={3} gap="lg">
+              <LandorGrid cols={2} gap="xl">
                 
-                {/* ULTRA-COMPACT CONTENT */}
+                {/* SOPHISTICATED CONTENT HIERARCHY */}
                 <motion.div
-                  initial={{ opacity: 0, x: -40 }}
+                  initial={{ opacity: 0, x: -60 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="col-span-2"
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="space-y-8"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                        <Building2 className="w-3 h-3 mr-1 text-primary" />
-                        <Caption className="text-primary font-medium text-xs">
+                  {/* PROJECT META WITH BREATHING ROOM */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    className="space-y-6"
+                  >
+                    <div className="flex items-center gap-6">
+                      <div className="flex items-center px-4 py-3 bg-white/25 backdrop-blur-xl rounded-full border border-white/40 shadow-lg">
+                        <Building2 className="w-4 h-4 mr-3 text-primary" />
+                        <Caption className="text-primary font-medium">
                           {project.client}
                         </Caption>
                       </div>
-                      <div className="flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                        <Calendar className="w-3 h-3 mr-1 text-primary" />
-                        <Caption className="text-primary font-medium text-xs">
+                      <div className="flex items-center px-4 py-3 bg-white/25 backdrop-blur-xl rounded-full border border-white/40 shadow-lg">
+                        <Calendar className="w-4 h-4 mr-3 text-primary" />
+                        <Caption className="text-primary font-medium">
                           {project.year}
                         </Caption>
                       </div>
                     </div>
                     
-                    <HeadingLarge className="mb-3 bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent">
+                    <DisplayHero className="bg-gradient-to-r from-primary via-primary/95 to-primary/90 bg-clip-text text-transparent leading-tight">
                       {project.title}
-                    </HeadingLarge>
+                    </DisplayHero>
                     
-                    <BodyLarge className="text-primary/80 leading-relaxed mb-4">
+                    <BodyLarge className="text-primary/85 leading-relaxed max-w-xl">
                       {project.subtitle}
                     </BodyLarge>
+                  </motion.div>
 
-                    {project.services && (
-                      <div className="flex flex-wrap gap-2">
+                  {/* SERVICES WITH ELEGANT SPACING */}
+                  {project.services && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.9 }}
+                      className="space-y-4"
+                    >
+                      <Caption className="text-primary/70 uppercase tracking-wider font-medium flex items-center">
+                        <span className="text-primary text-lg font-light mr-3">⚡</span>
+                        Expertise Applied
+                      </Caption>
+                      <div className="flex flex-wrap gap-3">
                         {project.services.map((service, idx) => (
-                          <span
+                          <motion.span
                             key={idx}
-                            className="px-3 py-1 bg-white/15 backdrop-blur-sm border border-white/30 rounded-lg text-xs font-medium text-primary"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4, delay: 1.0 + idx * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            className="px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/40 rounded-xl text-sm font-medium text-primary hover:bg-white/30 transition-all duration-300 shadow-sm"
                           >
                             {service}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
-                    )}
-                  </div>
+                    </motion.div>
+                  )}
                 </motion.div>
 
-                {/* COMPACT IMAGE */}
+                {/* HERO IMAGE WITH PROPER IMPACT */}
                 <motion.div
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
+                  initial={{ opacity: 0, x: 60, scale: 0.95 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  whileHover={{ scale: 1.02, rotateY: 1 }}
+                  className="relative"
                 >
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                  <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl">
                     <img
                       src={project.heroImage || project.thumbnailImage || "/placeholder.jpg"}
                       alt={project.title}
                       className="w-full h-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+                    
                   </div>
                 </motion.div>
               </LandorGrid>
@@ -218,165 +230,273 @@ export default async function ProjectPage({ params }: Props) {
           </LandorContainer>
         </LandorSection>
 
-        {/* ULTRA-COMPRESSED CONTENT GRID - SINGLE SCREEN HEIGHT */}
-        <LandorSection spacing="compact">
+        {/* SCREEN 2: SOPHISTICATED CONTENT JOURNEY - PROPER HIERARCHY */}
+        <LandorSection spacing="standard">
           <LandorContainer size="wide">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="space-y-16"
             >
-              {/* SINGLE ROW LAYOUT - Context, Approach, Impact, Testimonial */}
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                
-                {/* CONTEXT */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                >
-                  <div className="bg-white/70 backdrop-blur-xl border border-white/50 hover:bg-white/80 transition-all duration-500 rounded-2xl p-6 h-full">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-3 shadow-lg">
-                        <span className="text-white text-lg font-light">◎</span>
-                      </div>
-                      <HeadingLarge className="text-primary text-2xl">Context</HeadingLarge>
-                    </div>
-                    <p className="text-primary/80 text-sm leading-relaxed">
-                      {project.context ? project.context.split('\n\n')[0] : "Strategic design project addressing business challenges through user-centered thinking and comprehensive research."}
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* APPROACH */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                >
-                  <div className="bg-white/70 backdrop-blur-xl border border-white/50 hover:bg-white/80 transition-all duration-500 rounded-2xl p-6 h-full">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-3 shadow-lg">
-                        <span className="text-white text-lg font-light">◆</span>
-                      </div>
-                      <HeadingLarge className="text-primary text-2xl">Approach</HeadingLarge>
-                    </div>
-                    <p className="text-primary/80 text-sm leading-relaxed">
-                      {project.scope ? project.scope.split('\n\n')[0] : "Strategic research and iterative design processes delivering comprehensive solutions."}
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* IMPACT */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                >
-                  <div className="bg-white/70 backdrop-blur-xl border border-white/50 hover:bg-white/80 transition-all duration-500 rounded-2xl p-6 h-full">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-3 shadow-lg">
-                        <span className="text-white text-lg font-light">▲</span>
-                      </div>
-                      <HeadingLarge className="text-primary text-2xl">Impact</HeadingLarge>
-                    </div>
-                    <p className="text-primary/80 text-sm leading-relaxed">
-                      {project.impact ? project.impact.split('\n\n')[0] : "Strategic implementation resulted in significant improvements across key performance indicators."}
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* TESTIMONIAL */}
-                {project.testimonial && (
+              {/* ELEGANT PROJECT JOURNEY HEADER */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center"
+              >
+                <div className="flex items-center justify-center mb-6">
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    whileHover={{ y: -4, scale: 1.01 }}
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mr-4 shadow-lg"
                   >
-                    <div className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-xl border border-white/60 hover:from-white/90 hover:to-white/70 transition-all duration-500 rounded-2xl p-6 h-full">
-                      <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3 shadow-lg">
-                          <span className="text-white text-lg font-light">●</span>
+                    <span className="text-white text-xl font-light">◊</span>
+                  </motion.div>
+                  <DisplayHero className="text-primary">Project Journey</DisplayHero>
+                </div>
+                <BodyLarge className="text-primary/70 max-w-2xl mx-auto leading-relaxed">
+                  From strategic context through innovative approach to measurable impact
+                </BodyLarge>
+              </motion.div>
+
+              {/* THREE-COLUMN CONTENT WITH BREATHING ROOM */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                
+                {/* CONTEXT - FULL CONTENT */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group"
+                >
+                  <div className="bg-white/75 backdrop-blur-xl border border-white/60 hover:bg-white/85 transition-all duration-500 rounded-3xl p-8 h-full shadow-lg group-hover:shadow-xl">
+                    <div className="space-y-6">
+                      <div className="flex items-center mb-6">
+                        <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-all duration-500">
+                          <span className="text-white text-2xl font-light">◎</span>
                         </div>
-                        <HeadingLarge className="text-primary text-2xl">Client</HeadingLarge>
+                        <HeadingLarge className="text-primary">Context</HeadingLarge>
                       </div>
-                      <p className="text-primary/90 text-sm italic leading-relaxed mb-3">
-                        "{project.testimonial.quote.substring(0, 120)}..."
-                      </p>
-                      <div>
-                        <BodyStandard className="font-bold text-primary text-sm">
+                      
+                      <div className="space-y-4">
+                        {renderTextContent(project.context || "Strategic design project addressing business challenges through user-centered thinking and comprehensive research.\n\nFocused on creating meaningful experiences that deliver measurable business outcomes.")}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* APPROACH - FULL CONTENT */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group"
+                >
+                  <div className="bg-white/75 backdrop-blur-xl border border-white/60 hover:bg-white/85 transition-all duration-500 rounded-3xl p-8 h-full shadow-lg group-hover:shadow-xl">
+                    <div className="space-y-6">
+                      <div className="flex items-center mb-6">
+                        <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-all duration-500">
+                          <span className="text-white text-2xl font-light">◆</span>
+                        </div>
+                        <HeadingLarge className="text-primary">Approach</HeadingLarge>
+                      </div>
+                      
+                      <div className="space-y-4">
+                        {renderTextContent(project.scope || "Strategic research and iterative design processes delivering comprehensive solutions.\n\nBalancing user needs with business objectives while maintaining technical feasibility and scalability.")}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* IMPACT - FULL CONTENT */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group"
+                >
+                  <div className="bg-white/75 backdrop-blur-xl border border-white/60 hover:bg-white/85 transition-all duration-500 rounded-3xl p-8 h-full shadow-lg group-hover:shadow-xl">
+                    <div className="space-y-6">
+                      <div className="flex items-center mb-6">
+                        <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-all duration-500">
+                          <span className="text-white text-2xl font-light">▲</span>
+                        </div>
+                        <HeadingLarge className="text-primary">Impact</HeadingLarge>
+                      </div>
+                      
+                      <div className="space-y-4">
+                        {renderTextContent(project.impact || "Strategic implementation resulted in significant improvements across key performance indicators.\n\nEnhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrate design value.")}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* COMPACT CLIENT TESTIMONIAL */}
+              {project.testimonial && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="max-w-2xl mx-auto"
+                >
+                  <div className="bg-white/60 backdrop-blur-sm border border-white/40 rounded-2xl p-6">
+                    <div className="text-center space-y-4">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.5 }}
+                        className="flex items-center justify-center mb-3"
+                      >
+                        <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
+                          <span className="text-white text-sm font-light">●</span>
+                        </div>
+                        <Caption className="text-primary/70 uppercase tracking-wider font-medium text-xs">
+                          Client Testimonial
+                        </Caption>
+                      </motion.div>
+                      
+                      <BodyStandard className="italic text-primary/85 leading-relaxed">
+                        "{project.testimonial.quote}"
+                      </BodyStandard>
+                      
+                      <div className="pt-3 border-t border-primary/15">
+                        <Caption className="font-medium text-primary">
                           {project.testimonial.author}
-                        </BodyStandard>
-                        <Caption className="text-primary/70 text-xs">
+                        </Caption>
+                        <Caption className="text-primary/60 text-xs">
                           {project.testimonial.role}
                         </Caption>
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </div>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
           </LandorContainer>
         </LandorSection>
 
-        {/* ULTRA-COMPRESSED VISUAL GALLERY - SINGLE SCREEN HEIGHT */}
+        {/* SCREEN 3: SOPHISTICATED VISUAL GALLERY - ENHANCED PRESENTATION */}
         {project.galleryImages && project.galleryImages.length > 0 && (
-          <LandorSection spacing="compact">
+          <LandorSection spacing="standard">
             <LandorContainer size="wide">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
+                className="space-y-12"
               >
-                {/* COMPACT HEADER */}
-                <div className="flex items-center justify-center mb-8">
-                  <motion.div
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-4 shadow-lg"
-                  >
-                    <span className="text-white text-lg font-light">◊</span>
-                  </motion.div>
-                  <HeadingLarge className="text-primary">Visual Journey</HeadingLarge>
-                </div>
+                {/* ELEGANT GALLERY HEADER */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center"
+                >
+                  <div className="flex items-center justify-center mb-6">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.8 }}
+                      className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mr-4 shadow-xl"
+                    >
+                      <span className="text-white text-2xl font-light">◊</span>
+                    </motion.div>
+                    <DisplayHero className="text-primary">Visual Journey</DisplayHero>
+                  </div>
+                  <BodyLarge className="text-primary/70 max-w-3xl mx-auto leading-relaxed">
+                    Experience the project's evolution through carefully curated visual storytelling
+                  </BodyLarge>
+                </motion.div>
                 
-                {/* HORIZONTAL GALLERY STRIP */}
-                <div className="grid grid-cols-3 gap-4">
-                  {project.galleryImages.slice(0, 3).map((image, idx) => (
+                {/* SOPHISTICATED GALLERY LAYOUT */}
+                <div className="space-y-8">
+                  {project.galleryImages.map((image, idx) => (
                     <motion.div
                       key={idx}
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 60 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: idx * 0.1 }}
-                      whileHover={{ scale: 1.02, y: -4 }}
-                      className="group cursor-pointer"
+                      transition={{ duration: 0.8, delay: idx * 0.2 }}
+                      className="group"
                     >
-                      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className={`grid grid-cols-1 lg:grid-cols-${idx % 2 === 0 ? '3' : '3'} gap-8 items-center`}>
                         
-                        {/* COMPACT BADGE */}
-                        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="w-8 h-8 bg-white/90 backdrop-blur-xl rounded-lg flex items-center justify-center shadow-lg">
-                            <span className="text-primary text-sm font-light">{idx + 1}</span>
+                        {/* LARGE FORMAT IMAGE */}
+                        <motion.div
+                          initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40, scale: 0.95 }}
+                          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                          transition={{ duration: 0.8, delay: 0.2 }}
+                          whileHover={{ scale: 1.02, y: -8 }}
+                          className={`${idx % 2 === 0 ? 'lg:col-span-2 lg:order-1' : 'lg:col-span-2 lg:order-2'} relative group cursor-pointer`}
+                        >
+                          <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-50/50 to-gray-100/50">
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                            />
+                            
+                            {/* SOPHISTICATED OVERLAY */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            
+                            {/* ELEGANT PROJECT INDICATOR */}
+                            <motion.div
+                              className="absolute top-6 right-6 opacity-0 group-hover:opacity-100"
+                              initial={{ scale: 0, rotate: -90 }}
+                              whileHover={{ scale: 1.1, rotate: 0 }}
+                              transition={{ duration: 0.4 }}
+                            >
+                              <div className="w-16 h-16 bg-white/95 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl border border-white/60">
+                                <span className="text-primary text-xl font-light">◎</span>
+                              </div>
+                            </motion.div>
                           </div>
-                        </div>
+                        </motion.div>
+
+                        {/* SOPHISTICATED DESCRIPTION */}
+                        <motion.div
+                          initial={{ opacity: 0, x: idx % 2 === 0 ? 40 : -40 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.8, delay: 0.4 }}
+                          className={`${idx % 2 === 0 ? 'lg:col-span-1 lg:order-2' : 'lg:col-span-1 lg:order-1'} space-y-6`}
+                        >
+                          <div className="space-y-4">
+                            <div className="flex items-center">
+                              <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                                <span className="text-white font-light text-lg">
+                                  {(idx + 1).toString().padStart(2, '0')}
+                                </span>
+                              </div>
+                              <div>
+                                <Caption className="text-primary/60 uppercase tracking-wider font-medium text-xs">
+                                  Visual Insight
+                                </Caption>
+                                <HeadingLarge className="text-primary text-xl">
+                                  Discovery {idx + 1}
+                                </HeadingLarge>
+                              </div>
+                            </div>
+                            
+                            <BodyLarge className="text-primary/80 leading-relaxed">
+                              {image.alt}
+                            </BodyLarge>
+                          </div>
+                        </motion.div>
                       </div>
-                      
-                      {/* COMPACT DESCRIPTION */}
-                      <div className="mt-3">
-                        <p className="text-primary/80 text-xs leading-relaxed line-clamp-2">
-                          {image.alt}
-                        </p>
-                      </div>
+
+                      {/* ELEGANT SEPARATOR */}
+                      {idx < project.galleryImages.length - 1 && (
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          transition={{ duration: 1, delay: 0.6 }}
+                          className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mt-12"
+                        />
+                      )}
                     </motion.div>
                   ))}
                 </div>
@@ -385,7 +505,7 @@ export default async function ProjectPage({ params }: Props) {
           </LandorSection>
         )}
 
-        {/* ULTRA-COMPRESSED NEXT PROJECT & NAVIGATION */}
+        {/* DISTINCTIVE NEXT PROJECT SECTION */}
         <LandorSection spacing="compact">
           <LandorContainer size="wide">
             <motion.div
@@ -393,67 +513,96 @@ export default async function ProjectPage({ params }: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* COMBINED NEXT PROJECT + NAVIGATION */}
-              <div className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-xl border border-white/50 rounded-2xl p-6">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px_auto] gap-6 items-center">
+              {/* ELEGANT SECTION SEPARATOR */}
+              <div className="relative mb-12">
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 bg-primary w-3 h-3 rounded-full" />
+              </div>
+              
+              {/* SOPHISTICATED NEXT PROJECT SHOWCASE */}
+              <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent backdrop-blur-xl border border-primary/20 rounded-3xl p-8 shadow-xl">
+                <motion.div
+                  className="text-center mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mr-3 shadow-lg">
+                      <span className="text-white text-lg font-light">◊</span>
+                    </div>
+                    <HeadingLarge className="text-primary">Continue Journey</HeadingLarge>
+                  </div>
+                  <BodyStandard className="text-primary/70 max-w-2xl mx-auto">
+                    Continue exploring exceptional strategic consulting work
+                  </BodyStandard>
+                </motion.div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-8 items-center">
                   
-                  {/* NEXT PROJECT INFO */}
-                  <div className="flex items-center">
-                    <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg mr-4 flex-shrink-0">
+                  {/* NEXT PROJECT PREVIEW */}
+                  <motion.div 
+                    className="flex items-center lg:justify-start justify-center"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl mr-6 flex-shrink-0 border-2 border-primary/20">
                       <img
                         src={nextProject.thumbnailImage || "/placeholder.jpg"}
                         alt={nextProject.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div>
-                      <Caption className="text-primary/60 uppercase tracking-wider text-xs mb-1">
+                    <div className="text-left">
+                      <Caption className="text-primary/60 uppercase tracking-wider text-xs mb-2 flex items-center">
+                        <span className="text-primary text-sm mr-2">→</span>
                         Next Project
                       </Caption>
-                      <HeadingLarge className="text-primary text-xl mb-1">
+                      <HeadingLarge className="text-primary text-xl mb-1 leading-tight">
                         {nextProject.title}
                       </HeadingLarge>
-                      <BodyStandard className="text-primary/70 text-sm line-clamp-1">
-                        {nextProject.subtitle}
+                      <BodyStandard className="text-primary/70 text-sm">
+                        Experience next project
                       </BodyStandard>
                     </div>
-                  </div>
-
-                  {/* NEXT PROJECT BUTTON */}
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <BulletproofNavigationButton
-                      href={`/project/${nextProject.slug}`}
-                      variant="primary"
-                      size="md"
-                      icon="right"
-                      className="bg-primary hover:bg-primary/90 text-white shadow-lg px-6 py-3 w-full"
-                    >
-                      Next Project
-                    </BulletproofNavigationButton>
                   </motion.div>
 
-                  {/* NAVIGATION ACTIONS */}
-                  <div className="flex items-center gap-3">
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  {/* CENTRAL ACTION */}
+                  <div className="text-center">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <BulletproofNavigationButton
+                        href={`/project/${nextProject.slug}`}
+                        variant="primary"
+                        size="lg"
+                        icon="right"
+                        className="bg-primary hover:bg-primary/90 text-white shadow-xl px-8 py-4 text-lg font-medium"
+                      >
+                        Explore Next
+                      </BulletproofNavigationButton>
+                    </motion.div>
+                  </div>
+
+                  {/* NAVIGATION CLUSTER */}
+                  <div className="flex items-center gap-3 lg:justify-end justify-center">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <BulletproofNavigationButton
                         href="/#projects"
                         variant="outline"
-                        size="sm"
-                        className="bg-white/20 border-white/40 text-primary hover:bg-white/30 px-4 py-2 text-sm"
+                        size="md"
+                        className="bg-white/40 border-primary/30 text-primary hover:bg-white/60 px-6 py-3"
                       >
                         All Projects
                       </BulletproofNavigationButton>
                     </motion.div>
                     
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <BulletproofNavigationButton
                         href="/#contact"
-                        variant="primary"
-                        size="sm"
-                        className="bg-primary hover:bg-primary/90 text-white shadow-lg px-4 py-2 text-sm"
+                        variant="outline"
+                        size="md"
+                        className="bg-primary/10 border-primary/40 text-primary hover:bg-primary/20 px-6 py-3"
                       >
                         Contact
                       </BulletproofNavigationButton>
@@ -465,6 +614,6 @@ export default async function ProjectPage({ params }: Props) {
           </LandorContainer>
         </LandorSection>
       </div>
-    </div>
+    </Background>
   )
 }

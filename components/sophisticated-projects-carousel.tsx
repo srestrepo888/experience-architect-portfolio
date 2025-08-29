@@ -21,7 +21,7 @@ export default function SophisticatedProjectsCarousel() {
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % projects.length)
-    }, 6000)
+    }, 8000)
     
     return () => clearInterval(interval)
   }, [isAutoPlaying, projects.length])
@@ -64,44 +64,49 @@ export default function SophisticatedProjectsCarousel() {
             initial={{ opacity: 0, x: 300 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -300 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="grid lg:grid-cols-[1fr_420px] gap-0 min-h-[600px]"
           >
             
-            {/* Project Image */}
-            <div className="relative group overflow-hidden bg-gradient-to-br from-muted/10 to-muted/20">
+            {/* SOPHISTICATED PROJECT IMAGE - NO CONTAINERS */}
+            <div className="relative group overflow-hidden rounded-3xl shadow-2xl">
               <img
                 src={currentProject.thumbnailImage || "/placeholder.jpg"}
                 alt={currentProject.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter group-hover:saturate-110 group-hover:contrast-105"
                 style={{ minHeight: "600px" }}
               />
               
-              {/* Image Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/40" />
+              {/* Sophisticated Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-primary/10 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
               
-              {/* Project Navigation Overlay */}
-              <div className="absolute inset-0 flex items-center justify-between p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* Elegant Navigation */}
+              <div className="absolute inset-0 flex items-center justify-between p-8 opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <button
                   onClick={goToPrevious}
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-200"
-                  style={{ backdropFilter: "blur(8px)" }}
+                  className="w-14 h-14 bg-white/95 backdrop-blur-xl border border-white/40 rounded-2xl flex items-center justify-center text-primary hover:bg-white hover:scale-110 transition-all duration-300 shadow-2xl"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 
                 <button
                   onClick={goToNext}
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors duration-200"
-                  style={{ backdropFilter: "blur(8px)" }}
+                  className="w-14 h-14 bg-white/95 backdrop-blur-xl border border-white/40 rounded-2xl flex items-center justify-center text-primary hover:bg-white hover:scale-110 transition-all duration-300 shadow-2xl"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
               </div>
+
+              {/* Floating Project Badge */}
+              <div className="absolute top-8 left-8 bg-white/95 backdrop-blur-xl rounded-2xl px-6 py-3 shadow-xl border border-white/40">
+                <span className="text-primary font-serif font-medium text-sm tracking-wider">
+                  Featured Project
+                </span>
+              </div>
             </div>
 
-            {/* Project Information */}
-            <div className="bg-white p-12 flex flex-col justify-center" style={{ background: "hsl(240 5% 98%)" }}>
+            {/* SOPHISTICATED PROJECT INFORMATION - SEAMLESS */}
+            <div className="bg-white/80 backdrop-blur-xl p-12 flex flex-col justify-center rounded-3xl shadow-xl border border-white/60">
               
               {/* Project Meta */}
               <div className="mb-8">

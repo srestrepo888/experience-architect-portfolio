@@ -49,7 +49,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Silvana Portfolio" />
       </head>
-      <body className={`${serif.variable} ${sans.variable} font-sans antialiased bg-background text-foreground safe-y`}>
+      <body className={`${serif.variable} ${sans.variable} font-sans antialiased text-foreground safe-y`}>
         <ScrollProgress />
         {children}
         {process.env.NODE_ENV === "development" && <NavigationAudit />}

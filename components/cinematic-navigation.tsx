@@ -177,14 +177,14 @@ export default function CinematicNavigation() {
                 ))}
               </div>
 
-              {/* CTA Button with Luxury Styling */}
+              {/* CTA Button with Luxury Styling - MAXIMUM VISIBILITY */}
               <div className="hidden lg:block">
                 <EnhancedButton
                   href="#footer"
                   variant="primary"
                   size="md"
                   icon="arrow"
-                  className="bg-slate-900 text-white hover:bg-slate-800 shadow-[0_8px_32px_rgba(15,23,42,0.15)] hover:shadow-[0_12px_40px_rgba(15,23,42,0.25)]"
+                  className="bg-primary text-white hover:bg-primary/90 shadow-[0_12px_48px_rgba(15,23,42,0.25)] hover:shadow-[0_20px_60px_rgba(15,23,42,0.4)] border-2 border-white/10 hover:border-white/20 relative z-50"
                 >
                   {CONTENT_CONFIG.NAVIGATION.CTA.TEXT}
                 </EnhancedButton>
