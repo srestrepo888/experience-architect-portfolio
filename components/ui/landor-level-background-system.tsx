@@ -250,7 +250,7 @@ export function LandorLevelBackgroundSystem({
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{
-          background: `radial-gradient(ellipse at center, #FEC260 03 0%, transparent 60%)`
+          background: `radial-gradient(ellipse at center, #FEC26003 0%, transparent 60%)`
         }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       />

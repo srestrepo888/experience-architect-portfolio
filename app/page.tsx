@@ -30,7 +30,7 @@ export default function HomePage() {
       <main className="relative">
         {/* HERO: Landor-Level Professional Experience Architect Background */}
         <section id="hero" className="relative">
-          {/* <LandorHeroBackground /> */}
+          <LandorHeroBackground />
           <CinematicHero />
         </section>
 
