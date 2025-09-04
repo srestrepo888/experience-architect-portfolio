@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { getAllProjects } from "@/lib/projects"
-import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
+// Using standard button instead of bulletproof navigation button
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 
 export default function SophisticatedProjectsCarousel() {
@@ -127,6 +127,11 @@ export default function SophisticatedProjectsCarousel() {
                 <p className="text-muted-foreground leading-relaxed text-base font-light mb-6">
                   {currentProject.subtitle}
                 </p>
+                
+                {/* Project Description */}
+                <p className="text-sm leading-relaxed mb-6" style={{ color: '#BFAEA2' }}>
+                  {currentProject.description || "A comprehensive case study showcasing innovative design solutions and strategic implementation."}
+                </p>
               </div>
 
               {/* Services */}
@@ -147,26 +152,21 @@ export default function SophisticatedProjectsCarousel() {
 
               {/* Actions */}
               <div className="flex flex-col gap-3">
-                <BulletproofNavigationButton
-                  href={`/project/${currentProject.slug}`}
-                  variant="primary"
-                  size="md"
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
+                <button
+                  onClick={() => router.push(`/project/${currentProject.slug}`)}
+                  className="w-full px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#FF4DA6] text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   View Case Study
-                </BulletproofNavigationButton>
+                </button>
                 
                 {currentProject.webpage && (
-                  <BulletproofNavigationButton
-                    href={currentProject.webpage}
-                    external={true}
-                    variant="outline"
-                    size="md"
-                    icon="external"
-                    className="w-full border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5"
+                  <button
+                    onClick={() => window.open(currentProject.webpage, '_blank')}
+                    className="w-full px-6 py-3 border-2 border-[#FF6B6B] text-[#FF6B6B] font-medium rounded-xl hover:bg-[#FF6B6B] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Visit Live Site
-                  </BulletproofNavigationButton>
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
                 )}
               </div>
             </div>

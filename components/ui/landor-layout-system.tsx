@@ -3,7 +3,17 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { LANDOR_SPACING, LANDOR_TYPOGRAPHY } from "@/lib/landor-design-system"
+import { 
+  LANDOR_CONTAINER_SIZES, 
+  LANDOR_SPACING, 
+  LANDOR_GRID,
+  getContainerSize,
+  getSpacing,
+  getGrid,
+  SPACING_SCALE,
+  BORDER_RADIUS_SCALE,
+  SHADOW_SCALE
+} from "@/lib/layout-utils"
 
 // 🏛️ LANDOR LAYOUT SYSTEM - 12 Core Components Maximum
 // Mathematical precision with 8px grid system
@@ -11,7 +21,7 @@ import { LANDOR_SPACING, LANDOR_TYPOGRAPHY } from "@/lib/landor-design-system"
 // 1. LANDOR CONTAINER - Mathematical Width Progression
 interface LandorContainerProps {
   children: React.ReactNode
-  size?: "content" | "standard" | "wide" | "full"
+  size?: "narrow" | "standard" | "wide" | "full"
   className?: string
 }
 
@@ -21,10 +31,10 @@ export function LandorContainer({
   className
 }: LandorContainerProps) {
   const sizeClasses = {
-    content: "max-w-[65ch]",      // Optimal reading
-    standard: "max-w-[1200px]",  // Primary content  
-    wide: "max-w-[1440px]",      // Wide layouts
-    full: "max-w-[1728px]"       // Ultra-wide
+    narrow: LANDOR_CONTAINER_SIZES.narrow,
+    standard: LANDOR_CONTAINER_SIZES.standard,
+    wide: LANDOR_CONTAINER_SIZES.wide,
+    full: LANDOR_CONTAINER_SIZES.full
   }
 
   return (
@@ -53,17 +63,16 @@ export function LandorSection({
   className,
   animate = true
 }: LandorSectionProps) {
-  const spacingStyles = {
-    compact: { padding: "24px 0" },      // 24px - Ultra-efficient
-    standard: { padding: "32px 0" },     // 32px - Minimal
-    spacious: { padding: "48px 0" },     // 48px - Standard
-    hero: { padding: "80px 0 32px 0" }   // 80px/32px - Heroic
+  const spacingClasses = {
+    compact: LANDOR_SPACING.compact,
+    standard: LANDOR_SPACING.standard,
+    spacious: LANDOR_SPACING.spacious,
+    hero: LANDOR_SPACING.generous
   }
 
   const content = (
     <div 
-      className={className}
-      style={spacingStyles[spacing]}
+      className={cn(spacingClasses[spacing], className)}
     >
       {children}
     </div>

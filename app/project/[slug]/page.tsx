@@ -2,7 +2,7 @@
 
 import { notFound } from "next/navigation"
 import { getProjectBySlug, getAllProjects } from "@/lib/projects"
-import { BulletproofNavigationButton } from "@/components/ui/bulletproof-navigation-button"
+// Using standard button instead of bulletproof navigation button
 import { LandorContainer, LandorSection, LandorGrid } from "@/components/ui/landor-layout-system"
 import { Background } from "@/components/ui/background"
 import { DisplayHero, HeadingLarge, BodyLarge, BodyStandard, Caption } from "@/components/landor-typography"
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: Props) {
                 whileHover={{ scale: 1.05, x: -4 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <BulletproofNavigationButton 
+                <button 
                   href="/#projects" 
                   variant="primary" 
                   size="lg" 
@@ -89,21 +89,21 @@ export default async function ProjectPage({ params }: Props) {
                   className="bg-white/95 backdrop-blur-2xl text-primary hover:bg-white shadow-2xl border border-white/40 px-6 py-4 relative before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-white/10 before:to-transparent before:pointer-events-none"
                 >
                   Back to Projects
-                </BulletproofNavigationButton>
+                </button>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <BulletproofNavigationButton 
+                <button 
                   href="/" 
                   variant="outline" 
                   size="md"
                   className="bg-white/90 backdrop-blur-2xl border border-white/60 text-primary hover:bg-white/95 shadow-xl relative before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none"
                 >
                   Home
-                </BulletproofNavigationButton>
+                </button>
               </motion.div>
             </div>
             
@@ -112,7 +112,7 @@ export default async function ProjectPage({ params }: Props) {
                 whileHover={{ scale: 1.05, x: 4 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <BulletproofNavigationButton
+                <button
                   href={project.webpage}
                   external={true}
                   variant="primary"
@@ -122,7 +122,7 @@ export default async function ProjectPage({ params }: Props) {
                 >
                   <Sparkles className="w-4 h-4 mr-2" />
                   Experience Live
-                </BulletproofNavigationButton>
+                </button>
               </motion.div>
             )}
           </div>
@@ -140,16 +140,16 @@ export default async function ProjectPage({ params }: Props) {
               <LandorGrid cols={2} gap="xl">
                 
                 {/* SOPHISTICATED CONTENT HIERARCHY */}
-                <motion.div
+                    <motion.div 
                   initial={{ opacity: 0, x: -60 }}
-                  animate={{ opacity: 1, x: 0 }}
+                      animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                   className="space-y-8"
-                >
+                    >
                   {/* PROJECT META WITH BREATHING ROOM */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                     className="space-y-6"
                   >
@@ -169,19 +169,19 @@ export default async function ProjectPage({ params }: Props) {
                     </div>
                     
                     <DisplayHero className="bg-gradient-to-r from-primary via-primary/95 to-primary/90 bg-clip-text text-transparent leading-tight">
-                      {project.title}
+                              {project.title}
                     </DisplayHero>
                     
                     <BodyLarge className="text-primary/85 leading-relaxed max-w-xl">
                       {project.subtitle}
                     </BodyLarge>
-                  </motion.div>
+                          </motion.div>
 
                   {/* SERVICES WITH ELEGANT SPACING */}
                   {project.services && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.9 }}
                       className="space-y-4"
                     >
@@ -205,7 +205,7 @@ export default async function ProjectPage({ params }: Props) {
                       </div>
                     </motion.div>
                   )}
-                </motion.div>
+                          </motion.div>
 
                 {/* HERO IMAGE WITH PROPER IMPACT */}
                 <motion.div
@@ -233,8 +233,8 @@ export default async function ProjectPage({ params }: Props) {
         {/* SCREEN 2: SOPHISTICATED CONTENT JOURNEY - PROPER HIERARCHY */}
         <LandorSection spacing="standard">
           <LandorContainer size="wide">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="space-y-16"
@@ -277,20 +277,20 @@ export default async function ProjectPage({ params }: Props) {
                       <div className="flex items-center mb-6">
                         <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-all duration-500">
                           <span className="text-white text-2xl font-light">◎</span>
-                        </div>
+                                  </div>
                         <HeadingLarge className="text-primary">Context</HeadingLarge>
-                      </div>
+                                </div>
                       
                       <div className="space-y-4">
                         {renderTextContent(project.context || "Strategic design project addressing business challenges through user-centered thinking and comprehensive research.\n\nFocused on creating meaningful experiences that deliver measurable business outcomes.")}
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
+                                  </div>
+                                </div>
+                        </motion.div>
 
                 {/* APPROACH - FULL CONTENT */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   whileHover={{ y: -6, scale: 1.02 }}
@@ -310,10 +310,10 @@ export default async function ProjectPage({ params }: Props) {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                    </motion.div>
 
                 {/* IMPACT - FULL CONTENT */}
-                <motion.div
+                    <motion.div 
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -332,9 +332,9 @@ export default async function ProjectPage({ params }: Props) {
                       <div className="space-y-4">
                         {renderTextContent(project.impact || "Strategic implementation resulted in significant improvements across key performance indicators.\n\nEnhanced conversion rates, improved customer satisfaction, and measurable ROI demonstrate design value.")}
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
+                        </div>
+                      </div>
+                    </motion.div>
               </div>
 
               {/* COMPACT CLIENT TESTIMONIAL */}
@@ -415,11 +415,11 @@ export default async function ProjectPage({ params }: Props) {
                 
                 {/* SOPHISTICATED GALLERY LAYOUT */}
                 <div className="space-y-8">
-                  {project.galleryImages.map((image, idx) => (
-                    <motion.div
-                      key={idx}
+                      {project.galleryImages.map((image, idx) => (
+                        <motion.div
+                          key={idx}
                       initial={{ opacity: 0, y: 60 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: idx * 0.2 }}
                       className="group"
                     >
@@ -434,9 +434,9 @@ export default async function ProjectPage({ params }: Props) {
                           className={`${idx % 2 === 0 ? 'lg:col-span-2 lg:order-1' : 'lg:col-span-2 lg:order-2'} relative group cursor-pointer`}
                         >
                           <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-50/50 to-gray-100/50">
-                            <img
-                              src={image.src}
-                              alt={image.alt}
+                              <img
+                                src={image.src}
+                                alt={image.alt}
                               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                             />
                             
@@ -478,7 +478,7 @@ export default async function ProjectPage({ params }: Props) {
                                 <HeadingLarge className="text-primary text-xl">
                                   Discovery {idx + 1}
                                 </HeadingLarge>
-                              </div>
+                                </div>
                             </div>
                             
                             <BodyLarge className="text-primary/80 leading-relaxed">
@@ -497,8 +497,8 @@ export default async function ProjectPage({ params }: Props) {
                           className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mt-12"
                         />
                       )}
-                    </motion.div>
-                  ))}
+                        </motion.div>
+                      ))}
                 </div>
               </motion.div>
             </LandorContainer>
@@ -532,7 +532,7 @@ export default async function ProjectPage({ params }: Props) {
                       <span className="text-white text-lg font-light">◊</span>
                     </div>
                     <HeadingLarge className="text-primary">Continue Journey</HeadingLarge>
-                  </div>
+                        </div>
                   <BodyStandard className="text-primary/70 max-w-2xl mx-auto">
                     Continue exploring exceptional strategic consulting work
                   </BodyStandard>
@@ -571,41 +571,41 @@ export default async function ProjectPage({ params }: Props) {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                    >
-                      <BulletproofNavigationButton
+                  >
+                    <button 
                         href={`/project/${nextProject.slug}`}
-                        variant="primary"
-                        size="lg"
+                      variant="primary" 
+                      size="lg"
                         icon="right"
                         className="bg-primary hover:bg-primary/90 text-white shadow-xl px-8 py-4 text-lg font-medium"
                       >
                         Explore Next
-                      </BulletproofNavigationButton>
+                      </button>
                     </motion.div>
                   </div>
 
                   {/* NAVIGATION CLUSTER */}
                   <div className="flex items-center gap-3 lg:justify-end justify-center">
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <BulletproofNavigationButton
+                      <button
                         href="/#projects"
                         variant="outline"
                         size="md"
                         className="bg-white/40 border-primary/30 text-primary hover:bg-white/60 px-6 py-3"
                       >
                         All Projects
-                      </BulletproofNavigationButton>
-                    </motion.div>
+                    </button>
+                  </motion.div>
                     
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <BulletproofNavigationButton
+                      <button
                         href="/#contact"
                         variant="outline"
                         size="md"
                         className="bg-primary/10 border-primary/40 text-primary hover:bg-primary/20 px-6 py-3"
                       >
                         Contact
-                      </BulletproofNavigationButton>
+                      </button>
                     </motion.div>
                   </div>
                 </div>
@@ -613,7 +613,7 @@ export default async function ProjectPage({ params }: Props) {
             </motion.div>
           </LandorContainer>
         </LandorSection>
-      </div>
+    </div>
     </Background>
   )
 }

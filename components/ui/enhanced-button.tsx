@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 import { ButtonText } from "@/components/typography"
 import { ArrowRight, ExternalLink, Download, ChevronRight, Loader2 } from "lucide-react"
 import { ElevatedButton, type ElevatedButtonProps } from "./elevated-button-system"
+import { COLOR_COMBINATIONS } from "@/lib/color-utils"
 
 // SOPHISTICATED BUTTON SYSTEM - WORLD-CLASS LUXURY IMPLEMENTATION
 // Inspired by luxury brands: Hermès, Cartier, Rolex, Chanel
@@ -16,8 +17,8 @@ const enhancedButtonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary - Sophisticated dark with luxury hover effects
-        primary: "bg-slate-900 text-white hover:bg-slate-800 hover:shadow-[0_20px_40px_rgba(15,23,42,0.3)] hover:-translate-y-1 border border-slate-900",
+        // Primary - Professional color system
+        primary: "text-white hover:shadow-[0_20px_40px_rgba(60,60,60,0.3)] hover:-translate-y-1 border-2 border-white/10 hover:border-white/20 relative z-10",
         
         // Secondary - Elegant outline with sophisticated interactions
         secondary: "border border-slate-900 text-slate-900 bg-transparent hover:bg-slate-900 hover:text-white hover:shadow-[0_20px_40px_rgba(15,23,42,0.2)] hover:-translate-y-1",
@@ -166,6 +167,10 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
       <motion.button
         ref={ref}
         className={cn(enhancedButtonVariants({ variant, size, width }), className)}
+        style={variant === 'primary' ? {
+          background: `linear-gradient(135deg, ${COLOR_COMBINATIONS.accents.primary} 0%, ${COLOR_COMBINATIONS.accents.secondary} 100%)`,
+          color: COLOR_COMBINATIONS.text.inverse
+        } : {}}
         disabled={isDisabled}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}

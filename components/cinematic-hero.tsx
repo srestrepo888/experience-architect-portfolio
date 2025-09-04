@@ -181,93 +181,37 @@ export default function CinematicHero() {
         }}
       />
 
-      {/* Main content with silk-like emergence */}
+      {/* Clean, professional hero content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        
-        {/* EXPERIENCE - organic emergence */}
         <motion.div
-          variants={textVariants}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="mb-8"
         >
-          <motion.h1 
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-[-0.02em]"
-            style={{
-              background: `linear-gradient(135deg, 
-                hsl(var(--foreground) / 0.96) 0%, 
-                hsl(var(--foreground) / 0.90) 30%,
-                hsl(var(--foreground) / 0.94) 70%, 
-                hsl(var(--foreground) / 0.88) 100%
-              )`,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              textShadow: '0 2px 8px rgba(32, 30, 26, 0.06)'
-            }}
-          >
-            <motion.span
-              className="inline-block"
-              animate={{
-                textShadow: [
-                  "0 0 0px hsl(var(--foreground) / 0)",
-                  "0 2px 8px hsl(var(--foreground) / 0.1)",
-                  "0 0 0px hsl(var(--foreground) / 0)"
-                ]
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              {CONTENT_CONFIG.HERO.MAIN_TITLE}
-            </motion.span>
-          </motion.h1>
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[0.9] tracking-[-0.02em]" style={{ color: '#3C3C3C' }}>
+            {CONTENT_CONFIG.HERO.MAIN_TITLE}
+          </h1>
         </motion.div>
         
-        {/* ARCHITECT - flowing subtitle */}
         <motion.div
-          initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.8, delay: 1.2, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           className="mb-12"
         >
-          <motion.h2 
-            className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-[0.1em] uppercase"
-            style={{
-              background: `linear-gradient(120deg, 
-                hsl(var(--foreground) / 0.88) 0%, 
-                hsl(var(--foreground) / 0.75) 30%,
-                hsl(var(--foreground) / 0.82) 70%, 
-                hsl(var(--foreground) / 0.85) 100%
-              )`,
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              textShadow: '0 1px 4px rgba(32, 30, 26, 0.04)'
-            }}
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
+          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-[0.1em] uppercase" style={{ color: '#BFAEA2' }}>
             {CONTENT_CONFIG.HERO.SUBTITLE}
-          </motion.h2>
+          </h2>
         </motion.div>
 
-        {/* Elegant tagline with silk emergence */}
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.5, delay: 2.5, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
           className="mb-16"
         >
-          <p className="text-sm sm:text-base md:text-lg font-light text-sophisticated/60 tracking-[0.08em] uppercase max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg font-light tracking-[0.08em] uppercase max-w-2xl mx-auto leading-relaxed" style={{ color: '#BFAEA2' }}>
             {CONTENT_CONFIG.HERO.TAGLINE}
           </p>
         </motion.div>

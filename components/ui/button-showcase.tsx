@@ -3,7 +3,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { ElevatedButton, ElevatedButtonGroup } from "./elevated-button-system"
-import { LuxuryContainer, LuxurySection, PerfectGrid, ComponentSpacing, LuxuryCard, SectionHeader } from "./enhanced-layout-system"
+import { LandorContainer, LandorSection } from "./landor-layout-system"
 import { HeadingMedium, BodyMedium, Caption, Overline } from "@/components/typography"
 import { ANIMATIONS } from "@/lib/design-constants"
 
@@ -54,9 +54,9 @@ export function ButtonShowcase() {
   ]
 
   return (
-    <LuxurySection spacing="spacious">
-      <LuxuryContainer variant="wide">
-        <SectionHeader
+    <LandorSection spacing="spacious">
+      <LandorContainer variant="wide">
+        <div
           number="01"
           title="Elevated Button System"
           subtitle="Sophistication Showcase"
@@ -64,7 +64,7 @@ export function ButtonShowcase() {
           align="center"
         />
 
-        <ComponentSpacing relationship="major-division">
+        <div relationship="major-division">
           {/* Variant Showcase */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,8 +72,8 @@ export function ButtonShowcase() {
             transition={{ duration: 0.6, ease: ANIMATIONS.easing.luxury }}
             viewport={{ once: true }}
           >
-            <LuxuryCard padding="spacious" elevation="minimal">
-              <ComponentSpacing relationship="grouped">
+            <div padding="spacious" elevation="minimal">
+              <div relationship="grouped">
                 <div className="text-center mb-12">
                   <Overline className="text-muted-foreground/80 tracking-wider mb-2">
                     BUTTON VARIANTS
@@ -81,7 +81,7 @@ export function ButtonShowcase() {
                   <HeadingMedium>Luxury Design System</HeadingMedium>
                 </div>
 
-                <PerfectGrid variant="three-column" gap="luxury" className="items-start">
+                <div variant="three-column" gap="luxury" className="items-start">
                   {buttonVariants.map((button, index) => (
                     <motion.div
                       key={button.variant}
@@ -120,9 +120,9 @@ export function ButtonShowcase() {
                       </div>
                     </motion.div>
                   ))}
-                </PerfectGrid>
-              </ComponentSpacing>
-            </LuxuryCard>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Size Showcase */}
@@ -132,8 +132,8 @@ export function ButtonShowcase() {
             transition={{ duration: 0.6, delay: 0.2, ease: ANIMATIONS.easing.luxury }}
             viewport={{ once: true }}
           >
-            <LuxuryCard padding="spacious" elevation="minimal">
-              <ComponentSpacing relationship="grouped">
+            <div padding="spacious" elevation="minimal">
+              <div relationship="grouped">
                 <div className="text-center mb-12">
                   <Overline className="text-muted-foreground/80 tracking-wider mb-2">
                     SIZE SYSTEM
@@ -169,8 +169,8 @@ export function ButtonShowcase() {
                     </motion.div>
                   ))}
                 </div>
-              </ComponentSpacing>
-            </LuxuryCard>
+              </div>
+            </div>
           </motion.div>
 
           {/* Interactive Features */}
@@ -180,8 +180,8 @@ export function ButtonShowcase() {
             transition={{ duration: 0.6, delay: 0.4, ease: ANIMATIONS.easing.luxury }}
             viewport={{ once: true }}
           >
-            <LuxuryCard padding="spacious" elevation="minimal">
-              <ComponentSpacing relationship="grouped">
+            <div padding="spacious" elevation="minimal">
+              <div relationship="grouped">
                 <div className="text-center mb-12">
                   <Overline className="text-muted-foreground/80 tracking-wider mb-2">
                     ADVANCED INTERACTIONS
@@ -192,7 +192,7 @@ export function ButtonShowcase() {
                   </BodyMedium>
                 </div>
 
-                <PerfectGrid variant="two-column" gap="luxury" className="items-center">
+                <div variant="two-column" gap="luxury" className="items-center">
                   <div className="space-y-8">
                     <div>
                       <Caption className="text-muted-foreground/80 tracking-wider uppercase mb-4">
@@ -256,9 +256,9 @@ export function ButtonShowcase() {
                       </div>
                     </div>
                   </div>
-                </PerfectGrid>
-              </ComponentSpacing>
-            </LuxuryCard>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Live Demo Status */}
@@ -278,8 +278,8 @@ export function ButtonShowcase() {
               </div>
             </motion.div>
           )}
-        </ComponentSpacing>
-      </LuxuryContainer>
-    </LuxurySection>
+        </div>
+      </LandorContainer>
+    </LandorSection>
   )
 }

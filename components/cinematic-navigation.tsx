@@ -7,6 +7,9 @@ import { Menu, X, ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { EnhancedButton } from "@/components/ui/enhanced-button"
 import { CONTENT_CONFIG } from "@/lib/content-config"
+import { COLOR_COMBINATIONS } from "@/lib/color-utils"
+import { NAVIGATION_CONFIG, NAVIGATION_ITEMS, NAVIGATION_BEHAVIOR, NAVIGATION_A11Y } from "@/lib/navigation-utils"
+import { ANIMATION_PRESETS, HOVER_ANIMATIONS, EASING_FUNCTIONS } from "@/lib/animation-system"
 
 interface NavItem {
   href: string
@@ -15,7 +18,7 @@ interface NavItem {
   external?: boolean
 }
 
-const navItems: NavItem[] = CONTENT_CONFIG.NAVIGATION.ITEMS
+const navItems: NavItem[] = NAVIGATION_ITEMS
 
 export default function CinematicNavigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -37,10 +40,7 @@ export default function CinematicNavigation() {
           }
         })
       },
-      { 
-        threshold: 0.3,
-        rootMargin: "-20% 0px -60% 0px"
-      }
+      NAVIGATION_BEHAVIOR.scrollTracking
     )
 
     navItems.forEach((item) => {
@@ -55,10 +55,7 @@ export default function CinematicNavigation() {
     if (href.startsWith('#')) {
       const element = document.querySelector(href)
       if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        })
+                    element.scrollIntoView(NAVIGATION_BEHAVIOR.smoothScroll)
         // Update active section immediately for better UX
         setActiveSection(href.slice(1))
       }
@@ -68,7 +65,7 @@ export default function CinematicNavigation() {
 
   // Enhanced keyboard navigation with luxury feedback
   const handleKeyDown = (event: React.KeyboardEvent, href: string) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === NAVIGATION_A11Y.keyboard.enter || event.key === NAVIGATION_A11Y.keyboard.space) {
       event.preventDefault()
       handleNavClick(href)
     }
@@ -98,10 +95,9 @@ export default function CinematicNavigation() {
           <div className="relative">
             {/* Luxury background with sophisticated glass effect */}
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/90 to-background/85 backdrop-blur-xl rounded-3xl border border-slate-200/20 shadow-[0_8px_32px_rgba(15,23,42,0.08)]"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0"
+              style={NAVIGATION_CONFIG.styles.glass}
+                          {...ANIMATION_PRESETS.scaleIn}
             />
             
             {/* Navigation Content with Luxury Spacing */}
@@ -119,7 +115,8 @@ export default function CinematicNavigation() {
                   className="group"
                 >
                   <motion.div
-                    className="text-2xl font-light text-foreground/90 font-serif tracking-wide"
+                    className="text-2xl font-light font-serif tracking-wide"
+                    style={{ color: COLOR_COMBINATIONS.text.primary + "e6" }}
                     whileHover={{ color: "rgb(15 23 42)" }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   >
@@ -141,12 +138,10 @@ export default function CinematicNavigation() {
                     <button
                       onClick={() => handleNavClick(item.href)}
                       onKeyDown={(e) => handleKeyDown(e, item.href)}
-                      className={cn(
-                        "relative px-4 py-2 text-sm font-light tracking-wide transition-all duration-300",
-                        activeSection === item.href.slice(1)
-                          ? "text-foreground"
-                          : "text-foreground/70 hover:text-foreground"
-                      )}
+                                          className="relative px-4 py-2 text-sm font-light tracking-wide transition-all duration-300"
+                    style={activeSection === item.href.slice(1) 
+                      ? NAVIGATION_CONFIG.states.active 
+                      : NAVIGATION_CONFIG.states.default}
                       tabIndex={0}
                       role="button"
                       aria-label={`Navigate to ${item.label}`}
@@ -194,9 +189,7 @@ export default function CinematicNavigation() {
               <motion.button
                 className="lg:hidden p-2 rounded-xl border border-slate-200/30 bg-background/50 backdrop-blur-sm"
                 onClick={() => setIsOpen(!isOpen)}
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(248, 250, 252, 0.8)" }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                {...HOVER_ANIMATIONS.scale}
                 aria-label="Toggle mobile menu"
               >
                 <AnimatePresence mode="wait">
@@ -208,7 +201,7 @@ export default function CinematicNavigation() {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <X className="w-5 h-5 text-foreground/80" />
+                      <X className="w-5 h-5" style={{ color: COLOR_COMBINATIONS.text.secondary }} />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -218,7 +211,7 @@ export default function CinematicNavigation() {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <Menu className="w-5 h-5 text-foreground/80" />
+                      <Menu className="w-5 h-5" style={{ color: COLOR_COMBINATIONS.text.secondary }} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -240,7 +233,8 @@ export default function CinematicNavigation() {
           >
             {/* Luxury backdrop */}
             <motion.div
-              className="absolute inset-0 bg-slate-900/20 backdrop-blur-sm"
+              className="absolute inset-0 backdrop-blur-sm"
+              style={{ backgroundColor: COLOR_COMBINATIONS.backgrounds.tertiary + "33" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -249,11 +243,9 @@ export default function CinematicNavigation() {
             
             {/* Mobile menu content */}
             <motion.div
-              className="absolute top-24 right-4 left-4 bg-background/95 backdrop-blur-xl rounded-3xl border border-slate-200/20 shadow-[0_25px_50px_rgba(15,23,42,0.15)] p-8"
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-24 right-4 left-4 p-8"
+              style={NAVIGATION_CONFIG.styles.mobile}
+              {...ANIMATION_PRESETS.slideDown}
             >
               <div className="space-y-6">
                 {/* Mobile navigation items */}
@@ -270,12 +262,10 @@ export default function CinematicNavigation() {
                   >
                     <button
                       onClick={() => handleNavClick(item.href)}
-                      className={cn(
-                        "w-full text-left px-4 py-3 text-base font-light tracking-wide rounded-xl transition-all duration-300",
-                        activeSection === item.href.slice(1)
-                          ? "bg-foreground/5 text-foreground border border-foreground/10"
-                          : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
-                      )}
+                      className="w-full text-left px-4 py-3 text-base font-light tracking-wide rounded-xl transition-all duration-300"
+                      style={activeSection === item.href.slice(1) 
+                        ? NAVIGATION_CONFIG.states.active 
+                        : NAVIGATION_CONFIG.states.default}
                       tabIndex={0}
                       role="button"
                       aria-label={`Navigate to ${item.label}`}

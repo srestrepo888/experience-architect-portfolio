@@ -2,8 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Cormorant_Garamond, Inter } from "next/font/google"
 import "./globals.css"
-import ScrollProgress from "@/components/scroll-progress"
-import NavigationAudit from "@/components/navigation-audit"
+// Removed unused components for performance optimization
 
 // ULTRA-LUXURIOUS DISPLAY FONT: Cormorant Garamond
 const serif = Cormorant_Garamond({
@@ -23,7 +22,7 @@ const sans = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Silvana | Portfolio",
+  title: "Silvana | Experience Architect",
   description: "Portfolio of Silvana — sophisticated, human-centered strategic design and product leadership.",
   viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
   themeColor: "#F5F1EE",
@@ -31,8 +30,7 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
     title: "Silvana Portfolio",
-  },
-    generator: 'v0.app'
+  }
 }
 
 export default function RootLayout({
@@ -50,9 +48,8 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Silvana Portfolio" />
       </head>
       <body className={`${serif.variable} ${sans.variable} font-sans antialiased text-foreground safe-y`}>
-        <ScrollProgress />
         {children}
-        {process.env.NODE_ENV === "development" && <NavigationAudit />}
+        {/* Removed unused components for performance optimization */}
       </body>
     </html>
   )
