@@ -30,13 +30,13 @@ export default function HomePage() {
       <main className="relative">
         {/* HERO: Landor-Level Professional Experience Architect Background */}
         <section id="hero" className="relative">
-          <LandorHeroBackground />
+          {/* <LandorHeroBackground /> */}
           <CinematicHero />
         </section>
 
         {/* ABOUT: Sophisticated Personal Brand Background */}
         <section id="about" className="relative">
-          <LandorAboutBackground />
+          {/* <LandorAboutBackground /> */}
           <LandorSection spacing="standard">
             <LandorContainer size="standard">
                 {/* About Me Section Header */}
@@ -128,7 +128,7 @@ export default function HomePage() {
 
         {/* PROJECTS: Minimal Focus Background */}
         <section id="projects" className="relative">
-          <LandorProjectsBackground />
+          {/* <LandorProjectsBackground /> */}
           <LandorSection spacing="standard">
             <LandorContainer size="wide">
                 <div className="text-center mb-20 md:mb-24">
@@ -151,7 +151,7 @@ export default function HomePage() {
 
         {/* EXPERIENCE: Timeline-Focused Background */}
         <section id="experience" className="relative">
-          <LandorExperienceBackground />
+          {/* <LandorExperienceBackground /> */}
           <LandorSection spacing="standard">
             <LandorContainer size="standard">
                 <div className="text-center mb-18 md:mb-20">
@@ -174,7 +174,7 @@ export default function HomePage() {
 
         {/* SERVICES: Service-Excellence Background */}
         <section id="services" className="relative">
-          <LandorServicesBackground />
+          {/* <LandorServicesBackground /> */}
           <LandorSection spacing="standard">
             <LandorContainer size="standard">
                 <div className="text-center mb-18 md:mb-20">
@@ -328,7 +328,7 @@ export default function HomePage() {
       
       {/* FOOTER: Rich Connection-Focused Background */}
       <section id="footer" className="relative">
-        <LandorContactBackground />
+        {/* <LandorContactBackground /> */}
         <Footer />
       </section>
       
