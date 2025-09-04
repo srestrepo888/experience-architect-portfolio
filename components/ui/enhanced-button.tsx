@@ -13,21 +13,21 @@ import { COLOR_COMBINATIONS } from "@/lib/color-utils"
 // SOPHISTICATED BUTTON SYSTEM - WORLD-CLASS LUXURY IMPLEMENTATION
 // Inspired by luxury brands: Hermès, Cartier, Rolex, Chanel
 const enhancedButtonVariants = cva(
-  "inline-flex items-center justify-center font-medium transition-all duration-500 ease-[0.16,1,0.3,1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-[9999] pointer-events-auto cursor-pointer",
+  "inline-flex items-center justify-center font-medium transition-all duration-500 ease-[0.16,1,0.3,1] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-900/20 focus-visible:ring-offset-4 focus-visible:ring-offset-white disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none relative overflow-hidden group z-[9999] pointer-events-auto cursor-pointer",
   {
     variants: {
       variant: {
-        // Primary - Professional color system
-        primary: "text-white hover:shadow-[0_20px_40px_rgba(60,60,60,0.3)] hover:-translate-y-1 border-2 border-white/10 hover:border-white/20 relative z-10",
+        // Primary - Enhanced visibility with sophisticated depth
+        primary: "text-white hover:shadow-[0_24px_48px_rgba(60,60,60,0.4)] hover:-translate-y-2 border-2 border-white/20 hover:border-white/30 relative z-10 shadow-[0_8px_24px_rgba(60,60,60,0.15)]",
         
-        // Secondary - Elegant outline with sophisticated interactions
-        secondary: "border border-slate-900 text-slate-900 bg-transparent hover:bg-slate-900 hover:text-white hover:shadow-[0_20px_40px_rgba(15,23,42,0.2)] hover:-translate-y-1",
+        // Secondary - Enhanced outline with improved visibility
+        secondary: "border-2 border-slate-900 text-slate-900 bg-white/80 backdrop-blur-sm hover:bg-slate-900 hover:text-white hover:shadow-[0_24px_48px_rgba(15,23,42,0.25)] hover:-translate-y-2 shadow-[0_4px_16px_rgba(15,23,42,0.08)]",
         
         // Ghost - Subtle with refined hover states
         ghost: "hover:bg-slate-100 hover:text-slate-900 border border-transparent hover:border-slate-200 hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)]",
         
-        // Outline - Refined border with luxury interactions
-        outline: "border border-slate-300 bg-transparent hover:bg-slate-50 hover:border-slate-400 text-slate-700 hover:text-slate-900 hover:shadow-[0_15px_35px_rgba(15,23,42,0.15)]",
+        // Outline - Enhanced border with improved visibility
+        outline: "border-2 border-slate-300 bg-white/60 backdrop-blur-sm hover:bg-white hover:border-slate-500 text-slate-700 hover:text-slate-900 hover:shadow-[0_16px_40px_rgba(15,23,42,0.18)] shadow-[0_2px_12px_rgba(15,23,42,0.06)]",
         
         // Destructive - Sophisticated error states
         destructive: "bg-red-600 text-white hover:bg-red-700 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] hover:-translate-y-1 border border-red-600",
@@ -35,8 +35,8 @@ const enhancedButtonVariants = cva(
         // Link - Elegant text links
         link: "bg-transparent text-slate-900 hover:text-slate-700 underline-offset-4 hover:underline p-0 h-auto rounded-none hover:translate-x-1",
         
-        // Luxury - Premium variant with sophisticated styling
-        luxury: "bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 hover:shadow-[0_25px_50px_rgba(15,23,42,0.4)] hover:-translate-y-1 border border-slate-700/50",
+        // Luxury - Enhanced premium variant with maximum sophistication
+        luxury: "bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white hover:from-slate-800 hover:via-slate-700 hover:to-slate-800 hover:shadow-[0_32px_64px_rgba(15,23,42,0.5)] hover:-translate-y-3 border-2 border-slate-600/60 hover:border-slate-500/80 shadow-[0_12px_32px_rgba(15,23,42,0.2)]",
         
         // Minimal - Clean and refined
         minimal: "bg-white text-slate-900 hover:bg-slate-50 hover:shadow-[0_15px_35px_rgba(15,23,42,0.1)] hover:-translate-y-1 border border-slate-200",
@@ -129,7 +129,7 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <IconComponent className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <IconComponent className="w-4 h-4 transition-all duration-500 group-hover:translate-x-2 group-hover:scale-110" />
           </motion.div>
         )
       }
@@ -172,17 +172,24 @@ export const EnhancedButton = React.forwardRef<HTMLButtonElement, EnhancedButton
           color: COLOR_COMBINATIONS.text.inverse
         } : {}}
         disabled={isDisabled}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.03, y: -2 }}
+        whileTap={{ scale: 0.97, y: 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         {...props}
       >
-        {/* Luxury background effects */}
+        {/* Enhanced luxury shimmer effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
           initial={{ x: "-100%" }}
           whileHover={{ x: "100%" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        />
+        
+        {/* Subtle glow effect */}
+        <motion.div
+          className="absolute inset-0 bg-white/5 rounded-xl opacity-0"
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
         />
         
         {/* Content */}

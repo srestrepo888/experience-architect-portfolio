@@ -132,8 +132,8 @@ export default function CinematicNavigation() {
                   <motion.div
                     key={item.href}
                     className="relative"
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    whileHover={{ y: -3, scale: 1.05 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <button
                       onClick={() => handleNavClick(item.href)}

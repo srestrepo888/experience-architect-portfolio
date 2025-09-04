@@ -189,7 +189,7 @@ export default function CinematicHero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="mb-8"
         >
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[0.9] tracking-[-0.02em]" style={{ color: '#3C3C3C' }}>
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[0.9] tracking-[-0.02em] drop-shadow-[0_2px_8px_rgba(60,60,60,0.08)]" style={{ color: '#3C3C3C', textShadow: '0 1px 2px rgba(60,60,60,0.1)' }}>
             {CONTENT_CONFIG.HERO.MAIN_TITLE}
           </h1>
         </motion.div>
@@ -200,7 +200,7 @@ export default function CinematicHero() {
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           className="mb-12"
         >
-          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-[0.1em] uppercase" style={{ color: '#BFAEA2' }}>
+          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-[0.15em] uppercase drop-shadow-[0_1px_4px_rgba(191,174,162,0.2)]" style={{ color: '#BFAEA2', textShadow: '0 1px 3px rgba(191,174,162,0.15)' }}>
             {CONTENT_CONFIG.HERO.SUBTITLE}
           </h2>
         </motion.div>
