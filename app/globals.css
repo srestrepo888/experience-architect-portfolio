@@ -16,45 +16,33 @@
 
 @layer base {
   :root {
-    /* 🎭 DRAMATIC SOPHISTICATED COLOR SYSTEM - Ultra-High-End Cinematic Palette */
+    /* 🎨 REFINED MINIMAL DESIGN SYSTEM - Sophisticated Restraint */
     
-    /* DRAMATIC BRAND PALETTE - Obsidian & Champagne Gold */
-    --primary: 221 39% 11%;        /* Deep obsidian #14181f */
-    --primary-foreground: 0 0% 98%; /* Platinum white */
-    --primary-50: 240 4% 97%;      /* Ultra-light platinum */
-    --primary-100: 240 5% 96%;     /* Light platinum */
-    --primary-500: 221 39% 11%;    /* Deep obsidian - Primary */
-    --primary-900: 215 100% 4%;    /* Pure obsidian #0a0d12 */
+    /* Base Foundation - Warm Cream Premium */
+    --background: 45 71% 97%;      /* Warm cream base #fffbee */
+    --foreground: 20 9% 27%;       /* Dark warm gray #44403c */
+    --muted: 60 9% 96%;            /* Light background #f5f5f4 */
+    --muted-foreground: 25 5% 45%; /* Muted text #78716c */
     
-    /* CHAMPAGNE GOLD ACCENT SYSTEM */
-    --secondary: 38 50% 56%;       /* Champagne gold #c19b5a */
-    --secondary-foreground: 221 39% 11%; /* Obsidian text */
-    --secondary-50: 45 43% 97%;    /* Light champagne */
-    --secondary-500: 38 50% 56%;   /* Champagne gold */
-    --secondary-900: 32 37% 29%;   /* Deep champagne */
+    /* Coral Primary Accent - Confident & Approachable */
+    --primary: 1 100% 70%;         /* Coral accent #ff6663 */
+    --primary-foreground: 45 71% 97%; /* Cream text on coral */
+    --primary-hover: 0 73% 65%;    /* Deeper coral hover #dc2626 */
+    --primary-active: 0 68% 61%;   /* Dark coral active #b91c1c */
     
-    /* SOPHISTICATED NEUTRAL FOUNDATION */
-    --background: 0 0% 98%;        /* Pure platinum white */
-    --foreground: 221 39% 11%;     /* Deep obsidian text */
-    --surface: 240 5% 96%;         /* Platinum card surfaces */
+    /* Subtle Supporting Colors */
+    --secondary: 25 5% 45%;        /* Warm gray #78716c */
+    --secondary-foreground: 45 71% 97%; /* Cream on gray */
     
-    /* ARCHITECTURAL HIERARCHY */
-    --muted: 240 5% 84%;           /* Platinum borders */
-    --muted-foreground: 224 16% 46%; /* Sophisticated grey text */
-    --accent: 240 5% 96%;          /* Platinum backgrounds */
-    --accent-foreground: 221 39% 11%; /* Obsidian on accent */
+    /* Refined Borders & Surfaces */
+    --border: 20 6% 90%;           /* Subtle warm border #e7e5e4 */
+    --input: 20 6% 90%;            /* Input borders */
+    --ring: 1 100% 70%;            /* Coral focus ring */
     
-    /* SAPPHIRE DEPTH ACCENT */
-    --tertiary: 212 100% 20%;      /* Deep sapphire #004d99 */
-    --tertiary-foreground: 0 0% 98%; /* Platinum white */
-    
-    /* REFINED FUNCTIONAL COLORS */
-    --border: 240 5% 84%;          /* Platinum borders */
-    --input: 240 5% 84%;           /* Platinum input borders */
-    --ring: 38 50% 56%;            /* Champagne gold focus */
-    --success: 158 64% 32%;        /* Deep emerald */
-    --warning: 38 90% 50%;         /* Sophisticated amber */
-    --error: 0 84% 60%;            /* Refined deep red */
+    /* Status Colors - Minimal Palette */
+    --success: 158 64% 32%;        /* Clean emerald */
+    --warning: 32 95% 44%;         /* Warm amber */
+    --error: 1 100% 70%;           /* Use coral for errors too */
     
     /* SOPHISTICATED TYPOGRAPHY SYSTEM */
     --radius: 0.5rem;          /* 8px - Grid-aligned border radius */
