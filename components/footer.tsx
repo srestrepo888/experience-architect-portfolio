@@ -50,11 +50,11 @@ export default function Footer() {
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         
         {/* Subtle bottom glow enhancement */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#EEC4B5]/30 via-[#F8D7C9]/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-primary/30 via-secondary/15 to-transparent" />
       </div>
 
       {/* Main Footer Content - Space-Efficient Design */}
-      <div className="relative z-10 py-20 md:py-24">
+      <div className="relative z-10 py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           
           {/* Primary Footer Section - Optimized Layout */}
@@ -224,14 +224,14 @@ export default function Footer() {
                         <div className="absolute inset-0 bg-secondary/15 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                       <div className="flex-1 space-y-2">
-                        <div className="text-[clamp(1rem,1.25vw,1.125rem)] font-sans font-medium text-[#3C3C3C] group-hover:text-secondary transition-colors duration-300">
+                        <div className="text-[clamp(1rem,1.25vw,1.125rem)] font-sans font-medium text-foreground group-hover:text-secondary transition-colors duration-300">
                           {social.name}
                         </div>
-                        <div className="text-[clamp(0.875rem,1vw,1rem)] font-sans font-light text-[#BFAEA2] group-hover:text-secondary transition-colors duration-300">
+                        <div className="text-[clamp(0.875rem,1vw,1rem)] font-sans font-light text-muted-foreground group-hover:text-secondary transition-colors duration-300">
                           {social.description}
                         </div>
                       </div>
-                      <ArrowUpRight className="w-5 h-5 text-[#BFAEA2] opacity-60 group-hover:opacity-100 group-hover:text-secondary group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300" />
+                      <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-60 group-hover:opacity-100 group-hover:text-secondary group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300" />
                     </motion.a>
                   ))}
                 </div>
@@ -303,7 +303,7 @@ export default function Footer() {
       </div>
 
       {/* Enhanced ambient lighting system */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#EEC4B5]/20 via-[#F8D7C9]/10 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary/20 via-secondary/10 to-transparent pointer-events-none" />
       
       {/* Floating ambient particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

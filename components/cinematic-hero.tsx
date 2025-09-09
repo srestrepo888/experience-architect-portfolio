@@ -124,7 +124,7 @@ export default function CinematicHero() {
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 rounded-full bg-gradient-to-r from-sophisticated/20 to-sophisticated/10"
+            className="absolute w-1 h-1 rounded-full bg-gradient-to-r from-primary/20 to-primary/10"
             style={{
               left: `${20 + (i * 10)}%`,
               top: `${30 + (i % 3) * 20}%`,
@@ -147,7 +147,7 @@ export default function CinematicHero() {
 
       {/* Elegant geometric accents */}
       <motion.div
-        className="absolute top-1/3 left-1/4 w-3 h-3 rounded-full bg-sophisticated/10"
+        className="absolute top-1/3 left-1/4 w-3 h-3 rounded-full bg-primary/10"
         animate={{
           scale: [1, 1.4, 1],
           opacity: [0.3, 0.7, 0.3],
@@ -164,7 +164,7 @@ export default function CinematicHero() {
       />
 
       <motion.div
-        className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-sophisticated/15"
+        className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-primary/15"
         animate={{
           scale: [1, 1.6, 1],
           opacity: [0.2, 0.5, 0.2],
@@ -189,7 +189,7 @@ export default function CinematicHero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="mb-8"
         >
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[0.9] tracking-[-0.02em] drop-shadow-[0_2px_8px_rgba(60,60,60,0.08)]" style={{ color: '#3C3C3C', textShadow: '0 1px 2px rgba(60,60,60,0.1)' }}>
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[0.9] tracking-[-0.02em] drop-shadow-[0_2px_8px_rgba(60,60,60,0.08)] text-foreground">
             {CONTENT_CONFIG.HERO.MAIN_TITLE}
           </h1>
         </motion.div>
@@ -200,7 +200,7 @@ export default function CinematicHero() {
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           className="mb-12"
         >
-          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-[0.15em] uppercase drop-shadow-[0_1px_4px_rgba(191,174,162,0.2)]" style={{ color: '#BFAEA2', textShadow: '0 1px 3px rgba(191,174,162,0.15)' }}>
+          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-[0.15em] uppercase drop-shadow-[0_1px_4px_rgba(191,174,162,0.2)] text-muted-foreground">
             {CONTENT_CONFIG.HERO.SUBTITLE}
           </h2>
         </motion.div>
@@ -211,7 +211,7 @@ export default function CinematicHero() {
           transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
           className="mb-16"
         >
-          <p className="text-sm sm:text-base md:text-lg font-light tracking-[0.08em] uppercase max-w-2xl mx-auto leading-relaxed" style={{ color: '#BFAEA2' }}>
+          <p className="text-sm sm:text-base md:text-lg font-light tracking-[0.08em] uppercase max-w-2xl mx-auto leading-relaxed text-muted-foreground">
             {CONTENT_CONFIG.HERO.TAGLINE}
           </p>
         </motion.div>
@@ -231,7 +231,7 @@ export default function CinematicHero() {
         >
           {/* Elegant scroll line */}
           <motion.div
-            className="w-px h-16 bg-gradient-to-b from-transparent via-sophisticated/30 to-transparent"
+            className="w-px h-16 bg-gradient-to-b from-transparent via-primary/30 to-transparent"
             animate={{
               height: [64, 48, 64],
               opacity: [0.3, 0.7, 0.3]
@@ -245,7 +245,7 @@ export default function CinematicHero() {
           
           {/* Flowing indicator dot */}
           <motion.div
-            className="w-2 h-2 rounded-full bg-sophisticated/40"
+            className="w-2 h-2 rounded-full bg-primary/40"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.4, 0.8, 0.4],
@@ -262,7 +262,7 @@ export default function CinematicHero() {
 
       {/* Subtle silk border accent */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sophisticated/20 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
         transition={{ duration: 2, delay: 3, ease: "easeOut" }}

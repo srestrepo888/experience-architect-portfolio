@@ -26,10 +26,10 @@ export default function ProjectsPage() {
               <span>Portfolio</span>
               <div className="w-8 h-px bg-gradient-to-l from-transparent to-border"></div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight tracking-[-0.02em] mb-6" style={{ color: '#3C3C3C' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight tracking-[-0.02em] mb-6 text-foreground">
               Featured Projects
             </h1>
-            <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto" style={{ color: '#BFAEA2' }}>
+            <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground">
               Explore a collection of my most significant projects, each representing a unique challenge and innovative solution. From digital transformations to experience design, these case studies showcase my approach to creating meaningful and impactful experiences.
             </p>
           </div>
@@ -56,14 +56,14 @@ export default function ProjectsPage() {
 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl font-serif font-medium mb-2" style={{ color: '#3C3C3C' }}>
+                    <h3 className="text-xl font-serif font-medium mb-2 text-foreground">
                       {project.title}
                     </h3>
-                    <p className="text-sm mb-4" style={{ color: '#BFAEA2' }}>
+                    <p className="text-sm mb-4 text-muted-foreground">
                       {project.subtitle}
                     </p>
 
-                    <p className="text-sm leading-relaxed mb-4 line-clamp-3" style={{ color: '#BFAEA2' }}>
+                    <p className="text-sm leading-relaxed mb-4 line-clamp-3 text-muted-foreground">
                       {project.context.substring(0, 150)}...
                     </p>
 
@@ -84,29 +84,28 @@ export default function ProjectsPage() {
                           href={project.webpage}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center hover:opacity-70 transition-opacity"
-                          style={{ color: '#BFAEA2' }}
+                          className="flex items-center hover:opacity-70 transition-opacity text-muted-foreground"
                         >
                           <Globe className="h-4 w-4 mr-2" />
                           <span className="text-sm truncate">{project.webpage.replace(/^https?:\/\//, "")}</span>
                         </a>
                       )}
                       {project.location && (
-                        <div className="flex items-center" style={{ color: '#BFAEA2' }}>
+                        <div className="flex items-center text-muted-foreground">
                           <MapPin className="h-4 w-4 mr-2" />
                           <span className="text-sm">{project.location}</span>
                         </div>
                       )}
                     </div>
 
-                    <div className="flex justify-between items-center pt-4 border-t" style={{ borderColor: '#BFAEA2' }}>
+                    <div className="flex justify-between items-center pt-4 border-t border-muted">
                       <div>
-                        <div className="text-xs uppercase tracking-wider mb-1" style={{ color: '#BFAEA2' }}>CLIENT</div>
-                        <div className="text-sm" style={{ color: '#3C3C3C' }}>{project.client}</div>
+                        <div className="text-xs uppercase tracking-wider mb-1 text-muted-foreground">CLIENT</div>
+                        <div className="text-sm text-foreground">{project.client}</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xs uppercase tracking-wider mb-1" style={{ color: '#BFAEA2' }}>YEAR</div>
-                        <div className="text-sm" style={{ color: '#3C3C3C' }}>{project.year}</div>
+                        <div className="text-xs uppercase tracking-wider mb-1 text-muted-foreground">YEAR</div>
+                        <div className="text-sm text-foreground">{project.year}</div>
                       </div>
                     </div>
                   </div>
@@ -114,8 +113,7 @@ export default function ProjectsPage() {
                   <div className="flex justify-end">
                     <Link
                       href={`/project/${project.slug}`}
-                      className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:scale-110"
-                      style={{ backgroundColor: '#3C3C3C', color: 'white' }}
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:scale-110 bg-foreground text-background"
                       aria-label={`View ${project.title} case study`}
                     >
                       <ArrowRight className="h-4 w-4" />

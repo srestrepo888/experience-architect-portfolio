@@ -30,44 +30,44 @@ export default function HomePage() {
           <LandorSection spacing="standard">
             <LandorContainer size="standard">
                 {/* About Me Section Header */}
-                <div className="text-center mb-16 md:mb-20">
+                <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-8">
                     <div className="w-8 h-px bg-gradient-to-r from-transparent to-border"></div>
                     <span>{CONTENT_CONFIG.ABOUT.SECTION_NUMBER}</span>
                     <div className="w-8 h-px bg-gradient-to-l from-transparent to-border"></div>
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4" style={{ color: '#3C3C3C' }}>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
                     {CONTENT_CONFIG.ABOUT.HEADING}
                   </h2>
                 </div>
                 
                 {/* PERFECTIONIST SPACE-EFFICIENT LAYOUT */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 lg:gap-16 xl:gap-20 items-start max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
                   
                   {/* SOPHISTICATED CONTENT COLUMN */}
                   <div className="space-y-10">
                     {/* Core Philosophy - Sophisticated Typography */}
                     <div className="space-y-8">
-                      <p className="text-lg leading-relaxed" style={{ color: '#3C3C3C' }}>
+                      <p className="text-lg leading-relaxed text-foreground">
                         I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents, blending diverse perspectives from anthropology to algorithms.
                       </p>
-                      <p className="text-lg leading-relaxed" style={{ color: '#3C3C3C' }}>
+                      <p className="text-lg leading-relaxed text-foreground">
                         At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul through strategic business alignment.
                       </p>
                     </div>
                     
                     {/* Impact Statement - Elegant Sophistication */}
                     <div className="relative pl-8 py-8 before:absolute before:left-0 before:top-0 before:w-1 before:h-full before:bg-gradient-to-b before:from-primary/40 before:to-primary/10 before:rounded-full">
-                      <blockquote className="text-xl font-serif italic leading-relaxed mb-6" style={{ color: '#3C3C3C' }}>
+                      <blockquote className="text-xl font-serif italic leading-relaxed mb-6 text-foreground">
                         "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
                       </blockquote>
-                      <div className="text-sm font-sans font-medium tracking-wider uppercase" style={{ color: '#BFAEA2' }}>
+                      <div className="text-sm font-sans font-medium tracking-wider uppercase text-muted-foreground">
                         — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
                       </div>
                     </div>
                     
                     {/* Global Experience - Refined */}
-                    <p className="text-lg leading-relaxed" style={{ color: '#3C3C3C' }}>
+                    <p className="text-lg leading-relaxed text-foreground">
                       From wellness movements in Saudi Arabia to AI-driven platforms empowering developers worldwide—each endeavour brings me closer to my mission: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
                     </p>
                     
@@ -76,7 +76,7 @@ export default function HomePage() {
                       <a 
                         href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
                         download="silvana-restrepo-cv.pdf"
-                        className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors duration-200"
+                        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors duration-200"
                         aria-label={CONTENT_CONFIG.ABOUT.CTA.ARIA_LABEL}
                       >
                         {CONTENT_CONFIG.ABOUT.CTA.TEXT}
@@ -118,16 +118,16 @@ export default function HomePage() {
           {/* <LandorProjectsBackground /> */}
           <LandorSection spacing="standard">
             <LandorContainer size="wide">
-                <div className="text-center mb-20 md:mb-24">
+                <div className="text-center mb-16 md:mb-20">
                   <div className="inline-flex items-center gap-4 text-sm font-light tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
                     <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
                     <span>{CONTENT_CONFIG.PROJECTS.SECTION_NUMBER}</span>
                     <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4" style={{ color: '#3C3C3C' }}>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
                     {CONTENT_CONFIG.PROJECTS.HEADING}
                   </h2>
-                  <p className="text-lg font-light leading-relaxed max-w-2xl mx-auto" style={{ color: '#BFAEA2' }}>
+                  <p className="text-lg font-light leading-relaxed max-w-2xl mx-auto text-muted-foreground">
                     {CONTENT_CONFIG.PROJECTS.SUBTITLE}
                   </p>
                 </div>
@@ -141,16 +141,16 @@ export default function HomePage() {
           {/* <LandorExperienceBackground /> */}
           <LandorSection spacing="standard">
             <LandorContainer size="standard">
-                <div className="text-center mb-18 md:mb-20">
+                <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
                     <div className="w-10 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"></div>
                     <span>{CONTENT_CONFIG.EXPERIENCE.SECTION_NUMBER}</span>
                     <div className="w-10 h-px bg-gradient-to-l from-transparent via-border/60 to-transparent"></div>
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4" style={{ color: '#3C3C3C' }}>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
                     {CONTENT_CONFIG.EXPERIENCE.HEADING}
                   </h2>
-                  <p className="text-base font-light leading-relaxed max-w-xl mx-auto" style={{ color: '#BFAEA2' }}>
+                  <p className="text-base font-light leading-relaxed max-w-xl mx-auto text-muted-foreground">
                     {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
                   </p>
                 </div>
@@ -164,7 +164,7 @@ export default function HomePage() {
           {/* <LandorServicesBackground /> */}
           <LandorSection spacing="spacious">
             <LandorContainer size="standard">
-                <div className="text-center mb-18 md:mb-20">
+                <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
                     <div className="w-10 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"></div>
                     <span>{CONTENT_CONFIG.SERVICES.SECTION_NUMBER}</span>
@@ -293,7 +293,7 @@ export default function HomePage() {
       </main>
       
       {/* FOOTER: Rich Connection-Focused Background with Proper Spacing */}
-      <section id="footer" className="relative mt-32 md:mt-40 lg:mt-48">
+      <section id="footer" className="relative mt-24 md:mt-32">
         {/* <LandorContactBackground /> */}
         <Footer />
       </section>
