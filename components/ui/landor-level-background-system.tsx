@@ -18,37 +18,37 @@ export function LandorLevelBackgroundSystem({
   const sectionConfigs = {
     hero: {
       primaryGradient: 'linear-gradient(135deg, #FDE9E3 0%, #F8D7C9 100%)',
-      accentGradient: 'linear-gradient(45deg, #FF6B6B 0%, #FF4DA6 100%)',
+      accentGradient: 'linear-gradient(45deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)',
       nodeCount: 8,
       opacity: intensity === 'rich' ? 0.35 : intensity === 'standard' ? 0.25 : 0.15
     },
     about: {
       primaryGradient: 'linear-gradient(45deg, #F8D7C9 0%, #EEC4B5 100%)',
-      accentGradient: 'linear-gradient(45deg, #F8D7C9 0%, #FF6B6B 100%)',
+      accentGradient: 'linear-gradient(45deg, #F8D7C9 0%, hsl(var(--primary)) 100%)',
       nodeCount: 6,
       opacity: intensity === 'rich' ? 0.30 : intensity === 'standard' ? 0.20 : 0.10
     },
     projects: {
       primaryGradient: 'linear-gradient(135deg, #FDE9E3 0%, #F8D7C9 100%)',
-      accentGradient: 'linear-gradient(45deg, #FEC260 0%, #E28A4A 100%)',
+      accentGradient: 'linear-gradient(45deg, hsl(var(--secondary)) 0%, #E28A4A 100%)',
       nodeCount: 4,
       opacity: intensity === 'rich' ? 0.20 : intensity === 'standard' ? 0.15 : 0.08
     },
     experience: {
       primaryGradient: 'linear-gradient(45deg, #F8D7C9 0%, #EEC4B5 100%)',
-      accentGradient: 'linear-gradient(45deg, #FF4DA6 0%, #E28A4A 100%)',
+      accentGradient: 'linear-gradient(45deg, hsl(var(--secondary)) 0%, #E28A4A 100%)',
       nodeCount: 7,
       opacity: intensity === 'rich' ? 0.30 : intensity === 'standard' ? 0.22 : 0.12
     },
     services: {
       primaryGradient: 'linear-gradient(135deg, #FDE9E3 0%, #F8D7C9 100%)',
-      accentGradient: 'linear-gradient(45deg, #FEC260 0%, #FF6B6B 50%, #FF4DA6 100%)',
+      accentGradient: 'linear-gradient(45deg, hsl(var(--secondary)) 0%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 100%)',
       nodeCount: 6,
       opacity: intensity === 'rich' ? 0.28 : intensity === 'standard' ? 0.20 : 0.12
     },
     contact: {
-      primaryGradient: 'linear-gradient(45deg, #F8D7C9 0%, #FF6B6B 100%)',
-      accentGradient: 'linear-gradient(45deg, #FEC260 0%, #FF6B6B 50%, #FF4DA6 100%)',
+      primaryGradient: 'linear-gradient(45deg, #F8D7C9 0%, hsl(var(--primary)) 100%)',
+      accentGradient: 'linear-gradient(45deg, hsl(var(--secondary)) 0%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 100%)',
       nodeCount: 10,
       opacity: intensity === 'rich' ? 0.40 : intensity === 'standard' ? 0.30 : 0.18
     }
@@ -75,16 +75,16 @@ export function LandorLevelBackgroundSystem({
         <svg className="w-full h-full" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
           <defs>
             <linearGradient id={`flowGradient-${section}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FF6B6B" stopOpacity="0.15" />
-              <stop offset="35%" stopColor="#FEC260" stopOpacity="0.12" />
-              <stop offset="65%" stopColor="#FF4DA6" stopOpacity="0.10" />
+              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.15" />
+              <stop offset="35%" stopColor="hsl(var(--secondary))" stopOpacity="0.12" />
+              <stop offset="65%" stopColor="hsl(var(--primary))" stopOpacity="0.10" />
               <stop offset="100%" stopColor="#E28A4A" stopOpacity="0.08" />
             </linearGradient>
             
             <linearGradient id={`strokeGradient-${section}`} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FF6B6B" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#FF4DA6" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#FEC260" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="hsl(var(--secondary))" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.2" />
             </linearGradient>
           </defs>
           
@@ -164,7 +164,7 @@ export function LandorLevelBackgroundSystem({
               <circle cx="40" cy="40" r="2" fill="#E28A4A" opacity="0.3" />
               <line x1="40" y1="40" x2="120" y2="40" stroke="#BFAEA2" strokeWidth="1" opacity="0.2" />
               <line x1="40" y1="40" x2="40" y2="120" stroke="#BFAEA2" strokeWidth="1" opacity="0.2" />
-              <line x1="40" y1="40" x2="120" y2="120" stroke="#FEC260" strokeWidth="0.8" opacity="0.15" />
+              <line x1="40" y1="40" x2="120" y2="120" stroke="hsl(var(--secondary))" strokeWidth="0.8" opacity="0.15" />
             </pattern>
           </defs>
           
@@ -193,7 +193,7 @@ export function LandorLevelBackgroundSystem({
               top: `${20 + (i % 3) * 25}%`,
               width: 2 + (i % 3),
               height: 2 + (i % 3),
-              background: 'linear-gradient(45deg, #FF6B6B, #FF4DA6)'
+              background: 'linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)))'
             }}
             animate={{
               y: [0, -20, 0],
@@ -250,7 +250,7 @@ export function LandorLevelBackgroundSystem({
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{
-          background: `radial-gradient(ellipse at center, #FEC26003 0%, transparent 60%)`
+          background: `radial-gradient(ellipse at center, hsl(var(--secondary) / 0.03) 0%, transparent 60%)`
         }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       />

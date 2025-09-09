@@ -113,8 +113,8 @@ export function ProfessionalHeroBackground() {
           <defs>
             <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#EEC4B5" stopOpacity="0.4" />
-              <stop offset="30%" stopColor="#FF6B6B" stopOpacity="0.3" />
-              <stop offset="70%" stopColor="#FF4DA6" stopOpacity="0.2" />
+              <stop offset="30%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+              <stop offset="70%" stopColor="hsl(var(--secondary))" stopOpacity="0.2" />
               <stop offset="100%" stopColor="#F8D7C9" stopOpacity="0.3" />
             </linearGradient>
             <filter id="flowGlow">
@@ -181,9 +181,9 @@ export function ProfessionalHeroBackground() {
           <defs>
             <pattern id="systemicMesh" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
               <circle cx="30" cy="30" r="1.5" fill="#E28A4A" opacity="0.6" />
-              <line x1="30" y1="30" x2="90" y2="30" stroke="#FEC260" strokeWidth="0.8" opacity="0.4" />
-              <line x1="30" y1="30" x2="30" y2="90" stroke="#FEC260" strokeWidth="0.8" opacity="0.4" />
-              <line x1="30" y1="30" x2="90" y2="90" stroke="#FF6B6B" strokeWidth="0.6" opacity="0.3" />
+              <line x1="30" y1="30" x2="90" y2="30" stroke="hsl(var(--secondary))" strokeWidth="0.8" opacity="0.4" />
+              <line x1="30" y1="30" x2="30" y2="90" stroke="hsl(var(--secondary))" strokeWidth="0.8" opacity="0.4" />
+              <line x1="30" y1="30" x2="90" y2="90" stroke="hsl(var(--primary))" strokeWidth="0.6" opacity="0.3" />
             </pattern>
           </defs>
           <motion.rect 
@@ -213,7 +213,7 @@ export function ProfessionalHeroBackground() {
               top: `${20 + (i % 3) * 25}%`,
               width: 2 + (i % 3),
               height: 2 + (i % 3),
-              background: 'linear-gradient(45deg, #FF6B6B, #FF4DA6)'
+              background: 'linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)))'
             }}
             animate={isVisible ? {
               y: [0, -40, 0],
@@ -263,7 +263,7 @@ export function ProfessionalHeroBackground() {
             whileHover={{
               scale: 1.5,
               opacity: 0.6,
-              borderColor: '#FF4DA6',
+              borderColor: 'hsl(var(--secondary))',
               transition: { duration: 0.3 }
             }}
           />
@@ -327,7 +327,7 @@ export function ProfessionalHeroBackground() {
           top: mousePosition.y + 50,
           x: -8,
           y: -8,
-          background: 'linear-gradient(45deg, #FF6B6B, #FF4DA6)'
+          background: 'linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)))'
         }}
         animate={{
           scale: isHovering ? [1, 1.5, 1] : 1,

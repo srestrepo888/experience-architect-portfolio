@@ -78,9 +78,9 @@ export default function Footer() {
                   >
                     <div className="space-y-2 relative">
                       {/* Floating glow effect */}
-                      <div className="absolute -inset-4 bg-gradient-to-r from-[#FF6B6B]/10 via-[#FEC260]/15 to-[#FF4DA6]/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
+                      <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-secondary/15 to-primary/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
                       
-                      <span className="relative text-[clamp(2.5rem,4vw,3.5rem)] font-serif font-extralight leading-none tracking-[-0.02em] bg-gradient-to-br from-[#3C3C3C] via-[#FF6B6B] to-[#E28A4A] bg-clip-text text-transparent group-hover:from-[#FF6B6B] group-hover:via-[#FF4DA6] group-hover:to-[#FEC260] transition-all duration-500">
+                      <span className="relative text-[clamp(2.5rem,4vw,3.5rem)] font-serif font-extralight leading-none tracking-[-0.02em] bg-gradient-to-br from-foreground via-primary to-secondary bg-clip-text text-transparent group-hover:from-primary group-hover:via-secondary group-hover:to-primary transition-all duration-500">
                         silvana.
                       </span>
                       <div className="relative text-[clamp(0.75rem,1vw,0.875rem)] font-sans font-light text-muted-foreground tracking-[0.25em] uppercase group-hover:text-primary transition-colors duration-300">
@@ -308,7 +308,7 @@ export default function Footer() {
       {/* Floating ambient particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
-          className="absolute top-1/4 left-1/6 w-2 h-2 rounded-full bg-[#FF6B6B]/20"
+          className="absolute top-1/4 left-1/6 w-2 h-2 rounded-full bg-primary/20"
           animate={{ 
             y: [0, -20, 0],
             opacity: [0.2, 0.8, 0.2] 
@@ -321,7 +321,7 @@ export default function Footer() {
           }}
         />
         <motion.div
-          className="absolute top-1/3 right-1/5 w-1 h-1 rounded-full bg-[#FEC260]/30"
+          className="absolute top-1/3 right-1/5 w-1 h-1 rounded-full bg-secondary/30"
           animate={{ 
             y: [0, -15, 0],
             opacity: [0.3, 0.7, 0.3] 
@@ -334,7 +334,7 @@ export default function Footer() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 rounded-full bg-[#FF4DA6]/25"
+          className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 rounded-full bg-primary/25"
           animate={{ 
             y: [0, -25, 0],
             opacity: [0.25, 0.75, 0.25] 

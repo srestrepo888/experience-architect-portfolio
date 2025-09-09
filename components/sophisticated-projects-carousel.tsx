@@ -154,7 +154,7 @@ export default function SophisticatedProjectsCarousel() {
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => router.push(`/project/${currentProject.slug}`)}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#FF4DA6] text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  className="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   View Case Study
                 </button>
@@ -162,7 +162,7 @@ export default function SophisticatedProjectsCarousel() {
                 {currentProject.webpage && (
                   <button
                     onClick={() => window.open(currentProject.webpage, '_blank')}
-                    className="w-full px-6 py-3 border-2 border-[#FF6B6B] text-[#FF6B6B] font-medium rounded-xl hover:bg-[#FF6B6B] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full px-6 py-3 border-2 border-primary text-primary font-medium rounded-xl hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Visit Live Site
                     <ExternalLink className="w-4 h-4" />

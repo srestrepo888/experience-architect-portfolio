@@ -71,8 +71,7 @@ export default function ProjectsPage() {
                       {project.services.map((service, idx) => (
                         <span
                           key={idx}
-                          className="inline-block px-3 py-1 text-xs rounded-full"
-                          style={{ backgroundColor: '#FEC260', color: '#3C3C3C' }}
+                          className="inline-block px-3 py-1 text-xs rounded-full bg-secondary text-foreground"
                         >
                           {service}
                         </span>
