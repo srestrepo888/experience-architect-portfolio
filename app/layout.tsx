@@ -24,13 +24,18 @@ const sans = Inter({
 export const metadata: Metadata = {
   title: "Silvana | Experience Architect",
   description: "Portfolio of Silvana — sophisticated, human-centered strategic design and product leadership.",
-  viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
-  themeColor: "#F5F1EE",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "Silvana Portfolio",
   }
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  viewportFit: "cover",
+  themeColor: "#F5F1EE"
 }
 
 export default function RootLayout({

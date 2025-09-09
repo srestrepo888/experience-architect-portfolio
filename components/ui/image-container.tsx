@@ -137,7 +137,7 @@ export function ImageContainer({
             src={hasError ? fallbackSrc : src}
             alt={alt}
             className={cn(
-              "w-full h-full transition-all duration-700 ease-[0.16,1,0.3,1]",
+              "w-full h-full transition-all duration-700 ease-&lsqb;0.16,1,0.3,1&rsqb;",
               objectFitClasses[objectFit],
               hover && "group-hover:scale-105",
               !isLoaded && "blur-sm scale-105",

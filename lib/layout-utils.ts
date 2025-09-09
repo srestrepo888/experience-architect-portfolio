@@ -15,7 +15,15 @@ export const LANDOR_SPACING = {
   compact: 'py-12 md:py-16',
   standard: 'py-16 md:py-20',
   spacious: 'py-20 md:py-24',
-  generous: 'py-24 md:py-32'
+  generous: 'py-24 md:py-32',
+  hero: 'py-20 md:py-32',
+  grid: {
+    xs: 'gap-4',
+    sm: 'gap-6',
+    md: 'gap-8',
+    lg: 'gap-12',
+    xl: 'gap-16'
+  }
 } as const
 
 export const LANDOR_GRID = {
@@ -48,6 +56,7 @@ export const getGrid = (variant: keyof typeof LANDOR_GRID) => {
 export const getSectionSpacing = (size: keyof typeof LANDOR_SECTION_SPACING) => {
   return LANDOR_SECTION_SPACING[size]
 }
+
 
 // Responsive breakpoints
 export const BREAKPOINTS = {

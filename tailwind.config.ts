@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import { DESIGN_SYSTEM } from "./lib/design-system"
+import { ULTRA_LUXURY_DESIGN_SYSTEM } from "./lib/ultra-luxury-system"
 
 const config = {
   darkMode: ["class"],
@@ -20,12 +21,16 @@ const config = {
       },
     },
     extend: {
-      spacing: DESIGN_SYSTEM.spacing,
+      spacing: {
+        ...DESIGN_SYSTEM.spacing,
+        ...ULTRA_LUXURY_DESIGN_SYSTEM.spacing.scale
+      },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
       },
       colors: {
+        // Ultra-Luxury Color System
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -34,14 +39,14 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          50: "hsl(var(--primary-50))",
+          100: "hsl(var(--primary-100))",
+          500: "hsl(var(--primary-500))",
+          900: "hsl(var(--primary-900))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -51,14 +56,14 @@ const config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        // Sophisticated Supporting Colors
+        forest: ULTRA_LUXURY_DESIGN_SYSTEM.colors.accent.forest,
+        stone: ULTRA_LUXURY_DESIGN_SYSTEM.colors.accent.stone,
+        navy: ULTRA_LUXURY_DESIGN_SYSTEM.colors.accent.navy,
+        // Refined Functional Colors
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
+        error: "hsl(var(--error))",
       },
       borderRadius: {
         lg: "var(--radius)",

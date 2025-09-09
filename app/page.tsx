@@ -1,27 +1,17 @@
-import { motion } from "framer-motion"
 import CinematicHero from "@/components/cinematic-hero"
-import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel"
+import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
 import Footer from "@/components/footer"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
-import { EnhancedButton } from "@/components/ui/enhanced-button"
-import { ImageContainer } from "@/components/ui/image-container"
 import {
   LandorContainer,
   LandorSection
 } from "@/components/ui/landor-layout-system"
 import { ScrollToTop } from "@/components/ui/scroll-to-top"
-import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation"
+import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation" 
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import { Background } from "@/components/ui/background"
-import { 
-  LandorHeroBackground,
-  LandorAboutBackground, 
-  LandorProjectsBackground, 
-  LandorExperienceBackground, 
-  LandorServicesBackground, 
-  LandorContactBackground 
-} from "@/components/ui/landor-level-background-system"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -83,17 +73,14 @@ export default function HomePage() {
                     
                     {/* CTA - MAXIMUM VISIBILITY */}
                     <div className="pt-8">
-                      <EnhancedButton
+                      <a 
                         href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
                         download="silvana-restrepo-cv.pdf"
-                        variant="primary"
-                        size="lg"
-                        icon="download"
+                        className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors duration-200"
                         aria-label={CONTENT_CONFIG.ABOUT.CTA.ARIA_LABEL}
-                        className="bg-primary text-white hover:bg-primary/90 shadow-[0_16px_48px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_64px_rgba(15,23,42,0.35)] border-2 border-white/10 hover:border-white/20 relative z-10"
                       >
                         {CONTENT_CONFIG.ABOUT.CTA.TEXT}
-                      </EnhancedButton>
+                      </a>
                     </div>
                   </div>
 
@@ -105,13 +92,13 @@ export default function HomePage() {
                       
                       {/* Main Portrait */}
                       <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
-                        <ImageContainer
+                        <Image 
                           src={CONTENT_CONFIG.ABOUT.PORTRAIT.SRC}
                           alt={CONTENT_CONFIG.ABOUT.PORTRAIT.ALT_TEXT}
-                          hover={false}
-                          rounded="none"
-                          objectFit="cover"
-                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-102 filter group-hover:saturate-110"
+                          fill
+                          className="object-cover transition-all duration-700 group-hover:scale-102 filter group-hover:saturate-110"
+                          sizes="(max-width: 768px) 280px, 320px"
+                          priority
                         />
                         
                         {/* Elegant Gradient Overlay */}
@@ -175,7 +162,7 @@ export default function HomePage() {
         {/* SERVICES: Service-Excellence Background */}
         <section id="services" className="relative">
           {/* <LandorServicesBackground /> */}
-          <LandorSection spacing="standard">
+          <LandorSection spacing="spacious">
             <LandorContainer size="standard">
                 <div className="text-center mb-18 md:mb-20">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
@@ -183,10 +170,10 @@ export default function HomePage() {
                     <span>{CONTENT_CONFIG.SERVICES.SECTION_NUMBER}</span>
                     <div className="w-10 h-px bg-gradient-to-l from-transparent via-border/60 to-transparent"></div>
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4" style={{ color: '#3C3C3C' }}>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
                     {CONTENT_CONFIG.SERVICES.HEADING}
                   </h2>
-                  <p className="text-base font-light leading-relaxed max-w-xl mx-auto" style={{ color: '#BFAEA2' }}>
+                  <p className="text-base font-light leading-relaxed max-w-xl mx-auto text-muted-foreground">
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
@@ -229,22 +216,13 @@ export default function HomePage() {
                       features: ["Human-AI Collaboration Design", "Intuition-Precision Balance", "Collective Wisdom Platforms", "Intelligence Amplification Systems"]
                     }
                   ].map((service, index) => {
-                    const accentColors = ['#FF6B6B', '#FEC260', '#FF4DA6', '#E28A4A', '#FF6B6B', '#FEC260']
+                    const accentColors = ['hsl(var(--primary))', 'hsl(var(--secondary))', 'hsl(var(--accent))', 'hsl(var(--muted))', 'hsl(var(--primary))', 'hsl(var(--secondary))']
                     const serviceAccent = accentColors[index % accentColors.length]
                     
                     return (
-                      <motion.div 
+                      <div 
                         key={index}
                         className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-10 shadow-lg border border-white/40 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                          duration: 0.6, 
-                          delay: index * 0.1, 
-                          ease: [0.16, 1, 0.3, 1] 
-                        }}
-                        viewport={{ once: true }}
-                        whileHover={{ scale: 1.02 }}
                       >
                         {/* Background Glow Effect */}
                         <div 
@@ -255,11 +233,9 @@ export default function HomePage() {
                         />
                         
                         {/* Service Icon */}
-                        <motion.div 
+                        <div 
                           className="relative text-5xl lg:text-6xl mb-6 font-serif"
                           style={{ color: serviceAccent }}
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         >
                           {service.icon}
                           
@@ -270,43 +246,33 @@ export default function HomePage() {
                           >
                             {service.icon}
                           </div>
-                        </motion.div>
+                        </div>
                         
                         {/* Service Title */}
-                        <h3 className="text-xl lg:text-2xl font-serif font-medium mb-5 leading-tight relative z-10" style={{ color: '#3C3C3C' }}>
+                        <h3 className="text-xl lg:text-2xl font-serif font-medium mb-5 leading-tight relative z-10 text-foreground">
                           {service.title}
                         </h3>
                         
                         {/* Service Description */}
-                        <p className="text-sm lg:text-base leading-relaxed mb-8 relative z-10" style={{ color: '#BFAEA2' }}>
+                        <p className="text-sm lg:text-base leading-relaxed mb-8 relative z-10 text-muted-foreground">
                           {service.description}
                         </p>
                         
                         {/* Feature List */}
                         <ul className="space-y-3 relative z-10">
                           {service.features.map((feature, idx) => (
-                            <motion.li 
+                            <li 
                               key={idx}
                               className="flex items-center text-xs lg:text-sm"
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ 
-                                duration: 0.4, 
-                                delay: (index * 0.1) + (idx * 0.05), 
-                                ease: [0.16, 1, 0.3, 1] 
-                              }}
-                              viewport={{ once: true }}
                             >
-                              <motion.div 
+                              <div 
                                 className="w-1.5 h-1.5 rounded-full mr-4 flex-shrink-0"
                                 style={{ backgroundColor: serviceAccent }}
-                                whileHover={{ scale: 1.5 }}
-                                transition={{ duration: 0.2 }}
                               />
-                              <span style={{ color: '#BFAEA2' }}>
+                              <span className="text-muted-foreground">
                                 {feature}
                               </span>
-                            </motion.li>
+                            </li>
                           ))}
                         </ul>
 
@@ -317,7 +283,7 @@ export default function HomePage() {
                             borderColor: `${serviceAccent}20`
                           }}
                         />
-                      </motion.div>
+                      </div>
                     )
                   })}
                 </div>
@@ -326,8 +292,8 @@ export default function HomePage() {
         </section>
       </main>
       
-      {/* FOOTER: Rich Connection-Focused Background */}
-      <section id="footer" className="relative">
+      {/* FOOTER: Rich Connection-Focused Background with Proper Spacing */}
+      <section id="footer" className="relative mt-32 md:mt-40 lg:mt-48">
         {/* <LandorContactBackground /> */}
         <Footer />
       </section>

@@ -164,7 +164,7 @@ export const ATTENTION_SYSTEMS = {
     swift: "duration-150 ease-out",
     smooth: "duration-300 ease-out",
     deliberate: "duration-500 ease-in-out",
-    theatrical: "duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+    theatrical: "duration-700 ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb;",
   }
 } as const
 

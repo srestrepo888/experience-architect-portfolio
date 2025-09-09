@@ -2,20 +2,20 @@
 if (typeof window !== "undefined") {
   // Array.from polyfill
   if (!Array.from) {
-    Array.from = (arrayLike) => [].slice.call(arrayLike)
+    Array.from = (arrayLike: ArrayLike<unknown>) => [].slice.call(arrayLike)
   }
 
   // Object.assign polyfill
   if (typeof Object.assign !== "function") {
-    Object.assign = (target) => {
+    Object.assign = (target: any, ...sources: any[]): any => {
       if (target === null || target === undefined) {
         throw new TypeError("Cannot convert undefined or null to object")
       }
-      var to = Object(target)
-      for (var index = 1; index < arguments.length; index++) {
-        var nextSource = arguments[index]
+      const to = Object(target)
+      for (let index = 0; index < sources.length; index++) {
+        const nextSource = sources[index]
         if (nextSource !== null && nextSource !== undefined) {
-          for (var nextKey in nextSource) {
+          for (const nextKey in nextSource) {
             if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
               to[nextKey] = nextSource[nextKey]
             }

@@ -16,30 +16,38 @@
 
 @layer base {
   :root {
-    /* 🏛️ LANDOR COLOR SYSTEM - Mathematical Precision (No Fractional Chaos) */
+    /* 🏛️ ULTRA-LUXURY COLOR SYSTEM - Sophisticated Professional Palette */
     
-    /* PRIMARY BRAND PALETTE */
-    --primary: 240 6% 10%;     /* Deep luxury charcoal */
+    /* PRIMARY BRAND PALETTE - Deep Professional Warm Earth */
+    --primary: 32 28% 52%;     /* Deep warm earth #a08968 */
     --primary-foreground: 0 0% 100%; /* Pure white */
+    --primary-50: 44 27% 97%;  /* Ultra-light warm cream */
+    --primary-100: 40 30% 94%; /* Light warm cream */
+    --primary-500: 32 28% 52%; /* Deep warm earth - Primary */
+    --primary-900: 29 20% 25%; /* Sophisticated dark brown */
     
-    /* NEUTRAL ARCHITECTURAL FOUNDATION */
-    --background: 0 0% 100%;   /* Pure white background */
-    --foreground: 240 6% 10%;  /* Primary text */
-    --surface: 240 5% 98%;     /* Card surfaces */
+    /* SOPHISTICATED NEUTRAL FOUNDATION */
+    --background: 60 9% 98%;   /* Subtle warm architectural white */
+    --foreground: 24 6% 8%;    /* Sophisticated charcoal text */
+    --surface: 20 14% 96%;     /* Ultra-subtle warm card surfaces */
     
-    /* SUPPORTING HIERARCHY */
-    --muted: 240 4% 90%;       /* Borders, dividers */
-    --muted-foreground: 240 4% 46%; /* Secondary text */
-    --accent: 240 5% 96%;      /* Subtle backgrounds */
-    --accent-foreground: 240 6% 10%; /* Text on accent */
+    /* ARCHITECTURAL HIERARCHY */
+    --muted: 20 6% 90%;        /* Refined warm borders */
+    --muted-foreground: 25 5% 45%; /* Professional warm grey text */
+    --accent: 20 14% 96%;      /* Ultra-subtle warm backgrounds */
+    --accent-foreground: 24 6% 8%; /* Text on accent */
     
-    /* FUNCTIONAL COLORS (Simplified) */
-    --border: 240 4% 90%;      /* All borders */
-    --input: 240 4% 90%;       /* Input borders */  
-    --ring: 240 6% 10%;        /* Focus rings */
-    --success: 142 76% 36%;    /* Success states */
-    --warning: 38 92% 50%;     /* Warning states */
-    --error: 0 72% 51%;        /* Error states */
+    /* SOPHISTICATED SUPPORTING COLORS */
+    --secondary: 160 30% 35%;  /* Deep forest green #5a6f5a */
+    --secondary-foreground: 0 0% 100%; /* Pure white */
+    
+    /* REFINED FUNCTIONAL COLORS */
+    --border: 20 6% 90%;       /* Refined warm borders */
+    --input: 20 6% 90%;        /* Refined input borders */
+    --ring: 32 28% 52%;        /* Primary warm earth focus */
+    --success: 158 64% 32%;    /* Deep emerald */
+    --warning: 25 95% 43%;     /* Deep sophisticated amber */
+    --error: 0 84% 60%;        /* Refined deep red */
     
     /* DESIGN TOKENS */
     --radius: 0.5rem;          /* 8px - Grid-aligned border radius */

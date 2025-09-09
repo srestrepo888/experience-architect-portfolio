@@ -18,7 +18,7 @@ import { COLORS, ANIMATIONS, LUXURY_SPACING, BORDER_RADIUS } from "@/lib/design-
 // - Premium brand-inspired interactions
 
 const elevatedButtonVariants = cva(
-  "relative inline-flex items-center justify-center font-medium transition-all duration-500 ease-[0.16,1,0.3,1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none overflow-hidden group z-[10] pointer-events-auto cursor-pointer will-change-transform backface-hidden transform-gpu",
+  "relative inline-flex items-center justify-center font-medium transition-all duration-500 ease-&lsqb;0.16,1,0.3,1&rsqb; focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none overflow-hidden group z-[10] pointer-events-auto cursor-pointer will-change-transform backface-hidden transform-gpu",
   {
     variants: {
       variant: {
@@ -232,7 +232,7 @@ export const ElevatedButton = React.forwardRef<HTMLButtonElement, ElevatedButton
             transition={{ duration: 0.4, ease: ANIMATIONS.easing.luxury }}
             className="relative"
           >
-            <IconComponent className="w-4 h-4 transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:translate-x-1 group-hover:scale-110" />
+            <IconComponent className="w-4 h-4 transition-transform duration-500 ease-&lsqb;0.16,1,0.3,1&rsqb; group-hover:translate-x-1 group-hover:scale-110" />
             
             {/* Luxury shimmer effect on icon */}
             <motion.div
@@ -303,11 +303,11 @@ export const ElevatedButton = React.forwardRef<HTMLButtonElement, ElevatedButton
         style={magneticEffect ? { x: springX, y: springY } : undefined}
         whileHover={tactileFeedback ? { 
           scale: variant === "link" ? 1 : 1.02,
-          transition: { duration: 0.2, ease: ANIMATIONS.easing.luxury }
+          transition: { duration: 0.2, ease: "easeOut" }
         } : undefined}
         whileTap={tactileFeedback ? { 
           scale: variant === "link" ? 1 : 0.98,
-          transition: { duration: 0.1, ease: ANIMATIONS.easing.luxury }
+          transition: { duration: 0.1, ease: "easeOut" }
         } : undefined}
         {...props}
       >
