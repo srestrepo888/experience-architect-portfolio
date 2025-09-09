@@ -16,43 +16,51 @@
 
 @layer base {
   :root {
-    /* 🏛️ ULTRA-LUXURY COLOR SYSTEM - Sophisticated Professional Palette */
+    /* 🎭 DRAMATIC SOPHISTICATED COLOR SYSTEM - Ultra-High-End Cinematic Palette */
     
-    /* PRIMARY BRAND PALETTE - Deep Professional Warm Earth */
-    --primary: 32 28% 52%;     /* Deep warm earth #a08968 */
-    --primary-foreground: 0 0% 100%; /* Pure white */
-    --primary-50: 44 27% 97%;  /* Ultra-light warm cream */
-    --primary-100: 40 30% 94%; /* Light warm cream */
-    --primary-500: 32 28% 52%; /* Deep warm earth - Primary */
-    --primary-900: 29 20% 25%; /* Sophisticated dark brown */
+    /* DRAMATIC BRAND PALETTE - Obsidian & Champagne Gold */
+    --primary: 221 39% 11%;        /* Deep obsidian #14181f */
+    --primary-foreground: 0 0% 98%; /* Platinum white */
+    --primary-50: 240 4% 97%;      /* Ultra-light platinum */
+    --primary-100: 240 5% 96%;     /* Light platinum */
+    --primary-500: 221 39% 11%;    /* Deep obsidian - Primary */
+    --primary-900: 215 100% 4%;    /* Pure obsidian #0a0d12 */
+    
+    /* CHAMPAGNE GOLD ACCENT SYSTEM */
+    --secondary: 38 50% 56%;       /* Champagne gold #c19b5a */
+    --secondary-foreground: 221 39% 11%; /* Obsidian text */
+    --secondary-50: 45 43% 97%;    /* Light champagne */
+    --secondary-500: 38 50% 56%;   /* Champagne gold */
+    --secondary-900: 32 37% 29%;   /* Deep champagne */
     
     /* SOPHISTICATED NEUTRAL FOUNDATION */
-    --background: 60 9% 98%;   /* Subtle warm architectural white */
-    --foreground: 24 6% 8%;    /* Sophisticated charcoal text */
-    --surface: 20 14% 96%;     /* Ultra-subtle warm card surfaces */
+    --background: 0 0% 98%;        /* Pure platinum white */
+    --foreground: 221 39% 11%;     /* Deep obsidian text */
+    --surface: 240 5% 96%;         /* Platinum card surfaces */
     
     /* ARCHITECTURAL HIERARCHY */
-    --muted: 20 6% 90%;        /* Refined warm borders */
-    --muted-foreground: 25 5% 45%; /* Professional warm grey text */
-    --accent: 20 14% 96%;      /* Ultra-subtle warm backgrounds */
-    --accent-foreground: 24 6% 8%; /* Text on accent */
+    --muted: 240 5% 84%;           /* Platinum borders */
+    --muted-foreground: 224 16% 46%; /* Sophisticated grey text */
+    --accent: 240 5% 96%;          /* Platinum backgrounds */
+    --accent-foreground: 221 39% 11%; /* Obsidian on accent */
     
-    /* SOPHISTICATED SUPPORTING COLORS */
-    --secondary: 160 30% 35%;  /* Deep forest green #5a6f5a */
-    --secondary-foreground: 0 0% 100%; /* Pure white */
+    /* SAPPHIRE DEPTH ACCENT */
+    --tertiary: 212 100% 20%;      /* Deep sapphire #004d99 */
+    --tertiary-foreground: 0 0% 98%; /* Platinum white */
     
     /* REFINED FUNCTIONAL COLORS */
-    --border: 20 6% 90%;       /* Refined warm borders */
-    --input: 20 6% 90%;        /* Refined input borders */
-    --ring: 32 28% 52%;        /* Primary warm earth focus */
-    --success: 158 64% 32%;    /* Deep emerald */
-    --warning: 25 95% 43%;     /* Deep sophisticated amber */
-    --error: 0 84% 60%;        /* Refined deep red */
+    --border: 240 5% 84%;          /* Platinum borders */
+    --input: 240 5% 84%;           /* Platinum input borders */
+    --ring: 38 50% 56%;            /* Champagne gold focus */
+    --success: 158 64% 32%;        /* Deep emerald */
+    --warning: 38 90% 50%;         /* Sophisticated amber */
+    --error: 0 84% 60%;            /* Refined deep red */
     
-    /* DESIGN TOKENS */
+    /* SOPHISTICATED TYPOGRAPHY SYSTEM */
     --radius: 0.5rem;          /* 8px - Grid-aligned border radius */
-    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --font-sans: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "SF Mono", "Monaco", "Consolas", "Liberation Mono", monospace;
     
     /* LANDOR SHADOW SYSTEM (Simplified from 5 to 3) */
     --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);

@@ -1,4 +1,4 @@
-import CinematicHero from "@/components/cinematic-hero"
+import DramaticCinematicHero from "@/components/dramatic-cinematic-hero"
 import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
 import Footer from "@/components/footer"
 import CinematicNavigation from "@/components/cinematic-navigation"
@@ -18,10 +18,9 @@ export default function HomePage() {
     <Background className="text-foreground">
       <CinematicNavigation />
       <main className="relative">
-        {/* HERO: Landor-Level Professional Experience Architect Background */}
+        {/* HERO: Dramatic Sophisticated Experience Architect Background */}
         <section id="hero" className="relative">
-          {/* <LandorHeroBackground /> */}
-          <CinematicHero />
+          <DramaticCinematicHero />
         </section>
 
         {/* ABOUT: Sophisticated Personal Brand Background */}
