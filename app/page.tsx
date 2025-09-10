@@ -3,7 +3,7 @@ import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-c
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
-import SophisticatedServicesDisplay from "@/components/sophisticated-services-display"
+import ImmersiveServicesExperience from "@/components/immersive-services-experience"
 import ArchitectCursor from "@/components/architect-cursor"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
@@ -203,7 +203,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 
-                <SophisticatedServicesDisplay />
+                <ImmersiveServicesExperience />
             </div>
           </div>
         </section>
