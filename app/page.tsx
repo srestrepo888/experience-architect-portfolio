@@ -1,5 +1,6 @@
-import RefinedHero from "@/components/refined-hero"
-import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
+import { motion } from "framer-motion"
+import HeroLandorAward from "@/components/hero-landor-award"
+import ProjectsCarouselAward from "@/components/projects-carousel-award" 
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
@@ -18,9 +19,9 @@ export default function HomePage() {
     <Background className="text-foreground">
       <CinematicNavigation />
       <main className="relative">
-        {/* HERO: Refined Minimal Experience Architect */}
+        {/* HERO: Award-Winning Experience Architect */}
         <section id="hero" className="relative">
-          <RefinedHero />
+          <HeroLandorAward />
         </section>
 
         {/* ABOUT: Sophisticated Personal Brand Background */}
@@ -131,7 +132,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.PROJECTS.SUBTITLE}
                   </p>
                 </div>
-                <SophisticatedProjectsCarousel />
+                <ProjectsCarouselAward />
             </LandorContainer>
           </LandorSection>
         </section>
@@ -220,9 +221,19 @@ export default function HomePage() {
                     const serviceAccent = 'hsl(var(--primary))'
                     
                     return (
-                      <div 
+                      <motion.div 
                         key={index}
-                        className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-10 shadow-lg border border-white/40 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                        className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-10 shadow-lg border border-white/40 overflow-hidden"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                        whileHover={{ 
+                          y: -8, 
+                          scale: 1.02,
+                          boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+                          transition: { duration: 0.4, ease: "easeOut" }
+                        }}
+                        viewport={{ once: true, margin: "-50px" }}
                       >
                         {/* Background Glow Effect */}
                         <div 
@@ -283,7 +294,7 @@ export default function HomePage() {
                             borderColor: `${serviceAccent}20`
                           }}
                         />
-                      </div>
+                      </motion.div>
                     )
                   })}
                 </div>
