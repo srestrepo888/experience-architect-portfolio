@@ -10,7 +10,7 @@ const services = [
     title: "Accelerated Product Innovation",
     subtitle: "From concept to market dominance in half the time",
     visual: "/luxury-geometric-background.png",
-    color: "from-blue-600 to-cyan-500",
+    color: "from-primary via-primary to-primary-hover",
     capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation.",
     keyPoints: [
       "3x faster market validation",
@@ -25,7 +25,7 @@ const services = [
     title: "Experience Orchestration",
     subtitle: "Harmonizing thousands of touchpoints into one resonant brand voice",
     visual: "/silvana-portrait-transparent.png",
-    color: "from-emerald-600 to-teal-500",
+    color: "from-primary/80 via-primary to-primary-hover/80",
     capability: "Systems thinking applied to create unified experience architectures where interactions feel seamless.",
     keyPoints: [
       "Cross-channel satisfaction increase",
@@ -40,7 +40,7 @@ const services = [
     title: "Intelligent Operations Architecture", 
     subtitle: "Building AI-augmented teams that outperform traditional structures",
     visual: "/luxury-geometric-background.png",
-    color: "from-purple-600 to-indigo-500",
+    color: "from-primary/90 via-primary to-primary-hover/90",
     capability: "Design agentic systems where AI and human experts collaborate as unified intelligence.",
     keyPoints: [
       "Real-time competitive intelligence",
@@ -55,7 +55,7 @@ const services = [
     title: "Design Systems",
     subtitle: "Engineering organizational evolution through scalable foundations", 
     visual: "/silvana-portrait-transparent.png",
-    color: "from-rose-600 to-pink-500",
+    color: "from-primary via-primary-hover to-primary",
     capability: "Build transformation on bedrock systems ensuring teams move in harmony.",
     keyPoints: [
       "2.5x team velocity increase",
@@ -70,7 +70,7 @@ const services = [
     title: "Strategic Innovation Consulting",
     subtitle: "Converting market disruption into systematic advantage",
     visual: "/luxury-geometric-background.png", 
-    color: "from-amber-600 to-orange-500",
+    color: "from-primary/70 via-primary to-primary-hover/70",
     capability: "Navigate complexity with frameworks that transform uncertainty into opportunity.",
     keyPoints: [
       "Tangible industry ROI",
@@ -85,7 +85,7 @@ const services = [
     title: "Customer Intelligence Platforms",
     subtitle: "Turning customer behavior into competitive advantage",
     visual: "/silvana-portrait-transparent.png",
-    color: "from-violet-600 to-purple-500",
+    color: "from-primary/85 via-primary-hover to-primary/85",
     capability: "Architecting systems that anticipate behavior, creating self-improving experiences.",
     keyPoints: [
       "26% sales growth achieved",
@@ -151,7 +151,7 @@ export default function ImmersiveServicesExperience() {
         </AnimatePresence>
       </motion.div>
 
-      <div className="relative max-w-7xl mx-auto px-8 py-20">
+      <div className="relative max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-16 md:py-20">
         
         {/* Elegant Service Selection */}
         <motion.div
@@ -159,7 +159,7 @@ export default function ImmersiveServicesExperience() {
           animate={{ opacity: 1, y: 0 }}
           className="flex justify-center mb-16"
         >
-          <div className="grid grid-cols-6 gap-4 bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20">
+          <div className="grid grid-cols-6 gap-4 bg-white/90 backdrop-blur-xl rounded-2xl p-6 border border-white/20">
             {services.map((service, index) => (
               <motion.button
                 key={index}
@@ -200,8 +200,8 @@ export default function ImmersiveServicesExperience() {
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -40, scale: 0.95 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="grid lg:grid-cols-2 gap-16 items-center"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
           >
             
             {/* Visual Content Side */}
@@ -214,9 +214,9 @@ export default function ImmersiveServicesExperience() {
                 transition={{ 
                   duration: 8,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeOut"
                 }}
-                className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
               >
                 <Image
                   src={currentService.visual}
@@ -261,7 +261,7 @@ export default function ImmersiveServicesExperience() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <h3 className="text-5xl lg:text-6xl font-serif font-light leading-tight text-foreground mb-4">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight text-foreground mb-4">
                   {currentService.title}
                 </h3>
                 <p className="text-xl text-muted-foreground italic leading-relaxed">
