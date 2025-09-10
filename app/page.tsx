@@ -1,11 +1,8 @@
-import { motion } from "framer-motion"
 import RefinedHero from "@/components/refined-hero"
 import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
-// import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
 import { CONTENT_CONFIG } from "@/lib/content-config"
-import { Background } from "@/components/ui/background"
 import Image from "next/image"
 
 export default function HomePage() {
@@ -98,8 +95,6 @@ export default function HomePage() {
                         
                         {/* Elegant Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                        
-                        {/* Removed floating badge for cleaner design */}
                       </div>
                     </div>
                   </div>
@@ -110,7 +105,6 @@ export default function HomePage() {
 
         {/* PROJECTS: Minimal Focus Background */}
         <section id="projects" className="relative">
-          {/* <LandorProjectsBackground /> */}
           <div className="py-16 md:py-20">
             <div className="max-w-7xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-16 md:mb-20">
@@ -133,7 +127,6 @@ export default function HomePage() {
 
         {/* EXPERIENCE: Timeline-Focused Background */}
         <section id="experience" className="relative">
-          {/* <LandorExperienceBackground /> */}
           <div className="py-16 md:py-20">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-12 md:mb-16">
@@ -149,7 +142,6 @@ export default function HomePage() {
                     {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
                   </p>
                 </div>
-                {/* <SophisticatedCareerJourney /> */}
                 <div className="text-center py-8">
                   <p className="text-muted-foreground">Career Journey section temporarily disabled for deployment</p>
                 </div>
@@ -159,7 +151,6 @@ export default function HomePage() {
 
         {/* SERVICES: Service-Excellence Background */}
         <section id="services" className="relative">
-          {/* <LandorServicesBackground /> */}
           <div className="py-20 md:py-24">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-12 md:mb-16">
@@ -175,125 +166,8 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {[
-                    {
-                      icon: "◆",
-                      title: "Transformation Leadership",
-                      description: "I guide organizations by tuning into their cultural frequencies. Change happens when strategy harmonizes with the collective heartbeat of teams and communities.",
-                      features: ["Cultural Intelligence Assessment", "Change Orchestration Strategy", "Team Resonance Alignment", "Collective Transformation Roadmaps"]
-                    },
-                    {
-                      icon: "⚡",
-                      title: "Scale Experience Systems",
-                      description: "I cultivate spaces with distinct energetic signatures—environments that spark breakthrough thinking. The right atmosphere transforms potential into reality, whether for megaprojects or intimate startups.",
-                      features: ["Phygital Ecosystem Design", "Experience Architecture", "Scalable System Frameworks", "Atmospheric Environment Creation"]
-                    },
-                    {
-                      icon: "◎",
-                      title: "Strategic Design",
-                      description: "My approach to Strategic Design architectures converts ecosystems complexity into structured implementation roadmaps with measurable ROI.",
-                      features: ["Ecosystem Complexity Mapping", "Implementation Roadmaps", "ROI-Driven Design Strategy", "Business Architecture Planning"]
-                    },
-                    {
-                      icon: "●",
-                      title: "Experience Orchestration",
-                      description: "I compose service symphonies where every interaction contributes to the emotional arc. Thousands of moments, one cohesive feeling that stays with people long after.",
-                      features: ["Service Journey Mapping", "Emotional Arc Design", "Touchpoint Orchestration", "Experience Continuity Strategy"]
-                    },
-                    {
-                      icon: "◊",
-                      title: "Product Strategy Evolution",
-                      description: "I infuse products with soul—designing not just what they do, but how they make people feel. Each feature carries intention, creating atmospheres where users naturally thrive.",
-                      features: ["Soul-Centered Product Design", "Intentional Feature Architecture", "User Atmosphere Creation", "Product Evolution Strategy"]
-                    },
-                    {
-                      icon: "▲",
-                      title: "Intelligence Amplification Design",
-                      description: "I choreograph the dance between human intuition and machine precision. Creating spaces where both energies complement rather than compete, amplifying our collective wisdom.",
-                      features: ["Human-AI Collaboration Design", "Intuition-Precision Balance", "Collective Wisdom Platforms", "Intelligence Amplification Systems"]
-                    }
-                  ].map((service, index) => {
-                    // Use only coral primary color for all service icons
-                    const serviceAccent = 'hsl(var(--primary))'
-                    
-                    return (
-                      <motion.div 
-                        key={index}
-                        className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-10 shadow-lg border border-white/40 overflow-hidden"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                        whileHover={{ 
-                          y: -8, 
-                          scale: 1.02,
-                          boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
-                          transition: { duration: 0.4, ease: "easeOut" }
-                        }}
-                        viewport={{ once: true, margin: "-50px" }}
-                      >
-                        {/* Background Glow Effect */}
-                        <div 
-                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
-                          style={{
-                            background: `radial-gradient(circle at center, ${serviceAccent}15 0%, transparent 70%)`
-                          }}
-                        />
-                        
-                        {/* Service Icon */}
-                        <div 
-                          className="relative text-5xl lg:text-6xl mb-6 font-serif"
-                          style={{ color: serviceAccent }}
-                        >
-                          {service.icon}
-                          
-                          {/* Icon Glow */}
-                          <div 
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
-                            style={{ color: serviceAccent }}
-                          >
-                            {service.icon}
-                          </div>
-                        </div>
-                        
-                        {/* Service Title */}
-                        <h3 className="text-xl lg:text-2xl font-serif font-medium mb-5 leading-tight relative z-10 text-foreground">
-                          {service.title}
-                        </h3>
-                        
-                        {/* Service Description */}
-                        <p className="text-sm lg:text-base leading-relaxed mb-8 relative z-10 text-muted-foreground">
-                          {service.description}
-                        </p>
-                        
-                        {/* Feature List */}
-                        <ul className="space-y-3 relative z-10">
-                          {service.features.map((feature, idx) => (
-                            <li 
-                              key={idx}
-                              className="flex items-center text-xs lg:text-sm"
-                            >
-                              <div 
-                                className="w-1.5 h-1.5 rounded-full mr-4 flex-shrink-0"
-                                style={{ backgroundColor: serviceAccent }}
-                              />
-                              <span className="text-muted-foreground">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Subtle Border Enhancement */}
-                        <div 
-                          className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none border"
-                          style={{
-                            borderColor: `${serviceAccent}20`
-                          }}
-                        />
-                      </motion.div>
-                    )
-                  })}
+                <div className="text-center py-8">
+                  <p className="text-muted-foreground">Services section temporarily simplified for deployment</p>
                 </div>
             </div>
           </div>
