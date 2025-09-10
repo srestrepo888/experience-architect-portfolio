@@ -1,6 +1,6 @@
 import RefinedHero from "@/components/refined-hero"
 import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
-import Footer from "@/components/footer"
+import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
 import {
@@ -25,8 +25,9 @@ export default function HomePage() {
 
         {/* ABOUT: Sophisticated Personal Brand Background */}
         <section id="about" className="relative">
-          {/* <LandorAboutBackground /> */}
-          <LandorSection spacing="standard">
+          {/* Refined gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background pointer-events-none" />
+          <LandorSection spacing="standard" className="relative">
             <LandorContainer size="standard">
                 {/* About Me Section Header */}
                 <div className="text-center mb-12 md:mb-16">
@@ -215,8 +216,8 @@ export default function HomePage() {
                       features: ["Human-AI Collaboration Design", "Intuition-Precision Balance", "Collective Wisdom Platforms", "Intelligence Amplification Systems"]
                     }
                   ].map((service, index) => {
-                    const accentColors = ['hsl(var(--primary))', 'hsl(var(--secondary))', 'hsl(var(--accent))', 'hsl(var(--muted))', 'hsl(var(--primary))', 'hsl(var(--secondary))']
-                    const serviceAccent = accentColors[index % accentColors.length]
+                    // Use only coral primary color for all service icons
+                    const serviceAccent = 'hsl(var(--primary))'
                     
                     return (
                       <div 
@@ -291,10 +292,9 @@ export default function HomePage() {
         </section>
       </main>
       
-      {/* FOOTER: Rich Connection-Focused Background with Proper Spacing */}
-      <section id="footer" className="relative mt-24 md:mt-32">
-        {/* <LandorContactBackground /> */}
-        <Footer />
+      {/* FOOTER: Compact Professional Design */}
+      <section id="footer" className="relative mt-16 md:mt-20">
+        <FooterRefined />
       </section>
       
       <BreadcrumbNavigation />

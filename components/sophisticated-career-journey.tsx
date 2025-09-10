@@ -125,13 +125,13 @@ export default function SophisticatedCareerJourney() {
                   {/* Left: Role & Meta */}
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Caption className="text-primary/60">
+                      <Caption className="text-muted-foreground">
                         {experience.year} · {experience.location}
                       </Caption>
-                      <HeadingMedium className="text-primary leading-tight">
+                      <HeadingMedium className="text-foreground leading-tight">
                         {experience.role}
                       </HeadingMedium>
-                      <BodyStandard className="text-primary font-medium">
+                      <BodyStandard className="text-muted-foreground font-medium">
                         {experience.company}
                       </BodyStandard>
                     </div>
@@ -139,7 +139,7 @@ export default function SophisticatedCareerJourney() {
 
                   {/* Right: Description & Achievements */}
                   <div className="space-y-6">
-                    <BodyLarge className="text-primary/85 leading-relaxed">
+                    <BodyLarge className="text-foreground/85 leading-relaxed">
                       {experience.description}
                     </BodyLarge>
 
@@ -153,7 +153,7 @@ export default function SophisticatedCareerJourney() {
                           transition={{ duration: 0.4 }}
                           className="space-y-3"
                         >
-                          <Caption className="text-primary/60 mb-4">
+                          <Caption className="text-muted-foreground mb-4">
                             Key Impact
                           </Caption>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -166,7 +166,7 @@ export default function SophisticatedCareerJourney() {
                                 className="flex items-start gap-3 p-4 bg-primary/5 rounded-2xl"
                               >
                                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                                <BodyStandard className="text-primary/80 text-sm">
+                                <BodyStandard className="text-foreground/80 text-sm">
                                   {achievement}
                                 </BodyStandard>
                               </motion.div>
@@ -200,7 +200,7 @@ export default function SophisticatedCareerJourney() {
           transition={{ delay: 0.5 }}
         >
           <div className="flex items-center gap-4 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-white/60 shadow-lg">
-            <Caption className="text-primary/60">
+            <Caption className="text-muted-foreground">
               Career Journey
             </Caption>
             <div className="flex items-center gap-2">
@@ -216,7 +216,7 @@ export default function SophisticatedCareerJourney() {
                 />
               ))}
             </div>
-            <Caption className="text-primary/60">
+            <Caption className="text-muted-foreground">
               {experiences.length} Roles · 20+ Years
             </Caption>
           </div>

@@ -5,6 +5,7 @@ import { Calendar, Building2, Sparkles } from "lucide-react"
 import { LandorContainer, LandorSection, LandorGrid } from "@/components/ui/landor-layout-system"
 import { DisplayHero, HeadingLarge, BodyLarge, BodyStandard, Caption } from "@/components/landor-typography"
 import { Project } from "@/lib/projects"
+import ImageGalleryCarousel from "@/components/ui/image-gallery-carousel"
 
 interface ProjectPageClientProps {
   project: Project
