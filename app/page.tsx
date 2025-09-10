@@ -114,9 +114,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* PROJECTS: Minimal Focus Background */}
+        {/* PROJECTS: Dramatic Gradient Background */}
         <section id="projects" className="relative">
-          <div className="py-16 md:py-20">
+          {/* Prominent Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-muted/20 opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/40" />
+          
+          <div className="py-16 md:py-20 relative">
             <div className="max-w-7xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-16 md:mb-20">
                   <div className="inline-flex items-center gap-4 text-sm font-light tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
@@ -136,9 +140,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* EXPERIENCE: Timeline-Focused Background */}
+        {/* EXPERIENCE: Sophisticated Gradient Background */}
         <section id="experience" className="relative">
-          <div className="py-16 md:py-20">
+          {/* Layered Gradient System */}
+          <div className="absolute inset-0 bg-gradient-to-r from-muted/15 via-primary/5 to-muted/15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background/80" />
+          
+          <div className="py-16 md:py-20 relative">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
@@ -158,9 +166,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SERVICES: Service-Excellence Background */}
+        {/* SERVICES: Dynamic Gradient Background */}
         <section id="services" className="relative">
-          <div className="py-20 md:py-24">
+          {/* Multi-layer Gradient System */}
+          <div className="absolute inset-0 bg-gradient-to-bl from-primary/8 via-background to-muted/10" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/3 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" />
+          
+          <div className="py-20 md:py-24 relative">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
@@ -175,93 +188,182 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="text-center mb-12">
+                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+                    Meticulously architected solutions addressing demanding market realities and evolving client needs.
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {[
                     {
-                      icon: "◆",
-                      title: "Transformation Leadership",
-                      description: "I guide organizations by tuning into their cultural frequencies. Change happens when strategy harmonizes with the collective heartbeat of teams and communities.",
-                      features: ["Cultural Intelligence Assessment", "Change Orchestration Strategy", "Team Resonance Alignment", "Collective Transformation Roadmaps"]
+                      number: "1",
+                      title: "Accelerated Product Innovation",
+                      subtitle: "From concept to market dominance in half the time",
+                      capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
+                      outcomes: [
+                        "Reduction in product development cycles",
+                        "3x faster market validation through AI-driven research",
+                        "Cross-industry trend synthesis identifying opportunity spaces"
+                      ],
+                      excellence: "Augoor platform development—31,000+ developers, transforming static repositories into intelligent knowledge systems",
+                      demand: "Speed to market without sacrificing strategic depth."
                     },
                     {
-                      icon: "⚡",
-                      title: "Scale Experience Systems",
-                      description: "I cultivate spaces with distinct energetic signatures—environments that spark breakthrough thinking. The right atmosphere transforms potential into reality, whether for megaprojects or intimate startups.",
-                      features: ["Phygital Ecosystem Design", "Experience Architecture", "Scalable System Frameworks", "Atmospheric Environment Creation"]
-                    },
-                    {
-                      icon: "◎",
-                      title: "Strategic Design",
-                      description: "My approach to Strategic Design architectures converts ecosystems complexity into structured implementation roadmaps with measurable ROI.",
-                      features: ["Ecosystem Complexity Mapping", "Implementation Roadmaps", "ROI-Driven Design Strategy", "Business Architecture Planning"]
-                    },
-                    {
-                      icon: "●",
+                      number: "2",
                       title: "Experience Orchestration",
-                      description: "I compose service symphonies where every interaction contributes to the emotional arc. Thousands of moments, one cohesive feeling that stays with people long after.",
-                      features: ["Service Journey Mapping", "Emotional Arc Design", "Touchpoint Orchestration", "Experience Continuity Strategy"]
+                      subtitle: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice",
+                      capability: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
+                      outcomes: [
+                        "Increase in cross-channel satisfaction",
+                        "Reduction in operational redundancy",
+                        "Unified governance frameworks"
+                      ],
+                      excellence: "Theme Park- Multiple Channels-One unified experience language",
+                      demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance."
                     },
                     {
-                      icon: "◊",
-                      title: "Product Strategy Evolution",
-                      description: "I infuse products with soul—designing not just what they do, but how they make people feel. Each feature carries intention, creating atmospheres where users naturally thrive.",
-                      features: ["Soul-Centered Product Design", "Intentional Feature Architecture", "User Atmosphere Creation", "Product Evolution Strategy"]
+                      number: "3",
+                      title: "Intelligent Operations Architecture",
+                      subtitle: "Building AI-augmented teams that outperform traditional structures",
+                      capability: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
+                      outcomes: [
+                        "Improvement in operational excellence metrics",
+                        "Real-time competitive intelligence",
+                        "Automated trend detection"
+                      ],
+                      excellence: "Globant X initiatives—AI-human collaboration frameworks deployed across 31,000 team members",
+                      demand: "Operations that think, adapt, and evolve. Intelligence embedded in every process."
                     },
                     {
-                      icon: "▲",
-                      title: "Intelligence Amplification Design",
-                      description: "I choreograph the dance between human intuition and machine precision. Creating spaces where both energies complement rather than compete, amplifying our collective wisdom.",
-                      features: ["Human-AI Collaboration Design", "Intuition-Precision Balance", "Collective Wisdom Platforms", "Intelligence Amplification Systems"]
+                      number: "4",
+                      title: "Design Systems",
+                      subtitle: "Engineering organizational evolution through scalable design foundations",
+                      capability: "Build transformation on bedrock design systems that ensure every team moves in harmony. I collaborate to create modular, scalable frameworks where innovation accelerates rather than fragments—turning organizational complexity into competitive advantage.",
+                      outcomes: [
+                        "Faster feature deployment through unified systems",
+                        "Design consistency across all digital properties",
+                        "Team velocity increased by 2.5x"
+                      ],
+                      excellence: "Kayanee wellness platform—Saudi Arabia's first integrated phygital ecosystem.",
+                      demand: "Transformation that compounds. Every change strengthening the foundation for the next leap."
+                    },
+                    {
+                      number: "5",
+                      title: "Strategic Innovation Consulting",
+                      subtitle: "Converting market disruption into systematic advantage",
+                      capability: "Navigate complexity with frameworks that transform uncertainty into opportunity. We blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
+                      outcomes: [
+                        "Innovation portfolios with tangible industry ROI",
+                        "Stakeholder alignment",
+                        "Time to strategic clarity"
+                      ],
+                      excellence: "Centre for Fourth Industrial Revolution—governance frameworks adopted across global affiliate network",
+                      demand: "Innovation with precision. Strategies that move from boardroom to market with velocity."
+                    },
+                    {
+                      number: "6",
+                      title: "Customer Intelligence Platforms",
+                      subtitle: "Turning customer behavior into a competitive advantage",
+                      capability: "Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
+                      outcomes: [
+                        "Experience resonance",
+                        "Customer Service Metrics",
+                        "Service Blueprints"
+                      ],
+                      excellence: "32 retail destinations achieving 26% sales growth through behavior-driven experience design",
+                      demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy."
                     }
                   ].map((service, index) => (
                     <div 
                       key={index}
-                      className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-10 shadow-lg border border-white/40 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                      className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/40 overflow-hidden hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] transition-all duration-700 hover:-translate-y-3"
                     >
-                      {/* Background Glow Effect */}
-                      <div 
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
-                        style={{
-                          background: `radial-gradient(circle at center, hsl(var(--primary) / 0.15) 0%, transparent 70%)`
-                        }}
-                      />
-                      
-                      {/* Service Icon */}
-                      <div 
-                        className="relative text-5xl lg:text-6xl mb-6 font-serif text-primary"
-                      >
-                        {service.icon}
+                      {/* Tech-inspired background pattern */}
+                      <div className="absolute inset-0 opacity-5">
+                        <div className="grid grid-cols-6 gap-px h-full">
+                          {[...Array(36)].map((_, i) => (
+                            <div
+                              key={i}
+                              className="bg-primary opacity-20"
+                              style={{
+                                animationDelay: `${i * 0.1}s`,
+                                animation: "pulse 3s infinite"
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Service Number - Tech style */}
+                      <div className="relative z-10 mb-6">
+                        <div className="inline-flex items-center gap-4">
+                          <span className="text-6xl font-black font-mono text-primary/20">
+                            {service.number.padStart(2, '0')}
+                          </span>
+                          <div className="w-12 h-px bg-gradient-to-r from-primary to-transparent" />
+                        </div>
                       </div>
                       
                       {/* Service Title */}
-                      <h3 className="text-xl lg:text-2xl font-serif font-medium mb-5 leading-tight relative z-10 text-foreground">
+                      <h3 className="text-2xl lg:text-3xl font-bold mb-3 leading-tight relative z-10 text-foreground">
                         {service.title}
                       </h3>
                       
-                      {/* Service Description */}
-                      <p className="text-sm lg:text-base leading-relaxed mb-8 relative z-10 text-muted-foreground">
-                        {service.description}
+                      {/* Subtitle - Italic emphasis */}
+                      <p className="text-lg italic text-primary mb-8 relative z-10 leading-relaxed">
+                        {service.subtitle}
                       </p>
                       
-                      {/* Feature List */}
-                      <ul className="space-y-3 relative z-10">
-                        {service.features.map((feature, idx) => (
-                          <li 
-                            key={idx}
-                            className="flex items-center text-xs lg:text-sm"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full mr-4 flex-shrink-0 bg-primary" />
-                            <span className="text-muted-foreground">
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                      {/* Strategic Capability */}
+                      <div className="mb-8 relative z-10">
+                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-3">
+                          Strategic Capability:
+                        </h4>
+                        <p className="text-base leading-relaxed text-muted-foreground">
+                          {service.capability}
+                        </p>
+                      </div>
+                      
+                      {/* Measurable Outcomes */}
+                      <div className="mb-8 relative z-10">
+                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-4">
+                          Measurable Outcomes:
+                        </h4>
+                        <ul className="space-y-3">
+                          {service.outcomes.map((outcome, idx) => (
+                            <li key={idx} className="flex items-start text-sm">
+                              <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0" />
+                              <span className="text-muted-foreground leading-relaxed">
+                                {outcome}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                      {/* Subtle Border Enhancement */}
-                      <div 
-                        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none border border-primary/20"
-                      />
+                      {/* Proven Excellence */}
+                      <div className="mb-8 relative z-10 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-2">
+                          Proven Excellence:
+                        </h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {service.excellence}
+                        </p>
+                      </div>
+
+                      {/* For projects that demand */}
+                      <div className="relative z-10">
+                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-2">
+                          For projects that demand:
+                        </h4>
+                        <p className="text-sm text-primary font-medium leading-relaxed">
+                          {service.demand}
+                        </p>
+                      </div>
+
+                      {/* Hover border enhancement */}
+                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none border-2 border-primary/30" />
                     </div>
                   ))}
                 </div>

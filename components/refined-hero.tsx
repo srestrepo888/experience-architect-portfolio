@@ -37,15 +37,64 @@ export default function RefinedHero() {
           </p>
         </motion.div>
         
-        {/* Clean, powerful headline */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight tracking-tight mb-8 text-foreground"
-        >
-          {CONTENT_CONFIG.HERO.MAIN_TITLE}
-        </motion.h1>
+        {/* DRAMATIC TECHNOLOGY-FOCUSED HEADLINE */}
+        <div className="relative mb-8">
+          {/* Tech Grid Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="grid grid-cols-8 gap-1 h-full">
+              {[...Array(64)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="bg-primary"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: Math.random() * 0.3 }}
+                  transition={{ 
+                    duration: 2, 
+                    delay: i * 0.02,
+                    repeat: Infinity,
+                    repeatType: "reverse" 
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* EXPERIENCE - Primary emphasis, dramatic presentation */}
+          <motion.h1
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary-hover relative mb-4"
+          >
+            {CONTENT_CONFIG.HERO.MAIN_TITLE}
+            
+            {/* Tech accent elements for EXPERIENCE */}
+            <motion.div
+              className="absolute -top-2 -right-4 w-3 h-3 bg-primary rounded-full"
+              animate={{ 
+                scale: [1, 1.5, 1],
+                opacity: [0.6, 1, 0.6] 
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-2 left-1/4 w-1 h-8 bg-gradient-to-t from-primary to-transparent"
+              initial={{ height: 0 }}
+              animate={{ height: 32 }}
+              transition={{ duration: 1, delay: 1.2 }}
+            />
+          </motion.h1>
+
+          {/* ARCHITECT - Secondary, elegant supporting */}
+          <motion.h1
+            initial={{ opacity: 0, x: 100, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+            className="text-4xl md:text-6xl lg:text-7xl font-light leading-none tracking-wide text-foreground/80"
+          >
+            {CONTENT_CONFIG.HERO.SUBTITLE}
+          </motion.h1>
+        </div>
         
         {/* Refined subtitle */}
         <motion.h2

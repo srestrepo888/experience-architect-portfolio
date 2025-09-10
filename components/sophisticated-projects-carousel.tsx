@@ -4,8 +4,8 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { getAllProjects } from "@/lib/projects"
-// Using standard button instead of bulletproof navigation button
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 export default function SophisticatedProjectsCarousel() {
   const router = useRouter()
@@ -68,13 +68,16 @@ export default function SophisticatedProjectsCarousel() {
             className="grid lg:grid-cols-[1fr_420px] gap-0 min-h-[600px]"
           >
             
-            {/* SOPHISTICATED PROJECT IMAGE - NO CONTAINERS */}
-            <div className="relative group overflow-hidden rounded-3xl shadow-2xl">
-              <img
+            {/* SOPHISTICATED PROJECT IMAGE - FIXED ASPECT RATIO */}
+            <div className="relative group overflow-hidden rounded-3xl shadow-2xl aspect-[4/3]">
+              <Image
                 src={currentProject.thumbnailImage || "/placeholder.jpg"}
                 alt={currentProject.title}
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 filter group-hover:saturate-110 group-hover:contrast-105"
-                style={{ minHeight: "600px" }}
+                fill
+                className="object-cover transition-all duration-700 group-hover:scale-105 filter group-hover:saturate-110 group-hover:contrast-105"
+                sizes="(max-width: 768px) 100vw, 60vw"
+                priority={currentIndex === 0}
+                quality={95}
               />
               
               {/* Sophisticated Gradient Overlay */}
