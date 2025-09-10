@@ -3,20 +3,29 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { 
-  LANDOR_CONTAINER_SIZES, 
-  LANDOR_SPACING, 
-  LANDOR_GRID,
-  getContainerSize,
-  getSpacing,
-  getGrid,
-  SPACING_SCALE,
-  BORDER_RADIUS_SCALE,
-  SHADOW_SCALE
-} from "@/lib/layout-utils"
 
-// 🏛️ LANDOR LAYOUT SYSTEM - 12 Core Components Maximum
-// Mathematical precision with 8px grid system
+// 🏛️ LANDOR LAYOUT SYSTEM - Self-contained constants
+const LANDOR_CONTAINER_SIZES = {
+  narrow: "max-w-3xl",
+  standard: "max-w-6xl", 
+  wide: "max-w-7xl",
+  full: "max-w-full"
+}
+
+const LANDOR_SPACING = {
+  compact: "py-12 md:py-16",
+  standard: "py-16 md:py-20",
+  spacious: "py-20 md:py-24", 
+  generous: "py-24 md:py-32",
+  grid: {
+    xs: "8px",
+    sm: "12px", 
+    md: "16px",
+    lg: "24px",
+    xl: "32px",
+    xxl: "48px"
+  }
+}
 
 // 1. LANDOR CONTAINER - Mathematical Width Progression
 interface LandorContainerProps {

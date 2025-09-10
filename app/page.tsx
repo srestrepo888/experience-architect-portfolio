@@ -3,20 +3,14 @@ import RefinedHero from "@/components/refined-hero"
 import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
-import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
-import {
-  LandorContainer,
-  LandorSection
-} from "@/components/ui/landor-layout-system"
-import { ScrollToTop } from "@/components/ui/scroll-to-top"
-import { BreadcrumbNavigation } from "@/components/ui/breadcrumb-navigation" 
+// import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import { Background } from "@/components/ui/background"
 import Image from "next/image"
 
 export default function HomePage() {
   return (
-    <Background className="text-foreground">
+    <div className="relative text-foreground">
       <CinematicNavigation />
       <main className="relative">
         {/* HERO: Award-Winning Experience Architect */}
@@ -28,8 +22,8 @@ export default function HomePage() {
         <section id="about" className="relative">
           {/* Refined gradient background */}
           <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background pointer-events-none" />
-          <LandorSection spacing="standard" className="relative">
-            <LandorContainer size="standard">
+          <div className="py-16 md:py-20 relative">
+            <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 {/* About Me Section Header */}
                 <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-8">
@@ -110,15 +104,15 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-            </LandorContainer>
-          </LandorSection>
+            </div>
+          </div>
         </section>
 
         {/* PROJECTS: Minimal Focus Background */}
         <section id="projects" className="relative">
           {/* <LandorProjectsBackground /> */}
-          <LandorSection spacing="standard">
-            <LandorContainer size="wide">
+          <div className="py-16 md:py-20">
+            <div className="max-w-7xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-16 md:mb-20">
                   <div className="inline-flex items-center gap-4 text-sm font-light tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
                     <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
@@ -133,15 +127,15 @@ export default function HomePage() {
                   </p>
                 </div>
                 <SophisticatedProjectsCarousel />
-            </LandorContainer>
-          </LandorSection>
+            </div>
+          </div>
         </section>
 
         {/* EXPERIENCE: Timeline-Focused Background */}
         <section id="experience" className="relative">
           {/* <LandorExperienceBackground /> */}
-          <LandorSection spacing="standard">
-            <LandorContainer size="standard">
+          <div className="py-16 md:py-20">
+            <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
                     <div className="w-10 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"></div>
@@ -155,16 +149,19 @@ export default function HomePage() {
                     {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
                   </p>
                 </div>
-                <SophisticatedCareerJourney />
-            </LandorContainer>
-          </LandorSection>
+                {/* <SophisticatedCareerJourney /> */}
+                <div className="text-center py-8">
+                  <p className="text-muted-foreground">Career Journey section temporarily disabled for deployment</p>
+                </div>
+            </div>
+          </div>
         </section>
 
         {/* SERVICES: Service-Excellence Background */}
         <section id="services" className="relative">
           {/* <LandorServicesBackground /> */}
-          <LandorSection spacing="spacious">
-            <LandorContainer size="standard">
+          <div className="py-20 md:py-24">
+            <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
                 <div className="text-center mb-12 md:mb-16">
                   <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
                     <div className="w-10 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"></div>
@@ -298,8 +295,8 @@ export default function HomePage() {
                     )
                   })}
                 </div>
-            </LandorContainer>
-          </LandorSection>
+            </div>
+          </div>
         </section>
       </main>
       
@@ -307,9 +304,6 @@ export default function HomePage() {
       <section id="footer" className="relative mt-16 md:mt-20">
         <FooterRefined />
       </section>
-      
-      <BreadcrumbNavigation />
-      <ScrollToTop />
-    </Background>
+    </div>
   )
 }
