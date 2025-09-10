@@ -5,6 +5,7 @@ import { Calendar, Building2, ArrowLeft } from "lucide-react"
 import { Project } from "@/lib/projects"
 import Image from "next/image"
 import Link from "next/link"
+import ImpactfulGalleryCarousel from "@/components/impactful-gallery-carousel"
 
 interface ProjectPageClientProps {
   project: Project
@@ -14,7 +15,7 @@ interface ProjectPageClientProps {
 export default function ProjectPageClient({ project, nextProject }: ProjectPageClientProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
-      {/* Navigation */}
+      {/* Enhanced Navigation */}
       <motion.nav 
         className="fixed top-8 left-8 right-8 z-50"
         initial={{ y: -50, opacity: 0 }}
@@ -22,16 +23,25 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center justify-between">
-          <Link 
-            href="/"
-            className="flex items-center gap-3 px-6 py-3 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
-          >
-            <ArrowLeft className="w-4 h-4 text-primary group-hover:-translate-x-1 transition-transform duration-300" />
-            <span className="text-sm font-medium text-foreground">Back to Portfolio</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link 
+              href="/"
+              className="flex items-center gap-3 px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            >
+              <ArrowLeft className="w-5 h-5 text-primary group-hover:-translate-x-1 transition-transform duration-300" />
+              <span className="text-base font-medium text-foreground">Back to Portfolio</span>
+            </Link>
+            
+            <Link 
+              href="/#projects"
+              className="flex items-center gap-3 px-6 py-4 bg-primary/5 backdrop-blur-xl rounded-2xl border border-primary/20 hover:bg-primary/10 transition-all duration-300 group"
+            >
+              <span className="text-sm font-medium text-primary">Back to Projects</span>
+            </Link>
+          </div>
           
-          <div className="px-6 py-3 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
-            <span className="text-sm font-medium text-primary">Project Details</span>
+          <div className="px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
+            <span className="text-base font-medium text-primary">Project Details</span>
           </div>
         </div>
       </motion.nav>
@@ -91,66 +101,99 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
             </motion.div>
           )}
 
-          {/* Project Content */}
-          {project.context && (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="max-w-4xl mx-auto"
-            >
-              <div className="prose prose-lg max-w-none">
-                {project.context.split('\n\n').map((paragraph: string, index: number) => (
-                  <p key={index} className="mb-6 leading-relaxed text-foreground">
-                    {paragraph.trim()}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
-          )}
+          {/* THREE MAIN CONTAINERS: Context, Impact, Solution */}
+          <div className="max-w-7xl mx-auto mt-20">
+            <div className="grid lg:grid-cols-3 gap-8">
+              
+              {/* CONTEXT CONTAINER */}
+              {project.context && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60"
+                >
+                  <div className="mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4">
+                      <span className="text-white font-bold text-lg">C</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Context</h3>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Project Background</p>
+                  </div>
+                  <div className="prose prose-base max-w-none">
+                    {project.context.split('\n\n').map((paragraph: string, index: number) => (
+                      <p key={index} className="mb-4 leading-relaxed text-foreground text-sm">
+                        {paragraph.trim()}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
-          {/* Gallery Images - Enhanced Showcase */}
+              {/* IMPACT CONTAINER */}
+              {project.impact && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60"
+                >
+                  <div className="mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4">
+                      <span className="text-white font-bold text-lg">I</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Impact</h3>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Results Achieved</p>
+                  </div>
+                  <div className="prose prose-base max-w-none">
+                    {project.impact.split('\n\n').map((paragraph: string, index: number) => (
+                      <p key={index} className="mb-4 leading-relaxed text-foreground text-sm">
+                        {paragraph.trim()}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* SOLUTION CONTAINER */}
+              {project.scope && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60"
+                >
+                  <div className="mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                      <span className="text-white font-bold text-lg">S</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Solution</h3>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Strategic Approach</p>
+                  </div>
+                  <div className="prose prose-base max-w-none">
+                    {project.scope.split('\n\n').map((paragraph: string, index: number) => (
+                      <p key={index} className="mb-4 leading-relaxed text-foreground text-sm">
+                        {paragraph.trim()}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+
+          {/* IMPACTFUL GALLERY CAROUSEL */}
           {project.galleryImages && project.galleryImages.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
               className="mt-20"
             >
-              <h2 className="text-3xl font-light text-center mb-12 text-foreground">
-                Project Gallery
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {project.galleryImages.map((image, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl group"
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt || `${project.title} - Image ${index + 1}`}
-                      fill
-                      className="object-cover transition-all duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      quality={95}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {image.alt && (
-                      <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <p className="text-white text-sm font-medium leading-relaxed">
-                          {image.alt}
-                        </p>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
+              <ImpactfulGalleryCarousel 
+                images={project.galleryImages} 
+                projectTitle={project.title}
+              />
             </motion.div>
           )}
 

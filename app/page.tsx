@@ -3,12 +3,15 @@ import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-c
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
+import ElegantServicesExplorer from "@/components/elegant-services-explorer"
+import ArchitectCursor from "@/components/architect-cursor"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
 
 export default function HomePage() {
   return (
     <div className="relative text-foreground">
+      <ArchitectCursor />
       <CinematicNavigation />
       <main className="relative">
         {/* HERO: Award-Winning Experience Architect */}
@@ -44,13 +47,13 @@ export default function HomePage() {
                   </h2>
                 </div>
                 
-                {/* PERFECTIONIST SPACE-EFFICIENT LAYOUT */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
+                {/* PERFECT SYMMETRY LAYOUT - Balanced Content & Image */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center max-w-6xl mx-auto">
                   
-                  {/* SOPHISTICATED CONTENT COLUMN */}
-                  <div className="space-y-10">
-                    {/* Core Philosophy - Sophisticated Typography */}
-                    <div className="space-y-8">
+                  {/* CONTENT COLUMN - Perfectly Balanced */}
+                  <div className="space-y-8 lg:pr-8">
+                    {/* Core Philosophy */}
+                    <div className="space-y-6">
                       <p className="text-lg leading-relaxed text-foreground">
                         I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents, blending diverse perspectives from anthropology to algorithms.
                       </p>
@@ -59,9 +62,9 @@ export default function HomePage() {
                       </p>
                     </div>
                     
-                    {/* Impact Statement - Elegant Sophistication */}
-                    <div className="relative pl-8 py-8 before:absolute before:left-0 before:top-0 before:w-1 before:h-full before:bg-gradient-to-b before:from-primary/40 before:to-primary/10 before:rounded-full">
-                      <blockquote className="text-xl font-serif italic leading-relaxed mb-6 text-foreground">
+                    {/* Impact Statement - Centered & Elegant */}
+                    <div className="relative px-6 py-8 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl border-l-4 border-primary">
+                      <blockquote className="text-xl font-serif italic leading-relaxed mb-4 text-foreground">
                         "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
                       </blockquote>
                       <div className="text-sm font-sans font-medium tracking-wider uppercase text-muted-foreground">
@@ -69,17 +72,17 @@ export default function HomePage() {
                       </div>
                     </div>
                     
-                    {/* Global Experience - Refined */}
+                    {/* Global Experience */}
                     <p className="text-lg leading-relaxed text-foreground">
                       From wellness movements in Saudi Arabia to AI-driven platforms empowering developers worldwide—each endeavour brings me closer to my mission: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
                     </p>
                     
-                    {/* CTA - MAXIMUM VISIBILITY */}
-                    <div className="pt-8">
+                    {/* CTA - Balanced Positioning */}
+                    <div className="pt-6">
                       <a 
                         href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
                         download="silvana-restrepo-cv.pdf"
-                        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors duration-200"
+                        className="inline-flex items-center justify-center px-10 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                         aria-label={CONTENT_CONFIG.ABOUT.CTA.ARIA_LABEL}
                       >
                         {CONTENT_CONFIG.ABOUT.CTA.TEXT}
@@ -87,25 +90,37 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* FLOATING PORTRAIT - SOPHISTICATED PRESENTATION */}
-                  <div className="flex justify-center lg:justify-end relative">
-                    <div className="relative w-full max-w-[280px] lg:max-w-[320px] group">
-                      {/* Floating Shadow */}
-                      <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  {/* IMAGE COLUMN - Perfect Balance */}
+                  <div className="flex justify-center relative lg:pl-8">
+                    <div className="relative w-full max-w-[400px] group">
+                      {/* Architectural Grid Background */}
+                      <div className="absolute -inset-8 opacity-10">
+                        <div className="grid grid-cols-4 gap-2 h-full">
+                          {[...Array(16)].map((_, i) => (
+                            <div key={i} className="bg-primary/20 rounded-sm" />
+                          ))}
+                        </div>
+                      </div>
                       
-                      {/* Main Portrait */}
+                      {/* Floating Aura */}
+                      <div className="absolute -inset-6 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      
+                      {/* Main Portrait - Perfect Aspect */}
                       <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
                         <Image 
                           src={CONTENT_CONFIG.ABOUT.PORTRAIT.SRC}
                           alt={CONTENT_CONFIG.ABOUT.PORTRAIT.ALT_TEXT}
                           fill
-                          className="object-cover transition-all duration-700 group-hover:scale-102 filter group-hover:saturate-110"
-                          sizes="(max-width: 768px) 280px, 320px"
+                          className="object-cover transition-all duration-700 group-hover:scale-105 filter group-hover:saturate-110"
+                          sizes="(max-width: 768px) 100vw, 400px"
                           priority
                         />
                         
-                        {/* Elegant Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        {/* Sophisticated Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        
+                        {/* Corner Accent */}
+                        <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                     </div>
                   </div>
@@ -114,11 +129,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* PROJECTS: Dramatic Gradient Background */}
+        {/* PROJECTS: Ultra-Dramatic Gradient Background */}
         <section id="projects" className="relative">
-          {/* Prominent Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-muted/20 opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/40" />
+          {/* Multi-Layer Sophisticated Gradients */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-muted/30" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/10 to-primary/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
           
           <div className="py-16 md:py-20 relative">
             <div className="max-w-7xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
@@ -140,11 +157,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* EXPERIENCE: Sophisticated Gradient Background */}
+        {/* EXPERIENCE: Ultra-Sophisticated Gradient Background */}
         <section id="experience" className="relative">
-          {/* Layered Gradient System */}
-          <div className="absolute inset-0 bg-gradient-to-r from-muted/15 via-primary/5 to-muted/15" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background/80" />
+          {/* Advanced Multi-Layer Gradients */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-muted/10 to-primary/15" />
+          <div className="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-muted/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background/70" />
+          <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-primary/5 opacity-50" />
           
           <div className="py-16 md:py-20 relative">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
@@ -166,12 +185,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SERVICES: Dynamic Gradient Background */}
+        {/* SERVICES: Spectacular Dynamic Gradient Background */}
         <section id="services" className="relative">
-          {/* Multi-layer Gradient System */}
-          <div className="absolute inset-0 bg-gradient-to-bl from-primary/8 via-background to-muted/10" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/3 to-background/70" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" />
+          {/* Revolutionary Multi-Layer Gradient System */}
+          <div className="absolute inset-0 bg-gradient-to-bl from-primary/25 via-primary/8 to-muted/20" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-muted/15 via-primary/12 to-primary/25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/15 via-transparent to-background/25" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,_var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
           
           <div className="py-20 md:py-24 relative">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
@@ -194,179 +215,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {[
-                    {
-                      number: "1",
-                      title: "Accelerated Product Innovation",
-                      subtitle: "From concept to market dominance in half the time",
-                      capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
-                      outcomes: [
-                        "Reduction in product development cycles",
-                        "3x faster market validation through AI-driven research",
-                        "Cross-industry trend synthesis identifying opportunity spaces"
-                      ],
-                      excellence: "Augoor platform development—31,000+ developers, transforming static repositories into intelligent knowledge systems",
-                      demand: "Speed to market without sacrificing strategic depth."
-                    },
-                    {
-                      number: "2",
-                      title: "Experience Orchestration",
-                      subtitle: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice",
-                      capability: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
-                      outcomes: [
-                        "Increase in cross-channel satisfaction",
-                        "Reduction in operational redundancy",
-                        "Unified governance frameworks"
-                      ],
-                      excellence: "Theme Park- Multiple Channels-One unified experience language",
-                      demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance."
-                    },
-                    {
-                      number: "3",
-                      title: "Intelligent Operations Architecture",
-                      subtitle: "Building AI-augmented teams that outperform traditional structures",
-                      capability: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
-                      outcomes: [
-                        "Improvement in operational excellence metrics",
-                        "Real-time competitive intelligence",
-                        "Automated trend detection"
-                      ],
-                      excellence: "Globant X initiatives—AI-human collaboration frameworks deployed across 31,000 team members",
-                      demand: "Operations that think, adapt, and evolve. Intelligence embedded in every process."
-                    },
-                    {
-                      number: "4",
-                      title: "Design Systems",
-                      subtitle: "Engineering organizational evolution through scalable design foundations",
-                      capability: "Build transformation on bedrock design systems that ensure every team moves in harmony. I collaborate to create modular, scalable frameworks where innovation accelerates rather than fragments—turning organizational complexity into competitive advantage.",
-                      outcomes: [
-                        "Faster feature deployment through unified systems",
-                        "Design consistency across all digital properties",
-                        "Team velocity increased by 2.5x"
-                      ],
-                      excellence: "Kayanee wellness platform—Saudi Arabia's first integrated phygital ecosystem.",
-                      demand: "Transformation that compounds. Every change strengthening the foundation for the next leap."
-                    },
-                    {
-                      number: "5",
-                      title: "Strategic Innovation Consulting",
-                      subtitle: "Converting market disruption into systematic advantage",
-                      capability: "Navigate complexity with frameworks that transform uncertainty into opportunity. We blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
-                      outcomes: [
-                        "Innovation portfolios with tangible industry ROI",
-                        "Stakeholder alignment",
-                        "Time to strategic clarity"
-                      ],
-                      excellence: "Centre for Fourth Industrial Revolution—governance frameworks adopted across global affiliate network",
-                      demand: "Innovation with precision. Strategies that move from boardroom to market with velocity."
-                    },
-                    {
-                      number: "6",
-                      title: "Customer Intelligence Platforms",
-                      subtitle: "Turning customer behavior into a competitive advantage",
-                      capability: "Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
-                      outcomes: [
-                        "Experience resonance",
-                        "Customer Service Metrics",
-                        "Service Blueprints"
-                      ],
-                      excellence: "32 retail destinations achieving 26% sales growth through behavior-driven experience design",
-                      demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy."
-                    }
-                  ].map((service, index) => (
-                    <div 
-                      key={index}
-                      className="group relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-lg rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/40 overflow-hidden hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] transition-all duration-700 hover:-translate-y-3"
-                    >
-                      {/* Tech-inspired background pattern */}
-                      <div className="absolute inset-0 opacity-5">
-                        <div className="grid grid-cols-6 gap-px h-full">
-                          {[...Array(36)].map((_, i) => (
-                            <div
-                              key={i}
-                              className="bg-primary opacity-20"
-                              style={{
-                                animationDelay: `${i * 0.1}s`,
-                                animation: "pulse 3s infinite"
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Service Number - Tech style */}
-                      <div className="relative z-10 mb-6">
-                        <div className="inline-flex items-center gap-4">
-                          <span className="text-6xl font-black font-mono text-primary/20">
-                            {service.number.padStart(2, '0')}
-                          </span>
-                          <div className="w-12 h-px bg-gradient-to-r from-primary to-transparent" />
-                        </div>
-                      </div>
-                      
-                      {/* Service Title */}
-                      <h3 className="text-2xl lg:text-3xl font-bold mb-3 leading-tight relative z-10 text-foreground">
-                        {service.title}
-                      </h3>
-                      
-                      {/* Subtitle - Italic emphasis */}
-                      <p className="text-lg italic text-primary mb-8 relative z-10 leading-relaxed">
-                        {service.subtitle}
-                      </p>
-                      
-                      {/* Strategic Capability */}
-                      <div className="mb-8 relative z-10">
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-3">
-                          Strategic Capability:
-                        </h4>
-                        <p className="text-base leading-relaxed text-muted-foreground">
-                          {service.capability}
-                        </p>
-                      </div>
-                      
-                      {/* Measurable Outcomes */}
-                      <div className="mb-8 relative z-10">
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-4">
-                          Measurable Outcomes:
-                        </h4>
-                        <ul className="space-y-3">
-                          {service.outcomes.map((outcome, idx) => (
-                            <li key={idx} className="flex items-start text-sm">
-                              <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0" />
-                              <span className="text-muted-foreground leading-relaxed">
-                                {outcome}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Proven Excellence */}
-                      <div className="mb-8 relative z-10 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-2">
-                          Proven Excellence:
-                        </h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {service.excellence}
-                        </p>
-                      </div>
-
-                      {/* For projects that demand */}
-                      <div className="relative z-10">
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-foreground/80 mb-2">
-                          For projects that demand:
-                        </h4>
-                        <p className="text-sm text-primary font-medium leading-relaxed">
-                          {service.demand}
-                        </p>
-                      </div>
-
-                      {/* Hover border enhancement */}
-                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none border-2 border-primary/30" />
-                    </div>
-                  ))}
-                </div>
+                <ElegantServicesExplorer />
             </div>
           </div>
         </section>
