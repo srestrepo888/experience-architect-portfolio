@@ -94,16 +94,28 @@ export default function RefinedHero() {
           >
             {CONTENT_CONFIG.HERO.SUBTITLE}
           </motion.h1>
+          
+          {/* Sophisticated Connecting Lines - Architecting Idea */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+            className="absolute left-0 right-0 -bottom-4 flex items-center justify-center gap-4"
+          >
+            <div className="w-24 h-px bg-gradient-to-r from-transparent to-primary/30" />
+            <div className="w-2 h-2 rounded-full bg-primary/40" />
+            <div className="w-24 h-px bg-gradient-to-l from-transparent to-primary/30" />
+          </motion.div>
         </div>
         
-        {/* Refined subtitle */}
+        {/* Professional tagline - no duplicate */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="text-xl md:text-2xl font-normal leading-relaxed mb-12 text-muted-foreground max-w-2xl mx-auto"
+          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+          className="text-xl md:text-2xl font-light leading-relaxed mb-12 text-muted-foreground max-w-2xl mx-auto"
         >
-          {CONTENT_CONFIG.HERO.SUBTITLE}
+          Crafting digital experiences that connect strategy with soul
         </motion.h2>
         
         {/* Clean, purposeful CTAs */}

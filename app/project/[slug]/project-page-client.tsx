@@ -14,7 +14,7 @@ interface ProjectPageClientProps {
 
 export default function ProjectPageClient({ project, nextProject }: ProjectPageClientProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background">
       {/* Enhanced Navigation */}
       <motion.nav 
         className="fixed top-8 left-8 right-8 z-50"
@@ -23,22 +23,13 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link 
-              href="/"
-              className="flex items-center gap-3 px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
-            >
-              <ArrowLeft className="w-5 h-5 text-primary group-hover:-translate-x-1 transition-transform duration-300" />
-              <span className="text-base font-medium text-foreground">Back to Portfolio</span>
-            </Link>
-            
-            <Link 
-              href="/#projects"
-              className="flex items-center gap-3 px-6 py-4 bg-primary/5 backdrop-blur-xl rounded-2xl border border-primary/20 hover:bg-primary/10 transition-all duration-300 group"
-            >
-              <span className="text-sm font-medium text-primary">Back to Projects</span>
-            </Link>
-          </div>
+          <Link 
+            href="/#projects"
+            className="flex items-center gap-3 px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+          >
+            <ArrowLeft className="w-5 h-5 text-primary group-hover:-translate-x-1 transition-transform duration-300" />
+            <span className="text-base font-medium text-foreground">Back to Projects</span>
+          </Link>
           
           <div className="px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
             <span className="text-base font-medium text-primary">Project Details</span>
@@ -69,7 +60,7 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-light leading-tight tracking-tight mb-6 text-foreground">
+            <h1 className="text-4xl md:text-6xl font-serif font-light leading-tight tracking-tight mb-6 text-foreground">
               {project.title}
             </h1>
             
@@ -111,13 +102,29 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60"
+                  className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-500"
                 >
-                  <div className="mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4">
+                  {/* Animated gradient background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent" />
+                  </div>
+                  
+                  <div className="mb-6 relative">
+                    <motion.div 
+                      animate={{ 
+                        rotate: [0, 5, 0],
+                        scale: [1, 1.05, 1]
+                      }}
+                      transition={{ 
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                    >
                       <span className="text-white font-bold text-lg">C</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Context</h3>
+                    </motion.div>
+                    <h3 className="text-2xl font-serif font-light text-foreground mb-2">Context</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">Project Background</p>
                   </div>
                   <div className="prose prose-base max-w-none">
@@ -136,13 +143,30 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60"
+                  className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-500"
                 >
-                  <div className="mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4">
+                  {/* Animated gradient background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent" />
+                  </div>
+                  
+                  <div className="mb-6 relative">
+                    <motion.div 
+                      animate={{ 
+                        rotate: [0, -5, 0],
+                        scale: [1, 1.05, 1]
+                      }}
+                      transition={{ 
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2
+                      }}
+                      className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                    >
                       <span className="text-white font-bold text-lg">I</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Impact</h3>
+                    </motion.div>
+                    <h3 className="text-2xl font-serif font-light text-foreground mb-2">Impact</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">Results Achieved</p>
                   </div>
                   <div className="prose prose-base max-w-none">
@@ -161,13 +185,30 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60"
+                  className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/60 overflow-hidden hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-500"
                 >
-                  <div className="mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                  {/* Animated gradient background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent" />
+                  </div>
+                  
+                  <div className="mb-6 relative">
+                    <motion.div 
+                      animate={{ 
+                        rotate: [0, 5, 0],
+                        scale: [1, 1.05, 1]
+                      }}
+                      transition={{ 
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 4
+                      }}
+                      className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                    >
                       <span className="text-white font-bold text-lg">S</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Solution</h3>
+                    </motion.div>
+                    <h3 className="text-2xl font-serif font-light text-foreground mb-2">Solution</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">Strategic Approach</p>
                   </div>
                   <div className="prose prose-base max-w-none">

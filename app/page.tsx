@@ -3,7 +3,7 @@ import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-c
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
-import ElegantServicesExplorer from "@/components/elegant-services-explorer"
+import SophisticatedServicesDisplay from "@/components/sophisticated-services-display"
 import ArchitectCursor from "@/components/architect-cursor"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
@@ -76,18 +76,6 @@ export default function HomePage() {
                     <p className="text-lg leading-relaxed text-foreground">
                       From wellness movements in Saudi Arabia to AI-driven platforms empowering developers worldwide—each endeavour brings me closer to my mission: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
                     </p>
-                    
-                    {/* CTA - Balanced Positioning */}
-                    <div className="pt-6">
-                      <a 
-                        href={CONTENT_CONFIG.ABOUT.CTA.FILE_PATH}
-                        download="silvana-restrepo-cv.pdf"
-                        className="inline-flex items-center justify-center px-10 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        aria-label={CONTENT_CONFIG.ABOUT.CTA.ARIA_LABEL}
-                      >
-                        {CONTENT_CONFIG.ABOUT.CTA.TEXT}
-                      </a>
-                    </div>
                   </div>
 
                   {/* IMAGE COLUMN - Perfect Balance */}
@@ -209,20 +197,31 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                <div className="text-center mb-12">
+                <div className="text-center mb-16">
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
                     Meticulously architected solutions addressing demanding market realities and evolving client needs.
                   </p>
                 </div>
                 
-                <ElegantServicesExplorer />
+                <SophisticatedServicesDisplay />
             </div>
           </div>
         </section>
       </main>
       
-      {/* FOOTER: Compact Professional Design */}
+      {/* FOOTER: Elegant Background Design */}
       <section id="footer" className="relative mt-16 md:mt-20">
+        {/* Luxury Geometric Background from About Section */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/luxury-geometric-background.png"
+            alt="Luxury geometric pattern"
+            fill
+            className="object-cover opacity-30"
+            quality={95}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent" />
+        </div>
         <FooterRefined />
       </section>
     </div>
