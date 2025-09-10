@@ -2,12 +2,26 @@
 
 import { motion } from "framer-motion"
 import { CONTENT_CONFIG } from "@/lib/content-config"
+import Image from "next/image"
 
 export default function RefinedHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6">
-      {/* Subtle background - just clean cream tone */}
-      <div className="absolute inset-0 bg-background" />
+      {/* Your Portrait as Background Foundation */}
+      <div className="absolute inset-0 bg-background">
+        <div className="absolute inset-0 opacity-15">
+          <Image
+            src="/silvana-portrait-transparent.png"
+            alt="Silvana Restrepo"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={95}
+          />
+        </div>
+        {/* Sophisticated overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />
+      </div>
       
       {/* Clean content-first layout */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
