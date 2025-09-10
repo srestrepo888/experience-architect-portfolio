@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
-import HeroLandorAward from "@/components/hero-landor-award"
-import ProjectsCarouselAward from "@/components/projects-carousel-award" 
+import RefinedHero from "@/components/refined-hero"
+import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
@@ -21,7 +21,7 @@ export default function HomePage() {
       <main className="relative">
         {/* HERO: Award-Winning Experience Architect */}
         <section id="hero" className="relative">
-          <HeroLandorAward />
+          <RefinedHero />
         </section>
 
         {/* ABOUT: Sophisticated Personal Brand Background */}
@@ -132,7 +132,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.PROJECTS.SUBTITLE}
                   </p>
                 </div>
-                <ProjectsCarouselAward />
+                <SophisticatedProjectsCarousel />
             </LandorContainer>
           </LandorSection>
         </section>
