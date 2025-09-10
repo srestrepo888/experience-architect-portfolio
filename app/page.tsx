@@ -24,11 +24,11 @@ export default function HomePage() {
               src="/luxury-geometric-background.png"
               alt="Luxury geometric pattern"
               fill
-              className="object-cover opacity-20"
+              className="object-cover opacity-60"
               quality={95}
             />
-            {/* Refined gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/75" />
+            {/* Light gradient overlay to maintain readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/20 to-background/35" />
           </div>
           <div className="py-16 md:py-20 relative">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
