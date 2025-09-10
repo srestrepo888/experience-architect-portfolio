@@ -14,7 +14,7 @@ export default function RefinedHero() {
             src="/silvana-portrait-transparent.png"
             alt="Silvana Restrepo"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             priority
             quality={95}
           />
