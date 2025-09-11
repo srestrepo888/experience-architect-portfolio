@@ -47,17 +47,17 @@ export default function HomePage() {
                 </div>
                 
                 {/* PERFECT SYMMETRY LAYOUT - Balanced Content & Image */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-20 items-center max-w-6xl mx-auto">
                   
                   {/* CONTENT COLUMN - Perfectly Balanced */}
-                  <div className="space-y-8 lg:pr-8">
-                    {/* Core Philosophy */}
-                    <div className="space-y-6">
+                  <div className="space-y-6 lg:pr-8">
+                    {/* Core Philosophy - Condensed */}
+                    <div className="space-y-4">
                       <p className="text-lg leading-relaxed text-foreground">
-                        I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
+                        I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents blending perspectives from anthropology to business, innovation to experience design.
                       </p>
                       <p className="text-lg leading-relaxed text-foreground">
-                        At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, adept at listening to unspoken and designing experiences that touch the human soul.
+                        At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul.
                       </p>
                     </div>
                     
@@ -71,15 +71,15 @@ export default function HomePage() {
                       </div>
                     </div>
                     
-                    {/* Global Experience */}
+                    {/* Mission Statement - Concise */}
                     <p className="text-lg leading-relaxed text-foreground">
-                      I have embarked on projects ranging from wellness movements to creating AI-driven platforms that empower developers worldwide. Each endeavour brings me closer to my mission: <em className="font-serif italic">connecting strategic business goals with the essence of the human perspective</em>. Weather leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
+                      From wellness platforms to AI-driven systems empowering 31,000+ developers worldwide—my mission remains: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
                     </p>
                   </div>
 
-                  {/* IMAGE COLUMN - Perfect Balance */}
+                  {/* IMAGE COLUMN - Larger for Balance */}
                   <div className="flex justify-center relative lg:pl-8">
-                    <div className="relative w-full max-w-[400px] group">
+                    <div className="relative w-full max-w-[500px] group">
                       {/* Architectural Grid Background */}
                       <div className="absolute -inset-8 opacity-10">
                         <div className="grid grid-cols-4 gap-2 h-full">
@@ -194,24 +194,65 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                {/* INLINE HORIZONTAL SERVICES - 2024 MODERN DESIGN */}
+                {/* INTERACTIVE SERVICES WITH BEAUTIFUL INDICATOR */}
                 <div className="w-full relative">
                   
-                  {/* Organic Animated Blueprint Element - Architect's Eye */}
-                  <div className="absolute -top-8 right-8 pointer-events-none">
-                    <div className="relative w-24 h-24">
-                      {/* Rotating Blueprint Circle */}
-                      <div className="absolute inset-0 border border-primary/20 rounded-full animate-spin" style={{ animationDuration: '20s' }}>
-                        {/* Blueprint Lines */}
-                        <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10 transform -rotate-45"></div>
-                        <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10 transform rotate-45"></div>
-                        <div className="absolute top-0 left-1/2 w-px h-full bg-primary/10"></div>
-                        <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10"></div>
+                  {/* Beautiful Progress Indicator - Architectural Compass */}
+                  <div className="flex justify-center mb-8">
+                    <div className="relative w-32 h-32">
+                      {/* Outer Ring - Architectural Elements */}
+                      <div className="absolute inset-0 border-2 border-primary/10 rounded-full">
+                        {/* Compass Points */}
+                        <div className="absolute -top-1 left-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-x-1/2"></div>
+                        <div className="absolute -bottom-1 left-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-x-1/2"></div>
+                        <div className="absolute -left-1 top-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-y-1/2"></div>
+                        <div className="absolute -right-1 top-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-y-1/2"></div>
                       </div>
-                      {/* Pulsing Center Dot */}
-                      <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/40 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-                      {/* Floating Numbers */}
-                      <div className="absolute -top-2 -right-2 text-xs text-primary/30 animate-bounce" style={{ animationDelay: '1s' }}>6</div>
+                      
+                      {/* Progress Ring */}
+                      <svg className="absolute inset-2 transform -rotate-90">
+                        <circle
+                          cx="56"
+                          cy="56"
+                          r="52"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          className="text-primary/20"
+                        />
+                        <circle
+                          cx="56"
+                          cy="56"
+                          r="52"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeDasharray={`${2 * Math.PI * 52}`}
+                          strokeDashoffset={`${2 * Math.PI * 52 * 0.5}`}
+                          className="text-primary transition-all duration-1000 ease-out"
+                        />
+                      </svg>
+                      
+                      {/* Center Content */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span className="text-2xl font-bold text-primary animate-pulse">3</span>
+                        <span className="text-xs text-muted-foreground uppercase tracking-wider">of 6</span>
+                      </div>
+                      
+                      {/* Floating Dots */}
+                      <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s' }}>
+                        {[0, 60, 120, 180, 240, 300].map((angle, i) => (
+                          <div
+                            key={i}
+                            className="absolute w-1 h-1 bg-primary/40 rounded-full"
+                            style={{
+                              top: '50%',
+                              left: '50%',
+                              transform: `rotate(${angle}deg) translateY(-60px) translateX(-0.5px)`
+                            }}
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
                   
@@ -270,7 +311,8 @@ export default function HomePage() {
                       ].map((service, index) => (
                         <div
                           key={index}
-                          className="flex-shrink-0 w-80 h-52 rounded-2xl p-6 border bg-muted/20 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-pointer hover:scale-105"
+                          onClick={() => document.getElementById('service-details')?.scrollIntoView({ behavior: 'smooth' })}
+                          className="flex-shrink-0 w-80 h-52 rounded-2xl p-6 border bg-muted/20 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl"
                         >
                           <div className="flex flex-col justify-between h-full">
                             <div className="text-left">
@@ -293,7 +335,7 @@ export default function HomePage() {
                   </div>
                   
                   {/* Service Details */}
-                  <div className="max-w-4xl mx-auto">
+                  <div id="service-details" className="max-w-4xl mx-auto">
                     <div className="mb-8">
                       <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
                         Accelerated Product Innovation

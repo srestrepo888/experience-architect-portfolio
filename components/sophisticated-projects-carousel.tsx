@@ -65,7 +65,7 @@ export default function SophisticatedProjectsCarousel() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -300 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="grid lg:grid-cols-[1fr_1fr] gap-12 min-h-[600px] items-center"
+            className="grid lg:grid-cols-[1.4fr_1fr] gap-8 min-h-[600px] items-center"
           >
             
             {/* PERFECT IMAGE CONTAINER - NO CUTTING */}
@@ -111,7 +111,7 @@ export default function SophisticatedProjectsCarousel() {
             </div>
 
             {/* PERFECTLY BALANCED PROJECT INFORMATION */}
-            <div className="bg-white/90 backdrop-blur-xl p-10 lg:p-12 flex flex-col justify-center rounded-3xl shadow-2xl border border-white/60 min-h-[500px]">
+            <div className="bg-white/90 backdrop-blur-xl p-8 lg:p-10 flex flex-col justify-center rounded-3xl shadow-2xl border border-white/60 min-h-[500px]">
               
               {/* Project Meta */}
               <div className="mb-8">
@@ -125,11 +125,11 @@ export default function SophisticatedProjectsCarousel() {
                   </span>
                 </div>
                 
-                <h3 className="font-serif text-3xl font-light mb-4 leading-tight" style={{ color: "hsl(240 6% 10%)" }}>
+                <h3 className="font-serif text-2xl lg:text-3xl font-light mb-3 leading-tight" style={{ color: "hsl(240 6% 10%)" }}>
                   {currentProject.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed text-base font-light mb-6">
+                <p className="text-muted-foreground leading-relaxed text-sm lg:text-base font-light mb-4">
                   {currentProject.subtitle}
                 </p>
                 

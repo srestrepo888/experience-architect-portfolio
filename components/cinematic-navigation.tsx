@@ -107,7 +107,7 @@ export default function CinematicNavigation() {
                   className="group"
                 >
                   <motion.div
-                    className="text-2xl font-light tracking-wide text-foreground"
+                    className="text-2xl font-serif font-light tracking-wider text-foreground"
                     whileHover={{ color: "hsl(var(--primary))" }}
                     transition={{ duration: 0.2 }}
                   >

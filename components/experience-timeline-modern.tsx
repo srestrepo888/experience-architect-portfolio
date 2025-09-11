@@ -6,52 +6,40 @@ import { motion } from "framer-motion"
 const experiences = [
   {
     year: "2023—Present",
-    role: "Experience Designer & Business Partner",
+    role: "Business Partner",
     company: "Globant",
-    description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals.",
+    description: "Orchestrating enterprise-scale digital initiatives for global brands.",
     highlight: "Business Partner"
   },
   {
     year: "2020—2023",
     role: "Experience Designer",
     company: "Globant",
-    description: "I contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance and wellness teams, supporting faster value delivery."
+    description: "Architecting physical-digital systems across healthcare, retail, and wellness."
   },
   {
     year: "2019—2020",
     role: "Business Engagement Lead",
     company: "Centre for Fourth Industrial Revolution-WEF",
-    description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation."
+    description: "Developing frameworks connecting technology with governance approaches."
   },
   {
     year: "2018—2019",
     role: "Strategic Design Director",
     company: "Designit a WIPRO Company",
-    description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions."
+    description: "Leading regional operations and transforming business complexity."
   },
   {
     year: "2016—2018",
     role: "Marketing Director",
     company: "Grupo Éxito",
-    description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation."
+    description: "Transforming retail destinations through 1,000+ brand partnerships."
   },
   {
     year: "2013—2016",
     role: "Business Intelligence Manager",
     company: "Industrias HACEB",
-    description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies."
-  },
-  {
-    year: "2012—2016",
-    role: "Independent Advisor",
-    company: "Global Enterprises",
-    description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps."
-  },
-  {
-    year: "2002—2011",
-    role: "Senior Marketing Analyst",
-    company: "TIGO- Millicom",
-    description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand."
+    description: "Reengineering market frameworks from production to consumer-centric."
   }
 ]
 

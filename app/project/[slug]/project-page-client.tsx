@@ -107,20 +107,9 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                   </div>
                   
                   <div className="mb-6 relative">
-                    <motion.div 
-                      animate={{ 
-                        rotate: [0, 5, 0],
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ 
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
-                    >
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center mb-4 shadow-lg ring-4 ring-primary/10">
                       <span className="text-white font-bold text-lg">C</span>
-                    </motion.div>
+                    </div>
                     <h3 className="text-2xl font-serif font-light text-foreground mb-2">Context</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">Project Background</p>
                   </div>
@@ -148,21 +137,9 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                   </div>
                   
                   <div className="mb-6 relative">
-                    <motion.div 
-                      animate={{ 
-                        rotate: [0, -5, 0],
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ 
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 2
-                      }}
-                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
-                    >
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center mb-4 shadow-lg ring-4 ring-primary/10">
                       <span className="text-white font-bold text-lg">I</span>
-                    </motion.div>
+                    </div>
                     <h3 className="text-2xl font-serif font-light text-foreground mb-2">Impact</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">Results Achieved</p>
                   </div>
@@ -190,21 +167,9 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                   </div>
                   
                   <div className="mb-6 relative">
-                    <motion.div 
-                      animate={{ 
-                        rotate: [0, 5, 0],
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ 
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 4
-                      }}
-                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
-                    >
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center mb-4 shadow-lg ring-4 ring-primary/10">
                       <span className="text-white font-bold text-lg">S</span>
-                    </motion.div>
+                    </div>
                     <h3 className="text-2xl font-serif font-light text-foreground mb-2">Solution</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">Strategic Approach</p>
                   </div>
@@ -243,35 +208,52 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
               transition={{ duration: 0.8, delay: 0.8 }}
               className="mt-24 pt-16 border-t border-border/60"
             >
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-light text-foreground mb-4">Next Project</h3>
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-3 text-xs font-light tracking-[0.3em] uppercase text-muted-foreground/60 mb-4">
+                  <div className="w-8 h-px bg-gradient-to-r from-transparent to-border"></div>
+                  <span>Next</span>
+                  <div className="w-8 h-px bg-gradient-to-l from-transparent to-border"></div>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-serif font-light text-foreground">Continue the Journey</h3>
               </div>
               
               <Link 
                 href={`/project/${nextProject.slug}`}
                 className="block group"
               >
-                <div className="grid md:grid-cols-2 gap-8 items-center p-8 rounded-3xl bg-white/50 backdrop-blur-lg border border-white/60 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="grid md:grid-cols-[1.2fr_1fr] gap-12 items-center p-10 rounded-3xl bg-gradient-to-br from-white/60 via-white/50 to-white/40 backdrop-blur-xl border border-white/70 hover:shadow-2xl hover:border-primary/20 transition-all duration-700 group-hover:-translate-y-3 group-hover:scale-[1.02]">
+                  <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-xl">
                     <Image
                       src={nextProject.thumbnailImage || "/placeholder.jpg"}
                       alt={nextProject.title}
                       fill
-                      className="object-cover transition-all duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 40vw"
+                      className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:saturate-110"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       quality={95}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   </div>
                   
-                  <div>
-                    <h4 className="text-3xl font-light mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                      <span>{nextProject.year || "2024"}</span>
+                      <div className="w-1 h-1 rounded-full bg-muted-foreground/30" />
+                      <span>{nextProject.client || "Featured Project"}</span>
+                    </div>
+                    <h4 className="text-2xl md:text-3xl font-serif font-light leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
                       {nextProject.title}
                     </h4>
                     {nextProject.subtitle && (
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-base text-muted-foreground leading-relaxed font-light">
                         {nextProject.subtitle}
                       </p>
                     )}
+                    <div className="pt-2">
+                      <span className="inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all duration-300">
+                        View Case Study
+                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1">→</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>
