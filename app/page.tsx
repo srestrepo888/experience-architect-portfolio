@@ -195,10 +195,29 @@ export default function HomePage() {
                   </p>
                 </div>
                 {/* INLINE HORIZONTAL SERVICES - 2024 MODERN DESIGN */}
-                <div className="w-full">
-                  {/* Horizontal Service Cards */}
+                <div className="w-full relative">
+                  
+                  {/* Organic Animated Blueprint Element - Architect's Eye */}
+                  <div className="absolute -top-8 right-8 pointer-events-none">
+                    <div className="relative w-24 h-24">
+                      {/* Rotating Blueprint Circle */}
+                      <div className="absolute inset-0 border border-primary/20 rounded-full animate-spin" style={{ animationDuration: '20s' }}>
+                        {/* Blueprint Lines */}
+                        <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10 transform -rotate-45"></div>
+                        <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10 transform rotate-45"></div>
+                        <div className="absolute top-0 left-1/2 w-px h-full bg-primary/10"></div>
+                        <div className="absolute top-1/2 left-0 w-full h-px bg-primary/10"></div>
+                      </div>
+                      {/* Pulsing Center Dot */}
+                      <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/40 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+                      {/* Floating Numbers */}
+                      <div className="absolute -top-2 -right-2 text-xs text-primary/30 animate-bounce" style={{ animationDelay: '1s' }}>6</div>
+                    </div>
+                  </div>
+                  
+                  {/* Horizontal Service Cards - ALL 6 VISIBLE */}
                   <div className="overflow-x-auto pb-6 mb-12">
-                    <div className="flex gap-4 min-w-fit px-4" style={{ width: 'max-content' }}>
+                    <div className="flex gap-4 px-4" style={{ width: 'calc(6 * 300px + 5 * 16px)' }}>
                       {[
                         {
                           number: "01",
@@ -251,7 +270,7 @@ export default function HomePage() {
                       ].map((service, index) => (
                         <div
                           key={index}
-                          className="flex-shrink-0 w-72 h-48 rounded-2xl p-6 border bg-muted/20 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-pointer"
+                          className="flex-shrink-0 w-80 h-52 rounded-2xl p-6 border bg-muted/20 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-pointer hover:scale-105"
                         >
                           <div className="flex flex-col justify-between h-full">
                             <div className="text-left">

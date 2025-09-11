@@ -65,7 +65,7 @@ export default function SophisticatedProjectsCarousel() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -300 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="grid lg:grid-cols-2 gap-8 min-h-[600px] items-center"
+            className="grid lg:grid-cols-[1fr_1fr] gap-12 min-h-[600px] items-center"
           >
             
             {/* PERFECT IMAGE CONTAINER - NO CUTTING */}
@@ -111,7 +111,7 @@ export default function SophisticatedProjectsCarousel() {
             </div>
 
             {/* PERFECTLY BALANCED PROJECT INFORMATION */}
-            <div className="bg-white/90 backdrop-blur-xl p-10 lg:p-12 flex flex-col justify-center rounded-3xl shadow-2xl border border-white/60 h-full">
+            <div className="bg-white/90 backdrop-blur-xl p-10 lg:p-12 flex flex-col justify-center rounded-3xl shadow-2xl border border-white/60 min-h-[500px]">
               
               {/* Project Meta */}
               <div className="mb-8">
@@ -133,10 +133,6 @@ export default function SophisticatedProjectsCarousel() {
                   {currentProject.subtitle}
                 </p>
                 
-                {/* Project Description */}
-                <p className="text-sm leading-relaxed mb-6" style={{ color: '#BFAEA2' }}>
-                  A comprehensive case study showcasing innovative design solutions and strategic implementation.
-                </p>
               </div>
 
               {/* Services */}

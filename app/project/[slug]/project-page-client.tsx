@@ -117,7 +117,7 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
-                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
                     >
                       <span className="text-white font-bold text-lg">C</span>
                     </motion.div>
@@ -159,7 +159,7 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                         ease: "easeInOut",
                         delay: 2
                       }}
-                      className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
                     >
                       <span className="text-white font-bold text-lg">I</span>
                     </motion.div>
@@ -201,7 +201,7 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
                         ease: "easeInOut",
                         delay: 4
                       }}
-                      className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                      className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
                     >
                       <span className="text-white font-bold text-lg">S</span>
                     </motion.div>

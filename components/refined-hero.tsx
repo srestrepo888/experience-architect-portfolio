@@ -88,15 +88,6 @@ export default function RefinedHero() {
           </motion.div>
         </div>
         
-        {/* Professional tagline - no duplicate */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-          className="text-xl md:text-2xl font-light leading-relaxed mb-12 text-muted-foreground max-w-2xl mx-auto"
-        >
-          Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility
-        </motion.h2>
         
         {/* Clean, purposeful CTAs */}
         <motion.div
