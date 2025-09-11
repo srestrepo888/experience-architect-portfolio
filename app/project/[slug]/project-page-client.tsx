@@ -14,7 +14,7 @@ interface ProjectPageClientProps {
 
 export default function ProjectPageClient({ project, nextProject }: ProjectPageClientProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-background">
+    <div className="min-h-screen bg-background">
       {/* Enhanced Navigation */}
       <motion.nav 
         className="fixed top-8 left-8 right-8 z-50"
@@ -25,15 +25,12 @@ export default function ProjectPageClient({ project, nextProject }: ProjectPageC
         <div className="flex items-center justify-between">
           <Link 
             href="/#projects"
-            className="flex items-center gap-3 px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            className="flex items-center gap-3 px-6 py-3 bg-muted/50 backdrop-blur-xl rounded-full border border-border hover:bg-muted transition-all duration-300 group"
           >
             <ArrowLeft className="w-5 h-5 text-primary group-hover:-translate-x-1 transition-transform duration-300" />
             <span className="text-base font-medium text-foreground">Back to Projects</span>
           </Link>
           
-          <div className="px-8 py-4 bg-white/95 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
-            <span className="text-base font-medium text-primary">Project Details</span>
-          </div>
         </div>
       </motion.nav>
 

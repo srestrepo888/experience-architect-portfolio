@@ -89,8 +89,8 @@ export default function CinematicNavigation() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="relative">
-            {/* Clean minimal background */}
-            <div className="absolute inset-0 bg-background border-b border-border/30" />
+            {/* Clean minimal background with rounded corners */}
+            <div className="absolute inset-0 bg-background/95 backdrop-blur-xl border border-border/30 rounded-2xl" />
             
             {/* Navigation Content with Clean Spacing */}
             <div className="relative flex items-center justify-between px-6 py-4">

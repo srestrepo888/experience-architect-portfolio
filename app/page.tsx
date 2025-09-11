@@ -2,8 +2,8 @@ import RefinedHero from "@/components/refined-hero"
 import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
-import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
-import LivingArchitectureServices from "@/components/living-architecture-services"
+import ExperienceTimelineModern from "@/components/experience-timeline-modern"
+import ModernServices2024 from "@/components/modern-services-2024"
 import ArchitectCursor from "@/components/architect-cursor"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
@@ -107,8 +107,6 @@ export default function HomePage() {
                         {/* Sophisticated Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                         
-                        {/* Corner Accent */}
-                        <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                     </div>
                   </div>
@@ -168,7 +166,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.EXPERIENCE.DESCRIPTION}
                   </p>
                 </div>
-                <SophisticatedCareerJourney />
+                <ExperienceTimelineModern />
             </div>
           </div>
         </section>
@@ -197,15 +195,14 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                {/* Living Architecture Services Component */}
-                <LivingArchitectureServices />
+                <ModernServices2024 />
             </div>
           </div>
         </section>
       </main>
       
       {/* FOOTER: Elegant Background Design */}
-      <section id="footer" className="relative mt-16 md:mt-20">
+      <section id="footer" className="relative">
         {/* Luxury Geometric Background from About Section */}
         <div className="absolute inset-0 pointer-events-none">
           <Image

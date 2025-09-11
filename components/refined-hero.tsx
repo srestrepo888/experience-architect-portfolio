@@ -25,17 +25,6 @@ export default function RefinedHero() {
       
       {/* Clean content-first layout */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Refined introduction */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-6"
-        >
-          <p className="text-sm font-medium tracking-wide uppercase text-muted-foreground">
-            Experience Architect
-          </p>
-        </motion.div>
         
         {/* DRAMATIC TECHNOLOGY-FOCUSED HEADLINE */}
         <div className="relative mb-8">
@@ -68,15 +57,6 @@ export default function RefinedHero() {
           >
             {CONTENT_CONFIG.HERO.MAIN_TITLE}
             
-            {/* Tech accent elements for EXPERIENCE */}
-            <motion.div
-              className="absolute -top-2 -right-4 w-3 h-3 bg-primary rounded-full"
-              animate={{ 
-                scale: [1, 1.5, 1],
-                opacity: [0.6, 1, 0.6] 
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
             <motion.div
               className="absolute bottom-2 left-1/4 w-1 h-8 bg-gradient-to-t from-primary to-transparent"
               initial={{ height: 0 }}
