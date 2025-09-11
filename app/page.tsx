@@ -311,8 +311,7 @@ export default function HomePage() {
                       ].map((service, index) => (
                         <div
                           key={index}
-                          onClick={() => document.getElementById('service-details')?.scrollIntoView({ behavior: 'smooth' })}
-                          className="flex-shrink-0 w-80 h-52 rounded-2xl p-6 border bg-muted/20 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl"
+                          className="flex-shrink-0 w-80 h-52 rounded-2xl p-6 border bg-muted/20 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-xl"
                         >
                           <div className="flex flex-col justify-between h-full">
                             <div className="text-left">
