@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const services = [
   {
@@ -49,247 +49,221 @@ const services = [
 ]
 
 export default function InteractiveServicesSection() {
-  const [activeService, setActiveService] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
-  const rotateX = useTransform(mouseY, [-300, 300], [2, -2])
-  const rotateY = useTransform(mouseX, [-300, 300], [-2, 2])
-
+  // Auto-scroll carousel
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return
-      const rect = containerRef.current.getBoundingClientRect()
-      const centerX = rect.left + rect.width / 2
-      const centerY = rect.top + rect.height / 2
-      mouseX.set(e.clientX - centerX)
-      mouseY.set(e.clientY - centerY)
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [mouseX, mouseY])
+    const interval = setInterval(() => {
+      if (!isExpanded) {
+        setCurrentIndex((prev) => (prev + 1) % services.length)
+      }
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [isExpanded])
+
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length)
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % services.length)
+  }
 
   return (
-    <div className="w-full relative" ref={containerRef}>
+    <div className="w-full relative">
       
-      {/* ELEVATED HEADER */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-16"
-      >
-        <div className="inline-block relative">
-          <motion.h3 
-            className="text-xs font-medium tracking-[0.4em] uppercase text-foreground/40 mb-6"
-            initial={{ letterSpacing: '0.2em' }}
-            animate={{ letterSpacing: '0.4em' }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          >
-            Strategic Capabilities
-          </motion.h3>
-          <div className="absolute -left-20 top-0 w-16 h-px bg-gradient-to-r from-transparent to-foreground/20" />
-          <div className="absolute -right-20 top-0 w-16 h-px bg-gradient-to-l from-transparent to-foreground/20" />
+      {/* SERVICE PROGRESS INDICATOR - MINIMALIST */}
+      <div className="flex justify-center mb-12">
+        <div className="relative">
+          {/* Circular Progress */}
+          <svg className="w-24 h-24 transform -rotate-90">
+            <circle
+              cx="48"
+              cy="48"
+              r="36"
+              stroke="currentColor"
+              strokeWidth="1"
+              fill="none"
+              className="text-foreground/10"
+            />
+            <circle
+              cx="48"
+              cy="48"
+              r="36"
+              stroke="currentColor"
+              strokeWidth="1"
+              fill="none"
+              strokeDasharray={`${2 * Math.PI * 36}`}
+              strokeDashoffset={`${2 * Math.PI * 36 * (1 - (currentIndex + 1) / 6)}`}
+              className="text-foreground/60 transition-all duration-700"
+            />
+          </svg>
+          {/* Center Text */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className="text-2xl font-thin text-foreground/80">{currentIndex + 1}</span>
+            <span className="text-[10px] uppercase tracking-wider text-foreground/40">of 6</span>
+          </div>
         </div>
-      </motion.div>
-
-      {/* MUSEUM-QUALITY SERVICE CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
-            style={{ rotateX, rotateY, transformPerspective: 1200 }}
-            className="group relative"
-          >
-            <motion.div
-              whileHover={{ scale: 1.02, transition: { duration: 0.4 } }}
-              onClick={() => {
-                setActiveService(index)
-                setIsExpanded(true)
-              }}
-              className="relative h-full cursor-pointer"
-            >
-              {/* GRADIENT MESH BACKGROUND */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-rose-500/10 blur-3xl" />
-                <div className="absolute inset-0 bg-gradient-to-tl from-violet-500/10 via-transparent to-cyan-500/10 blur-3xl" />
-              </div>
-
-              {/* CARD CONTENT */}
-              <div className="relative bg-white/50 dark:bg-black/30 backdrop-blur-xl rounded-3xl p-10 h-full border border-white/10 hover:border-white/20 transition-all duration-700">
-                
-                {/* SOPHISTICATED INDICATOR */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <circle 
-                      cx="50" 
-                      cy="50" 
-                      r="45" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="0.5"
-                      className="text-foreground"
-                    />
-                    <circle 
-                      cx="50" 
-                      cy="50" 
-                      r="35" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="0.5"
-                      strokeDasharray="2 4"
-                      className="text-foreground animate-spin"
-                      style={{ animationDuration: '30s' }}
-                    />
-                  </svg>
-                </div>
-
-                {/* SERVICE NUMBER - ELEGANT */}
-                <motion.div 
-                  className="text-6xl font-thin text-foreground/10 absolute -top-2 -left-2"
-                  whileHover={{ scale: 1.2, opacity: 0.2 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </motion.div>
-
-                {/* TITLE WITH ELEVATED TYPOGRAPHY */}
-                <h3 className="text-2xl md:text-3xl font-serif font-light leading-tight mb-4 text-foreground mt-8 tracking-tight">
-                  {service.title}
-                </h3>
-
-                {/* SOPHISTICATED DIVIDER */}
-                <div className="w-12 h-px bg-gradient-to-r from-foreground/40 to-transparent mb-6" />
-
-                {/* SUBTITLE - EDITORIAL STYLE */}
-                <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light tracking-wide">
-                  {service.subtitle}
-                </p>
-
-                {/* EXPLORE INDICATOR */}
-                <motion.div 
-                  className="absolute bottom-8 right-8 flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-foreground/40"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span>Explore</span>
-                  <motion.svg 
-                    width="20" 
-                    height="20" 
-                    viewBox="0 0 24 24" 
-                    fill="none"
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                  >
-                    <path 
-                      d="M5 12h14m0 0l-7-7m7 7l-7 7" 
-                      stroke="currentColor" 
-                      strokeWidth="1.5" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </motion.svg>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
-        ))}
       </div>
 
-      {/* EXPANDED DETAIL VIEW - MAGAZINE QUALITY */}
+      {/* HORIZONTAL CAROUSEL */}
+      <div className="relative">
+        {/* Navigation Arrows */}
+        <button
+          onClick={handlePrevious}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full shadow-lg hover:bg-white dark:hover:bg-black transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        
+        <button
+          onClick={handleNext}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full shadow-lg hover:bg-white dark:hover:bg-black transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        {/* Carousel Container */}
+        <div className="overflow-hidden mx-16" ref={scrollRef}>
+          <motion.div
+            className="flex transition-transform duration-700 ease-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="w-full flex-shrink-0 px-4"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => setIsExpanded(true)}
+                  className="relative bg-white/50 dark:bg-black/30 backdrop-blur-xl rounded-2xl p-12 cursor-pointer border border-foreground/5 hover:border-foreground/10 transition-all duration-500"
+                >
+                  {/* Subtle Gradient Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-foreground/20 via-transparent to-foreground/10" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative">
+                    <h3 className="text-3xl md:text-4xl font-serif font-light leading-tight mb-6 text-foreground">
+                      {service.title}
+                    </h3>
+                    
+                    <div className="w-16 h-px bg-foreground/20 mb-6" />
+                    
+                    <p className="text-base md:text-lg text-foreground/60 leading-relaxed font-light mb-8">
+                      {service.subtitle}
+                    </p>
+
+                    {/* Expand Indicator */}
+                    <div className="flex items-center gap-3 text-sm font-light tracking-wider text-foreground/40 uppercase">
+                      <span>View Details</span>
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M5 12h14m0 0l-7-7m7 7l-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                        </svg>
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Dot Indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {services.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex 
+                  ? 'w-8 bg-foreground/60' 
+                  : 'bg-foreground/20 hover:bg-foreground/30'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* EXPANDED MODAL - CLEAN DESIGN */}
       <AnimatePresence>
         {isExpanded && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-2xl z-50 flex items-center justify-center p-8"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xl z-50 flex items-center justify-center p-8"
             onClick={() => setIsExpanded(false)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className="max-w-5xl w-full bg-white/95 dark:bg-black/95 backdrop-blur-3xl rounded-3xl p-12 md:p-16 relative overflow-hidden"
+              className="max-w-4xl w-full bg-white/95 dark:bg-black/95 backdrop-blur-2xl rounded-2xl p-12 relative"
             >
-              {/* CLOSE BUTTON - MINIMAL */}
-              <motion.button
-                whileHover={{ rotate: 90 }}
-                transition={{ duration: 0.3 }}
+              {/* Close Button */}
+              <button
                 onClick={() => setIsExpanded(false)}
-                className="absolute top-8 right-8 w-12 h-12 flex items-center justify-center text-foreground/40 hover:text-foreground/60 transition-colors duration-300"
+                className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-foreground/40 hover:text-foreground/60 transition-colors"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
-              </motion.button>
+              </button>
 
-              {/* CONTENT - EDITORIAL LAYOUT */}
-              <div className="grid md:grid-cols-[1fr_2fr] gap-12">
-                {/* LEFT COLUMN - TITLE */}
+              {/* Modal Content */}
+              <div className="space-y-8">
                 <div>
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <span className="text-xs font-medium tracking-[0.3em] uppercase text-foreground/40">
-                      Capability {String(activeService + 1).padStart(2, '0')}
-                    </span>
-                    <h2 className="text-3xl md:text-4xl font-serif font-light leading-tight mt-4 text-foreground">
-                      {services[activeService].title}
-                    </h2>
-                  </motion.div>
+                  <h2 className="text-3xl md:text-4xl font-serif font-light leading-tight text-foreground mb-4">
+                    {services[currentIndex].title}
+                  </h2>
+                  <div className="w-24 h-px bg-foreground/20" />
                 </div>
 
-                {/* RIGHT COLUMN - DETAILS */}
-                <div className="space-y-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <h4 className="text-xs font-medium tracking-[0.3em] uppercase text-foreground/40 mb-4">
-                      Strategic Approach
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-xs font-medium tracking-[0.2em] uppercase text-foreground/40 mb-3">
+                      Strategic Capability
                     </h4>
-                    <p className="text-base md:text-lg leading-relaxed text-foreground/80 font-light">
-                      {services[activeService].capability}
+                    <p className="text-base leading-relaxed text-foreground/80 font-light">
+                      {services[currentIndex].capability}
                     </p>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <h4 className="text-xs font-medium tracking-[0.3em] uppercase text-foreground/40 mb-4">
+                  <div>
+                    <h4 className="text-xs font-medium tracking-[0.2em] uppercase text-foreground/40 mb-3">
                       Proven Excellence
                     </h4>
-                    <p className="text-base md:text-lg leading-relaxed text-foreground/80 font-light">
-                      {services[activeService].excellence}
+                    <p className="text-base leading-relaxed text-foreground/80 font-light">
+                      {services[currentIndex].excellence}
                     </p>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    <h4 className="text-xs font-medium tracking-[0.3em] uppercase text-foreground/40 mb-4">
+                  <div>
+                    <h4 className="text-xs font-medium tracking-[0.2em] uppercase text-foreground/40 mb-3">
                       For Projects That Demand
                     </h4>
-                    <blockquote className="border-l-2 border-foreground/20 pl-6">
-                      <p className="text-base md:text-lg leading-relaxed text-foreground/80 font-light italic">
-                        "{services[activeService].demand}"
+                    <blockquote className="border-l-2 border-foreground/20 pl-4">
+                      <p className="text-base leading-relaxed text-foreground/80 font-light italic">
+                        "{services[currentIndex].demand}"
                       </p>
                     </blockquote>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>
