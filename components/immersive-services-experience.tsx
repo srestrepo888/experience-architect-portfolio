@@ -12,11 +12,7 @@ const services = [
     visual: "/luxury-geometric-background.png",
     color: "from-primary via-primary to-primary-hover",
     capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation.",
-    keyPoints: [
-      "3x faster market validation",
-      "AI-accelerated testing cycles", 
-      "Cross-industry trend synthesis"
-    ],
+    metrics: "31,000+ developers transformed",
     excellence: "Augoor platform: 31,000+ developers transformed",
     impact: "Speed to market without sacrificing strategic depth"
   },
@@ -27,11 +23,7 @@ const services = [
     visual: "/silvana-portrait-transparent.png",
     color: "from-primary/80 via-primary to-primary-hover/80",
     capability: "Systems thinking applied to create unified experience architectures where interactions feel seamless.",
-    keyPoints: [
-      "Cross-channel satisfaction increase",
-      "Operational redundancy reduction",
-      "Unified governance frameworks"
-    ],
+    metrics: "Multiple channels unified",
     excellence: "Theme Parks: Multiple channels, one unified language",
     impact: "Global reach with local resonance"
   },
@@ -42,11 +34,7 @@ const services = [
     visual: "/luxury-geometric-background.png",
     color: "from-primary/90 via-primary to-primary-hover/90",
     capability: "Design agentic systems where AI and human experts collaborate as unified intelligence.",
-    keyPoints: [
-      "Real-time competitive intelligence",
-      "Automated trend detection",
-      "Self-optimizing organizations"
-    ],
+    metrics: "31,000 team members enhanced",
     excellence: "Globant X: 31,000 team members enhanced",
     impact: "Intelligence embedded in every process"
   },
@@ -57,11 +45,7 @@ const services = [
     visual: "/silvana-portrait-transparent.png",
     color: "from-primary via-primary-hover to-primary",
     capability: "Build transformation on bedrock systems ensuring teams move in harmony.",
-    keyPoints: [
-      "2.5x team velocity increase",
-      "Unified design consistency",
-      "Accelerated innovation cycles"
-    ],
+    metrics: "Saudi Arabia's first phygital ecosystem",
     excellence: "Kayanee: Saudi Arabia's first phygital ecosystem",
     impact: "Every change strengthens the foundation"
   },
@@ -72,11 +56,7 @@ const services = [
     visual: "/luxury-geometric-background.png", 
     color: "from-primary/70 via-primary to-primary-hover/70",
     capability: "Navigate complexity with frameworks that transform uncertainty into opportunity.",
-    keyPoints: [
-      "Tangible industry ROI",
-      "Stakeholder alignment",
-      "Strategic clarity acceleration"
-    ],
+    metrics: "Fourth Industrial Revolution governance",
     excellence: "Fourth Industrial Revolution governance frameworks",
     impact: "Innovation with precision and velocity"
   },
@@ -87,11 +67,7 @@ const services = [
     visual: "/silvana-portrait-transparent.png",
     color: "from-primary/85 via-primary-hover to-primary/85",
     capability: "Architecting systems that anticipate behavior, creating self-improving experiences.",
-    keyPoints: [
-      "26% sales growth achieved",
-      "Behavior-driven design",
-      "Self-evolving platforms"
-    ],
+    metrics: "32 retail destinations transformed",
     excellence: "32 retail destinations transformed",
     impact: "Intelligence that scales intimacy"
   }
@@ -204,7 +180,7 @@ export default function ImmersiveServicesExperience() {
             className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
           >
             
-            {/* Visual Content Side */}
+            {/* Sophisticated Visual Content Side */}
             <div className="relative">
               <motion.div
                 animate={{ 
@@ -216,7 +192,7 @@ export default function ImmersiveServicesExperience() {
                   repeat: Infinity,
                   ease: "easeOut"
                 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+                className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl"
               >
                 <Image
                   src={currentService.visual}
@@ -225,103 +201,137 @@ export default function ImmersiveServicesExperience() {
                   className="object-cover"
                   quality={95}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-br ${currentService.color} opacity-40`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${currentService.color} opacity-30`} />
                 
-                {/* Floating Number */}
-                <div className="absolute top-8 left-8">
+                {/* Sophisticated Floating Elements */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Geometric Pattern Overlay */}
+                  <div className="absolute top-6 left-6">
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="w-16 h-16 border-2 border-white/20 rounded-full"
+                    >
+                      <div className="w-full h-full border border-white/10 rounded-full m-2" />
+                    </motion.div>
+                  </div>
+                  
+                  {/* Dynamic Service Number */}
+                  <div className="absolute bottom-6 left-6">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="relative"
+                    >
+                      <div className="text-7xl font-black text-white/15 select-none">
+                        {currentService.number}
+                      </div>
+                      <div className="absolute inset-0 text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white/40 to-white/10">
+                        {currentService.number}
+                      </div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Floating Metrics Badge */}
                   <motion.div
-                    animate={{ rotate: [0, 5, 0] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="text-8xl font-black text-white/20"
+                    initial={{ scale: 0, rotate: -10 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: 0.6, type: "spring" }}
+                    className="absolute top-6 right-6"
                   >
-                    {currentService.number}
+                    <div className="bg-white/90 backdrop-blur-xl rounded-2xl px-6 py-3 shadow-lg border border-white/20">
+                      <p className="text-sm font-semibold text-foreground/80">
+                        {currentService.metrics}
+                      </p>
+                    </div>
                   </motion.div>
                 </div>
-                
-                {/* Excellence Badge */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-xl"
-                >
-                  <p className="text-sm font-medium text-foreground/80 leading-tight">
-                    {currentService.excellence}
-                  </p>
-                </motion.div>
               </motion.div>
+              
+              {/* Ambient Glow Effect */}
+              <div className={`absolute -inset-4 bg-gradient-to-r ${currentService.color} opacity-10 blur-2xl rounded-3xl -z-10`} />
             </div>
 
-            {/* Content Side */}
-            <div className="space-y-8">
+            {/* Sophisticated Content Side */}
+            <div className="space-y-10">
               
-              {/* Title Section */}
+              {/* Title Section with Enhanced Layout */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
+                className="relative"
               >
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight text-foreground mb-4">
+                {/* Service Number Badge */}
+                <div className="absolute -left-4 -top-2">
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${currentService.color} flex items-center justify-center text-white text-sm font-bold shadow-lg`}>
+                    {currentService.number}
+                  </div>
+                </div>
+                
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight text-foreground mb-6 pl-8">
                   {currentService.title}
                 </h3>
-                <p className="text-xl text-muted-foreground italic leading-relaxed">
-                  {currentService.subtitle}
-                </p>
+                <div className="pl-8 space-y-4">
+                  <div className="h-px w-16 bg-gradient-to-r from-primary to-transparent" />
+                  <p className="text-xl text-muted-foreground italic leading-relaxed">
+                    {currentService.subtitle}
+                  </p>
+                </div>
               </motion.div>
 
-              {/* Capability */}
+              {/* Strategic Capability with Enhanced Presentation */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="space-y-4"
+                className="relative p-6 bg-gradient-to-r from-background/50 to-muted/10 rounded-2xl border-l-4 border-primary/30"
               >
-                <h4 className="text-sm uppercase tracking-wider font-medium text-primary">
-                  Strategic Capability
-                </h4>
-                <p className="text-lg leading-relaxed text-foreground/80">
-                  {currentService.capability}
-                </p>
+                <div className="flex items-start gap-4">
+                  <div className="mt-2">
+                    <div className="w-3 h-3 rounded-full bg-primary/40" />
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="text-sm uppercase tracking-wider font-medium text-primary/80">
+                      Strategic Capability
+                    </h4>
+                    <p className="text-lg leading-relaxed text-foreground/85">
+                      {currentService.capability}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
 
-              {/* Key Points */}
+              {/* Impact Statement with Sophisticated Design */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="space-y-4"
+                className="relative overflow-hidden"
               >
-                <h4 className="text-sm uppercase tracking-wider font-medium text-primary">
-                  Measurable Outcomes
-                </h4>
-                <div className="grid gap-3">
-                  {currentService.keyPoints.map((point, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + idx * 0.1 }}
-                      className="flex items-center gap-3 group"
-                    >
-                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${currentService.color} group-hover:scale-125 transition-transform`} />
-                      <span className="text-foreground/70 group-hover:text-foreground transition-colors">
-                        {point}
-                      </span>
-                    </motion.div>
-                  ))}
+                <div className={`relative p-8 rounded-3xl bg-gradient-to-br ${currentService.color} bg-opacity-8 border border-primary/10 backdrop-blur-sm`}>
+                  {/* Decorative Elements */}
+                  <div className="absolute top-4 right-4 w-20 h-20 rounded-full border-2 border-white/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-sm" />
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="text-sm uppercase tracking-wider font-medium text-primary/70">
+                        Transformative Impact
+                      </div>
+                      <div className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent" />
+                    </div>
+                    <blockquote className="text-lg font-medium text-foreground/90 italic leading-relaxed">
+                      "{currentService.impact}"
+                    </blockquote>
+                  </div>
+                  
+                  {/* Subtle Background Pattern */}
+                  <div className="absolute bottom-0 right-0 w-32 h-32 opacity-5">
+                    <div className={`w-full h-full rounded-full bg-gradient-to-tl ${currentService.color}`} />
+                  </div>
                 </div>
-              </motion.div>
-
-              {/* Impact Statement */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-                className={`p-6 rounded-2xl bg-gradient-to-r ${currentService.color} bg-opacity-10 border border-white/20`}
-              >
-                <p className="text-base font-medium text-foreground/90 italic">
-                  {currentService.impact}
-                </p>
               </motion.div>
             </div>
           </motion.div>
