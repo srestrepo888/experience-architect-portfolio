@@ -3,7 +3,7 @@ import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-c
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import SophisticatedCareerJourney from "@/components/sophisticated-career-journey"
-import ImmersiveServicesExperience from "@/components/immersive-services-experience"
+import LivingArchitectureServices from "@/components/living-architecture-services"
 import ArchitectCursor from "@/components/architect-cursor"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
@@ -55,17 +55,17 @@ export default function HomePage() {
                     {/* Core Philosophy */}
                     <div className="space-y-6">
                       <p className="text-lg leading-relaxed text-foreground">
-                        I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents, blending diverse perspectives from anthropology to algorithms.
+                        I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents blending diverse perspectives from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
                       </p>
                       <p className="text-lg leading-relaxed text-foreground">
-                        At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul through strategic business alignment.
+                        At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, adept at listening to unspoken and designing experiences that touch the human soul.
                       </p>
                     </div>
                     
                     {/* Impact Statement - Centered & Elegant */}
                     <div className="relative px-6 py-8 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl border-l-4 border-primary">
                       <blockquote className="text-xl font-serif italic leading-relaxed mb-4 text-foreground">
-                        "The art of my craft lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
+                        "The art of MY CRAFT lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
                       </blockquote>
                       <div className="text-sm font-sans font-medium tracking-wider uppercase text-muted-foreground">
                         — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
@@ -74,7 +74,7 @@ export default function HomePage() {
                     
                     {/* Global Experience */}
                     <p className="text-lg leading-relaxed text-foreground">
-                      From wellness movements in Saudi Arabia to AI-driven platforms empowering developers worldwide—each endeavour brings me closer to my mission: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
+                      I have embarked on projects ranging from wellness movements to creating AI-driven platforms that empower developers worldwide. Each endeavour brings me closer to my mission: <em className="font-serif italic">connecting strategic business goals with the essence of the human perspective</em>. Weather leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
                     </p>
                   </div>
 
@@ -203,7 +203,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 
-                <ImmersiveServicesExperience />
+                <LivingArchitectureServices />
             </div>
           </div>
         </section>

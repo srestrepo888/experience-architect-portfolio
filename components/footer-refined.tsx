@@ -31,6 +31,13 @@ export default function FooterRefined() {
       {/* Compact Professional Footer */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16">
         
+        {/* Tagline */}
+        <div className="text-center mb-12">
+          <p className="text-lg md:text-xl font-light text-muted-foreground italic max-w-3xl mx-auto">
+            "Transforming business vision into human experiences—where strategic design meets operational excellence and technological possibility."
+          </p>
+        </div>
+        
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           
