@@ -3,7 +3,7 @@ import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-c
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import ExperienceTimelineModern from "@/components/experience-timeline-modern"
-import ModernServices2024 from "@/components/modern-services-2024"
+import ServicesHorizontal2024 from "@/components/services-horizontal-2024"
 import ArchitectCursor from "@/components/architect-cursor"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
@@ -195,8 +195,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                {/* Modern Services Component */}
-                <ModernServices2024 />
+                <ServicesHorizontal2024 />
             </div>
           </div>
         </section>
