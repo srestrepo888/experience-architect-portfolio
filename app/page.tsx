@@ -195,6 +195,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
+                {/* Services Section with Carousel */}
                 <InteractiveServicesSection />
             </div>
           </div>
