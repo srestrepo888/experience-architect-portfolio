@@ -260,6 +260,15 @@
     color: hsl(var(--primary-foreground));
   }
   
+  /* Scrollbar hide for modern services */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
   /* Focus Styles */
   *:focus-visible {
     outline: 2px solid hsl(var(--ring));
