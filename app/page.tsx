@@ -197,12 +197,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
-                <div className="text-center mb-16">
-                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                    Meticulously architected solutions addressing demanding market realities and evolving client needs.
-                  </p>
-                </div>
-                
+                {/* Living Architecture Services Component */}
                 <LivingArchitectureServices />
             </div>
           </div>
