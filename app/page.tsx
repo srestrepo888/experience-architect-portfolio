@@ -195,6 +195,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.SERVICES.DESCRIPTION}
                   </p>
                 </div>
+                {/* Modern Services Component */}
                 <ModernServices2024 />
             </div>
           </div>
