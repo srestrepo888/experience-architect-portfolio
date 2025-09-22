@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const experiences = [
   {
-    year: "2023—Present",
+    year: "2023—2025",
     role: "Business Partner",
     company: "Globant",
     description: "Orchestrating enterprise-scale digital initiatives for global brands.",

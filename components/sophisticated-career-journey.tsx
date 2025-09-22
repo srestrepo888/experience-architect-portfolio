@@ -16,7 +16,7 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    year: "2023—Present",
+    year: "2023—2025",
     role: "Business Partner",
     company: "Globant",
     location: "Global",
