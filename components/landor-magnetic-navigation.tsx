@@ -60,8 +60,6 @@ export const LandorMagneticNavigation: React.FC<LandorMagneticNavigationProps> =
   mobileBreakpoint = "lg"
 }) => {
   
-  // Debug log to verify component is loading
-  console.log("🧲 LandorMagneticNavigation loaded with", items.length, "items")
   
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
