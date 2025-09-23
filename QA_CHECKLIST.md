@@ -18,6 +18,9 @@
 - [ ] **Consistent voice** - Matches established tone and style
 - [ ] **User-approved content only** - Nothing generic or assumed
 - [ ] **Asset verification** - All images exist in approved asset library
+- [ ] **Content change validation** - Employment dates, job titles, and professional info accurate
+- [ ] **Multi-component consistency** - Same content updated across all relevant components
+- [ ] **Professional accuracy** - All career timeline information reflects current reality
 
 ### Gate 2: Design System Compliance
 - [ ] **Color palette adherence** - Uses only established colors

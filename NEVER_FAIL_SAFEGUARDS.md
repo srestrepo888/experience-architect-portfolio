@@ -49,6 +49,21 @@ Following the critical design system violations audit that identified **50 CRITI
 4. **Component System Compliance** - Validates proper imports
 5. **Build Integrity** - TypeScript and lint validation
 
+### 3. Content Change Validator (`scripts/content-change-validator.ts`)
+
+**Purpose:** Ensure content consistency and professional accuracy across all career timeline components
+
+**Validation Features:**
+- **Employment Data Consistency** - Verifies same job info across all timeline components
+- **Professional Information Accuracy** - Validates date formats and employment status
+- **Multi-Component Verification** - Ensures updates are applied consistently
+- **Content Structure Integrity** - Validates required fields in career data
+
+**Automated Triggers:**
+- ✅ Before every build (`prebuild`)
+- ✅ Before every deployment (`predeploy`)
+- ✅ Manual validation (`npm run validate-content-changes`)
+
 **Blocking Behavior:**
 - 🚫 **BLOCKS COMMITS** with critical violations
 - ⚠️ **WARNS** about potential issues
@@ -59,8 +74,9 @@ Following the critical design system violations audit that identified **50 CRITI
 **NPM Scripts Protection:**
 ```json
 {
-  "prebuild": "npm run validate-content && npm run validate-design",
-  "predeploy": "npm run safeguards"
+  "prebuild": "npm run validate-all",
+  "predeploy": "npm run safeguards",
+  "validate-all": "npm run validate-content && npm run validate-content-changes"
 }
 ```
 

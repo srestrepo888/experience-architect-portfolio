@@ -41,6 +41,13 @@
 ✅ **DO:** Modify `components/masterpiece-projects-showcase.tsx`
 ❌ **DON'T:** Change `ProjectsBackground` gradient system
 
+### When User Requests Content/Employment Updates:
+✅ **DO:** Update all relevant timeline components consistently
+✅ **DO:** Search for all instances of the content to be changed
+✅ **DO:** Verify changes across `sophisticated-career-journey.tsx` and `experience-timeline-modern.tsx`
+❌ **DON'T:** Update only one component and miss others
+❌ **DON'T:** Change component structure, only data content
+
 ## 📝 PRE-CHANGE VERIFICATION
 
 Before making ANY modification, ask:
@@ -48,6 +55,8 @@ Before making ANY modification, ask:
 2. **Which specific file/component needs changes?**
 3. **What systems must remain untouched?**
 4. **Am I enhancing or replacing?** (Always enhance!)
+5. **For content changes: Which components need consistent updates?**
+6. **For employment data: Are all career timeline components updated?**
 
 ## 🚨 EMERGENCY PROTOCOLS
 
@@ -119,6 +128,14 @@ Every change must pass these gates:
 - [ ] No duplicate functionality
 - [ ] Clean codebase maintained
 - [ ] Single source of truth preserved
+
+#### Gate 6: Content Change Validation (for employment/content updates)
+- [ ] All career timeline components updated consistently
+- [ ] Professional information accuracy verified
+- [ ] Employment dates reflect current reality
+- [ ] Job titles and descriptions remain accurate
+- [ ] Multi-component search performed to find all instances
+- [ ] Change log documentation updated
 
 ### Accessibility Standards (NON-NEGOTIABLE)
 - **Color contrast ratio ≥ 4.5:1** for normal text

@@ -1,5 +1,5 @@
 import RefinedHero from "@/components/refined-hero"
-import SophisticatedProjectsCarousel from "@/components/sophisticated-projects-carousel" 
+import LandorMagneticProjectsShowcase from "@/components/landor-magnetic-projects-showcase" 
 import FooterRefined from "@/components/footer-refined"
 import CinematicNavigation from "@/components/cinematic-navigation"
 import ExperienceTimelineModern from "@/components/experience-timeline-modern"
@@ -138,7 +138,7 @@ export default function HomePage() {
                     {CONTENT_CONFIG.PROJECTS.SUBTITLE}
                   </p>
                 </div>
-                <SophisticatedProjectsCarousel />
+                <LandorMagneticProjectsShowcase />
             </div>
           </div>
         </section>
