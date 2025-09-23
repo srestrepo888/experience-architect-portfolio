@@ -1,7 +1,7 @@
 import RefinedHero from "@/components/refined-hero"
 import LandorMagneticProjectsShowcase from "@/components/landor-magnetic-projects-showcase" 
 import FooterRefined from "@/components/footer-refined"
-import CinematicNavigation from "@/components/cinematic-navigation"
+import LandorMagneticNavigation from "@/components/landor-magnetic-navigation"
 import ExperienceTimelineModern from "@/components/experience-timeline-modern"
 import ArchitectCursor from "@/components/architect-cursor"
 import InteractiveServicesSection from "@/components/interactive-services-section"
@@ -12,7 +12,18 @@ export default function HomePage() {
   return (
     <div className="relative text-foreground">
       <ArchitectCursor />
-      <CinematicNavigation />
+      <LandorMagneticNavigation 
+        items={[
+          { id: "hero", label: "Home", href: "#hero" },
+          { id: "about", label: "About", href: "#about" },
+          { id: "projects", label: "Projects", href: "#projects" },
+          { id: "experience", label: "Experience", href: "#experience" },
+          { id: "services", label: "Services", href: "#services" }
+        ]}
+        logo={<span className="text-xl font-serif font-light tracking-wide">Silvana Restrepo</span>}
+        ctaButton={{ label: "Let's Connect", href: "#footer" }}
+        magnetism="moderate"
+      />
       <main className="relative">
         {/* HERO: Award-Winning Experience Architect */}
         <section id="hero" className="relative">
