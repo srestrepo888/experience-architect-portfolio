@@ -194,11 +194,57 @@ export default function HomePage() {
         </section>
 
         {/* SERVICES: Magnetic Services with Sophisticated Icons */}
-        <LandorMagneticServicesSection 
-          sectionNumber="03"
-          title="Architectural Expertise"
-          subtitle="Multi-dimensional services that transform vision into reality"
-        />
+        <section id="services" className="relative py-20">
+          <div className="max-w-6xl mx-auto px-8">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-4 text-sm font-light tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
+                <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+                <span>03</span>
+                <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
+                Architectural Expertise
+              </h2>
+              <p className="text-lg font-light leading-relaxed max-w-2xl mx-auto text-muted-foreground">
+                Multi-dimensional services that transform vision into reality
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-primary font-bold">S</span>
+                </div>
+                <h3 className="text-xl font-medium mb-3">Strategic Architecture</h3>
+                <p className="text-muted-foreground text-sm">Connecting invisible patterns to design systems that anticipate human needs and business evolution.</p>
+              </div>
+              
+              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-primary font-bold">D</span>
+                </div>
+                <h3 className="text-xl font-medium mb-3">Experience Design</h3>
+                <p className="text-muted-foreground text-sm">Crafting sophisticated interfaces where every interaction feels intentional, elegant, and effortlessly human.</p>
+              </div>
+              
+              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-primary font-bold">I</span>
+                </div>
+                <h3 className="text-xl font-medium mb-3">Innovation Catalyst</h3>
+                <p className="text-muted-foreground text-sm">Transforming complex challenges into breakthrough solutions through creative methodology and cross-disciplinary thinking.</p>
+              </div>
+              
+              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-primary font-bold">E</span>
+                </div>
+                <h3 className="text-xl font-medium mb-3">Experience Architecture</h3>
+                <p className="text-muted-foreground text-sm">Building multi-dimensional experiences that touch the human soul through sophisticated understanding of user psychology.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       
       {/* FOOTER: Elegant Background Design */}
