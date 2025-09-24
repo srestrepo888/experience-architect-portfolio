@@ -12,6 +12,12 @@ import {
   LandorBody,
   LandorQuote
 } from "@/components/ui/landor-typography"
+import {
+  LandorContainer,
+  LandorSection,
+  LandorStack,
+  LandorGrid
+} from "@/components/ui/landor-spacing-components"
 import Image from "next/image"
 
 export default function HomePage() {
@@ -39,7 +45,7 @@ export default function HomePage() {
         </section>
 
         {/* ABOUT: Sophisticated Personal Brand Background */}
-        <section id="about" className="relative">
+        <LandorSection id="about" spacing="standard" className="relative">
           {/* Luxury Geometric Background */}
           <div className="absolute inset-0 pointer-events-none">
             <Image
@@ -52,55 +58,59 @@ export default function HomePage() {
             {/* Light gradient overlay to maintain readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/20 to-background/35" />
           </div>
-          <div className="py-16 md:py-20 relative">
-            <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
-                {/* About Me Section Header - Using Landor Typography */}
-                <LandorSectionHeader
-                  number={CONTENT_CONFIG.ABOUT.SECTION_NUMBER}
-                  title={CONTENT_CONFIG.ABOUT.HEADING}
-                />
+          
+          <LandorContainer size="wide" className="relative">
+            {/* About Me Section Header - Using Landor Typography */}
+            <LandorSectionHeader
+              number={CONTENT_CONFIG.ABOUT.SECTION_NUMBER}
+              title={CONTENT_CONFIG.ABOUT.HEADING}
+            />
+            
+            {/* PERFECT SYMMETRY LAYOUT - Mathematical Grid System */}
+            <LandorGrid 
+              columns={{ lg: 2 }} 
+              gap="20" 
+              className="items-center max-w-6xl mx-auto lg:grid-cols-[1fr_1.2fr]"
+            >
+              
+              {/* CONTENT COLUMN - Mathematical Spacing */}
+              <LandorStack spacing="8" className="lg:pr-8">
+                {/* Core Philosophy - Using Landor Typography */}
+                <LandorStack spacing="6">
+                  <LandorBodyLarge className="text-foreground">
+                    I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents blending perspectives from anthropology to business, innovation to experience design.
+                  </LandorBodyLarge>
+                  <LandorBodyLarge className="text-foreground">
+                    At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul.
+                  </LandorBodyLarge>
+                </LandorStack>
                 
-                {/* PERFECT SYMMETRY LAYOUT - Balanced Content & Image */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-20 items-center max-w-6xl mx-auto">
-                  
-                  {/* CONTENT COLUMN - Perfectly Balanced */}
-                  <div className="space-y-6 lg:pr-8">
-                    {/* Core Philosophy - Using Landor Typography */}
-                    <div className="space-y-4">
-                      <LandorBodyLarge className="text-foreground">
-                        I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents blending perspectives from anthropology to business, innovation to experience design.
-                      </LandorBodyLarge>
-                      <LandorBodyLarge className="text-foreground">
-                        At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul.
-                      </LandorBodyLarge>
-                    </div>
-                    
-                    {/* Impact Statement - Using Landor Typography */}
-                    <div className="relative px-6 py-8 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl border-l-4 border-primary">
-                      <LandorQuote className="mb-4 text-foreground">
-                        "The art of MY CRAFT lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
-                      </LandorQuote>
-                      <div className="text-sm font-sans font-medium tracking-wider uppercase text-muted-foreground">
-                        — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
-                      </div>
-                    </div>
-                    
-                    {/* Mission Statement - Using Landor Typography */}
-                    <LandorBodyLarge className="text-foreground">
-                      From wellness platforms to AI-driven systems empowering 31,000+ developers worldwide—my mission remains: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
-                    </LandorBodyLarge>
+                {/* Impact Statement - Using Landor Typography */}
+                <div className="relative px-6 py-8 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl border-l-4 border-primary">
+                  <LandorQuote className="mb-4 text-foreground">
+                    "The art of MY CRAFT lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
+                  </LandorQuote>
+                  <div className="text-sm font-sans font-medium tracking-wider uppercase text-muted-foreground">
+                    — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
                   </div>
+                </div>
+                
+                {/* Mission Statement - Using Landor Typography */}
+                <LandorBodyLarge className="text-foreground">
+                  From wellness platforms to AI-driven systems empowering 31,000+ developers worldwide—my mission remains: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
+                </LandorBodyLarge>
+              </LandorStack>
 
                   {/* IMAGE COLUMN - Larger for Balance */}
                   <div className="flex justify-center relative lg:pl-8">
                     <div className="relative w-full max-w-[500px] group">
                       {/* Architectural Grid Background */}
                       <div className="absolute -inset-8 opacity-10">
-                        <div className="grid grid-cols-4 gap-2 h-full">
+                        <LandorGrid columns={4} gap="2" className="h-full">
                           {[...Array(16)].map((_, i) => (
                             <div key={i} className="bg-primary/20 rounded-sm" />
                           ))}
-                        </div>
+                        </LandorGrid>
                       </div>
                       
                       {/* Floating Aura */}
@@ -123,10 +133,9 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                </div>
-            </div>
-          </div>
-        </section>
+            </LandorGrid>
+          </LandorContainer>
+        </LandorSection>
 
         {/* PROJECTS: Ultra-Dramatic Gradient Background */}
         <section id="projects" className="relative">
