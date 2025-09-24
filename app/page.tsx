@@ -193,55 +193,176 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SERVICES: Magnetic Services with Sophisticated Icons */}
-        <section id="services" className="relative py-20">
-          <div className="max-w-6xl mx-auto px-8">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-4 text-sm font-light tracking-[0.25em] uppercase text-muted-foreground/70 mb-6">
-                <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-                <span>03</span>
-                <div className="w-12 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+        {/* SERVICES: Sophisticated Architectural Expertise */}
+        <section id="services" className="relative py-24 overflow-hidden">
+          {/* Luxury Background */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(0,0,0,0.1)_100%)]"></div>
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-8 relative z-10">
+            {/* Elegant Header */}
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center gap-6 text-sm font-light tracking-[0.3em] uppercase text-muted-foreground/80 mb-8">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+                <span className="px-4 py-1 border border-primary/20 rounded-full bg-primary/5">03</span>
+                <div className="w-16 h-px bg-gradient-to-l from-transparent via-primary/40 to-transparent"></div>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
-                Architectural Expertise
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-extralight text-center leading-[0.9] tracking-[-0.03em] mb-6 text-foreground">
+                Architectural
+                <br />
+                <span className="italic font-light bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent">
+                  Expertise
+                </span>
               </h2>
-              <p className="text-lg font-light leading-relaxed max-w-2xl mx-auto text-muted-foreground">
-                Multi-dimensional services that transform vision into reality
+              <p className="text-xl font-light leading-relaxed max-w-3xl mx-auto text-muted-foreground/90">
+                Multi-dimensional services that transform vision into reality through 
+                <em className="font-serif italic text-foreground/80"> sophisticated architectural thinking</em>
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary font-bold">S</span>
+            {/* Sophisticated Service Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+              {/* Strategic Architecture */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/50 to-primary/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                <div className="relative bg-background/80 backdrop-blur-xl border border-border/30 rounded-2xl p-8 lg:p-10 hover:border-primary/40 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/10">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <div className="w-8 h-8 border-2 border-primary/60 rounded-lg rotate-45 group-hover:rotate-[225deg] transition-transform duration-700"></div>
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/40 rounded-full animate-pulse"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl lg:text-3xl font-serif font-light mb-3 group-hover:text-primary/90 transition-colors duration-300">
+                        Strategic Architecture
+                      </h3>
+                      <div className="w-12 h-px bg-gradient-to-r from-primary/60 to-transparent mb-4 group-hover:w-20 transition-all duration-500"></div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
+                    Connecting invisible patterns to design systems that anticipate human needs and business evolution. 
+                    Strategic thinking that bridges vision with implementation.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Systems Thinking</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Business Intelligence</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Strategic Planning</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-medium mb-3">Strategic Architecture</h3>
-                <p className="text-muted-foreground text-sm">Connecting invisible patterns to design systems that anticipate human needs and business evolution.</p>
               </div>
-              
-              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary font-bold">D</span>
+
+              {/* Experience Design */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/50 to-primary/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                <div className="relative bg-background/80 backdrop-blur-xl border border-border/30 rounded-2xl p-8 lg:p-10 hover:border-primary/40 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/10">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative">
+                          <div className="w-6 h-6 border-2 border-primary/60 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                          <div className="absolute inset-0 w-6 h-6 border border-primary/40 rounded-full animate-ping"></div>
+                        </div>
+                      </div>
+                      <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-primary/40 rounded-full animate-pulse delay-300"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl lg:text-3xl font-serif font-light mb-3 group-hover:text-primary/90 transition-colors duration-300">
+                        Experience Design
+                      </h3>
+                      <div className="w-12 h-px bg-gradient-to-r from-primary/60 to-transparent mb-4 group-hover:w-20 transition-all duration-500"></div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
+                    Crafting sophisticated interfaces where every interaction feels intentional, elegant, and effortlessly human. 
+                    Design that speaks to the soul while serving the mind.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">UX/UI Design</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Product Design</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Interaction Design</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-medium mb-3">Experience Design</h3>
-                <p className="text-muted-foreground text-sm">Crafting sophisticated interfaces where every interaction feels intentional, elegant, and effortlessly human.</p>
               </div>
-              
-              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary font-bold">I</span>
+
+              {/* Innovation Catalyst */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/50 to-primary/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                <div className="relative bg-background/80 backdrop-blur-xl border border-border/30 rounded-2xl p-8 lg:p-10 hover:border-primary/40 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/10">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative">
+                          <div className="w-8 h-8 border-2 border-primary/60 rounded-none rotate-45 group-hover:rotate-[135deg] transition-transform duration-700"></div>
+                          <div className="absolute inset-1 w-6 h-6 bg-primary/20 rounded-none rotate-45 group-hover:rotate-[225deg] transition-transform duration-500"></div>
+                        </div>
+                      </div>
+                      <div className="absolute -top-1 -left-1 w-3 h-3 bg-primary/40 rounded-full animate-pulse delay-150"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl lg:text-3xl font-serif font-light mb-3 group-hover:text-primary/90 transition-colors duration-300">
+                        Innovation Catalyst
+                      </h3>
+                      <div className="w-12 h-px bg-gradient-to-r from-primary/60 to-transparent mb-4 group-hover:w-20 transition-all duration-500"></div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
+                    Transforming complex challenges into breakthrough solutions through creative methodology and cross-disciplinary thinking. 
+                    Innovation that bridges possibility with practicality.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">R&D Strategy</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Future-forward Concepts</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Emerging Technologies</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-medium mb-3">Innovation Catalyst</h3>
-                <p className="text-muted-foreground text-sm">Transforming complex challenges into breakthrough solutions through creative methodology and cross-disciplinary thinking.</p>
               </div>
-              
-              <div className="bg-background/80 backdrop-blur-sm border border-border/30 rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary font-bold">E</span>
+
+              {/* Experience Architecture */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/50 to-primary/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                <div className="relative bg-background/80 backdrop-blur-xl border border-border/30 rounded-2xl p-8 lg:p-10 hover:border-primary/40 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/10">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative">
+                          <div className="w-3 h-3 bg-primary/60 rounded-full"></div>
+                          <div className="absolute -top-1 -left-1 w-5 h-5 border border-primary/40 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+                          <div className="absolute -top-2 -left-2 w-7 h-7 border border-primary/30 rounded-full group-hover:scale-125 transition-transform duration-700"></div>
+                          <div className="absolute -top-3 -left-3 w-9 h-9 border border-primary/20 rounded-full group-hover:scale-110 transition-transform duration-1000"></div>
+                        </div>
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-primary/40 rounded-full animate-pulse delay-500"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl lg:text-3xl font-serif font-light mb-3 group-hover:text-primary/90 transition-colors duration-300">
+                        Experience Architecture
+                      </h3>
+                      <div className="w-12 h-px bg-gradient-to-r from-primary/60 to-transparent mb-4 group-hover:w-20 transition-all duration-500"></div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
+                    Building multi-dimensional experiences that touch the human soul through sophisticated understanding of user psychology. 
+                    Architecture that creates emotional resonance.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Journey Mapping</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">User Psychology</span>
+                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Behavioral Design</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-medium mb-3">Experience Architecture</h3>
-                <p className="text-muted-foreground text-sm">Building multi-dimensional experiences that touch the human soul through sophisticated understanding of user psychology.</p>
               </div>
+            </div>
+
+            {/* Elegant Bottom Accent */}
+            <div className="flex items-center justify-center mt-16 opacity-60">
+              <div className="w-24 h-px bg-gradient-to-r from-transparent to-primary/30"></div>
+              <div className="w-2 h-2 rounded-full bg-primary/40 mx-6"></div>
+              <div className="w-24 h-px bg-gradient-to-l from-transparent to-primary/30"></div>
             </div>
           </div>
         </section>
