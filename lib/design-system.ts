@@ -1,49 +1,26 @@
-// lib/design-system.ts
-// THE SINGLE SOURCE OF TRUTH FOR ALL DESIGN TOKENS
+// 🎯 MINIMAL DESIGN SYSTEM - Legacy Support for Tailwind Config
+// This file exists only for Tailwind configuration compatibility
+// All new components should use lib/landor-typography-system.ts
 
-// Based on 8px grid system with a modular scale for harmony
 export const DESIGN_SYSTEM = {
   spacing: {
-    "2xs": "4px",
-    xs: "8px",
-    sm: "12px",
-    md: "16px",
-    lg: "24px",
-    xl: "32px",
-    "2xl": "48px",
-    "3xl": "64px",
-    "4xl": "96px",
-    "5xl": "128px",
-  },
-  containers: {
-    content: "max-w-[1200px]",
-    wide: "max-w-[1400px]",
-    full: "max-w-none",
-  },
-  padding: {
-    mobile: "px-6",
-    desktop: "md:px-8 lg:px-12",
-  },
-  sections: {
-    spacing: {
-      normal: "py-2xl md:py-3xl",
-      spacious: "py-3xl md:py-4xl",
-      hero: "pt-4xl pb-3xl",
-    },
-    headerMargin: "mb-2xl",
-  },
-  typography: {
-    paragraphSpacing: "space-y-md",
-  },
-  grid: {
-    gap: "gap-lg md:gap-xl lg:gap-2xl",
-  },
-  animation: {
-    fadeIn: {
-      initial: { opacity: 0, y: 20 },
-      whileInView: { opacity: 1, y: 0 },
-      viewport: { once: true, margin: "-100px" },
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-    },
-  },
-} as const
+    // 8px grid system
+    "0.5": "0.125rem", // 2px
+    "1": "0.25rem",    // 4px
+    "2": "0.5rem",     // 8px
+    "3": "0.75rem",    // 12px
+    "4": "1rem",       // 16px
+    "5": "1.25rem",    // 20px
+    "6": "1.5rem",     // 24px
+    "8": "2rem",       // 32px
+    "10": "2.5rem",    // 40px
+    "12": "3rem",      // 48px
+    "16": "4rem",      // 64px
+    "20": "5rem",      // 80px
+    "24": "6rem",      // 96px
+    "32": "8rem",      // 128px
+  }
+} as const;
+
+// 🚨 DEPRECATION WARNING
+console.warn("⚠️  design-system.ts is deprecated. Use lib/landor-typography-system.ts for new components.");

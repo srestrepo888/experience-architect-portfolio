@@ -6,6 +6,12 @@ import ExperienceTimelineModern from "@/components/experience-timeline-modern"
 import ArchitectCursor from "@/components/architect-cursor"
 import InteractiveServicesSection from "@/components/interactive-services-section"
 import { CONTENT_CONFIG } from "@/lib/content-config"
+import { 
+  LandorSectionHeader, 
+  LandorBodyLarge, 
+  LandorBody,
+  LandorQuote
+} from "@/components/ui/landor-typography"
 import Image from "next/image"
 
 export default function HomePage() {
@@ -47,47 +53,41 @@ export default function HomePage() {
           </div>
           <div className="py-16 md:py-20 relative">
             <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
-                {/* About Me Section Header */}
-                <div className="text-center mb-12 md:mb-16">
-                  <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-8">
-                    <div className="w-8 h-px bg-gradient-to-r from-transparent to-border"></div>
-                    <span>{CONTENT_CONFIG.ABOUT.SECTION_NUMBER}</span>
-                    <div className="w-8 h-px bg-gradient-to-l from-transparent to-border"></div>
-                  </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
-                    {CONTENT_CONFIG.ABOUT.HEADING}
-                  </h2>
-                </div>
+                {/* About Me Section Header - Using Landor Typography */}
+                <LandorSectionHeader
+                  number={CONTENT_CONFIG.ABOUT.SECTION_NUMBER}
+                  title={CONTENT_CONFIG.ABOUT.HEADING}
+                />
                 
                 {/* PERFECT SYMMETRY LAYOUT - Balanced Content & Image */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-20 items-center max-w-6xl mx-auto">
                   
                   {/* CONTENT COLUMN - Perfectly Balanced */}
                   <div className="space-y-6 lg:pr-8">
-                    {/* Core Philosophy - Condensed */}
+                    {/* Core Philosophy - Using Landor Typography */}
                     <div className="space-y-4">
-                      <p className="text-lg leading-relaxed text-foreground">
+                      <LandorBodyLarge className="text-foreground">
                         I believe the most compelling stories begin with <em className="font-serif italic">curiosity</em>—a spark that has carried me across continents blending perspectives from anthropology to business, innovation to experience design.
-                      </p>
-                      <p className="text-lg leading-relaxed text-foreground">
+                      </LandorBodyLarge>
+                      <LandorBodyLarge className="text-foreground">
                         At my core, I am an <strong className="font-serif font-medium">architect of invisible systems</strong>, designing experiences that touch the human soul.
-                      </p>
+                      </LandorBodyLarge>
                     </div>
                     
-                    {/* Impact Statement - Centered & Elegant */}
+                    {/* Impact Statement - Using Landor Typography */}
                     <div className="relative px-6 py-8 bg-gradient-to-r from-primary/5 to-transparent rounded-2xl border-l-4 border-primary">
-                      <blockquote className="text-xl font-serif italic leading-relaxed mb-4 text-foreground">
+                      <LandorQuote className="mb-4 text-foreground">
                         "The art of MY CRAFT lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire."
-                      </blockquote>
+                      </LandorQuote>
                       <div className="text-sm font-sans font-medium tracking-wider uppercase text-muted-foreground">
                         — {CONTENT_CONFIG.ABOUT.PERSONAL_QUOTE.ATTRIBUTION}
                       </div>
                     </div>
                     
-                    {/* Mission Statement - Concise */}
-                    <p className="text-lg leading-relaxed text-foreground">
+                    {/* Mission Statement - Using Landor Typography */}
+                    <LandorBodyLarge className="text-foreground">
                       From wellness platforms to AI-driven systems empowering 31,000+ developers worldwide—my mission remains: <em className="font-serif italic">connecting strategic goals with human perspective</em>.
-                    </p>
+                    </LandorBodyLarge>
                   </div>
 
                   {/* IMAGE COLUMN - Larger for Balance */}
