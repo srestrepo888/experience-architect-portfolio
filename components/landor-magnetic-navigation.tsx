@@ -138,6 +138,7 @@ export const LandorMagneticNavigation: React.FC<LandorMagneticNavigationProps> =
                 size="lg"
                 magnetism="subtle"
                 className="p-0 hover:bg-transparent"
+                external={logoHref?.startsWith('http')}
               >
                 {logo || (
                   <span className="text-xl font-serif font-light tracking-wide">

@@ -21,9 +21,9 @@ The portfolio follows a **progressive disclosure** model where users are guided 
 ### Navigation Components Hierarchy
 
 ```
-CinematicNavigation (Fixed Top)
-├── Logo (Silvana Restrepo → My Voice)
-├── Main Navigation Items
+LandorMagneticNavigation (Fixed Top)
+├── Logo (Silvana Restrepo → Personal Blog)
+├── Main Navigation Items  
 ├── CTA Button (Let's Connect → Footer)
 └── Mobile Menu Toggle
 
@@ -52,12 +52,50 @@ import { cn } from "@/lib/utils"
 
 ## 🧭 Navigation Components Deep Dive
 
-### 1. Cinematic Navigation (`components/cinematic-navigation.tsx`)
+### 1. Landor Magnetic Navigation (`components/landor-magnetic-navigation.tsx`)
 
 #### **Core Features**
 - **Fixed Positioning**: Always accessible at `z-50`
 - **Glass Morphism**: Backdrop blur with sophisticated transparency
 - **Active State Tracking**: Real-time section detection
+- **Magnetic Interactions**: Cursor-responsive hover effects
+- **Logo Navigation**: Branded link to personal blog
+
+#### **Logo Navigation Strategy**
+
+**🎯 Purpose**: The "Silvana Restrepo" logo serves as a gateway to the personal brand ecosystem.
+
+**📍 Destination**: `https://silvana.mmm.page/human-perspective`
+- **Content**: Personal blog with human-centered perspectives
+- **Context**: Extends the portfolio experience with thought leadership
+- **Target**: Opens in new tab to preserve portfolio session
+
+**🔗 Implementation**:
+```typescript
+// Logo navigation configuration
+logoHref="https://silvana.mmm.page/human-perspective"
+external={logoHref?.startsWith('http')}
+
+// Magnetic personality with external link handling
+<LandorMagneticButton
+  href={logoHref}
+  variant="ghost" 
+  size="lg"
+  magnetism="subtle"
+  className="p-0 hover:bg-transparent"
+  external={true}
+>
+  <span className="text-xl font-serif font-light tracking-wide">
+    Silvana Restrepo
+  </span>
+</LandorMagneticButton>
+```
+
+**🎨 User Experience**:
+- **Hover State**: Subtle magnetic attraction with color transition
+- **Click Behavior**: Opens personal blog in new tab
+- **Visual Feedback**: Maintains portfolio context while expanding brand presence
+- **Accessibility**: Proper external link attributes and keyboard navigation
 - **Responsive Design**: Mobile-first with hamburger menu
 
 #### **Technical Implementation**
