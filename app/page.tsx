@@ -27,7 +27,7 @@ export default function HomePage() {
           { id: "experience", label: "Experience", href: "#experience" },
           { id: "services", label: "Services", href: "#services" }
         ]}
-        logo={<span className="text-xl font-serif font-light tracking-wide">Silvana Restrepo</span>}
+        logo={<span className="text-xl font-serif font-light tracking-wide">Silvana</span>}
         logoHref="https://silvana.mmm.page/human-perspective"
         ctaButton={{ label: "Let's Connect", href: "#footer" }}
         magnetism="moderate"

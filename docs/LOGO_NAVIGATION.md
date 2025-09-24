@@ -2,7 +2,7 @@
 
 ## Overview
 
-The "Silvana Restrepo" logo in the top-left navigation serves as a strategic gateway to the extended personal brand ecosystem, specifically linking to the personal blog with human-centered perspectives.
+The "Silvana" logo in the top-left navigation serves as a strategic gateway to the extended personal brand ecosystem, specifically linking to the personal blog with human-centered perspectives.
 
 ## 🎯 Strategic Purpose
 
@@ -42,7 +42,7 @@ https://silvana.mmm.page/human-perspective
 ```typescript
 <LandorMagneticNavigation 
   items={navigationItems}
-  logo={<span className="text-xl font-serif font-light tracking-wide">Silvana Restrepo</span>}
+  logo={<span className="text-xl font-serif font-light tracking-wide">Silvana</span>}
   logoHref="https://silvana.mmm.page/human-perspective"
   ctaButton={{ label: "Let's Connect", href: "#footer" }}
   magnetism="moderate"

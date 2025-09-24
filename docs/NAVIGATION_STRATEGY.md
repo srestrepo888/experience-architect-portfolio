@@ -22,7 +22,7 @@ The portfolio follows a **progressive disclosure** model where users are guided 
 
 ```
 LandorMagneticNavigation (Fixed Top)
-├── Logo (Silvana Restrepo → Personal Blog)
+├── Logo (Silvana → Personal Blog)
 ├── Main Navigation Items  
 ├── CTA Button (Let's Connect → Footer)
 └── Mobile Menu Toggle
@@ -63,7 +63,7 @@ import { cn } from "@/lib/utils"
 
 #### **Logo Navigation Strategy**
 
-**🎯 Purpose**: The "Silvana Restrepo" logo serves as a gateway to the personal brand ecosystem.
+**🎯 Purpose**: The "Silvana" logo serves as a gateway to the personal brand ecosystem.
 
 **📍 Destination**: `https://silvana.mmm.page/human-perspective`
 - **Content**: Personal blog with human-centered perspectives
