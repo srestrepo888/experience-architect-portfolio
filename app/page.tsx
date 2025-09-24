@@ -4,7 +4,7 @@ import FooterRefined from "@/components/footer-refined"
 import LandorMagneticNavigation from "@/components/landor-magnetic-navigation"
 import ExperienceTimelineModern from "@/components/experience-timeline-modern"
 import ArchitectCursor from "@/components/architect-cursor"
-import InteractiveServicesSection from "@/components/interactive-services-section"
+import LandorMagneticServicesSection from "@/components/landor-magnetic-services-section"
 import { CONTENT_CONFIG } from "@/lib/content-config"
 import { 
   LandorSectionHeader, 
@@ -193,35 +193,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SERVICES: Spectacular Dynamic Gradient Background */}
-        <section id="services" className="relative">
-          {/* Revolutionary Multi-Layer Gradient System */}
-          <div className="absolute inset-0 bg-gradient-to-bl from-primary/25 via-primary/8 to-muted/20" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-muted/15 via-primary/12 to-primary/25" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/15 via-transparent to-background/25" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,_var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-          
-          <div className="py-20 md:py-24 relative">
-            <div className="max-w-6xl mx-auto px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32">
-                <div className="text-center mb-12 md:mb-16">
-                  <div className="inline-flex items-center gap-3 text-sm font-light tracking-[0.2em] uppercase text-muted-foreground/70 mb-6">
-                    <div className="w-10 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent"></div>
-                    <span>{CONTENT_CONFIG.SERVICES.SECTION_NUMBER}</span>
-                    <div className="w-10 h-px bg-gradient-to-l from-transparent via-border/60 to-transparent"></div>
-                  </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-center leading-tight tracking-[-0.02em] mb-4 text-foreground">
-                    {CONTENT_CONFIG.SERVICES.HEADING}
-                  </h2>
-                  <p className="text-base font-light leading-relaxed max-w-xl mx-auto text-muted-foreground">
-                    {CONTENT_CONFIG.SERVICES.DESCRIPTION}
-                  </p>
-                </div>
-                {/* Services Section with Carousel */}
-                <InteractiveServicesSection />
-            </div>
-          </div>
-        </section>
+        {/* SERVICES: Magnetic Services with Sophisticated Icons */}
+        <LandorMagneticServicesSection 
+          sectionNumber="03"
+          title="Architectural Expertise"
+          subtitle="Multi-dimensional services that transform vision into reality"
+        />
       </main>
       
       {/* FOOTER: Elegant Background Design */}
