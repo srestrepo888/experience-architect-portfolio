@@ -9,6 +9,7 @@ import { CONTENT_CONFIG } from "@/lib/content-config"
 import Image from "next/image"
 
 export default function HomePage() {
+  // Cache bust: 2025-09-24-v2
   return (
     <div className="relative text-foreground">
       <ArchitectCursor />
