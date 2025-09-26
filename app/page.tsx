@@ -247,7 +247,7 @@ export default function HomePage() {
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
                     Transform product visions into market reality through AI-powered rapid prototyping and validation. 
-                    Implementing innovation sprints where data accelerates ideation.
+                    Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">AI-Powered Prototyping</span>
@@ -282,8 +282,7 @@ export default function HomePage() {
                     Harmonizing thousands of touchpoints into one resonant brand voice
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
-                    Systems thinking applied to create unified experience architectures where daily interactions feel like 
-                    one seamless conversation—whether digital, physical, or hybrid.
+                    Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Systems Thinking</span>
@@ -318,8 +317,7 @@ export default function HomePage() {
                     Building AI-augmented teams that outperform traditional structures
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
-                    Design agentic systems where AI specialists and human experts collaborate as unified intelligence. 
-                    Architect operational ecosystems with embedded market monitoring.
+                    Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">AI-Human Collaboration</span>
@@ -356,8 +354,7 @@ export default function HomePage() {
                     Engineering organizational evolution through scalable design foundations
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
-                    Build transformation on bedrock design systems that ensure every team moves in harmony. 
-                    Create modular, scalable frameworks where innovation accelerates.
+                    Build transformation on bedrock design systems that ensure every team moves in harmony. I collaborate to create modular, scalable frameworks where innovation accelerates rather than fragments—turning organizational complexity into competitive advantage.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Scalable Frameworks</span>
@@ -392,8 +389,7 @@ export default function HomePage() {
                     Converting market disruption into systematic advantage
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
-                    Navigate complexity with frameworks that transform uncertainty into opportunity. 
-                    Blend behavioral economics, emerging technology foresight, and cultural intelligence.
+                    Navigate complexity with frameworks that transform uncertainty into opportunity. We blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Innovation Strategy</span>
@@ -430,8 +426,7 @@ export default function HomePage() {
                     Turning customer behavior into competitive advantage
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors duration-300">
-                    Architecting intelligence systems that don't just track customer behavior—they anticipate it. 
-                    Design platforms where every interaction feeds learning algorithms.
+                    Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary/80 rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Customer Intelligence</span>
