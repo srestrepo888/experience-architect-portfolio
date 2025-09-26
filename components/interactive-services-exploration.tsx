@@ -5,9 +5,10 @@ import { motion, AnimatePresence, useInView } from "framer-motion"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { LANDOR_EASING, LANDOR_TIMING } from "@/lib/landor-magnetic-system"
 import { LandorStandardTitle } from "@/components/ui/landor-section-title-system"
+import { CONTENT_CONFIG } from "@/lib/content-config"
 import { cn } from "@/lib/utils"
 
-// 🏛️ SERVICES DATA - From approved content
+// 🏛️ APPROVED SERVICES DATA - From content-config.ts
 const SERVICES_DATA = [
   {
     id: "accelerated-innovation",
@@ -15,7 +16,7 @@ const SERVICES_DATA = [
     subtitle: "From concept to market dominance in half the time",
     description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
     keywords: ["AI-Powered Prototyping", "Innovation Sprints", "Market Validation"],
-    icon: "diamond",
+    icon: "strategy",
     color: "from-primary/20 to-primary/10",
     accentColor: "primary"
   },
@@ -25,9 +26,9 @@ const SERVICES_DATA = [
     subtitle: "Harmonizing thousands of touchpoints into one resonant brand voice",
     description: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
     keywords: ["Systems Thinking", "Brand Architecture", "Omnichannel Design"],
-    icon: "circles",
-    color: "from-blue-500/20 to-blue-400/10",
-    accentColor: "blue-500"
+    icon: "orchestration",
+    color: "from-primary/15 to-primary/8",
+    accentColor: "primary"
   },
   {
     id: "intelligent-operations",
@@ -35,9 +36,9 @@ const SERVICES_DATA = [
     subtitle: "Building AI-augmented teams that outperform traditional structures",
     description: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
     keywords: ["AI-Human Collaboration", "Operations Design", "Intelligence Systems"],
-    icon: "squares",
-    color: "from-emerald-500/20 to-emerald-400/10",
-    accentColor: "emerald-500"
+    icon: "operations",
+    color: "from-primary/18 to-primary/9",
+    accentColor: "primary"
   },
   {
     id: "design-systems",
@@ -45,161 +46,41 @@ const SERVICES_DATA = [
     subtitle: "Engineering organizational evolution through scalable design foundations",
     description: "Build transformation on bedrock design systems that ensure every team moves in harmony. I collaborate to create modular, scalable frameworks where innovation accelerates rather than fragments—turning organizational complexity into competitive advantage.",
     keywords: ["Scalable Frameworks", "Modular Design", "Organizational Evolution"],
-    icon: "concentric",
-    color: "from-purple-500/20 to-purple-400/10",
-    accentColor: "purple-500"
-  },
-  {
-    id: "strategic-innovation",
-    title: "Strategic Innovation Consulting",
-    subtitle: "Converting market disruption into systematic advantage",
-    description: "Navigate complexity with frameworks that transform uncertainty into opportunity. We blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
-    keywords: ["Innovation Strategy", "Behavioral Economics", "Market Disruption"],
-    icon: "rotation",
-    color: "from-orange-500/20 to-orange-400/10",
-    accentColor: "orange-500"
-  },
-  {
-    id: "customer-intelligence",
-    title: "Customer Intelligence Platforms",
-    subtitle: "Turning customer behavior into competitive advantage",
-    description: "Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
-    keywords: ["Customer Intelligence", "Behavioral Analytics", "Learning Algorithms"],
-    icon: "dots",
-    color: "from-rose-500/20 to-rose-400/10",
-    accentColor: "rose-500"
+    icon: "systems",
+    color: "from-primary/16 to-primary/7",
+    accentColor: "primary"
   }
 ]
 
-// 🎨 SERVICE ICONS - Sophisticated animated SVG icons
+// 🎨 LANDOR SERVICE ICONS - Import from the sophisticated icon system
+import { 
+  LandorStrategyIcon,
+  LandorOrchestrationIcon, 
+  LandorOperationsIcon,
+  LandorSystemsIcon 
+} from "@/components/ui/landor-service-icons"
+
+// 🎭 SERVICE ICON RENDERER
 const ServiceIcon = ({ type, isActive }: { type: string; isActive: boolean }) => {
-  const iconVariants = {
-    inactive: { scale: 0.9, opacity: 0.6, rotate: 0 },
-    active: { scale: 1, opacity: 1, rotate: 0 },
-    hover: { scale: 1.1, opacity: 1, rotate: 5 }
-  }
-
-  const pathVariants = {
-    inactive: { pathLength: 0.3, opacity: 0.4 },
-    active: { pathLength: 1, opacity: 1 },
-  }
-
   const iconProps = {
-    width: "64",
-    height: "64",
-    viewBox: "0 0 64 64",
-    className: "text-current"
+    size: 64,
+    breathing: isActive,
+    interactive: true,
+    magneticStrength: "moderate" as const,
+    className: "text-primary"
   }
 
   switch (type) {
-    case "diamond":
-      return (
-        <motion.svg
-          {...iconProps}
-          variants={iconVariants}
-          initial="inactive"
-          animate={isActive ? "active" : "inactive"}
-          whileHover="hover"
-          transition={{ duration: 0.6, ease: LANDOR_EASING.signature }}
-        >
-          <motion.path
-            d="M32 8 L48 24 L32 56 L16 24 Z"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            variants={pathVariants}
-            transition={{ duration: 1.2, ease: LANDOR_EASING.signature }}
-          />
-        </motion.svg>
-      )
-    
-    case "circles":
-      return (
-        <motion.svg
-          {...iconProps}
-          variants={iconVariants}
-          initial="inactive"
-          animate={isActive ? "active" : "inactive"}
-          whileHover="hover"
-          transition={{ duration: 0.6, ease: LANDOR_EASING.signature }}
-        >
-          <motion.circle
-            cx="32" cy="32" r="20"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            variants={pathVariants}
-            transition={{ duration: 1, ease: LANDOR_EASING.signature }}
-          />
-          <motion.circle
-            cx="32" cy="32" r="8"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-            variants={pathVariants}
-            transition={{ duration: 1.2, ease: LANDOR_EASING.signature, delay: 0.2 }}
-          />
-        </motion.svg>
-      )
-    
-    case "squares":
-      return (
-        <motion.svg
-          {...iconProps}
-          variants={iconVariants}
-          initial="inactive"
-          animate={isActive ? "active" : "inactive"}
-          whileHover="hover"
-          transition={{ duration: 0.6, ease: LANDOR_EASING.signature }}
-        >
-          <motion.rect
-            x="16" y="16" width="16" height="16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            variants={pathVariants}
-            transition={{ duration: 0.8, ease: LANDOR_EASING.signature }}
-          />
-          <motion.rect
-            x="36" y="16" width="16" height="16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            variants={pathVariants}
-            transition={{ duration: 0.8, ease: LANDOR_EASING.signature, delay: 0.2 }}
-          />
-          <motion.rect
-            x="16" y="36" width="16" height="16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            variants={pathVariants}
-            transition={{ duration: 0.8, ease: LANDOR_EASING.signature, delay: 0.4 }}
-          />
-          <motion.rect
-            x="36" y="36" width="16" height="16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            variants={pathVariants}
-            transition={{ duration: 0.8, ease: LANDOR_EASING.signature, delay: 0.6 }}
-          />
-        </motion.svg>
-      )
-    
+    case "strategy":
+      return <LandorStrategyIcon {...iconProps} />
+    case "orchestration":
+      return <LandorOrchestrationIcon {...iconProps} />
+    case "operations":
+      return <LandorOperationsIcon {...iconProps} />
+    case "systems":
+      return <LandorSystemsIcon {...iconProps} />
     default:
-      return (
-        <motion.div
-          className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center"
-          variants={iconVariants}
-          initial="inactive"
-          animate={isActive ? "active" : "inactive"}
-          whileHover="hover"
-          transition={{ duration: 0.6, ease: LANDOR_EASING.signature }}
-        >
-          <div className="w-8 h-8 rounded-full bg-primary/40" />
-        </motion.div>
-      )
+      return <LandorStrategyIcon {...iconProps} />
   }
 }
 
@@ -297,9 +178,9 @@ export default function InteractiveServicesExploration() {
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         {/* Section Header */}
         <LandorStandardTitle
-          number="03"
-          title="Architectural\nitalic:Expertise"
-          subtitle="Explore each dimension of architectural excellence through em:sophisticated interactive discovery:em"
+          number={CONTENT_CONFIG.SERVICES.SECTION_NUMBER}
+          title={CONTENT_CONFIG.SERVICES.HEADING}
+          subtitle={CONTENT_CONFIG.SERVICES.DESCRIPTION}
         />
 
         {/* Interactive Services Explorer */}

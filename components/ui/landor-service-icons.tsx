@@ -437,12 +437,298 @@ export const LandorInnovationIcon: React.FC<BaseIconProps> = ({
 // 🏛️ 4. EXPERIENCE ICON - Import from dedicated component
 import { LandorExperienceIcon } from "./landor-experience-icon"
 
+// 🌟 4. ORCHESTRATION ICON - Harmonic Waves
+export const LandorOrchestrationIcon: React.FC<BaseIconProps> = ({
+  size = 48,
+  breathing = true,
+  interactive = true,
+  magneticStrength = "moderate",
+  className = "",
+  style = {}
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false)
+  
+  return (
+    <motion.div
+      className={`inline-block ${className}`}
+      style={style}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      initial="idle"
+      animate={isHovered ? "hover" : breathing ? "breathing" : "idle"}
+      variants={baseIconVariants}
+      transition={{
+        duration: LANDOR_TIMING.luxury,
+        repeat: breathing ? Infinity : 0,
+        ease: LANDOR_EASING.breathing
+      }}
+    >
+      <motion.svg
+        width={size}
+        height={size}
+        viewBox="0 0 48 48"
+        className="text-primary"
+        style={{
+          filter: isHovered 
+            ? "drop-shadow(0 0 16px hsla(var(--primary), 0.4))"
+            : "drop-shadow(0 0 8px hsla(var(--primary), 0.2))"
+        }}
+      >
+        {/* Harmonic Wave Lines */}
+        {[0, 1, 2, 3].map((wave) => (
+          <motion.path
+            key={wave}
+            d={`M8,${24 + wave * 3} Q24,${16 + wave * 2} 40,${24 + wave * 3}`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5 - wave * 0.2}
+            opacity={0.8 - wave * 0.15}
+            animate={breathing ? {
+              d: [
+                `M8,${24 + wave * 3} Q24,${16 + wave * 2} 40,${24 + wave * 3}`,
+                `M8,${24 + wave * 3} Q24,${20 + wave * 2} 40,${24 + wave * 3}`,
+                `M8,${24 + wave * 3} Q24,${16 + wave * 2} 40,${24 + wave * 3}`
+              ]
+            } : {}}
+            transition={{
+              duration: 3 + wave * 0.5,
+              repeat: breathing ? Infinity : 0,
+              ease: LANDOR_EASING.breathing,
+              delay: wave * 0.2
+            }}
+          />
+        ))}
+        
+        {/* Central Orchestration Point */}
+        <motion.circle
+          cx="24"
+          cy="24"
+          r="2"
+          fill="currentColor"
+          animate={breathing ? {
+            r: [2, 2.5, 2],
+            opacity: [0.9, 1, 0.9]
+          } : {}}
+          transition={{
+            duration: 2.5,
+            repeat: breathing ? Infinity : 0,
+            ease: LANDOR_EASING.breathing
+          }}
+        />
+      </motion.svg>
+    </motion.div>
+  )
+}
+
+// 🌟 5. OPERATIONS ICON - Interconnected Systems
+export const LandorOperationsIcon: React.FC<BaseIconProps> = ({
+  size = 48,
+  breathing = true,
+  interactive = true,
+  magneticStrength = "moderate",
+  className = "",
+  style = {}
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false)
+  
+  return (
+    <motion.div
+      className={`inline-block ${className}`}
+      style={style}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      initial="idle"
+      animate={isHovered ? "hover" : breathing ? "breathing" : "idle"}
+      variants={baseIconVariants}
+      transition={{
+        duration: LANDOR_TIMING.luxury,
+        repeat: breathing ? Infinity : 0,
+        ease: LANDOR_EASING.breathing
+      }}
+    >
+      <motion.svg
+        width={size}
+        height={size}
+        viewBox="0 0 48 48"
+        className="text-primary"
+        style={{
+          filter: isHovered 
+            ? "drop-shadow(0 0 16px hsla(var(--primary), 0.4))"
+            : "drop-shadow(0 0 8px hsla(var(--primary), 0.2))"
+        }}
+      >
+        {/* Network Nodes */}
+        {[
+          { x: 24, y: 12, size: 2.5 },
+          { x: 12, y: 24, size: 2 },
+          { x: 36, y: 24, size: 2 },
+          { x: 18, y: 36, size: 1.5 },
+          { x: 30, y: 36, size: 1.5 }
+        ].map((node, index) => (
+          <motion.circle
+            key={index}
+            cx={node.x}
+            cy={node.y}
+            r={node.size}
+            fill="currentColor"
+            animate={breathing ? {
+              r: [node.size, node.size * 1.2, node.size],
+              opacity: [0.8, 1, 0.8]
+            } : {}}
+            transition={{
+              duration: 2.5,
+              repeat: breathing ? Infinity : 0,
+              ease: LANDOR_EASING.breathing,
+              delay: index * 0.1
+            }}
+          />
+        ))}
+        
+        {/* Connection Lines */}
+        {[
+          { from: [24, 12], to: [12, 24] },
+          { from: [24, 12], to: [36, 24] },
+          { from: [12, 24], to: [18, 36] },
+          { from: [36, 24], to: [30, 36] },
+          { from: [18, 36], to: [30, 36] }
+        ].map((connection, index) => (
+          <motion.line
+            key={index}
+            x1={connection.from[0]}
+            y1={connection.from[1]}
+            x2={connection.to[0]}
+            y2={connection.to[1]}
+            stroke="currentColor"
+            strokeWidth="1"
+            opacity="0.6"
+            animate={breathing ? {
+              opacity: [0.4, 0.8, 0.4]
+            } : {}}
+            transition={{
+              duration: 3,
+              repeat: breathing ? Infinity : 0,
+              ease: LANDOR_EASING.breathing,
+              delay: index * 0.15
+            }}
+          />
+        ))}
+      </motion.svg>
+    </motion.div>
+  )
+}
+
+// 🌟 6. SYSTEMS ICON - Modular Architecture
+export const LandorSystemsIcon: React.FC<BaseIconProps> = ({
+  size = 48,
+  breathing = true,
+  interactive = true,
+  magneticStrength = "moderate",
+  className = "",
+  style = {}
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false)
+  
+  return (
+    <motion.div
+      className={`inline-block ${className}`}
+      style={style}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      initial="idle"
+      animate={isHovered ? "hover" : breathing ? "breathing" : "idle"}
+      variants={baseIconVariants}
+      transition={{
+        duration: LANDOR_TIMING.luxury,
+        repeat: breathing ? Infinity : 0,
+        ease: LANDOR_EASING.breathing
+      }}
+    >
+      <motion.svg
+        width={size}
+        height={size}
+        viewBox="0 0 48 48"
+        className="text-primary"
+        style={{
+          filter: isHovered 
+            ? "drop-shadow(0 0 16px hsla(var(--primary), 0.4))"
+            : "drop-shadow(0 0 8px hsla(var(--primary), 0.2))"
+        }}
+      >
+        {/* Modular System Blocks */}
+        {[
+          { x: 12, y: 12, size: 8 },
+          { x: 28, y: 12, size: 8 },
+          { x: 12, y: 28, size: 8 },
+          { x: 28, y: 28, size: 8 }
+        ].map((block, index) => (
+          <motion.rect
+            key={index}
+            x={block.x}
+            y={block.y}
+            width={block.size}
+            height={block.size}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            rx="1"
+            animate={breathing ? {
+              scale: [1, 1.05, 1],
+              opacity: [0.8, 1, 0.8]
+            } : {}}
+            transition={{
+              duration: 2.5,
+              repeat: breathing ? Infinity : 0,
+              ease: LANDOR_EASING.breathing,
+              delay: index * 0.1
+            }}
+            style={{ transformOrigin: `${block.x + block.size/2}px ${block.y + block.size/2}px` }}
+          />
+        ))}
+        
+        {/* System Connectors */}
+        <motion.line
+          x1="20" y1="16" x2="28" y2="16"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.6"
+          animate={breathing ? {
+            opacity: [0.4, 0.8, 0.4]
+          } : {}}
+          transition={{
+            duration: 2,
+            repeat: breathing ? Infinity : 0,
+            ease: LANDOR_EASING.breathing
+          }}
+        />
+        <motion.line
+          x1="16" y1="20" x2="16" y2="28"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.6"
+          animate={breathing ? {
+            opacity: [0.4, 0.8, 0.4]
+          } : {}}
+          transition={{
+            duration: 2,
+            repeat: breathing ? Infinity : 0,
+            ease: LANDOR_EASING.breathing,
+            delay: 0.2
+          }}
+        />
+      </motion.svg>
+    </motion.div>
+  )
+}
+
 // 📋 COMPLETE ICON SYSTEM EXPORT
 export const LandorServiceIcons = {
   Strategy: LandorStrategyIcon,
   Design: LandorDesignIcon,
   Innovation: LandorInnovationIcon,
-  Experience: LandorExperienceIcon
+  Experience: LandorExperienceIcon,
+  Orchestration: LandorOrchestrationIcon,
+  Operations: LandorOperationsIcon,
+  Systems: LandorSystemsIcon
 } as const
 
 // 🎯 BREATHING ORCHESTRATION SYSTEM
