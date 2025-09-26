@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { getAllProjects } from "@/lib/projects"
 import { cn } from "@/lib/utils"
 import {
@@ -14,14 +14,121 @@ import {
 import { LandorMagneticCard, LandorProjectCard } from "@/components/ui/landor-magnetic-card"
 import { LandorMagneticButton, LandorPrimaryCTA, LandorSophisticatedButton } from "@/components/ui/landor-magnetic-button"
 
-// 🎨 LANDOR MAGNETIC PROJECTS SHOWCASE
+// 🎨 CINEMATIC PROJECT TRANSITIONS - Enhanced Storytelling
+const CINEMATIC_VARIANTS = {
+  // Story-driven entrance animations
+  projectReveal: {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.8, 
+      rotateX: 15,
+      y: 60,
+      filter: "blur(10px)"
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      rotateX: 0,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1.2,
+        ease: LANDOR_EASING.signature,
+        staggerChildren: 0.15
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 1.1,
+      rotateX: -10,
+      y: -40,
+      filter: "blur(8px)",
+      transition: {
+        duration: 0.8,
+        ease: LANDOR_EASING.exit
+      }
+    }
+  },
+  
+  // Cinematic text reveals
+  storyReveal: {
+    hidden: { opacity: 0, y: 30, skewY: 2 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      skewY: 0,
+      transition: {
+        duration: 0.8,
+        delay: delay * 0.1,
+        ease: LANDOR_EASING.entrance
+      }
+    })
+  },
+  
+  // Immersive background transitions
+  atmosphereShift: {
+    initial: { opacity: 0, scale: 1.2 },
+    animate: { 
+      opacity: 1, 
+      scale: 1,
+      transition: {
+        duration: 2.5,
+        ease: LANDOR_EASING.silk
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      transition: {
+        duration: 1.5,
+        ease: LANDOR_EASING.exit
+      }
+    }
+  }
+}
+
+// 🎭 CINEMATIC PROJECT SHOWCASE
 export default function LandorMagneticProjectsShowcase() {
   const router = useRouter()
   const projects = getAllProjects()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [storyPhase, setStoryPhase] = useState('entering') // 'entering', 'revealed', 'transitioning'
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 })
 
   const currentProject = projects[currentIndex]
+  
+  // 🎭 Auto-reveal story phases - MUST be before any returns
+  useEffect(() => {
+    if (!isInView || storyPhase !== 'entering') return
+    
+    const timer = setTimeout(() => setStoryPhase('revealed'), 1500)
+    return () => clearTimeout(timer)
+  }, [isInView, storyPhase])
+
+  // 🎬 Cinematic project navigation with story-driven transitions
+  const navigateToProject = async (newIndex: number) => {
+    if (isTransitioning || newIndex === currentIndex) return
+    
+    setIsTransitioning(true)
+    setStoryPhase('transitioning')
+    
+    // Cinematic exit phase
+    await new Promise(resolve => setTimeout(resolve, 800))
+    
+    // Story transition
+    setCurrentIndex(newIndex)
+    
+    // Cinematic entrance phase
+    setTimeout(() => {
+      setStoryPhase('entering')
+      setTimeout(() => {
+        setStoryPhase('revealed')
+        setIsTransitioning(false)
+      }, 1200)
+    }, 200)
+  }
 
   if (!currentProject) {
     return (
@@ -48,19 +155,6 @@ export default function LandorMagneticProjectsShowcase() {
     )
   }
 
-  // 🎯 Sophisticated project navigation with magnetic timing
-  const navigateToProject = async (newIndex: number) => {
-    if (isTransitioning || newIndex === currentIndex) return
-    
-    setIsTransitioning(true)
-    
-    // Luxury transition timing
-    await new Promise(resolve => setTimeout(resolve, LANDOR_TIMING.standard * 1000))
-    setCurrentIndex(newIndex)
-    
-    setTimeout(() => setIsTransitioning(false), LANDOR_TIMING.standard * 1000)
-  }
-
   const goToNext = () => {
     const nextIndex = (currentIndex + 1) % projects.length
     navigateToProject(nextIndex)
@@ -72,18 +166,32 @@ export default function LandorMagneticProjectsShowcase() {
   }
 
   return (
-    <div className="relative">
+    <div ref={containerRef} className="relative">
       
-      {/* 🌊 Elegant Section Transition - Top */}
-      <motion.div
-        className="absolute -top-32 left-0 right-0 h-64 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: LANDOR_TIMING.sophisticated, ease: LANDOR_EASING.silk }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/30" />
-      </motion.div>
+      {/* 🎬 Cinematic Atmosphere - Dynamic Background */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`atmosphere-${currentProject.id}`}
+          className="absolute -inset-32 pointer-events-none"
+          variants={CINEMATIC_VARIANTS.atmosphereShift}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          {/* Project-specific atmospheric gradients */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              background: `radial-gradient(ellipse at center, 
+                ${currentProject.industry === 'Health & Wellness' ? 'hsl(120, 30%, 25%)' :
+                  currentProject.industry === 'Entertainment & Hospitality' ? 'hsl(280, 30%, 25%)' :
+                  'hsl(200, 30%, 25%)'} 0%, 
+                transparent 70%)`
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/60" />
+        </motion.div>
+      </AnimatePresence>
 
       {/* 🎯 Main Content with Mathematical Spacing */}
       <motion.div
@@ -92,29 +200,35 @@ export default function LandorMagneticProjectsShowcase() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           
-          {/* 🎨 Sophisticated Project Display */}
+          {/* 🎬 Cinematic Project Display */}
           <div className="grid lg:grid-cols-12 items-start gap-8 lg:gap-12">
             
-            {/* 🖼️ Project Image with Magnetic Personality */}
+            {/* 🖼️ Cinematic Project Image with Story-Driven Reveals */}
             <div className="lg:col-span-7 order-2 lg:order-1">
-              <LandorProjectCard
-                orchestrationIndex={1}
-                className="group overflow-hidden"
-                onClick={() => router.push(`/project/${currentProject.slug}`)}
-                aria-label={`View ${currentProject.title} project details`}
+              <motion.div
+                variants={CINEMATIC_VARIANTS.projectReveal}
+                initial="hidden"
+                animate={storyPhase === 'revealed' ? "visible" : "hidden"}
+                exit="exit"
               >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentProject.id}
-                    className="relative aspect-[4/3] overflow-hidden rounded-xl"
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{
-                      duration: LANDOR_TIMING.sophisticated,
-                      ease: LANDOR_EASING.silk
-                    }}
-                  >
+                <LandorProjectCard
+                  orchestrationIndex={1}
+                  className="group overflow-hidden"
+                  onClick={() => router.push(`/project/${currentProject.slug}`)}
+                  aria-label={`View ${currentProject.title} project details`}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentProject.id}
+                      className="relative aspect-[4/3] overflow-hidden rounded-xl"
+                      initial={{ opacity: 0, scale: 1.05, rotateY: 10 }}
+                      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, rotateY: -10 }}
+                      transition={{
+                        duration: 1.2,
+                        ease: LANDOR_EASING.signature
+                      }}
+                    >
                     <img
                       src={currentProject.thumbnailImage || `/placeholder.jpg`}
                       alt={currentProject.title}
@@ -124,127 +238,163 @@ export default function LandorMagneticProjectsShowcase() {
                     {/* Luxury overlay effect */}
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
-                    {/* Sophisticated loading overlay during transitions */}
+                    {/* Cinematic transition overlay with story elements */}
                     <AnimatePresence>
                       {isTransitioning && (
                         <motion.div
-                          className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: LANDOR_TIMING.standard }}
+                          className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-background/90 backdrop-blur-md flex items-center justify-center"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 1.1 }}
+                          transition={{ duration: 0.8, ease: LANDOR_EASING.signature }}
                         >
-                          <motion.div
-                            className="w-8 h-8 border-2 border-foreground/20 border-t-foreground rounded-full"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          />
+                          {/* Cinematic loading animation */}
+                          <div className="text-center space-y-4">
+                            <motion.div
+                              className="w-12 h-12 border border-foreground/20 rounded-full relative mx-auto"
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            >
+                              <div className="absolute top-0 left-1/2 w-1 h-1 bg-foreground rounded-full transform -translate-x-1/2" />
+                            </motion.div>
+                            <motion.p 
+                              className="text-sm font-light text-foreground/70 tracking-wide"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.3, duration: 0.6 }}
+                            >
+                              Revealing next story...
+                            </motion.p>
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </motion.div>
                 </AnimatePresence>
                 
-                {/* 🏷️ Floating Project Index with Mathematical Positioning */}
+                {/* 🏷️ Cinematic Project Index with Story Context */}
                 <motion.div
-                  className="absolute -top-3 -right-3 w-12 h-12 bg-foreground text-background rounded-2xl flex items-center justify-center shadow-xl"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: LANDOR_TIMING.standard,
-                    delay: 0.2,
-                    ease: LANDOR_EASING.signature
-                  }}
+                  className="absolute -top-3 -right-3 w-14 h-14 bg-gradient-to-br from-foreground to-foreground/80 text-background rounded-3xl flex flex-col items-center justify-center shadow-2xl"
+                  variants={CINEMATIC_VARIANTS.storyReveal}
+                  initial="hidden"
+                  animate="visible"
+                  custom={3}
                   whileHover={{
-                    scale: 1.1,
-                    rotate: 5,
+                    scale: 1.15,
+                    rotate: 8,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
                     transition: { duration: LANDOR_TIMING.magnetic }
                   }}
                 >
-                  <span className="text-sm font-medium tracking-wider">
+                  <span className="text-xs font-medium tracking-wider opacity-80">
                     {String(currentIndex + 1).padStart(2, '0')}
+                  </span>
+                  <div className="w-4 h-px bg-background/60 my-0.5" />
+                  <span className="text-xs font-light tracking-wider opacity-60">
+                    {String(projects.length).padStart(2, '0')}
                   </span>
                 </motion.div>
               </LandorProjectCard>
+              </motion.div>
             </div>
 
-            {/* 📝 Project Information with Enhanced Typography */}
+            {/* 📝 Cinematic Project Information with Story-Driven Typography */}
             <div className="lg:col-span-5 order-1 lg:order-2 space-y-8">
               
-              {/* 🎯 Project Header with Orchestrated Entrance */}
+              {/* 🎬 Cinematic Project Header */}
               <motion.div
                 className="space-y-6"
-                {...createEntranceOrchestration(2, 6)}
+                variants={CINEMATIC_VARIANTS.projectReveal}
+                initial="hidden"
+                animate={storyPhase === 'revealed' ? "visible" : "hidden"}
               >
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentProject.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{
-                      duration: LANDOR_TIMING.sophisticated,
-                      ease: LANDOR_EASING.entrance
-                    }}
+                    variants={CINEMATIC_VARIANTS.storyReveal}
+                    initial="hidden"
+                    animate="visible"
+                    custom={1}
                   >
-                    {/* Project Title - Mathematical Typography */}
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-extralight leading-[0.95] tracking-[-0.025em] text-foreground">
-                      {currentProject.title}
-                    </h2>
-                    
-                    {/* Elegant Divider */}
-                    <motion.div
-                      className="w-16 h-px bg-gradient-to-r from-foreground/30 to-transparent"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{
-                        duration: LANDOR_TIMING.standard,
-                        delay: 0.3,
-                        ease: LANDOR_EASING.signature
-                      }}
-                    />
+                    {/* Cinematic Project Title with Story Context */}
+                    <div className="space-y-4">
+                      {/* Story Chapter Indicator */}
+                      <motion.div 
+                        className="flex items-center space-x-3 text-sm text-foreground/60"
+                        variants={CINEMATIC_VARIANTS.storyReveal}
+                        custom={0}
+                      >
+                        <div className="w-8 h-px bg-gradient-to-r from-foreground/40 to-transparent" />
+                        <span className="font-light tracking-[0.2em] uppercase">
+                          Chapter {String(currentIndex + 1).padStart(2, '0')}
+                        </span>
+                        <div className="w-8 h-px bg-gradient-to-l from-foreground/40 to-transparent" />
+                      </motion.div>
+                      
+                      {/* Project Title - Cinematic Typography */}
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-extralight leading-[0.95] tracking-[-0.025em] text-foreground">
+                        {currentProject.title}
+                      </h2>
+                      
+                      {/* Dynamic Story Divider */}
+                      <motion.div
+                        className="w-20 h-px bg-gradient-to-r from-foreground/50 via-foreground/30 to-transparent"
+                        initial={{ scaleX: 0, opacity: 0 }}
+                        animate={{ scaleX: 1, opacity: 1 }}
+                        transition={{
+                          duration: 1.2,
+                          delay: 0.8,
+                          ease: LANDOR_EASING.signature
+                        }}
+                      />
+                    </div>
                   </motion.div>
                 </AnimatePresence>
                 
-                {/* Project Subtitle */}
+                {/* Cinematic Project Subtitle */}
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={`${currentProject.id}-subtitle`}
                     className="text-xl md:text-2xl font-sans font-extralight text-foreground/85 leading-relaxed tracking-wide max-w-lg"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    transition={{
-                      duration: LANDOR_TIMING.standard,
-                      delay: 0.1,
-                      ease: LANDOR_EASING.silk
-                    }}
+                    variants={CINEMATIC_VARIANTS.storyReveal}
+                    initial="hidden"
+                    animate="visible"
+                    custom={2}
                   >
                     {currentProject.subtitle}
                   </motion.p>
                 </AnimatePresence>
                 
-                {/* Client & Year - Sophisticated Metadata */}
+                {/* Cinematic Metadata with Story Context */}
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`${currentProject.id}-meta`}
-                    className="flex items-center space-x-6 pt-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{
-                      duration: LANDOR_TIMING.standard,
-                      delay: 0.2,
-                      ease: LANDOR_EASING.signature
-                    }}
+                    className="space-y-3 pt-2"
+                    variants={CINEMATIC_VARIANTS.storyReveal}
+                    initial="hidden"
+                    animate="visible"
+                    custom={3}
                   >
-                    <span className="text-sm font-light uppercase tracking-[0.1em] text-foreground/60">
-                      {currentProject.year}
-                    </span>
-                    <div className="w-1 h-1 rounded-full bg-foreground/30" />
-                    <span className="text-sm font-light tracking-wide text-foreground/70">
-                      {currentProject.client}
-                    </span>
+                    {/* Primary Metadata */}
+                    <div className="flex items-center space-x-6">
+                      <span className="text-sm font-light uppercase tracking-[0.1em] text-foreground/60">
+                        {currentProject.year}
+                      </span>
+                      <div className="w-1 h-1 rounded-full bg-foreground/30" />
+                      <span className="text-sm font-light tracking-wide text-foreground/70">
+                        {currentProject.client}
+                      </span>
+                    </div>
+                    
+                    {/* Story Location & Industry */}
+                    <div className="flex items-center space-x-4 text-xs text-foreground/50">
+                      <span className="px-2 py-1 bg-foreground/5 rounded-full tracking-wide">
+                        {currentProject.location}
+                      </span>
+                      <span className="px-2 py-1 bg-foreground/5 rounded-full tracking-wide">
+                        {currentProject.industry}
+                      </span>
+                    </div>
                   </motion.div>
                 </AnimatePresence>
               </motion.div>
